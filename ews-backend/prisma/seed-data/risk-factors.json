@@ -1,0 +1,117 @@
+[
+  {
+    "kode": "k_1",
+    "nama": "Tidak mau bersekolah",
+    "kategori": "Minat/Motivasi"
+  },
+  {
+    "kode": "k_2",
+    "nama": "Tidak ada biaya",
+    "kategori": "Ekonomi"
+  },
+  {
+    "kode": "k_3",
+    "nama": "Sekolah jauh dari rumah",
+    "kategori": "Aksesibilitas"
+  },
+  {
+    "kode": "k_4",
+    "nama": "Sudah cukup dengan tingkat pendidikan yang dimiliki saat ini",
+    "kategori": "Minat/Motivasi"
+  },
+  {
+    "kode": "k_5",
+    "nama": "Menikah / mengurus rumah tangga",
+    "kategori": "Sosial"
+  },
+  {
+    "kode": "k_6",
+    "nama": "Mengalami kekerasan/perundungan/trauma di sekolah",
+    "kategori": "Kesehatan/Psikososial"
+  },
+  {
+    "kode": "k_7",
+    "nama": "Bekerja",
+    "kategori": "Ekonomi"
+  },
+  {
+    "kode": "k_8",
+    "nama": "Pengaruh lingkungan/teman",
+    "kategori": "Sosial"
+  },
+  {
+    "kode": "k_9",
+    "nama": "Beranggapan sekolah tidak penting",
+    "kategori": "Minat/Motivasi"
+  },
+  {
+    "kode": "k_10",
+    "nama": "Tidak memiliki seragam sekolah",
+    "kategori": "Ekonomi"
+  },
+  {
+    "kode": "k_11",
+    "nama": "Tidak memiliki Akta Kelahiran",
+    "kategori": "Administrasi"
+  },
+  {
+    "kode": "k_12",
+    "nama": "Masalah Kesehatan / Penyandang Disabilitas",
+    "kategori": "Kesehatan"
+  },
+  {
+    "kode": "k_13",
+    "nama": "Lainnya",
+    "kategori": "Lainnya"
+  },
+  {
+    "kode": "k_15",
+    "nama": "Dikeluarkan",
+    "kategori": "Disiplin/Akademik"
+  },
+  {
+    "kode": "k_16",
+    "nama": "Mengundurkan Diri",
+    "kategori": "Administrasi"
+  },
+  {
+    "kode": "k_17",
+    "nama": "Anak Tidak Ditemukan",
+    "kategori": "Administrasi"
+  },
+  {
+    "kode": "k_18",
+    "nama": "Melanjutkan ke Luar Negeri",
+    "kategori": "Mobilitas"
+  },
+  {
+    "kode": "k_19",
+    "nama": "Melanjutkan ke Pondok Pesantren atau Lainnya",
+    "kategori": "Mobilitas"
+  },
+  {
+    "kode": "k_21",
+    "nama": "Meninggal Dunia",
+    "kategori": "Lainnya"
+  },
+  {
+    "kode": "k_22",
+    "nama": "Bersekolah",
+    "kategori": "Status"
+  },
+  {
+    "kode": "k_23",
+    "nama": "Pindah Domisili",
+    "kategori": "Mobilitas"
+  },
+  {
+    "kode": "k_24",
+    "nama": "Sudah Tamat SMA/Sederajat",
+    "kategori": "Status"
+  },
+  {
+    "kode": "k_25",
+    "nama": "Bukan Penduduk Desa Tersebut",
+    "kategori": "Administrasi"
+  }
+]

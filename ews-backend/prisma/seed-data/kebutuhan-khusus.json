@@ -1,0 +1,82 @@
+[
+  {
+    "kode": null,
+    "nama": "Tidak ada"
+  },
+  {
+    "kode": "A",
+    "nama": "A - Tuna Netra"
+  },
+  {
+    "kode": "B",
+    "nama": "B - Tuna Rungu"
+  },
+  {
+    "kode": "C",
+    "nama": "C - Tuna Grahita"
+  },
+  {
+    "kode": "D",
+    "nama": "D - Tuna Daksa"
+  },
+  {
+    "kode": "E",
+    "nama": "E - Tuna Laras"
+  },
+  {
+    "kode": "F",
+    "nama": "F - Tuna Wicara"
+  },
+  {
+    "kode": "G",
+    "nama": "G - Tuna Ganda"
+  },
+  {
+    "kode": "H",
+    "nama": "H - Hiperaktif"
+  },
+  {
+    "kode": "I",
+    "nama": "I - Cerdas Istimewa"
+  },
+  {
+    "kode": "J",
+    "nama": "J - Bakat Istimewa"
+  },
+  {
+    "kode": "K",
+    "nama": "K - Kesulitan Belajar"
+  },
+  {
+    "kode": "L",
+    "nama": "L - Autis"
+  },
+  {
+    "kode": "M",
+    "nama": "M - Korban Penyalahgunaan Narkoba"
+  },
+  {
+    "kode": "N",
+    "nama": "N - Indigo"
+  },
+  {
+    "kode": "O",
+    "nama": "O - Down Syndrome"
+  },
+  {
+    "kode": "P",
+    "nama": "P - Autis Ringan"
+  },
+  {
+    "kode": "Q",
+    "nama": "Q - Tuna Netra Ringan"
+  },
+  {
+    "kode": null,
+    "nama": "B, F"
+  },
+  {
+    "kode": null,
+    "nama": "D - Tuna daksa ringan"
+  }
+]

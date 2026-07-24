@@ -1,0 +1,719 @@
+// =====================================================================
+// EWS-APS (Early Warning System Anak Putus Sekolah) - Kabupaten Sleman
+// Prisma schema derived from SRS: Aktor, Alur, Business Rules, State Machine
+// =====================================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------------
+// ENUMS
+// ---------------------------------------------------------------------
+
+// 5 Aktor Sistem (SRS section 2)
+enum UserRole {
+  ADMIN
+  SEKOLAH
+  KAPANEWON
+  OPD
+  DINAS_PENDIDIKAN
+}
+
+enum RiskCategory {
+  RENDAH
+  SEDANG
+  TINGGI
+}
+
+// BR-09: Source Case hanya dua
+enum CaseSource {
+  PELAPORAN_SEKOLAH
+  PENGADUAN_MASYARAKAT
+}
+
+// Unified State Machine (SRS "STATE MACHINE" section, S01-S10) + DRAFT/CLOSED helpers
+// A Case always has exactly one active status (BR-03).
+enum CaseStatus {
+  DRAFT // Belum resmi dibuat / draft laporan
+  CASE_CREATED // S01
+  VERIFIKASI_NIK // S02 (jalur Pelaporan Sekolah)
+  HOME_VISIT // S03 (jalur Pelaporan Sekolah)
+  SELESAI_PENCEGAHAN // S04 - Closed, siswa kembali sekolah (BR-08: tidak lanjut ke penanganan)
+  MENUNGGU_RUJUKAN // S05
+  DIRUJUK_OPD // S06
+  INTERVENSI_BERJALAN // S07
+  VERIFIKASI_PENYELESAIAN // S08 (Dinas review)
+  MONITORING // S09
+  CLOSED_CASE // S10 - final (BR-18)
+}
+
+enum HomeVisitResult {
+  BELUM_SELESAI // kunjungan dilakukan tapi belum ada keputusan akhir (mis. tidak bertemu, akan visit lagi)
+  KEMBALI_SEKOLAH
+  TIDAK_KEMBALI
+}
+
+enum AssignmentStatus {
+  MENUNGGU // menunggu diterima/dikerjakan OPD
+  DITERIMA
+  INTERVENSI_BERJALAN
+  SELESAI_DIAJUKAN
+  SELESAI_DISETUJUI
+  PERLU_PERBAIKAN
+}
+
+enum ReviewDecision {
+  APPROVE
+  PERLU_PERBAIKAN
+}
+
+enum PredictionSource {
+  ML_BATCH
+  MANUAL
+}
+
+enum StudentStatus {
+  AKTIF
+  PUTUS_SEKOLAH
+  KEMBALI_SEKOLAH
+  LULUS
+  PINDAH
+}
+
+enum AttachmentOwnerType {
+  CASE
+  HOME_VISIT
+  INTERVENTION
+  REGULATION
+  CASE_REPORT
+}
+
+// Asal sebuah Referral: dari alur Case normal (BR-10, oleh Kapanewon) atau
+// jalur ringan rujukan siswa Putus Sekolah (DO) langsung oleh Admin (tanpa Case).
+enum ReferralOrigin {
+  CASE
+  DO_STUDENT
+}
+
+// ---------------------------------------------------------------------
+// AUTH / MASTER DATA (SRS section 6 "Modul Master")
+// ---------------------------------------------------------------------
+
+model User {
+  id           Int      @id @default(autoincrement())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         UserRole
+  active       Boolean  @default(true)
+
+  // Scoping: a SEKOLAH user belongs to one school, OPD user to one OPD,
+  // KAPANEWON user to one wilayah (kapanewon). ADMIN & DINAS are unscoped.
+  schoolId  Int?
+  school    School?  @relation(fields: [schoolId], references: [id])
+  opdId     Int?
+  opd       Opd?     @relation(fields: [opdId], references: [id])
+  wilayahId Int?
+  wilayah   Wilayah? @relation(fields: [wilayahId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  createdCases       Case[]           @relation("CaseCreatedBy")
+  homeVisits         HomeVisit[]      @relation("HomeVisitBy")
+  referrals          Referral[]       @relation("ReferralBy")
+  interventions      Intervention[]   @relation("InterventionBy")
+  reviews            Review[]         @relation("ReviewBy")
+  monitorings        Monitoring[]     @relation("MonitoringBy")
+  timelineEntries    CaseTimeline[]   @relation("TimelineActor")
+  predictions        Prediction[]     @relation("PredictionUploadedBy")
+
+  @@map("users")
+}
+
+model Wilayah {
+  id        Int      @id @default(autoincrement())
+  kapanewon String // kecamatan / kapanewon (istilah DIY)
+  kalurahan String? // kelurahan / kalurahan
+  createdAt DateTime @default(now())
+
+  users User[]
+
+  @@map("wilayah")
+}
+
+model School {
+  id        Int      @id @default(autoincrement())
+  npsn      String   @unique
+  nama      String
+  jenjang   String // SD/SMP/SMA/SMK
+  alamat    String?
+  kapanewon String?
+  kalurahan String?
+  latitude  Float?
+  longitude Float?
+  active    Boolean  @default(true)
+
+  // Indikator mutu sekolah dari Survei Lingkungan Belajar / Rapor Pendidikan
+  // (docs/CODEBOOK.md, repo ewsDropOut: `sulingjar_*`). Skala 1=Kurang, 2=Sedang, 3=Baik.
+  // Level sekolah -> dipakai sebagai fitur ML untuk semua siswa di sekolah ini.
+  sulingjarKesiapsiagaanBencana    Int?
+  sulingjarKualitasPembelajaran    Int?
+  sulingjarRefleksiGuru            Int?
+  sulingjarKepemimpinanKepsek      Int?
+  sulingjarIklimKeamanan           Int?
+  sulingjarIklimKesetaraanGender   Int?
+  sulingjarIklimKebinekaan         Int?
+  sulingjarIklimInklusivitas       Int?
+  sulingjarPartisipasiWarga        Int?
+  sulingjarProgramSatuanPendidikan Int?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  users    User[]
+  students Student[]
+
+  @@map("schools")
+}
+
+model Opd {
+  id          Int      @id @default(autoincrement())
+  kode        String   @unique
+  nama        String
+  jenisLayanan String? // mis. Ekonomi, Sosial, Kesehatan, Pendidikan
+  alamat      String?
+  kontak      String?
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  users              User[]
+  interventionTypes  InterventionType[]
+  referrals          Referral[]
+
+  @@map("opd")
+}
+
+model RiskFactor {
+  id          Int      @id @default(autoincrement())
+  kode        String   @unique
+  nama        String
+  kategori    String // Ekonomi, Sosial, Akademik, Kesehatan, Keluarga, dst
+  deskripsi   String?
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  referrals   Referral[]
+  predictions PredictionRiskFactor[]
+  studentsAlasanDo Student[] @relation("StudentAlasanDo") // riwayat alasan DO (seeder), bukan Referral
+
+  @@map("risk_factors")
+}
+
+// ---------------------------------------------------------------------
+// MASTERING DATA SISWA (dari Data Siswa Aktif / Dapodik) — ditambahkan
+// agar mengikuti kolom pada data mastering Excel. Semua bersifat referensi
+// (id, nama, active) mengikuti pola RiskFactor di atas. Additive-only:
+// tidak mengubah/menghapus master yang sudah ada sebelumnya.
+// ---------------------------------------------------------------------
+
+model Agama {
+  id        Int      @id @default(autoincrement())
+  nama      String   @unique
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  students Student[] @relation("StudentAgama")
+
+  @@map("agama")
+}
+
+// Kebutuhan khusus (Dapodik): dipakai untuk siswa sendiri maupun ayah/ibu.
+// kode mengikuti penamaan Dapodik (mis. "A - Tuna netra"), boleh kosong untuk
+// entri "Tidak ada".
+model KebutuhanKhusus {
+  id        Int      @id @default(autoincrement())
+  kode      String? // mis. "A", "B", ... sesuai kategori Dapodik
+  nama      String   @unique
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  studentsSendiri Student[] @relation("StudentKebutuhanKhusus")
+  studentsAyah    Student[] @relation("StudentKebutuhanKhususAyah")
+  studentsIbu     Student[] @relation("StudentKebutuhanKhususIbu")
+
+  @@map("kebutuhan_khusus")
+}
+
+model JenisTinggal {
+  id        Int      @id @default(autoincrement())
+  nama      String   @unique // mis. "Bersama orang tua", "Wali", "Pesantren", "Panti asuhan", "Kost"
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  students Student[] @relation("StudentJenisTinggal")
+
+  @@map("jenis_tinggal")
+}
+
+model AlatTransportasi {
+  id        Int      @id @default(autoincrement())
+  nama      String   @unique // mis. "Sepeda motor", "Jalan kaki", "Sepeda", dst.
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  students Student[] @relation("StudentAlatTransportasi")
+
+  @@map("alat_transportasi")
+}
+
+// Master pekerjaan orang tua (ayah/ibu) — dipakai juga sbg dimensi analisis dashboard.
+model PekerjaanOrtu {
+  id        Int      @id @default(autoincrement())
+  nama      String   @unique // mis. "Karyawan Swasta", "Buruh", "Wiraswasta", "Tidak bekerja", dst.
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+
+  studentsAyah Student[] @relation("StudentPekerjaanAyah")
+  studentsIbu  Student[] @relation("StudentPekerjaanIbu")
+
+  @@map("pekerjaan_ortu")
+}
+
+// Master pendidikan orang tua. kodeOrdinal (0-8) menjaga kompatibilitas dengan
+// fitur ML lama Student.kodePendidikanAyah/Ibu (lih. komentar di model Student).
+model PendidikanOrtu {
+  id          Int      @id @default(autoincrement())
+  nama        String   @unique // mis. "Tidak sekolah", "SD / sederajat", ..., "S3"
+  kodeOrdinal Int // 0-8, dipetakan mengikuti urutan jenjang (dipakai fitur ML)
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  studentsAyah Student[] @relation("StudentPendidikanAyah")
+  studentsIbu  Student[] @relation("StudentPendidikanIbu")
+
+  @@map("pendidikan_ortu")
+}
+
+// Master penghasilan orang tua (rentang Rupiah). kodeOrdinal (0-6) menjaga
+// kompatibilitas dengan fitur ML lama Student.kodePenghasilanAyah/Ibu.
+model PenghasilanOrtu {
+  id          Int      @id @default(autoincrement())
+  nama        String   @unique // mis. "Tidak Berpenghasilan", "Rp. 500,000 - Rp. 999,999", dst.
+  kodeOrdinal Int // 0-6, dipetakan mengikuti urutan rentang penghasilan (dipakai fitur ML)
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  studentsAyah Student[] @relation("StudentPenghasilanAyah")
+  studentsIbu  Student[] @relation("StudentPenghasilanIbu")
+
+  @@map("penghasilan_ortu")
+}
+
+model InterventionType {
+  id          Int      @id @default(autoincrement())
+  kode        String   @unique
+  nama        String
+  deskripsi   String?
+  opdId       Int? // OPD yang direkomendasikan menangani jenis intervensi ini
+  opd         Opd?     @relation(fields: [opdId], references: [id])
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  interventions Intervention[]
+
+  @@map("intervention_types")
+}
+
+model Regulation {
+  id        Int      @id @default(autoincrement())
+  nomor     String
+  judul     String
+  deskripsi String?
+  fileUrl   String?
+  createdAt DateTime @default(now())
+
+  @@map("regulations")
+}
+
+// ---------------------------------------------------------------------
+// STUDENT & PREDICTION (Layer 1 - Intelligence Layer)
+// ---------------------------------------------------------------------
+
+model Student {
+  id           Int           @id @default(autoincrement())
+  nisn         String        @unique
+  nik          String        @unique
+  nama         String
+  tanggalLahir DateTime?
+  jenisKelamin String? // L/P -> dipetakan ke jk_bin (1=L, 0=P) untuk model ML
+  kelas        String?
+  alamat       String?
+  namaOrtu     String?
+  kontakOrtu   String?
+  status       StudentStatus @default(AKTIF)
+
+  // Fitur prediktor model ML (docs/CODEBOOK.md, repo ewsDropOut). Semua opsional
+  // karena tidak semua siswa punya data lengkap (lih. label "Data Tidak Lengkap").
+  // DIPERTAHANKAN APA ADANYA (jangan dihapus) — kompatibilitas ML. Nilainya kini
+  // ikut disinkronkan otomatis dari pendidikanAyahId/IbuId & penghasilanAyahId/IbuId
+  // (master baru di bawah) setiap kali diisi lewat master, tapi tetap bisa diisi manual.
+  numerasi            Float? // skor asesmen standar (ASPD), 0-100 -> fitur `num`
+  kodePendidikanAyah  Int? // ordinal 0-8, lihat CODEBOOK
+  kodePendidikanIbu   Int? // ordinal 0-8
+  kodePenghasilanAyah Int? // ordinal 0-6
+  kodePenghasilanIbu  Int? // ordinal 0-6
+
+  schoolId Int?
+  school   School? @relation(fields: [schoolId], references: [id])
+
+  // -------------------------------------------------------------------
+  // MASTERING DATA — kolom tambahan mengikuti "Data Siswa Aktif" (Dapodik).
+  // Semua opsional & additive: tidak mengubah kolom di atas.
+  // -------------------------------------------------------------------
+  tempatLahir String?
+
+  agamaId Int?
+  agama   Agama? @relation("StudentAgama", fields: [agamaId], references: [id])
+
+  kebutuhanKhususId         Int?
+  kebutuhanKhusus           KebutuhanKhusus? @relation("StudentKebutuhanKhusus", fields: [kebutuhanKhususId], references: [id])
+  kebutuhanKhususKeterangan String? // menampung kombinasi multi-kategori mis. "B, F"
+
+  // Alamat detail (Excel: alamat_jalan, rt, rw, nama_dusun, desa_kelurahan, kecamatan, kabupaten, provinsi)
+  alamatJalan   String?
+  rt            String?
+  rw            String?
+  namaDusun     String?
+  desaKelurahan String?
+  kecamatan     String? // mengikuti kecamatan tempat sekolah berada (lih. master Wilayah)
+  kabupaten     String?
+  provinsi      String?
+
+  jenisTinggalId Int?
+  jenisTinggal   JenisTinggal? @relation("StudentJenisTinggal", fields: [jenisTinggalId], references: [id])
+
+  alatTransportasiId Int?
+  alatTransportasi   AlatTransportasi? @relation("StudentAlatTransportasi", fields: [alatTransportasiId], references: [id])
+
+  // KIP/KPS/KKS & kelengkapan administrasi
+  nikAyah      String?
+  nikIbu       String?
+  anakKeberapa Int?
+  penerimaKps  Boolean?
+  noKps        String?
+  layakPip     Boolean?
+  penerimaKip  Boolean?
+  noKip        String?
+  namaKip      String?
+  noKks        String?
+  regAktaLahir String?
+
+  // Data Ayah
+  namaAyah              String?
+  tahunLahirAyah        Int?
+  pendidikanAyahId      Int?
+  pendidikanAyah        PendidikanOrtu?  @relation("StudentPendidikanAyah", fields: [pendidikanAyahId], references: [id])
+  pekerjaanAyahId       Int?
+  pekerjaanAyah         PekerjaanOrtu?   @relation("StudentPekerjaanAyah", fields: [pekerjaanAyahId], references: [id])
+  penghasilanAyahId     Int?
+  penghasilanAyah       PenghasilanOrtu? @relation("StudentPenghasilanAyah", fields: [penghasilanAyahId], references: [id])
+  kebutuhanKhususAyahId Int?
+  kebutuhanKhususAyah   KebutuhanKhusus? @relation("StudentKebutuhanKhususAyah", fields: [kebutuhanKhususAyahId], references: [id])
+
+  // Data Ibu
+  namaIbu              String?
+  tahunLahirIbu        Int?
+  pendidikanIbuId      Int?
+  pendidikanIbu        PendidikanOrtu?  @relation("StudentPendidikanIbu", fields: [pendidikanIbuId], references: [id])
+  pekerjaanIbuId       Int?
+  pekerjaanIbu         PekerjaanOrtu?   @relation("StudentPekerjaanIbu", fields: [pekerjaanIbuId], references: [id])
+  penghasilanIbuId     Int?
+  penghasilanIbu       PenghasilanOrtu? @relation("StudentPenghasilanIbu", fields: [penghasilanIbuId], references: [id])
+  kebutuhanKhususIbuId Int?
+  kebutuhanKhususIbu   KebutuhanKhusus? @relation("StudentKebutuhanKhususIbu", fields: [kebutuhanKhususIbuId], references: [id])
+
+  // Alasan historis siswa DO menurut data sumber (Dapodik/ATS) — BUKAN Referral (rujukan
+  // aktual ke OPD, yang dibuat manual oleh Admin lewat halaman Siswa DO). Field ini hanya
+  // konteks/riwayat, dipakai seeder `students-do.json` (kolom alasan_approval_id -> RiskFactor.kode).
+  alasanDoRiskFactorId Int?
+  alasanDoRiskFactor   RiskFactor? @relation("StudentAlasanDo", fields: [alasanDoRiskFactorId], references: [id])
+  alasanDoKeterangan   String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  predictions Prediction[]
+  cases       Case[] // BR-01: satu siswa bisa punya banyak Case
+  referrals   Referral[] // rujukan langsung (origin=DO_STUDENT), lih. model Referral
+
+  @@map("students")
+}
+
+// Prediction = hasil ML, BUKAN laporan (Ubiquitous Language) & BR-19: tidak membuat Case otomatis
+model Prediction {
+  id            Int              @id @default(autoincrement())
+  studentId     Int
+  student       Student          @relation(fields: [studentId], references: [id])
+
+  // probabilitas & riskCategory: dipertahankan untuk kompatibilitas dgn Dashboard/Laporan/
+  // Flowchart 3-tier (Rendah/Sedang/Tinggi = Hijau/Kuning/Merah). Diturunkan dari probDo.
+  probabilitas  Float // 0 - 100 (== probDo * 100, atau 0 jika Data Tidak Lengkap)
+  riskCategory  RiskCategory
+
+  // Output asli model ewsDropOut (docs/CODEBOOK.md) — dipertahankan apa adanya supaya
+  // transparan & bisa diaudit terhadap output R/Python asli.
+  probDo        Float? // prob_do: probabilitas DO terkalibrasi + terkoreksi prior (0-1)
+  risikoDoLabel String? // risiko_do: "BERISIKO" | "Tidak" | "Data Tidak Lengkap"
+  alasanRisiko  String[] // alasan_risiko: faktor pendorong utama (SHAP), bisa kosong
+  modelDipakai  String? // model_dipakai: "aspd_num" | "tanpa_aspd"
+
+  source        PredictionSource @default(ML_BATCH)
+  datasetBatch  String? // identifier for the uploaded batch/dataset version
+  uploadedById  Int?
+  uploadedBy    User?            @relation("PredictionUploadedBy", fields: [uploadedById], references: [id])
+  createdAt     DateTime         @default(now())
+
+  riskFactors PredictionRiskFactor[]
+  cases       Case[] // a case may reference the prediction that recommended it (not auto-created)
+
+  @@map("predictions")
+}
+
+// join table: dominant risk factors contributing to a prediction
+model PredictionRiskFactor {
+  id           Int        @id @default(autoincrement())
+  predictionId Int
+  prediction   Prediction @relation(fields: [predictionId], references: [id], onDelete: Cascade)
+  riskFactorId Int
+  riskFactor   RiskFactor @relation(fields: [riskFactorId], references: [id])
+  weight       Float? // contribution weight/importance from the model
+
+  @@unique([predictionId, riskFactorId])
+  @@map("prediction_risk_factors")
+}
+
+// ---------------------------------------------------------------------
+// CASE (Layer 2 - Case Management, jantung sistem)
+// "Satu Kasus = Satu Siklus Penanganan"
+// ---------------------------------------------------------------------
+
+model Case {
+  id          Int        @id @default(autoincrement())
+  nomorKasus  String     @unique // format: APS-YYYY-000001 (BR-02, immutable)
+  studentId   Int
+  student     Student    @relation(fields: [studentId], references: [id])
+  source      CaseSource // BR-09
+  status      CaseStatus @default(CASE_CREATED) // BR-03: hanya satu status aktif
+
+  predictionId Int?
+  prediction   Prediction? @relation(fields: [predictionId], references: [id])
+
+  catatan   String?
+  createdById Int
+  createdBy   User    @relation("CaseCreatedBy", fields: [createdById], references: [id])
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  closedAt  DateTime?
+  reopenedAt DateTime?
+
+  report          CaseReport?
+  homeVisits      HomeVisit[]
+  referrals       Referral[]
+  monitorings     Monitoring[]
+  timeline        CaseTimeline[]
+  attachments     Attachment[]
+
+  @@index([status])
+  @@index([studentId])
+  @@map("cases")
+}
+
+// Detail laporan yang memicu Case (baik dari sekolah maupun pengaduan masyarakat)
+model CaseReport {
+  id     Int  @id @default(autoincrement())
+  caseId Int  @unique
+  case   Case @relation(fields: [caseId], references: [id])
+
+  // Pelaporan Sekolah
+  nikVerified   Boolean? // hasil verifikasi NIK ke Pusdatin
+  nikVerifiedAt DateTime?
+
+  // Pengaduan Masyarakat
+  namaPelapor      String?
+  kontakPelapor    String?
+  caraPengaduan    String? // datang langsung/telepon/aplikasi/online
+  validasiIdentitas Boolean?
+  kondisiAwal      String?
+  koordinasiSekolah String? // catatan koordinasi Kapanewon dgn sekolah (jika perlu)
+
+  isiLaporan String?
+  createdAt  DateTime @default(now())
+
+  @@map("case_reports")
+}
+
+// BR-06, BR-07, BR-15: bisa lebih dari sekali, hanya visit terakhir yang menentukan hasil, foto wajib
+model HomeVisit {
+  id          Int             @id @default(autoincrement())
+  caseId      Int
+  case        Case            @relation(fields: [caseId], references: [id])
+  visitNumber Int // 1, 2, 3, ...
+  tanggal     DateTime
+  hasil       HomeVisitResult
+  catatan     String?
+  latitude    Float?
+  longitude   Float?
+
+  petugasId Int
+  petugas   User @relation("HomeVisitBy", fields: [petugasId], references: [id])
+
+  createdAt DateTime @default(now())
+
+  fotos       Attachment[]
+
+  @@unique([caseId, visitNumber])
+  @@map("home_visits")
+}
+
+// Rujukan: BR-10 (rujukan Case hanya dilakukan Kapanewon). Mencakup penentuan faktor
+// risiko, tingkat risiko, OPD tujuan. Sejak penyesuaian DO-Student: Admin juga dapat
+// membuat Referral secara langsung (origin=DO_STUDENT) untuk siswa berstatus PUTUS_SEKOLAH,
+// tanpa melalui Case/state machine — dalam hal ini caseId kosong dan studentId terisi.
+// Sejak dukungan multi-OPD: satu Case bisa punya BEBERAPA Referral sekaligus (satu baris
+// per OPD tujuan), supaya Kapanewon bisa merujuk beberapa OPD terkait dalam satu kasus.
+// Setiap OPD melacak status & intervensinya sendiri secara independen.
+model Referral {
+  id     Int   @id @default(autoincrement())
+  origin ReferralOrigin @default(CASE)
+
+  caseId Int?
+  case   Case? @relation(fields: [caseId], references: [id])
+
+  // Hanya terisi ketika origin = DO_STUDENT (rujukan langsung siswa DO oleh Admin)
+  studentId Int?
+  student   Student? @relation(fields: [studentId], references: [id])
+
+  riskFactorId Int?
+  riskFactor   RiskFactor? @relation(fields: [riskFactorId], references: [id])
+  tingkatRisiko RiskCategory
+
+  opdId Int
+  opd   Opd @relation(fields: [opdId], references: [id])
+
+  status AssignmentStatus @default(MENUNGGU)
+  catatan String?
+
+  referredById Int
+  referredBy   User @relation("ReferralBy", fields: [referredById], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  interventions Intervention[]
+  reviews       Review[]
+
+  // Cegah rujukan duplikat ke OPD yang sama untuk Case yang sama.
+  @@unique([caseId, opdId])
+  @@map("referrals")
+}
+
+// OPD dapat melakukan banyak intervensi dalam satu Case (BR-12). Setiap intervensi wajib hasil (BR-16).
+model Intervention {
+  id         Int      @id @default(autoincrement())
+  referralId Int
+  referral   Referral @relation(fields: [referralId], references: [id])
+
+  interventionTypeId Int
+  interventionType   InterventionType @relation(fields: [interventionTypeId], references: [id])
+
+  deskripsi String
+  hasil     String? // wajib diisi ketika progress dianggap selesai
+  tanggal   DateTime @default(now())
+
+  petugasId Int
+  petugas   User @relation("InterventionBy", fields: [petugasId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  attachments Attachment[]
+
+  @@map("interventions")
+}
+
+// Verifikasi Penyelesaian oleh Dinas Pendidikan (S08) - approve -> Monitoring, atau minta perbaikan -> kembali Intervensi
+model Review {
+  id         Int            @id @default(autoincrement())
+  referralId Int
+  referral   Referral       @relation(fields: [referralId], references: [id])
+  decision   ReviewDecision
+  catatan    String?
+
+  reviewedById Int
+  reviewedBy   User @relation("ReviewBy", fields: [reviewedById], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@map("reviews")
+}
+
+// BR-17: Monitoring hanya membaca & mencatat, tidak mengubah data intervensi
+model Monitoring {
+  id      Int    @id @default(autoincrement())
+  caseId  Int
+  case    Case   @relation(fields: [caseId], references: [id])
+  catatan String
+
+  petugasId Int
+  petugas   User @relation("MonitoringBy", fields: [petugasId], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@map("monitorings")
+}
+
+// BR-04, BR-05: audit trail, append-only, seluruh perubahan status tercatat
+model CaseTimeline {
+  id          Int         @id @default(autoincrement())
+  caseId      Int
+  case        Case        @relation(fields: [caseId], references: [id])
+  eventType   String // e.g. STATUS_CHANGE, HOME_VISIT_ADDED, INTERVENTION_ADDED, NOTE
+  title       String
+  description String?
+  fromStatus  CaseStatus?
+  toStatus    CaseStatus?
+
+  actorId   Int
+  actor     User @relation("TimelineActor", fields: [actorId], references: [id])
+  actorRole UserRole
+
+  createdAt DateTime @default(now())
+
+  @@map("case_timeline")
+}
+
+model Attachment {
+  id            Int                 @id @default(autoincrement())
+  ownerType     AttachmentOwnerType
+  caseId        Int?
+  case          Case?               @relation(fields: [caseId], references: [id])
+  homeVisitId   Int?
+  homeVisit     HomeVisit?          @relation(fields: [homeVisitId], references: [id])
+  interventionId Int?
+  intervention  Intervention?       @relation(fields: [interventionId], references: [id])
+
+  fileUrl    String
+  fileName   String?
+  mimeType   String?
+  uploadedAt DateTime @default(now())
+
+  @@map("attachments")
+}

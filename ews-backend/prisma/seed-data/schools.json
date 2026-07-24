@@ -1,0 +1,7146 @@
+[
+  {
+    "npsn": "20401001",
+    "nama": "Sd Negeri Sambiroto 1",
+    "jenjang": "SD",
+    "alamat": "Karanglo",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "69957218",
+    "nama": "Sd Islam Terpadu Luqman Al Hakim Sleman",
+    "jenjang": "SD",
+    "alamat": "Jalan Palagan Tentara Pelajar No. 52 Sedan",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sariharjo"
+  },
+  {
+    "npsn": "20400931",
+    "nama": "Sd Negeri Nyaen 2",
+    "jenjang": "SD",
+    "alamat": "Plalangan",
+    "kapanewon": "Sleman",
+    "kalurahan": "Pandowoharjo"
+  },
+  {
+    "npsn": "20404121",
+    "nama": "Smp Kanisius Sleman",
+    "jenjang": "SMP",
+    "alamat": "Jln. Bhayangkara No. 17 Murangan",
+    "kapanewon": "Sleman",
+    "kalurahan": "Triharjo"
+  },
+  {
+    "npsn": "20401092",
+    "nama": "Smp Negeri 2 Kalasan",
+    "jenjang": "SMP",
+    "alamat": "Kledokan",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Selomartani"
+  },
+  {
+    "npsn": "69753117",
+    "nama": "Sd Nu Sleman Yogyakarta",
+    "jenjang": "SD",
+    "alamat": "Jl.Ring Road Barat",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20401712",
+    "nama": "Sd Negeri Jaban",
+    "jenjang": "SD",
+    "alamat": "Jaban",
+    "kapanewon": "Sleman",
+    "kalurahan": "Tridadi"
+  },
+  {
+    "npsn": "20401381",
+    "nama": "Sd Negeri Blembem",
+    "jenjang": "SD",
+    "alamat": "Blembem",
+    "kapanewon": "Pakem",
+    "kalurahan": "Harjobinangun"
+  },
+  {
+    "npsn": "20401171",
+    "nama": "Smks Yapemda 1 Sleman",
+    "jenjang": "SMK",
+    "alamat": "Tanjungtirto",
+    "kapanewon": "Berbah",
+    "kalurahan": "Kalitirto"
+  },
+  {
+    "npsn": "20401408",
+    "nama": "Sd Negeri Balecatur 1",
+    "jenjang": "SD",
+    "alamat": "Gejawan",
+    "kapanewon": "Gamping",
+    "kalurahan": "Balecatur"
+  },
+  {
+    "npsn": "20400836",
+    "nama": "Sd Negeri Sleman 3",
+    "jenjang": "SD",
+    "alamat": "Srimulyo",
+    "kapanewon": "Sleman",
+    "kalurahan": "Triharjo"
+  },
+  {
+    "npsn": "20401669",
+    "nama": "Sd Negeri Dadapsari",
+    "jenjang": "SD",
+    "alamat": "Kalinongko Lor",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Gayamharjo"
+  },
+  {
+    "npsn": "20400986",
+    "nama": "Sd Negeri Purwosari",
+    "jenjang": "SD",
+    "alamat": "Gang Buton No. 01 Purwosari",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20400847",
+    "nama": "Sd Negeri Sumber 1",
+    "jenjang": "SD",
+    "alamat": "Sumber Kidul",
+    "kapanewon": "Berbah",
+    "kalurahan": "Kalitirto"
+  },
+  {
+    "npsn": "20401647",
+    "nama": "Sd Negeri Ngino 2",
+    "jenjang": "SD",
+    "alamat": "Ngino Xi, Klawisan",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margoagung"
+  },
+  {
+    "npsn": "20401307",
+    "nama": "Smks Ypkk 2 Sleman",
+    "jenjang": "SMK",
+    "alamat": "Pemuda - Wadas",
+    "kapanewon": "Sleman",
+    "kalurahan": "Tridadi"
+  },
+  {
+    "npsn": "20411993",
+    "nama": "Mtsn 10 Sleman",
+    "jenjang": "MTS",
+    "alamat": "Jl. Kaliurang Km 8.5 Dayu",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sinduharjo"
+  },
+  {
+    "npsn": "70058489",
+    "nama": "Smp Gistrav Islamia School Jogja",
+    "jenjang": "SMP",
+    "alamat": "Jl. Gito Gati",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sariharjo"
+  },
+  {
+    "npsn": "20401341",
+    "nama": "Sd Tarakanita Ngembesan",
+    "jenjang": "SD",
+    "alamat": "Ngembesan",
+    "kapanewon": "Turi",
+    "kalurahan": "Wonokerto"
+  },
+  {
+    "npsn": "20400832",
+    "nama": "Sd Negeri Somoitan",
+    "jenjang": "SD",
+    "alamat": "Daleman",
+    "kapanewon": "Turi",
+    "kalurahan": "Girikerto"
+  },
+  {
+    "npsn": "20401346",
+    "nama": "Sd Muhammadiyah Sragan",
+    "jenjang": "SD",
+    "alamat": "Sragan",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangmulyo"
+  },
+  {
+    "npsn": "20401690",
+    "nama": "Sd Negeri Kadirojo",
+    "jenjang": "SD",
+    "alamat": "Ngamboh",
+    "kapanewon": "Tempel",
+    "kalurahan": "Margorejo"
+  },
+  {
+    "npsn": "20401416",
+    "nama": "Sd Negeri Bedelan",
+    "jenjang": "SD",
+    "alamat": "Bedelan",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sumberadi"
+  },
+  {
+    "npsn": "70032964",
+    "nama": "Ma Daarul `Ulum Sinar Melati",
+    "jenjang": "MA",
+    "alamat": "Tambakrejo Rt/Rw 01/11",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sariharjo"
+  },
+  {
+    "npsn": "20401339",
+    "nama": "Sd Negeri Adisutjipto 1",
+    "jenjang": "SD",
+    "alamat": "Jl. Janti Komplek Lanud Adisucipto",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20400904",
+    "nama": "Sd Negeri Turen",
+    "jenjang": "SD",
+    "alamat": "Turgo",
+    "kapanewon": "Pakem",
+    "kalurahan": "Harjobinangun"
+  },
+  {
+    "npsn": "20412000",
+    "nama": "Mtsn 1 Sleman",
+    "jenjang": "MTS",
+    "alamat": "Jl. K.H. M. Basyaruddin, Watukarung, Margoagung, Seyegan, Sleman",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margoagung"
+  },
+  {
+    "npsn": "20400968",
+    "nama": "Sd Negeri Sendangharjo",
+    "jenjang": "SD",
+    "alamat": "Padon",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangrejo"
+  },
+  {
+    "npsn": "20401600",
+    "nama": "Sd Negeri Ngemplak 3",
+    "jenjang": "SD",
+    "alamat": "Kwadungan",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Widodomartani"
+  },
+  {
+    "npsn": "20400989",
+    "nama": "Sd Negeri Purwomartani",
+    "jenjang": "SD",
+    "alamat": "Dusun Karangmojo",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "20411984",
+    "nama": "Mtss Ibnul Qoyyim",
+    "jenjang": "MTS",
+    "alamat": "Jl. Yogya Wonosari Km 9 Gandu",
+    "kapanewon": "Berbah",
+    "kalurahan": "Sendangtirto"
+  },
+  {
+    "npsn": "20401360",
+    "nama": "Sd Muhammadiyah Gendol 1",
+    "jenjang": "SD",
+    "alamat": "Gendol",
+    "kapanewon": "Tempel",
+    "kalurahan": "Sumberejo"
+  },
+  {
+    "npsn": "20401628",
+    "nama": "Sd Negeri Minomartani 2",
+    "jenjang": "SD",
+    "alamat": "Jl.Tengiri Raya, Mlandangan, Minomartani",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Minomartani"
+  },
+  {
+    "npsn": "20401059",
+    "nama": "Smp Negeri 2 Berbah",
+    "jenjang": "SMP",
+    "alamat": "Sanggrahan",
+    "kapanewon": "Berbah",
+    "kalurahan": "Tegaltirto"
+  },
+  {
+    "npsn": "20401100",
+    "nama": "Smp Negeri 2 Tempel",
+    "jenjang": "SMP",
+    "alamat": "Banyurejo",
+    "kapanewon": "Tempel",
+    "kalurahan": "Banyurejo"
+  },
+  {
+    "npsn": "20400983",
+    "nama": "Sd Negeri Rejondani",
+    "jenjang": "SD",
+    "alamat": "Nogosari",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Madurejo"
+  },
+  {
+    "npsn": "20401613",
+    "nama": "Sd Negeri Margoluwih",
+    "jenjang": "SD",
+    "alamat": "Mandungan",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margoluwih"
+  },
+  {
+    "npsn": "20401160",
+    "nama": "Sman 1 Gamping",
+    "jenjang": "SMA",
+    "alamat": "Jl. Tegalyoso, Banyuraden",
+    "kapanewon": "Gamping",
+    "kalurahan": "Banyuraden"
+  },
+  {
+    "npsn": "20401679",
+    "nama": "Sd Negeri Delegan 1",
+    "jenjang": "SD",
+    "alamat": "Jl. Piyungan - Prambanan Km. 06 Dinginan",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Sumberharjo"
+  },
+  {
+    "npsn": "20400992",
+    "nama": "Sd Negeri Rejosari",
+    "jenjang": "SD",
+    "alamat": "Rejosari",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sardonoharjo"
+  },
+  {
+    "npsn": "20401325",
+    "nama": "Sd Muhammadiyah Sangonan Ii",
+    "jenjang": "SD",
+    "alamat": "Jowah",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoluhur"
+  },
+  {
+    "npsn": "20401504",
+    "nama": "Sd Kanisius Sengkan",
+    "jenjang": "SD",
+    "alamat": "Jalan Kaliurang Km.7",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "69983935",
+    "nama": "Mis Bima Bhakti Pertiwi",
+    "jenjang": "MI",
+    "alamat": "Soman I, Ngrangsan, Selomartani, Kalasan, Sleman",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Selomartani"
+  },
+  {
+    "npsn": "20401392",
+    "nama": "Sd Negeri Caturharjo",
+    "jenjang": "SD",
+    "alamat": "Sanggrahan",
+    "kapanewon": "Sleman",
+    "kalurahan": "Caturharjo"
+  },
+  {
+    "npsn": "69976393",
+    "nama": "Mts Al Kautsar",
+    "jenjang": "MTS",
+    "alamat": "Gabahan, Sumberadi, Mlati, Sleman, Yogyakarta",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sumberadi"
+  },
+  {
+    "npsn": "20401101",
+    "nama": "Smp Negeri 2 Turi",
+    "jenjang": "SMP",
+    "alamat": "Ngablak",
+    "kapanewon": "Turi",
+    "kalurahan": "Bangunkerto"
+  },
+  {
+    "npsn": "69990497",
+    "nama": "Pp Bidayatussalikin",
+    "jenjang": "PONDOK PESANTREN",
+    "alamat": "Jl Letkol Subadri Km 4 Kantongan Kulon",
+    "kapanewon": "Sleman",
+    "kalurahan": "Triharjo"
+  },
+  {
+    "npsn": "20401554",
+    "nama": "Sd Negeri Kenaran 3",
+    "jenjang": "SD",
+    "alamat": "Kenaran",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Sumberharjo"
+  },
+  {
+    "npsn": "20401048",
+    "nama": "Smp Muhammadiyah 3 Depok",
+    "jenjang": "SMP",
+    "alamat": "Jl. Rajawali 10 Demangan Baru",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20401158",
+    "nama": "Smas Muhammadiyah Mlati",
+    "jenjang": "SMA",
+    "alamat": "Jl. Magelang Km.7 Yogyakarta",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "69951421",
+    "nama": "Pps Khoiro Ummah",
+    "jenjang": "PONDOK PESANTREN",
+    "alamat": "Dukuh, Tangkilan Rt 5 Rw 23 Sidoarum",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidorejo"
+  },
+  {
+    "npsn": "20401584",
+    "nama": "Sd Negeri Murten",
+    "jenjang": "SD",
+    "alamat": "Murten",
+    "kapanewon": "Sleman",
+    "kalurahan": "Tridadi"
+  },
+  {
+    "npsn": "69980144",
+    "nama": "Smp Olifant",
+    "jenjang": "SMP",
+    "alamat": "Jl. Cenderawasih No. 4 A-B Demangan Baru",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20400945",
+    "nama": "Sd Negeri Pangukan",
+    "jenjang": "SD",
+    "alamat": "Ngemplak",
+    "kapanewon": "Sleman",
+    "kalurahan": "Tridadi"
+  },
+  {
+    "npsn": "20401128",
+    "nama": "Sman 1 Ngemplak",
+    "jenjang": "SMA",
+    "alamat": "Jangkang - Manisrenggo",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Bimomartani"
+  },
+  {
+    "npsn": "70043648",
+    "nama": "Mas Baburroyyan",
+    "jenjang": "MA",
+    "alamat": "Dusun Kiyudan, Rt.002, Rw.001",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Selomartani"
+  },
+  {
+    "npsn": "20400822",
+    "nama": "Sd Negeri Tirtoadi",
+    "jenjang": "SD",
+    "alamat": "Janturan",
+    "kapanewon": "Mlati",
+    "kalurahan": "Tirtoadi"
+  },
+  {
+    "npsn": "20401588",
+    "nama": "Sd Muhammadiyah Kedungbanteng I",
+    "jenjang": "SD",
+    "alamat": "Kedung Banteng",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberagung"
+  },
+  {
+    "npsn": "69788562",
+    "nama": "Sekolah Dasar  Cahaya Bangsa Utama",
+    "jenjang": "SD",
+    "alamat": "Jl. Kh. Muhdi Corongan",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20400870",
+    "nama": "Smas Immanuel Kalasan",
+    "jenjang": "SMA",
+    "alamat": "Jl. Solo Km. 15, Kalasan",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tamanmartani"
+  },
+  {
+    "npsn": "20400843",
+    "nama": "Sd Negeri Sumberagung",
+    "jenjang": "SD",
+    "alamat": "Mergan, Sumberagung, Moyudan, Sleman, D.I. Yogyakarta",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberagung"
+  },
+  {
+    "npsn": "20404131",
+    "nama": "Smp Taman Dewasa Cangkringan",
+    "jenjang": "SMP",
+    "alamat": "Gondang",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Umbulharjo"
+  },
+  {
+    "npsn": "20401686",
+    "nama": "Sd Negeri Kadisono",
+    "jenjang": "SD",
+    "alamat": "Kadisono",
+    "kapanewon": "Tempel",
+    "kalurahan": "Margorejo"
+  },
+  {
+    "npsn": "69954021",
+    "nama": "Smptk Jogja Patriae Academy",
+    "jenjang": "SMPTK",
+    "alamat": "Jl. Ring Road Utara No. 5A. Gandok, Condongcatur, Depok, Sleman",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20401385",
+    "nama": "Sd Negeri Berbah 2",
+    "jenjang": "SD",
+    "alamat": "Krikilan",
+    "kapanewon": "Berbah",
+    "kalurahan": "Tegaltirto"
+  },
+  {
+    "npsn": "20401072",
+    "nama": "Smp Negeri 1 Pakem",
+    "jenjang": "SMP",
+    "alamat": "Tegalsari",
+    "kapanewon": "Pakem",
+    "kalurahan": "Pakembinangun"
+  },
+  {
+    "npsn": "20400810",
+    "nama": "Sd Negeri Tamanan 2",
+    "jenjang": "SD",
+    "alamat": "Kebon, Tamanmartani",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tamanmartani"
+  },
+  {
+    "npsn": "70058396",
+    "nama": "Sd Gistrav Islamia Jogja",
+    "jenjang": "SD",
+    "alamat": "Jalan Gito Gati",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sariharjo"
+  },
+  {
+    "npsn": "20400920",
+    "nama": "Sd Negeri Pokoh 2",
+    "jenjang": "SD",
+    "alamat": "Kregan",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Wedomartani"
+  },
+  {
+    "npsn": "20401042",
+    "nama": "Smks Sosial Islam 1 Prambanan",
+    "jenjang": "SMK",
+    "alamat": "Jl. Anggrek 03 A Klurak Baru Rt 2 Rw 4",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Bokoharjo"
+  },
+  {
+    "npsn": "70003379",
+    "nama": "Sma Cahaya Bangsa Utama",
+    "jenjang": "SMA",
+    "alamat": "Jl. Karanglo Sorogenen 1 Rt 04 Rw 02",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "20401583",
+    "nama": "Sd Negeri Mustokorejo",
+    "jenjang": "SD",
+    "alamat": "Sopalan",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20411891",
+    "nama": "Man 3 Sleman",
+    "jenjang": "MA",
+    "alamat": "Jl. Magelang Km. 4 Telp. 0274 - 513613 Yogyakarta 55284",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20400842",
+    "nama": "Sd Negeri Sumberwatu",
+    "jenjang": "SD",
+    "alamat": "Sumberwatu",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Sambirejo"
+  },
+  {
+    "npsn": "60714138",
+    "nama": "Mis Al Islam",
+    "jenjang": "MI",
+    "alamat": "Jl. Magelang Km. 17 Ngosit",
+    "kapanewon": "Tempel",
+    "kalurahan": "Margorejo"
+  },
+  {
+    "npsn": "20401623",
+    "nama": "Sd Negeri Mlesen",
+    "jenjang": "SD",
+    "alamat": "Cemoro",
+    "kapanewon": "Tempel",
+    "kalurahan": "Sumberejo"
+  },
+  {
+    "npsn": "70033435",
+    "nama": "Pps. Hpa Internasional",
+    "jenjang": "PONDOK PESANTREN",
+    "alamat": "Sidosari-Dukuhsari",
+    "kapanewon": "Turi",
+    "kalurahan": "Wonokerto"
+  },
+  {
+    "npsn": "20400959",
+    "nama": "Sd Negeri Sempu",
+    "jenjang": "SD",
+    "alamat": "Sempu",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Wedomartani"
+  },
+  {
+    "npsn": "20400852",
+    "nama": "Sd Negeri Tunjungsari 2",
+    "jenjang": "SD",
+    "alamat": "Senden 2",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Selomartani"
+  },
+  {
+    "npsn": "20401407",
+    "nama": "Sd Negeri Balecatur 2",
+    "jenjang": "SD",
+    "alamat": "Pasekan",
+    "kapanewon": "Gamping",
+    "kalurahan": "Balecatur"
+  },
+  {
+    "npsn": "20401315",
+    "nama": "Smkn 2 Depok",
+    "jenjang": "SMK",
+    "alamat": "Mrican Caturtunggal",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20401638",
+    "nama": "Sd Negeri Dukuh 1",
+    "jenjang": "SD",
+    "alamat": "Jl Magelang Km 11 Dukuh",
+    "kapanewon": "Sleman",
+    "kalurahan": "Tridadi"
+  },
+  {
+    "npsn": "20400868",
+    "nama": "Smas Islam Prambanan",
+    "jenjang": "SMA",
+    "alamat": "Jl. Raya Klurak Baru",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Bokoharjo"
+  },
+  {
+    "npsn": "20401478",
+    "nama": "Sd Islam Terpadu Baitussalam",
+    "jenjang": "SD",
+    "alamat": "Pulerejo",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Bokoharjo"
+  },
+  {
+    "npsn": "20401582",
+    "nama": "Sd Negeri Ngijon 1",
+    "jenjang": "SD",
+    "alamat": "Gedongan, Sumberagung, Moyudan, Sleman, Diy 55563",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberagung"
+  },
+  {
+    "npsn": "20401423",
+    "nama": "Sd Negeri Banyurejo 4",
+    "jenjang": "SD",
+    "alamat": "Tangisan",
+    "kapanewon": "Tempel",
+    "kalurahan": "Banyurejo"
+  },
+  {
+    "npsn": "20401515",
+    "nama": "Sd Kanisius Duwet",
+    "jenjang": "SD",
+    "alamat": "Duwet",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sendangadi"
+  },
+  {
+    "npsn": "20400960",
+    "nama": "Sd Negeri Semarangan 5",
+    "jenjang": "SD",
+    "alamat": "Rewulu",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidokarto"
+  },
+  {
+    "npsn": "70044581",
+    "nama": "Mtss Roudlotush Sholihin",
+    "jenjang": "MTS",
+    "alamat": "Jalan Cangkringan No. 8 Pondok Dawung",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Bimomartani"
+  },
+  {
+    "npsn": "20401358",
+    "nama": "Sd Muhammadiyah Gendol Iii",
+    "jenjang": "SD",
+    "alamat": "Jl. Medari-Cemoro Blimbingan",
+    "kapanewon": "Tempel",
+    "kalurahan": "Tambakrejo"
+  },
+  {
+    "npsn": "20400980",
+    "nama": "Sd Negeri Sarikarya",
+    "jenjang": "SD",
+    "alamat": "Keragilan",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20400981",
+    "nama": "Sd Negeri Sariharjo",
+    "jenjang": "SD",
+    "alamat": "Jalan Jongkang Baru,",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sariharjo"
+  },
+  {
+    "npsn": "20401538",
+    "nama": "Sd Negeri Kiyaran 2",
+    "jenjang": "SD",
+    "alamat": "Sembungan",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Wukirsari"
+  },
+  {
+    "npsn": "20401327",
+    "nama": "Sd Muhammadiyah Sangonan Iv",
+    "jenjang": "SD",
+    "alamat": "Gatak, Sidoluhur, Godean, Sleman",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoluhur"
+  },
+  {
+    "npsn": "70008602",
+    "nama": "Mtss Pamulangan",
+    "jenjang": "MTS",
+    "alamat": "Jetis Desa Tirtoadi",
+    "kapanewon": "Mlati",
+    "kalurahan": "Tirtoadi"
+  },
+  {
+    "npsn": "20411890",
+    "nama": "Mas Raudhatul Muttaqien",
+    "jenjang": "MA",
+    "alamat": "Jalan Cangkringan Km 4 Babadan Purwomartani Kalasan Sleman Yogyakarta",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "20401579",
+    "nama": "Sd Negeri Kebonagung",
+    "jenjang": "SD",
+    "alamat": "Pojok",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangagung"
+  },
+  {
+    "npsn": "20404100",
+    "nama": "Sd Negeri Kentungan",
+    "jenjang": "SD",
+    "alamat": "Jl. Kaliurang Km 6.5 Kentungan",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20401099",
+    "nama": "Smp Negeri 1 Berbah",
+    "jenjang": "SMP",
+    "alamat": "Tanjungtirto",
+    "kapanewon": "Berbah",
+    "kalurahan": "Kalitirto"
+  },
+  {
+    "npsn": "20400817",
+    "nama": "Sd Negeri Trimulyo",
+    "jenjang": "SD",
+    "alamat": "Balong Trimulyo",
+    "kapanewon": "Sleman",
+    "kalurahan": "Trimulyo"
+  },
+  {
+    "npsn": "69772539",
+    "nama": "Smks Dirgantara Putra Bangsa",
+    "jenjang": "SMK",
+    "alamat": "Blunyah Gede",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "70037152",
+    "nama": "Sd Global Islamic School 3 Yogyakarta",
+    "jenjang": "SD",
+    "alamat": "Sanggrahan",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20400941",
+    "nama": "Sd Negeri Nyamplung",
+    "jenjang": "SD",
+    "alamat": "Nyamplung",
+    "kapanewon": "Gamping",
+    "kalurahan": "Balecatur"
+  },
+  {
+    "npsn": "20401626",
+    "nama": "Sd Negeri Mlati 1",
+    "jenjang": "SD",
+    "alamat": "Mlati Glondong",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sendangadi"
+  },
+  {
+    "npsn": "69957219",
+    "nama": "Sd Teladan",
+    "jenjang": "SD",
+    "alamat": "Jl. Kabupaten Km. 05 No. 99",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20404080",
+    "nama": "Sd Muhammadiyah Sangonan Iii",
+    "jenjang": "SD",
+    "alamat": "Genitem, Sidoagung, Godean, Sleman, D.I.Yogyakarta",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoagung"
+  },
+  {
+    "npsn": "20401398",
+    "nama": "Sd Negeri Brongkol",
+    "jenjang": "SD",
+    "alamat": "Brongkol",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidomulyo"
+  },
+  {
+    "npsn": "20400922",
+    "nama": "Sd Negeri Pojok",
+    "jenjang": "SD",
+    "alamat": "Pojok",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20401095",
+    "nama": "Smp Negeri 2 Depok",
+    "jenjang": "SMP",
+    "alamat": "Jl. Dahlia Perumnas Condongcatur",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20411999",
+    "nama": "Mtsn 8 Sleman",
+    "jenjang": "MTS",
+    "alamat": "Pelemsari",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Bokoharjo"
+  },
+  {
+    "npsn": "20401154",
+    "nama": "Smas Mandala Bhakti",
+    "jenjang": "SMA",
+    "alamat": "Jl. Anggajaya I/3 Condongcatur",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20404127",
+    "nama": "Smp Muhammadiyah Ngemplak",
+    "jenjang": "SMP",
+    "alamat": "Banjarharjo",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Bimomartani"
+  },
+  {
+    "npsn": "20400949",
+    "nama": "Sd Negeri Panasan",
+    "jenjang": "SD",
+    "alamat": "Panasan",
+    "kapanewon": "Sleman",
+    "kalurahan": "Triharjo"
+  },
+  {
+    "npsn": "20401418",
+    "nama": "Sd Negeri Baturan 1",
+    "jenjang": "SD",
+    "alamat": "Biru",
+    "kapanewon": "Gamping",
+    "kalurahan": "Trihanggo"
+  },
+  {
+    "npsn": "20401121",
+    "nama": "Sman 1 Turi",
+    "jenjang": "SMA",
+    "alamat": "Gununganyar, Donokerto",
+    "kapanewon": "Turi",
+    "kalurahan": "Donokerto"
+  },
+  {
+    "npsn": "60714119",
+    "nama": "Mis Ma`Arif Blendangan",
+    "jenjang": "MI",
+    "alamat": "Blendangan",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20401139",
+    "nama": "Smks Muhammadiyah Berbah",
+    "jenjang": "SMK",
+    "alamat": "Krikilan",
+    "kapanewon": "Berbah",
+    "kalurahan": "Tegaltirto"
+  },
+  {
+    "npsn": "69955981",
+    "nama": "Mtss Nur Iman Mlangi Gamping Sleman",
+    "jenjang": "MTS",
+    "alamat": "Jl. Masjid Pathok Negoro No. 09, Mlangi, Nogotirto",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20401105",
+    "nama": "Smp Negeri 4 Prambanan",
+    "jenjang": "SMP",
+    "alamat": "Jl. Candi Ijo Km 3 Groyokan",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Sambirejo"
+  },
+  {
+    "npsn": "20401176",
+    "nama": "Smks Muhammadiyah 1 Moyudan",
+    "jenjang": "SMK",
+    "alamat": "Jl. Klangon - Tempel Km. 4.5, Gedongan",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberagung"
+  },
+  {
+    "npsn": "20400880",
+    "nama": "Sd Negeri Wonosari 1",
+    "jenjang": "SD",
+    "alamat": "Plosokuning",
+    "kapanewon": "Turi",
+    "kalurahan": "Bangunkerto"
+  },
+  {
+    "npsn": "20411990",
+    "nama": "Mtsn 5 Sleman",
+    "jenjang": "MTS",
+    "alamat": "Klaci Sidoagung Godean Sleman",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoagung"
+  },
+  {
+    "npsn": "70032208",
+    "nama": "Sma Bumi Cendekia",
+    "jenjang": "SMA",
+    "alamat": "Dusun Rajeg Lor",
+    "kapanewon": "Mlati",
+    "kalurahan": "Tirtoadi"
+  },
+  {
+    "npsn": "70006450",
+    "nama": "Mtss Muna Falih",
+    "jenjang": "MTS",
+    "alamat": "Murangan Viii Rt/Rw 007/028 Desa Triharjo",
+    "kapanewon": "Sleman",
+    "kalurahan": "Triharjo"
+  },
+  {
+    "npsn": "20404117",
+    "nama": "Smp Dr. Wahidin Mlati",
+    "jenjang": "SMP",
+    "alamat": "Jl. Magelang Km.5 Yogyakarta",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20401047",
+    "nama": "Smp Maarif Gamping",
+    "jenjang": "SMP",
+    "alamat": "Jl Siliwangi (Ring Road Barat)",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20401081",
+    "nama": "Smp Negeri 2 Godean",
+    "jenjang": "SMP",
+    "alamat": "Sidomoyo",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidomoyo"
+  },
+  {
+    "npsn": "70058968",
+    "nama": "Ma Ora Aji",
+    "jenjang": "MA",
+    "alamat": "Jalan Werkudara Rt.001/Rw.001 Tundan",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "69970717",
+    "nama": "Smpit Salman Al Farisi Boarding School",
+    "jenjang": "SMP",
+    "alamat": "Jl. Kaliurang Km.12,5 Mriyunan",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sardonoharjo"
+  },
+  {
+    "npsn": "70055370",
+    "nama": "Smp Islam Inter (Smpii) Al Abidin Yogyakarta",
+    "jenjang": "SMP",
+    "alamat": "Jalan Jodipati Rt 5 Rw 35 Malangrejo",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Wedomartani"
+  },
+  {
+    "npsn": "20401551",
+    "nama": "Sd Negeri Krapyak",
+    "jenjang": "SD",
+    "alamat": "Krapyak",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoarum"
+  },
+  {
+    "npsn": "20401394",
+    "nama": "Sd Negeri Cangkringan 1",
+    "jenjang": "SD",
+    "alamat": "Brongkol",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Argomulyo"
+  },
+  {
+    "npsn": "69983973",
+    "nama": "Mas Miftahunnajah Sleman",
+    "jenjang": "MA",
+    "alamat": "Wonorejo 1/18 Sardonoharjo, Ngaglik, Sleman",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sardonoharjo"
+  },
+  {
+    "npsn": "20401093",
+    "nama": "Smp Negeri 3 Pakem",
+    "jenjang": "SMP",
+    "alamat": "Pojok",
+    "kapanewon": "Pakem",
+    "kalurahan": "Harjobinangun"
+  },
+  {
+    "npsn": "20401549",
+    "nama": "Sd Negeri Krapyak 2",
+    "jenjang": "SD",
+    "alamat": "Tegal Rejo",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Wedomartani"
+  },
+  {
+    "npsn": "20401561",
+    "nama": "Sd Negeri Karangjati",
+    "jenjang": "SD",
+    "alamat": "Jl. Plosokuning Raya No. 63",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Minomartani"
+  },
+  {
+    "npsn": "20400972",
+    "nama": "Sd Negeri Sinduadi Barat",
+    "jenjang": "SD",
+    "alamat": "Kuturaden",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20401417",
+    "nama": "Sd Negeri Baturan 2",
+    "jenjang": "SD",
+    "alamat": "Panggungan",
+    "kapanewon": "Gamping",
+    "kalurahan": "Trihanggo"
+  },
+  {
+    "npsn": "20401611",
+    "nama": "Sd Negeri Margomulyo 2",
+    "jenjang": "SD",
+    "alamat": "Mangsel",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margomulyo"
+  },
+  {
+    "npsn": "20401631",
+    "nama": "Sd Negeri Malangan",
+    "jenjang": "SD",
+    "alamat": "Malangan",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberagung"
+  },
+  {
+    "npsn": "20400884",
+    "nama": "Sd Negeri Umbulwidodo",
+    "jenjang": "SD",
+    "alamat": "Grogolan",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Umbulmartani"
+  },
+  {
+    "npsn": "20400885",
+    "nama": "Sd Negeri Umbulharjo",
+    "jenjang": "SD",
+    "alamat": "Plosorejo",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Umbulharjo"
+  },
+  {
+    "npsn": "20401014",
+    "nama": "Smp Muhammadiyah 1 Sleman",
+    "jenjang": "SMP",
+    "alamat": "Panggeran",
+    "kapanewon": "Sleman",
+    "kalurahan": "Triharjo"
+  },
+  {
+    "npsn": "20400994",
+    "nama": "Sd Negeri Ringinsari",
+    "jenjang": "SD",
+    "alamat": "Ringinsari",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "69849446",
+    "nama": "Ma Ibnu Sina",
+    "jenjang": "MA",
+    "alamat": "Kuton Berbah Sleman",
+    "kapanewon": "Berbah",
+    "kalurahan": "Tegaltirto"
+  },
+  {
+    "npsn": "20411896",
+    "nama": "Mas Raden Fatah",
+    "jenjang": "MA",
+    "alamat": "Pelemsari Bokoharjo Prambanan Sleman",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Bokoharjo"
+  },
+  {
+    "npsn": "20401070",
+    "nama": "Smp Negeri 1 Cangkringan",
+    "jenjang": "SMP",
+    "alamat": "Watuadeg Rt 01 Rw 29 Wukirsari Cangkringan Sleman",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Wukirsari"
+  },
+  {
+    "npsn": "20400889",
+    "nama": "Sd Negeri Turi 1",
+    "jenjang": "SD",
+    "alamat": "Turi",
+    "kapanewon": "Turi",
+    "kalurahan": "Donokerto"
+  },
+  {
+    "npsn": "20401721",
+    "nama": "Sd Negeri Jagamangsan 2",
+    "jenjang": "SD",
+    "alamat": "Blambangan",
+    "kapanewon": "Berbah",
+    "kalurahan": "Jogotirto"
+  },
+  {
+    "npsn": "69928052",
+    "nama": "Misdarussalam Sleman",
+    "jenjang": "MI",
+    "alamat": "Jl Turi Km 2,5 Jogokerten Trimulyo Sleman Diy",
+    "kapanewon": "Sleman",
+    "kalurahan": "Trimulyo"
+  },
+  {
+    "npsn": "20401130",
+    "nama": "Sman 1 Mlati",
+    "jenjang": "SMA",
+    "alamat": "Jl. Cebongan",
+    "kapanewon": "Mlati",
+    "kalurahan": "Tlogoadi"
+  },
+  {
+    "npsn": "69976386",
+    "nama": "Mi Bina Umat",
+    "jenjang": "MI",
+    "alamat": "Jitar Dukuh",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberarum"
+  },
+  {
+    "npsn": "20401009",
+    "nama": "Smp Piri Ngaglik",
+    "jenjang": "SMP",
+    "alamat": "Jl. Kaliurang Km 7,8",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sinduharjo"
+  },
+  {
+    "npsn": "70058925",
+    "nama": "Smp Islam Al Azhar 67 Yogyakarta",
+    "jenjang": "SMP",
+    "alamat": "Jl. Siliwangi (Ringroad Barat) Kaliabu",
+    "kapanewon": "Gamping",
+    "kalurahan": "Banyuraden"
+  },
+  {
+    "npsn": "60714137",
+    "nama": "Mis Al Iman",
+    "jenjang": "MI",
+    "alamat": "Bandung",
+    "kapanewon": "Tempel",
+    "kalurahan": "Tambakrejo"
+  },
+  {
+    "npsn": "20400869",
+    "nama": "Sma Institut Indonesia Sleman",
+    "jenjang": "SMA",
+    "alamat": "Jl. Wonosari Km. 8  Berbah",
+    "kapanewon": "Berbah",
+    "kalurahan": "Sendangtirto"
+  },
+  {
+    "npsn": "20401529",
+    "nama": "Sd Negeri Madusari 3",
+    "jenjang": "SD",
+    "alamat": "Sembir",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Madurejo"
+  },
+  {
+    "npsn": "69981048",
+    "nama": "Smp Daarul Ilmi Boarding School",
+    "jenjang": "SMP",
+    "alamat": "Jl. Magelang Km. 11 Murten",
+    "kapanewon": "Sleman",
+    "kalurahan": "Tridadi"
+  },
+  {
+    "npsn": "69994083",
+    "nama": "Mts Daarul `Ulum 2 Sinar Melati",
+    "jenjang": "MTS",
+    "alamat": "Sedan Rt.001 Rw. 033",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sariharjo"
+  },
+  {
+    "npsn": "20401536",
+    "nama": "Sd Negeri Kledokan",
+    "jenjang": "SD",
+    "alamat": "Jl Garuni Iii, Kledokan",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20400905",
+    "nama": "Sd Negeri Prambanan",
+    "jenjang": "SD",
+    "alamat": "Klurak Baru",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Bokoharjo"
+  },
+  {
+    "npsn": "20401311",
+    "nama": "Smks Penerbangan Aag Adisutjipto",
+    "jenjang": "SMK",
+    "alamat": "Janti, Komplek Lanud Adisutjipto",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20412002",
+    "nama": "Mtsn 2 Sleman",
+    "jenjang": "MTS",
+    "alamat": "Jl. Magelang Km. 17 Ngosit",
+    "kapanewon": "Tempel",
+    "kalurahan": "Margorejo"
+  },
+  {
+    "npsn": "20411885",
+    "nama": "Mas Ibnul Qoyyim",
+    "jenjang": "MA",
+    "alamat": "Jl. Yogya Wonosari Km 9 Gandu",
+    "kapanewon": "Berbah",
+    "kalurahan": "Sendangtirto"
+  },
+  {
+    "npsn": "20401641",
+    "nama": "Sd Negeri Donoharjo",
+    "jenjang": "SD",
+    "alamat": "Jetis Suruh",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Donoharjo"
+  },
+  {
+    "npsn": "20401088",
+    "nama": "Smp Negeri 2 Sleman",
+    "jenjang": "SMP",
+    "alamat": "Jl. Bayangkara 15 Sleman",
+    "kapanewon": "Sleman",
+    "kalurahan": "Triharjo"
+  },
+  {
+    "npsn": "20404082",
+    "nama": "Sd Muhammadiyah Blunyah",
+    "jenjang": "SD",
+    "alamat": "Blunyah Gede",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20400963",
+    "nama": "Sd Negeri Semarangan 1",
+    "jenjang": "SD",
+    "alamat": "Klajuran",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidokarto"
+  },
+  {
+    "npsn": "20400911",
+    "nama": "Sd Negeri Pendulan",
+    "jenjang": "SD",
+    "alamat": "Tiwir",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumbersari"
+  },
+  {
+    "npsn": "20400835",
+    "nama": "Sd Negeri Sleman 4",
+    "jenjang": "SD",
+    "alamat": "Srimulyo",
+    "kapanewon": "Sleman",
+    "kalurahan": "Triharjo"
+  },
+  {
+    "npsn": "20401707",
+    "nama": "Sd Negeri Kalasan Baru",
+    "jenjang": "SD",
+    "alamat": "Glondong",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tirtomartani"
+  },
+  {
+    "npsn": "69941726",
+    "nama": "Mas Ma Arif Darussholihin Sleman",
+    "jenjang": "MA",
+    "alamat": "Jalan Jonggrangan",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sumberadi"
+  },
+  {
+    "npsn": "20401548",
+    "nama": "Sd Negeri Krawitan",
+    "jenjang": "SD",
+    "alamat": "Krawitan",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Umbulmartani"
+  },
+  {
+    "npsn": "20400803",
+    "nama": "Sd Negeri Tegal Klaci",
+    "jenjang": "SD",
+    "alamat": "Klaci 3",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margoluwih"
+  },
+  {
+    "npsn": "20409839",
+    "nama": "Smks Insan Cendekia",
+    "jenjang": "SMK",
+    "alamat": "Turi, Donokerto, Turi, Sleman, Yogyakarta",
+    "kapanewon": "Turi",
+    "kalurahan": "Donokerto"
+  },
+  {
+    "npsn": "20401534",
+    "nama": "Sd Negeri Klegung 2",
+    "jenjang": "SD",
+    "alamat": "Tempel",
+    "kapanewon": "Tempel",
+    "kalurahan": "Lumbungrejo"
+  },
+  {
+    "npsn": "20401537",
+    "nama": "Sd Negeri Klaci",
+    "jenjang": "SD",
+    "alamat": "Klaci I",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margoluwih"
+  },
+  {
+    "npsn": "20401718",
+    "nama": "Sd Negeri Godean 2",
+    "jenjang": "SD",
+    "alamat": "Kramen",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoagung"
+  },
+  {
+    "npsn": "20401692",
+    "nama": "Sd Negeri Jumeneng",
+    "jenjang": "SD",
+    "alamat": "Sayidan",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sumberadi"
+  },
+  {
+    "npsn": "20400930",
+    "nama": "Sd Negeri Patran",
+    "jenjang": "SD",
+    "alamat": "Patran",
+    "kapanewon": "Gamping",
+    "kalurahan": "Banyuraden"
+  },
+  {
+    "npsn": "60714136",
+    "nama": "Mis Ma`Arif Pangukan",
+    "jenjang": "MI",
+    "alamat": "Jl. Dr. Radjimin No. 13 Pangukan",
+    "kapanewon": "Sleman",
+    "kalurahan": "Tridadi"
+  },
+  {
+    "npsn": "20401182",
+    "nama": "Smks Kanisius 1 Pakem",
+    "jenjang": "SMK",
+    "alamat": "Labasan",
+    "kapanewon": "Pakem",
+    "kalurahan": "Pakembinangun"
+  },
+  {
+    "npsn": "20411986",
+    "nama": "Mtss Wahid Hasyim",
+    "jenjang": "MTS",
+    "alamat": "Jl. Wahid Hasyim Gaten",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "60714124",
+    "nama": "Min 1 Sleman",
+    "jenjang": "MI",
+    "alamat": "Jl. Magelang Km 4 Sinduadi Mlati Sleman",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20401620",
+    "nama": "Sd Negeri Merdikorejo",
+    "jenjang": "SD",
+    "alamat": "Kantongan",
+    "kapanewon": "Tempel",
+    "kalurahan": "Merdikorejo"
+  },
+  {
+    "npsn": "20401085",
+    "nama": "Smp Negeri 2 Ngemplak",
+    "jenjang": "SMP",
+    "alamat": "Macanan",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Bimomartani"
+  },
+  {
+    "npsn": "20401027",
+    "nama": "Smp Negeri 1 Prambanan",
+    "jenjang": "SMP",
+    "alamat": "Jl. Prambanan-Piyungan Km 4,5",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Madurejo"
+  },
+  {
+    "npsn": "20401673",
+    "nama": "Sd Negeri Denggung",
+    "jenjang": "SD",
+    "alamat": "Jalan Candi Gebang Bangunrejo",
+    "kapanewon": "Sleman",
+    "kalurahan": "Tridadi"
+  },
+  {
+    "npsn": "20401067",
+    "nama": "Smp Negeri 1 Ngaglik",
+    "jenjang": "SMP",
+    "alamat": "Kayunan, Donoharjo, Ngaglik, Sleman",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Donoharjo"
+  },
+  {
+    "npsn": "20411897",
+    "nama": "Man 5 Sleman",
+    "jenjang": "MA",
+    "alamat": "Jl. Magelang Km 17 Ngosit",
+    "kapanewon": "Tempel",
+    "kalurahan": "Margorejo"
+  },
+  {
+    "npsn": "20401635",
+    "nama": "Sd Negeri Gambiranom",
+    "jenjang": "SD",
+    "alamat": "Manukan",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20404105",
+    "nama": "Sd Negeri Nogopuro",
+    "jenjang": "SD",
+    "alamat": "Jl Nogopuro No 3 Gowok",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20401362",
+    "nama": "Sd Muhammadiyah Kasuran",
+    "jenjang": "SD",
+    "alamat": "Jingin",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margomulyo"
+  },
+  {
+    "npsn": "20400806",
+    "nama": "Sd Negeri Tanjungtirto 2",
+    "jenjang": "SD",
+    "alamat": "Pondok Kulon",
+    "kapanewon": "Berbah",
+    "kalurahan": "Kalitirto"
+  },
+  {
+    "npsn": "20400965",
+    "nama": "Sd Negeri Seloharjo",
+    "jenjang": "SD",
+    "alamat": "Karanglo",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sukoharjo"
+  },
+  {
+    "npsn": "20401420",
+    "nama": "Sd Negeri Baratan",
+    "jenjang": "SD",
+    "alamat": "Nepen",
+    "kapanewon": "Pakem",
+    "kalurahan": "Candibinangun"
+  },
+  {
+    "npsn": "20401615",
+    "nama": "Sd Negeri Margoagung",
+    "jenjang": "SD",
+    "alamat": "Krapyak",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margoagung"
+  },
+  {
+    "npsn": "20401353",
+    "nama": "Sd Muhammadiyah Mbs Prambanan",
+    "jenjang": "SD",
+    "alamat": "Jl. Piyungan Km. 2, Marangan",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Bokoharjo"
+  },
+  {
+    "npsn": "70059459",
+    "nama": "Mts Ora Aji",
+    "jenjang": "MTS",
+    "alamat": "Jl. Werkudara Rt.001/Rw.001",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "20401717",
+    "nama": "Sd Negeri Godean 3",
+    "jenjang": "SD",
+    "alamat": "Curitan",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoluhur"
+  },
+  {
+    "npsn": "20401591",
+    "nama": "Sd Muhammadiyah Gendol V",
+    "jenjang": "SD",
+    "alamat": "Mrincingan",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margomulyo"
+  },
+  {
+    "npsn": "20404093",
+    "nama": "Sekolah Dasar  Islam Terpadu  Alam Nurul Islam Yogyakarta",
+    "jenjang": "SD",
+    "alamat": "Cambahan",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20401400",
+    "nama": "Sd Negeri Bendungan",
+    "jenjang": "SD",
+    "alamat": "Bendungan",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tirtomartani"
+  },
+  {
+    "npsn": "20401658",
+    "nama": "Sd Negeri Cungkuk",
+    "jenjang": "SD",
+    "alamat": "Cungkuk",
+    "kapanewon": "Tempel",
+    "kalurahan": "Margorejo"
+  },
+  {
+    "npsn": "20401481",
+    "nama": "Sd Muhammadiyah Ambarketawang 3",
+    "jenjang": "SD",
+    "alamat": "Gamping Kidul",
+    "kapanewon": "Gamping",
+    "kalurahan": "Ambarketawang"
+  },
+  {
+    "npsn": "20400975",
+    "nama": "Sd Negeri Sidorejo",
+    "jenjang": "SD",
+    "alamat": "Sidorejo",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Selomartani"
+  },
+  {
+    "npsn": "20401684",
+    "nama": "Sd Negeri Glagahombo 1",
+    "jenjang": "SD",
+    "alamat": "Banjarharjo",
+    "kapanewon": "Tempel",
+    "kalurahan": "Pondokrejo"
+  },
+  {
+    "npsn": "20401569",
+    "nama": "Sd Negeri Kaweden",
+    "jenjang": "SD",
+    "alamat": "Kaweden",
+    "kapanewon": "Mlati",
+    "kalurahan": "Tirtoadi"
+  },
+  {
+    "npsn": "69947314",
+    "nama": "Sma Islam Terpadu Baitussalam",
+    "jenjang": "SMA",
+    "alamat": "Pulerejo",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Bokoharjo"
+  },
+  {
+    "npsn": "20404136",
+    "nama": "Smks Diponegoro Depok",
+    "jenjang": "SMK",
+    "alamat": "Komplek Pondok Pesantren Diponegoro Sembego",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "70006446",
+    "nama": "Mtss Bima Bhakti Pertiwi",
+    "jenjang": "MTS",
+    "alamat": "Somosari Ngrangsan Desa Selo Martani",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Selomartani"
+  },
+  {
+    "npsn": "60714120",
+    "nama": "Mis Falahussyabab",
+    "jenjang": "MI",
+    "alamat": "Mlangi, Sawahan",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20401383",
+    "nama": "Sd Negeri Bleber 1",
+    "jenjang": "SD",
+    "alamat": "Karang Gede",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Sumberharjo"
+  },
+  {
+    "npsn": "20400990",
+    "nama": "Sd Negeri Purwobinangun",
+    "jenjang": "SD",
+    "alamat": "Juwangen",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "69883568",
+    "nama": "Sekolah Dasar Yogyakarta Independent School",
+    "jenjang": "SPK SD",
+    "alamat": "Jl. Tegal Mlati No. 1",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20401516",
+    "nama": "Sd Kanisius Gamping",
+    "jenjang": "SD",
+    "alamat": "Gamping Tengah",
+    "kapanewon": "Gamping",
+    "kalurahan": "Ambarketawang"
+  },
+  {
+    "npsn": "60714126",
+    "nama": "Mis Al Kautsar",
+    "jenjang": "MI",
+    "alamat": "Gabahan Rt 08 Rw 12",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sumberadi"
+  },
+  {
+    "npsn": "20401530",
+    "nama": "Sd Negeri Koroulon 1",
+    "jenjang": "SD",
+    "alamat": "Koroulon",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Bimomartani"
+  },
+  {
+    "npsn": "69979254",
+    "nama": "Pp. Al Mubaarok",
+    "jenjang": "PONDOK PESANTREN",
+    "alamat": "Kendal Rt 02 /Rw 12",
+    "kapanewon": "Turi",
+    "kalurahan": "Bangunkerto"
+  },
+  {
+    "npsn": "20411888",
+    "nama": "Mas Yayasan Masyithoh",
+    "jenjang": "MA",
+    "alamat": "Gamping Kidul",
+    "kapanewon": "Gamping",
+    "kalurahan": "Ambarketawang"
+  },
+  {
+    "npsn": "20401132",
+    "nama": "Sman 2 Ngaglik",
+    "jenjang": "SMA",
+    "alamat": "Jl. Besi - Jangkang Km 2",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sukoharjo"
+  },
+  {
+    "npsn": "20411992",
+    "nama": "Mtsn 6 Sleman",
+    "jenjang": "MTS",
+    "alamat": "Jl. Magelang Km. 4,4",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "70034215",
+    "nama": "Mts Darul Qur`An Wahid Hasyim",
+    "jenjang": "MTS",
+    "alamat": "Jl. Wahid Hasyim No.36 Gaten Dabag Kelurahan Condongcatur Kec. Depok Kab. Sleman",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20411886",
+    "nama": "Man 2 Sleman",
+    "jenjang": "MA",
+    "alamat": "Jln. Raya Tajem Maguwoharjo",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20401659",
+    "nama": "Sd Negeri Corongan",
+    "jenjang": "SD",
+    "alamat": "Corongan, Maguwoharjo, Depok, Sleman",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "69976401",
+    "nama": "Ma Al-Qodir Cangkringan Sleman Yogyakarta",
+    "jenjang": "MA",
+    "alamat": "Tanjung, Rt.004/Rw.024, Wukirsari, Cangkringan, Sleman, Yogyakarta 55583",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Wukirsari"
+  },
+  {
+    "npsn": "20400993",
+    "nama": "Sd Negeri Ngringin",
+    "jenjang": "SD",
+    "alamat": "Jl Waringinsari, Dusun Ngropoh",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20401410",
+    "nama": "Sd Negeri Balangan 1",
+    "jenjang": "SD",
+    "alamat": "Sidorejo",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangrejo"
+  },
+  {
+    "npsn": "20401544",
+    "nama": "Sd Negeri Ledoknongko",
+    "jenjang": "SD",
+    "alamat": "Jl. Agro Wisata",
+    "kapanewon": "Turi",
+    "kalurahan": "Bangunkerto"
+  },
+  {
+    "npsn": "20404084",
+    "nama": "Sd Muhammadiyah Kadisoka",
+    "jenjang": "SD",
+    "alamat": "Purwomartani",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "69978039",
+    "nama": "Smk Assalafiyyah Sleman",
+    "jenjang": "SMK",
+    "alamat": "Jl. Kyai Masduqi Mlangi",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20401711",
+    "nama": "Sd Negeri Jagamangsan 1",
+    "jenjang": "SD",
+    "alamat": "Bercak",
+    "kapanewon": "Berbah",
+    "kalurahan": "Jogotirto"
+  },
+  {
+    "npsn": "20401102",
+    "nama": "Smp Negeri 1 Gamping",
+    "jenjang": "SMP",
+    "alamat": "Jln Wates Km 7",
+    "kapanewon": "Gamping",
+    "kalurahan": "Balecatur"
+  },
+  {
+    "npsn": "70014363",
+    "nama": "Sma Masa Depan",
+    "jenjang": "SMA",
+    "alamat": "Jl. Sambisari Kadirojo I Purwomartani, Kalasan, Sleman, Diy",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "20401035",
+    "nama": "Smp Diponegoro Depok",
+    "jenjang": "SMP",
+    "alamat": "Sembego Rt. 01/38",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20401682",
+    "nama": "Sd Negeri Dalangan 2",
+    "jenjang": "SD",
+    "alamat": "Senden",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangsari"
+  },
+  {
+    "npsn": "20401323",
+    "nama": "Sd Negeri Ambarukmo",
+    "jenjang": "SD",
+    "alamat": "Ambarukmo",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20401598",
+    "nama": "Sd Negeri Ngemplaknganti",
+    "jenjang": "SD",
+    "alamat": "Ngemplak",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sendangadi"
+  },
+  {
+    "npsn": "20401330",
+    "nama": "Sd Muhammadiyah Pajangan 2",
+    "jenjang": "SD",
+    "alamat": "Gandu",
+    "kapanewon": "Berbah",
+    "kalurahan": "Sendangtirto"
+  },
+  {
+    "npsn": "20401193",
+    "nama": "Smkn 1 Depok",
+    "jenjang": "SMK",
+    "alamat": "Jalan Padjajaran",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20401096",
+    "nama": "Smp Negeri 3 Kalasan",
+    "jenjang": "SMP",
+    "alamat": "Sidokerto, Purwomartani, Kalasan, Sleman.",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "20401724",
+    "nama": "Sd Negeri Jetisharjo",
+    "jenjang": "SD",
+    "alamat": "Jl. Ronggowarsito No. 69 Jetis",
+    "kapanewon": "Sleman",
+    "kalurahan": "Caturharjo"
+  },
+  {
+    "npsn": "20400987",
+    "nama": "Sd Negeri Purworejo",
+    "jenjang": "SD",
+    "alamat": "Sawungan",
+    "kapanewon": "Pakem",
+    "kalurahan": "Hargobinangun"
+  },
+  {
+    "npsn": "20404083",
+    "nama": "Sd Muhammadiyah Gamplong",
+    "jenjang": "SD",
+    "alamat": "Gamplong",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberrahayu"
+  },
+  {
+    "npsn": "20401348",
+    "nama": "Sd Muhammadiyah Sidokarto",
+    "jenjang": "SD",
+    "alamat": "Jetis Prenggan",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidokarto"
+  },
+  {
+    "npsn": "20401354",
+    "nama": "Sd Muhammadiyah Gondanglegi",
+    "jenjang": "SD",
+    "alamat": "Gondanglegi",
+    "kapanewon": "Tempel",
+    "kalurahan": "Merdikorejo"
+  },
+  {
+    "npsn": "70034507",
+    "nama": "Ma Darul Qur`An Wahid Hasyim",
+    "jenjang": "MA",
+    "alamat": "Jln. Wahid Hasyim No. 36 Gaten Dabag",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20401107",
+    "nama": "Smp Negeri 3 Turi",
+    "jenjang": "SMP",
+    "alamat": "Soprayan",
+    "kapanewon": "Turi",
+    "kalurahan": "Girikerto"
+  },
+  {
+    "npsn": "20409783",
+    "nama": "Sd Ilmu Bina Selamat",
+    "jenjang": "SD",
+    "alamat": "Dukuh",
+    "kapanewon": "Sleman",
+    "kalurahan": "Pandowoharjo"
+  },
+  {
+    "npsn": "20401441",
+    "nama": "Sd Bopkri Sidomulyo 1",
+    "jenjang": "SD",
+    "alamat": "Gancahan V",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidomulyo"
+  },
+  {
+    "npsn": "20401602",
+    "nama": "Sd Negeri Ngemplak 1",
+    "jenjang": "SD",
+    "alamat": "Jangkang",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Widodomartani"
+  },
+  {
+    "npsn": "20401399",
+    "nama": "Sd Negeri Bronggang Baru",
+    "jenjang": "SD",
+    "alamat": "Bronggang",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Argomulyo"
+  },
+  {
+    "npsn": "20401329",
+    "nama": "Sd Muhammadiyah Plembon",
+    "jenjang": "SD",
+    "alamat": "Plembon",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangsari"
+  },
+  {
+    "npsn": "20400961",
+    "nama": "Sd Negeri Semarangan 4",
+    "jenjang": "SD",
+    "alamat": "Tangkilan",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoarum"
+  },
+  {
+    "npsn": "20400820",
+    "nama": "Sd Negeri Tlogoadi",
+    "jenjang": "SD",
+    "alamat": "Getas",
+    "kapanewon": "Mlati",
+    "kalurahan": "Tlogoadi"
+  },
+  {
+    "npsn": "20401677",
+    "nama": "Sd Negeri Delegan 2",
+    "jenjang": "SD",
+    "alamat": "Dinginan",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Sumberharjo"
+  },
+  {
+    "npsn": "20400913",
+    "nama": "Sd Negeri Tlacap",
+    "jenjang": "SD",
+    "alamat": "Tlacap",
+    "kapanewon": "Sleman",
+    "kalurahan": "Pandowoharjo"
+  },
+  {
+    "npsn": "70014158",
+    "nama": "Ma Al Kautsar",
+    "jenjang": "MA",
+    "alamat": "Gabahan V, Rt 08, Rw 12",
+    "kapanewon": "Mlati",
+    "kalurahan": "Tirtoadi"
+  },
+  {
+    "npsn": "20401036",
+    "nama": "Smp Darul Hikmah Pakem",
+    "jenjang": "SMP",
+    "alamat": "Jl. Palagan Tentara Pelajar Km.15, Sembung",
+    "kapanewon": "Pakem",
+    "kalurahan": "Purwobinangun"
+  },
+  {
+    "npsn": "20404098",
+    "nama": "Sd Negeri Karanganyar",
+    "jenjang": "SD",
+    "alamat": "Pulihrejo",
+    "kapanewon": "Turi",
+    "kalurahan": "Donokerto"
+  },
+  {
+    "npsn": "20401580",
+    "nama": "Sd Negeri Kanoman",
+    "jenjang": "SD",
+    "alamat": "Kanoman",
+    "kapanewon": "Gamping",
+    "kalurahan": "Banyuraden"
+  },
+  {
+    "npsn": "70004016",
+    "nama": "Sma Insan Mulia Boarding School",
+    "jenjang": "SMA",
+    "alamat": "Jl. Nakulo No. 32, Rt 007, Rw 022, Nglempong Lor",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sariharjo"
+  },
+  {
+    "npsn": "20401577",
+    "nama": "Sd Negeri Keceme 2",
+    "jenjang": "SD",
+    "alamat": "Kemloko",
+    "kapanewon": "Sleman",
+    "kalurahan": "Caturharjo"
+  },
+  {
+    "npsn": "60714117",
+    "nama": "Mis Ma`Arif Bego",
+    "jenjang": "MI",
+    "alamat": "Sembego, Rt 01 Rw 38 Maguwoharjo",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20401053",
+    "nama": "Smp Muhammadiyah 1 Prambanan",
+    "jenjang": "SMP",
+    "alamat": "Gatak",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Bokoharjo"
+  },
+  {
+    "npsn": "20404087",
+    "nama": "Sd Muhammadiyah Ngijon 3",
+    "jenjang": "SD",
+    "alamat": "Prapak Kulon",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangmulyo"
+  },
+  {
+    "npsn": "20401194",
+    "nama": "Smkn 1 Cangkringan",
+    "jenjang": "SMK",
+    "alamat": "Sintokan",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Wukirsari"
+  },
+  {
+    "npsn": "20400953",
+    "nama": "Sd Negeri Pakem 2",
+    "jenjang": "SD",
+    "alamat": "Pojok",
+    "kapanewon": "Pakem",
+    "kalurahan": "Harjobinangun"
+  },
+  {
+    "npsn": "70060321",
+    "nama": "Smp Global Cahaya Bangsa",
+    "jenjang": "SMP",
+    "alamat": "Jl. Sherdia Rt/Rw 04/18 Karangmloko",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sariharjo"
+  },
+  {
+    "npsn": "20401165",
+    "nama": "Smas Santo Mikael Mlati",
+    "jenjang": "SMA",
+    "alamat": "Jl. P. Purboyo",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sumberadi"
+  },
+  {
+    "npsn": "20401558",
+    "nama": "Sd Negeri Karangmloko 2",
+    "jenjang": "SD",
+    "alamat": "Tegalrejo",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sariharjo"
+  },
+  {
+    "npsn": "69983951",
+    "nama": "Mtss Al Ikhlas",
+    "jenjang": "MTS",
+    "alamat": "Bulu Bercak, Jogotirto, Berbah, Sleman",
+    "kapanewon": "Berbah",
+    "kalurahan": "Jogotirto"
+  },
+  {
+    "npsn": "20401364",
+    "nama": "Sd Muhammadiyah Ngabean Ii",
+    "jenjang": "SD",
+    "alamat": "Karang",
+    "kapanewon": "Tempel",
+    "kalurahan": "Banyurejo"
+  },
+  {
+    "npsn": "20404137",
+    "nama": "Smks Pi Ambarukmo 1",
+    "jenjang": "SMK",
+    "alamat": "Jl.Cendrawasih 125 Mancasan Lor",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "70002259",
+    "nama": "Smp Eksperimental Mangunan",
+    "jenjang": "SMP",
+    "alamat": "Cupuwatu 2",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "20401034",
+    "nama": "Smp Muhammadiyah 3 Mlati",
+    "jenjang": "SMP",
+    "alamat": "Cebongan Tlogoadi Mlati",
+    "kapanewon": "Mlati",
+    "kalurahan": "Tlogoadi"
+  },
+  {
+    "npsn": "20401337",
+    "nama": "Sd Muhammadiyah Sidoarum",
+    "jenjang": "SD",
+    "alamat": "Perum Sidoarum Blok I",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoarum"
+  },
+  {
+    "npsn": "69976394",
+    "nama": "Mts Darussalam Jogokerten",
+    "jenjang": "MTS",
+    "alamat": "Jogokerten",
+    "kapanewon": "Sleman",
+    "kalurahan": "Trimulyo"
+  },
+  {
+    "npsn": "20401651",
+    "nama": "Sd Negeri Gentan",
+    "jenjang": "SD",
+    "alamat": "Gentan",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margoagung"
+  },
+  {
+    "npsn": "20400812",
+    "nama": "Sd Negeri Tajem",
+    "jenjang": "SD",
+    "alamat": "Banjeng",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20401174",
+    "nama": "Smks Muhammadiyah 2 Tempel",
+    "jenjang": "SMK",
+    "alamat": "Gendol",
+    "kapanewon": "Tempel",
+    "kalurahan": "Sumberejo"
+  },
+  {
+    "npsn": "69878985",
+    "nama": "Smtk Kadesi Yogyakarta",
+    "jenjang": "SMTK",
+    "alamat": "Weron Umbulharjo Cangkringan",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Umbulharjo"
+  },
+  {
+    "npsn": "20401343",
+    "nama": "Sd Muhammadiyah Tengahan",
+    "jenjang": "SD",
+    "alamat": "Tengahan",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangagung"
+  },
+  {
+    "npsn": "69941728",
+    "nama": "Mas Assalafiyyah Mlangi Sleman",
+    "jenjang": "MA",
+    "alamat": "Jalan Kyai Masduqi Mlangi",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "60724861",
+    "nama": "Smpsit Raudhatus Salaam",
+    "jenjang": "SMP",
+    "alamat": "Jl. Jogja-Wonosari Km 8 Karangsari",
+    "kapanewon": "Berbah",
+    "kalurahan": "Sendangtirto"
+  },
+  {
+    "npsn": "20401512",
+    "nama": "Sd It Jabal Nur",
+    "jenjang": "SD",
+    "alamat": "Gamping Lor",
+    "kapanewon": "Gamping",
+    "kalurahan": "Ambarketawang"
+  },
+  {
+    "npsn": "20400996",
+    "nama": "Sd Negeri Sardonoharjo 1",
+    "jenjang": "SD",
+    "alamat": "Candi Dukuh",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sardonoharjo"
+  },
+  {
+    "npsn": "70053680",
+    "nama": "Sd Sahabatqu",
+    "jenjang": "SD",
+    "alamat": "Jl. Deresan 3 No.24 Santren",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20401017",
+    "nama": "Smp Muhammadiyah 1 Kalasan",
+    "jenjang": "SMP",
+    "alamat": "Glondong",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tirtomartani"
+  },
+  {
+    "npsn": "20404095",
+    "nama": "Sd Negeri Banjarharjo",
+    "jenjang": "SD",
+    "alamat": "Kragilan",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Bimomartani"
+  },
+  {
+    "npsn": "20401336",
+    "nama": "Sd Muhammadiyah Semoya",
+    "jenjang": "SD",
+    "alamat": "Semoya",
+    "kapanewon": "Berbah",
+    "kalurahan": "Tegaltirto"
+  },
+  {
+    "npsn": "20400995",
+    "nama": "Sd Negeri Sardonoharjo 2",
+    "jenjang": "SD",
+    "alamat": "Candiwinangun",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sardonoharjo"
+  },
+  {
+    "npsn": "20400805",
+    "nama": "Sd Negeri Taraman",
+    "jenjang": "SD",
+    "alamat": "Taraman",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sinduharjo"
+  },
+  {
+    "npsn": "20401553",
+    "nama": "Sd Negeri Kertirejo",
+    "jenjang": "SD",
+    "alamat": "Kertirejo",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Selomartani"
+  },
+  {
+    "npsn": "20404126",
+    "nama": "Smp Muhammadiyah 2 Prambanan",
+    "jenjang": "SMP",
+    "alamat": "Ngentak Beloran",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Sumberharjo"
+  },
+  {
+    "npsn": "20401608",
+    "nama": "Sd Negeri Triharjo",
+    "jenjang": "SD",
+    "alamat": "Murangan",
+    "kapanewon": "Sleman",
+    "kalurahan": "Triharjo"
+  },
+  {
+    "npsn": "20400933",
+    "nama": "Sd Negeri Nolobangsan",
+    "jenjang": "SD",
+    "alamat": "Kompleks Polri Gowok",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20401063",
+    "nama": "Smp Negeri 3 Mlati",
+    "jenjang": "SMP",
+    "alamat": "Gedongan Tlogoadi, Mlati, Sleman, Yogyakarta",
+    "kapanewon": "Mlati",
+    "kalurahan": "Tlogoadi"
+  },
+  {
+    "npsn": "20401363",
+    "nama": "Sd Muhammadiyah Kayen",
+    "jenjang": "SD",
+    "alamat": "Jl. Kaliurang Km. 7,3 Kayen",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20404094",
+    "nama": "Sd Negeri Bhaktikarya",
+    "jenjang": "SD",
+    "alamat": "Manukan",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20401482",
+    "nama": "Sd Muhammadiyah Ambarketawang 2",
+    "jenjang": "SD",
+    "alamat": "Kalimanjung",
+    "kapanewon": "Gamping",
+    "kalurahan": "Ambarketawang"
+  },
+  {
+    "npsn": "70047774",
+    "nama": "Sma Teladan Yogyakarta",
+    "jenjang": "SMA",
+    "alamat": "Jalan Kabupaten Km. 0,5 No. 99 Karang Tengah, Nogotirto, Gamping, Sleman, D.I Yo",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20401618",
+    "nama": "Sd Negeri Mejing 1",
+    "jenjang": "SD",
+    "alamat": "Mejing Lor Rt 01 Rw 02",
+    "kapanewon": "Gamping",
+    "kalurahan": "Ambarketawang"
+  },
+  {
+    "npsn": "20400969",
+    "nama": "Sd Negeri Sentul",
+    "jenjang": "SD",
+    "alamat": "Jl. Godean Km. 10 Sentul",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoagung"
+  },
+  {
+    "npsn": "20401597",
+    "nama": "Sd Negeri Ngemplaksari",
+    "jenjang": "SD",
+    "alamat": "Ngemplak",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margomulyo"
+  },
+  {
+    "npsn": "20401197",
+    "nama": "Smks Piri Sleman",
+    "jenjang": "SMK",
+    "alamat": "Kaliurang Km 7,8",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sinduharjo"
+  },
+  {
+    "npsn": "70008601",
+    "nama": "Mas Al Ikhlas Berbah",
+    "jenjang": "MA",
+    "alamat": "Bulu Bercak Rt. 004 Rw. 025 Desa Jogo Tirto",
+    "kapanewon": "Berbah",
+    "kalurahan": "Jogotirto"
+  },
+  {
+    "npsn": "20401719",
+    "nama": "Sd Negeri Godean 1",
+    "jenjang": "SD",
+    "alamat": "Jl Suparjo No 3",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoluhur"
+  },
+  {
+    "npsn": "20404138",
+    "nama": "Smks Sulaiman Sleman",
+    "jenjang": "SMK",
+    "alamat": "Jl. Raya Km. 12 Sleman Kota",
+    "kapanewon": "Sleman",
+    "kalurahan": "Tridadi"
+  },
+  {
+    "npsn": "20404088",
+    "nama": "Sd Muhammadiyah Ngijon 4",
+    "jenjang": "SD",
+    "alamat": "Cerbonan",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangmulyo"
+  },
+  {
+    "npsn": "20401732",
+    "nama": "Sd Negeri Jambon 2",
+    "jenjang": "SD",
+    "alamat": "Kronggahan",
+    "kapanewon": "Gamping",
+    "kalurahan": "Trihanggo"
+  },
+  {
+    "npsn": "20401574",
+    "nama": "Sd Negeri Kejambon 2",
+    "jenjang": "SD",
+    "alamat": "Joholanang",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Sindumartani"
+  },
+  {
+    "npsn": "20401443",
+    "nama": "Sd Bopkri Demangan Iii",
+    "jenjang": "SD",
+    "alamat": "Jl. Ampel, No.4 Papringan",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20401164",
+    "nama": "Smas Sulaiman Sleman",
+    "jenjang": "SMA",
+    "alamat": "Jl. Magelang Km. 12 Sleman",
+    "kapanewon": "Sleman",
+    "kalurahan": "Tridadi"
+  },
+  {
+    "npsn": "20401125",
+    "nama": "Sman 1 Seyegan",
+    "jenjang": "SMA",
+    "alamat": "Tegalgentan, Margoagung, Seyegan, Sleman",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margoagung"
+  },
+  {
+    "npsn": "20401566",
+    "nama": "Sd Negeri Karangwuni",
+    "jenjang": "SD",
+    "alamat": "Jl Kaliurang Km 5 Gang Mijil Karangwuni",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20400977",
+    "nama": "Sd Negeri Sidomoyo",
+    "jenjang": "SD",
+    "alamat": "Karang Malang",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidomoyo"
+  },
+  {
+    "npsn": "20409729",
+    "nama": "Smks Muhammadiyah Seyegan",
+    "jenjang": "SMK",
+    "alamat": "Jalan Seyegan-Tempel Km 1,1 Krapyak",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margoagung"
+  },
+  {
+    "npsn": "20401616",
+    "nama": "Sd Negeri Mancasan",
+    "jenjang": "SD",
+    "alamat": "Mancasan",
+    "kapanewon": "Gamping",
+    "kalurahan": "Ambarketawang"
+  },
+  {
+    "npsn": "20400976",
+    "nama": "Sd Negeri Sidomulyo",
+    "jenjang": "SD",
+    "alamat": "Sidomulyo",
+    "kapanewon": "Sleman",
+    "kalurahan": "Trimulyo"
+  },
+  {
+    "npsn": "20401145",
+    "nama": "Sman 1 Kalasan",
+    "jenjang": "SMA",
+    "alamat": "Jl. Bogem Kalasan",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tamanmartani"
+  },
+  {
+    "npsn": "20400942",
+    "nama": "Sd Negeri Pakem",
+    "jenjang": "SD",
+    "alamat": "Pakem",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tamanmartani"
+  },
+  {
+    "npsn": "20401581",
+    "nama": "Sd Negeri Maguwoharjo 1",
+    "jenjang": "SD",
+    "alamat": "Nanggulan",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20404145",
+    "nama": "Sd Islam Al Azhar 31 Yogyakarta",
+    "jenjang": "SD",
+    "alamat": "Jl Lingkar Utara Pogung Lor",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20404081",
+    "nama": "Sd Budi Mulia Dua",
+    "jenjang": "SD",
+    "alamat": "Panjen",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Wedomartani"
+  },
+  {
+    "npsn": "20409307",
+    "nama": "Sd It Bina Insan Kamil",
+    "jenjang": "SD",
+    "alamat": "Lungguhrejo",
+    "kapanewon": "Turi",
+    "kalurahan": "Wonokerto"
+  },
+  {
+    "npsn": "20411996",
+    "nama": "Mtsn 3 Sleman",
+    "jenjang": "MTS",
+    "alamat": "Pokoh Wedomartani Ngemplak Sleman",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Wedomartani"
+  },
+  {
+    "npsn": "20401557",
+    "nama": "Sd Negeri Karangnongko 1",
+    "jenjang": "SD",
+    "alamat": "Karangnongko",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tirtomartani"
+  },
+  {
+    "npsn": "20401135",
+    "nama": "Smks Sanjaya Pakem",
+    "jenjang": "SMK",
+    "alamat": "Kaliurang Km 17",
+    "kapanewon": "Pakem",
+    "kalurahan": "Pakembinangun"
+  },
+  {
+    "npsn": "20401545",
+    "nama": "Sd Negeri Kwayuhan",
+    "jenjang": "SD",
+    "alamat": "Kwayuhan",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangmulyo"
+  },
+  {
+    "npsn": "69928053",
+    "nama": "Mis Al Jailani Sleman",
+    "jenjang": "MI",
+    "alamat": "Jl. Turi Km 3Pandeman",
+    "kapanewon": "Sleman",
+    "kalurahan": "Trimulyo"
+  },
+  {
+    "npsn": "20400840",
+    "nama": "Sd Negeri Srunen",
+    "jenjang": "SD",
+    "alamat": "Srunen",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Glagaharjo"
+  },
+  {
+    "npsn": "20400811",
+    "nama": "Sd Negeri Tamanan 1",
+    "jenjang": "SD",
+    "alamat": "Tamanan",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tamanmartani"
+  },
+  {
+    "npsn": "20404097",
+    "nama": "Sd Negeri Jumeneng Lor",
+    "jenjang": "SD",
+    "alamat": "Jumeneng Lor",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sumberadi"
+  },
+  {
+    "npsn": "20404125",
+    "nama": "Smp Muhammadiyah 2 Minggir",
+    "jenjang": "SMP",
+    "alamat": "Parakan",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangsari"
+  },
+  {
+    "npsn": "20401322",
+    "nama": "Sd Negeri Ngijon 2",
+    "jenjang": "SD",
+    "alamat": "Kruwet",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberagung"
+  },
+  {
+    "npsn": "70014136",
+    "nama": "Mts Darul Ulum Islamic School",
+    "jenjang": "MTS",
+    "alamat": "Kleben Rt 03 Rw 44",
+    "kapanewon": "Sleman",
+    "kalurahan": "Caturharjo"
+  },
+  {
+    "npsn": "20409798",
+    "nama": "Smp It Baitussalam Prambanan",
+    "jenjang": "SMP",
+    "alamat": "Pulerejo, Bokoharjo, Prambanan, Sleman",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Bokoharjo"
+  },
+  {
+    "npsn": "20401029",
+    "nama": "Smp Negeri 1 Minggir",
+    "jenjang": "SMP",
+    "alamat": "Prayan",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangsari"
+  },
+  {
+    "npsn": "20401595",
+    "nama": "Sd Negeri Ngaglik",
+    "jenjang": "SD",
+    "alamat": "Pencarsari",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sardonoharjo"
+  },
+  {
+    "npsn": "20401033",
+    "nama": "Smp Muhammadiyah 2 Kalasan",
+    "jenjang": "SMP",
+    "alamat": "Jl. Cangkringan Km. 3 Bayen",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "20401603",
+    "nama": "Sd Negeri Ngebelgede 1",
+    "jenjang": "SD",
+    "alamat": "Ngalangan",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sardonoharjo"
+  },
+  {
+    "npsn": "20401126",
+    "nama": "Sman 1 Prambanan",
+    "jenjang": "SMA",
+    "alamat": "Jl. Prambanan - Piyungan Km.4",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Madurejo"
+  },
+  {
+    "npsn": "20400833",
+    "nama": "Sd Negeri Soka",
+    "jenjang": "SD",
+    "alamat": "Soka",
+    "kapanewon": "Tempel",
+    "kalurahan": "Merdikorejo"
+  },
+  {
+    "npsn": "20401054",
+    "nama": "Smp Muhammadiyah 1 Mlati",
+    "jenjang": "SMP",
+    "alamat": "Jalan Magelang Kilometer 7,5",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sendangadi"
+  },
+  {
+    "npsn": "20411997",
+    "nama": "Mtsn 7 Sleman",
+    "jenjang": "MTS",
+    "alamat": "Jl.Cepet-Turi. Cepet",
+    "kapanewon": "Pakem",
+    "kalurahan": "Purwobinangun"
+  },
+  {
+    "npsn": "20401367",
+    "nama": "Sd Muhammadiyah Macanan",
+    "jenjang": "SD",
+    "alamat": "Sorasan",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Bimomartani"
+  },
+  {
+    "npsn": "20401646",
+    "nama": "Sd Negeri Giriharjo",
+    "jenjang": "SD",
+    "alamat": "Candi",
+    "kapanewon": "Pakem",
+    "kalurahan": "Purwobinangun"
+  },
+  {
+    "npsn": "69956225",
+    "nama": "Mis Daarul  Ulum Sinar Melati",
+    "jenjang": "MI",
+    "alamat": "Bulus Ii, Candibinangun, Pakem, Sleman",
+    "kapanewon": "Pakem",
+    "kalurahan": "Candibinangun"
+  },
+  {
+    "npsn": "20401395",
+    "nama": "Sd Negeri Candirejo",
+    "jenjang": "SD",
+    "alamat": "Candirejo",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sardonoharjo"
+  },
+  {
+    "npsn": "69861148",
+    "nama": "Sd Olifant Sleman",
+    "jenjang": "SPK SD",
+    "alamat": "Jl. Cenderawasih No. 4A-B Demangan Baru",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20400826",
+    "nama": "Sd Negeri Tunjungsari 1",
+    "jenjang": "SD",
+    "alamat": "Kledokan",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Selomartani"
+  },
+  {
+    "npsn": "60714122",
+    "nama": "Mis Ma`Arif Candran",
+    "jenjang": "MI",
+    "alamat": "Candran",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoarum"
+  },
+  {
+    "npsn": "20401725",
+    "nama": "Sd Negeri Jetisjogopaten",
+    "jenjang": "SD",
+    "alamat": "Jetis Jogopaten",
+    "kapanewon": "Sleman",
+    "kalurahan": "Pandowoharjo"
+  },
+  {
+    "npsn": "20401672",
+    "nama": "Sd Negeri Depok 1",
+    "jenjang": "SD",
+    "alamat": "Mustokorejo",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20404106",
+    "nama": "Sd Negeri Nyaen 1",
+    "jenjang": "SD",
+    "alamat": "Nyaen",
+    "kapanewon": "Sleman",
+    "kalurahan": "Pandowoharjo"
+  },
+  {
+    "npsn": "20401024",
+    "nama": "Smp Negeri 1 Tempel",
+    "jenjang": "SMP",
+    "alamat": "Ngebong",
+    "kapanewon": "Tempel",
+    "kalurahan": "Margorejo"
+  },
+  {
+    "npsn": "20401401",
+    "nama": "Sd Negeri Ngebelgede 2",
+    "jenjang": "SD",
+    "alamat": "Bendolole",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sardonoharjo"
+  },
+  {
+    "npsn": "20400879",
+    "nama": "Sd Negeri Wonosari 2",
+    "jenjang": "SD",
+    "alamat": "Rejodadi",
+    "kapanewon": "Turi",
+    "kalurahan": "Bangunkerto"
+  },
+  {
+    "npsn": "20401662",
+    "nama": "Sd Negeri Cibuk Lor",
+    "jenjang": "SD",
+    "alamat": "Cibuk Lor",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margoluwih"
+  },
+  {
+    "npsn": "20400851",
+    "nama": "Sd Negeri Sleman 1",
+    "jenjang": "SD",
+    "alamat": "Jl Kapten Haryadi No 5",
+    "kapanewon": "Sleman",
+    "kalurahan": "Triharjo"
+  },
+  {
+    "npsn": "20400887",
+    "nama": "Sd Negeri Turi 2",
+    "jenjang": "SD",
+    "alamat": "Kembangarum",
+    "kapanewon": "Turi",
+    "kalurahan": "Donokerto"
+  },
+  {
+    "npsn": "20400827",
+    "nama": "Sd Negeri Sutan",
+    "jenjang": "SD",
+    "alamat": "Sutan",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangsari"
+  },
+  {
+    "npsn": "20401565",
+    "nama": "Sd Negeri Kapukanda",
+    "jenjang": "SD",
+    "alamat": "Kapukanda",
+    "kapanewon": "Tempel",
+    "kalurahan": "Banyurejo"
+  },
+  {
+    "npsn": "20401013",
+    "nama": "Smp Muhammadiyah 1 Depok",
+    "jenjang": "SMP",
+    "alamat": "Stan",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20400910",
+    "nama": "Sd Negeri Pengkol",
+    "jenjang": "SD",
+    "alamat": "Pengkol",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoarum"
+  },
+  {
+    "npsn": "20401479",
+    "nama": "Sd Muhammadiyah Cepitsari",
+    "jenjang": "SD",
+    "alamat": "Cepitsari",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Glagaharjo"
+  },
+  {
+    "npsn": "20400916",
+    "nama": "Sd Negeri Perumnas 3",
+    "jenjang": "SD",
+    "alamat": "Tambak Boyo",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20400974",
+    "nama": "Sd Negeri Sinduadi 1",
+    "jenjang": "SD",
+    "alamat": "Jl. Magelang Km 06 Karanganyar No 59 A",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20400908",
+    "nama": "Sd Negeri Percobaan 2 Depok",
+    "jenjang": "SD",
+    "alamat": "Sekip",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20404132",
+    "nama": "Smp Muhammadiyah 2 Godean",
+    "jenjang": "SMP",
+    "alamat": "Sembuh Lor",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidomulyo"
+  },
+  {
+    "npsn": "20404079",
+    "nama": "Sd Idea Baru",
+    "jenjang": "SD",
+    "alamat": "Jl Solo Km 12 Cupuwatu",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "20400849",
+    "nama": "Sd Negeri Sukorejo",
+    "jenjang": "SD",
+    "alamat": "Sukorejo",
+    "kapanewon": "Turi",
+    "kalurahan": "Girikerto"
+  },
+  {
+    "npsn": "20400970",
+    "nama": "Sd Negeri Sinduadi Timur",
+    "jenjang": "SD",
+    "alamat": "Jl Pogung Raya No 2",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "70058069",
+    "nama": "Smp Muhammadiyah Boarding School Al Badar Prambanan",
+    "jenjang": "SMP",
+    "alamat": "Jl. Opak V, Jamusan",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Bokoharjo"
+  },
+  {
+    "npsn": "20401143",
+    "nama": "Smks Maarif 1 Sleman",
+    "jenjang": "SMK",
+    "alamat": "Watukarung",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margoagung"
+  },
+  {
+    "npsn": "70010553",
+    "nama": "Sd Islam Al Azhar 55 Yogyakarta",
+    "jenjang": "SD",
+    "alamat": "Jln. Padjajaran",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20401144",
+    "nama": "Smks Hamong Putera Pakem",
+    "jenjang": "SMK",
+    "alamat": "Jl. Balai Desa Harjobinangun",
+    "kapanewon": "Pakem",
+    "kalurahan": "Harjobinangun"
+  },
+  {
+    "npsn": "20401026",
+    "nama": "Smp Negeri 1 Seyegan",
+    "jenjang": "SMP",
+    "alamat": "Kasuran",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margomulyo"
+  },
+  {
+    "npsn": "60714133",
+    "nama": "Mis Ma`Arif Watukarung",
+    "jenjang": "MI",
+    "alamat": "Watukarung",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margoagung"
+  },
+  {
+    "npsn": "20409801",
+    "nama": "Sma Budi Mulia Dua",
+    "jenjang": "SMA",
+    "alamat": "Jl. Raya Tajem Panjen",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Wedomartani"
+  },
+  {
+    "npsn": "20401542",
+    "nama": "Sd Negeri Krajan",
+    "jenjang": "SD",
+    "alamat": "Pirak",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoluhur"
+  },
+  {
+    "npsn": "20401071",
+    "nama": "Smp Negeri 1 Ngemplak",
+    "jenjang": "SMP",
+    "alamat": "Jangkang",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Widodomartani"
+  },
+  {
+    "npsn": "20401697",
+    "nama": "Sd Negeri Kalasan 1",
+    "jenjang": "SD",
+    "alamat": "Krajan",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tirtomartani"
+  },
+  {
+    "npsn": "20401552",
+    "nama": "Sd Negeri Kranggan",
+    "jenjang": "SD",
+    "alamat": "Kranggan",
+    "kapanewon": "Berbah",
+    "kalurahan": "Jogotirto"
+  },
+  {
+    "npsn": "20400943",
+    "nama": "Sd Negeri Pakem 1",
+    "jenjang": "SD",
+    "alamat": "Tegalsari",
+    "kapanewon": "Pakem",
+    "kalurahan": "Pakembinangun"
+  },
+  {
+    "npsn": "20401369",
+    "nama": "Sd Muhammadiyah Kregan",
+    "jenjang": "SD",
+    "alamat": "Krajan",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Wukirsari"
+  },
+  {
+    "npsn": "20401379",
+    "nama": "Sd Negeri Bogem 2",
+    "jenjang": "SD",
+    "alamat": "Bogem",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tamanmartani"
+  },
+  {
+    "npsn": "60714135",
+    "nama": "Mis Muhammadiyah Al Muttaqien",
+    "jenjang": "MI",
+    "alamat": "Medari Cilik, Rt.04/16",
+    "kapanewon": "Sleman",
+    "kalurahan": "Caturharjo"
+  },
+  {
+    "npsn": "69976392",
+    "nama": "Mts Irsyadul Anam",
+    "jenjang": "MTS",
+    "alamat": "Kiyudan Selomrtani Kalasan",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Selomartani"
+  },
+  {
+    "npsn": "20400828",
+    "nama": "Sd Negeri Sorogenen 2",
+    "jenjang": "SD",
+    "alamat": "Sorogenen 1, Rt.04 / Rw.01",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "20401503",
+    "nama": "Sd Kanisius Totogan",
+    "jenjang": "SD",
+    "alamat": "Totogan",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Madurejo"
+  },
+  {
+    "npsn": "20401153",
+    "nama": "Smas Maarif 1 Sleman",
+    "jenjang": "SMA",
+    "alamat": "Jl. Turi Km. 1 Tempel",
+    "kapanewon": "Tempel",
+    "kalurahan": "Merdikorejo"
+  },
+  {
+    "npsn": "20401506",
+    "nama": "Sd Kanisius Demangan Baru 1",
+    "jenjang": "SD",
+    "alamat": "Jln. Demangan Baru 22",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20401713",
+    "nama": "Sd Negeri Gungan",
+    "jenjang": "SD",
+    "alamat": "Duwet",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Wukirsari"
+  },
+  {
+    "npsn": "20401312",
+    "nama": "Smks Pembaharuan Indonesia Sleman",
+    "jenjang": "SMK",
+    "alamat": "Jl. Magelang Km. 17",
+    "kapanewon": "Tempel",
+    "kalurahan": "Margorejo"
+  },
+  {
+    "npsn": "20401501",
+    "nama": "Sd Muhammadiyah Bleber",
+    "jenjang": "SD",
+    "alamat": "Bleber",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Sumberharjo"
+  },
+  {
+    "npsn": "69853438",
+    "nama": "Mts Assalafiyyah Mlangi Sleman",
+    "jenjang": "MTS",
+    "alamat": "Jl. Mlangi - Sawahan Ring Road Barat",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20401122",
+    "nama": "Sman 1 Tempel",
+    "jenjang": "SMA",
+    "alamat": "Banjarharjo, Pondokrejo",
+    "kapanewon": "Tempel",
+    "kalurahan": "Pondokrejo"
+  },
+  {
+    "npsn": "20401097",
+    "nama": "Smp Negeri 3 Prambanan",
+    "jenjang": "SMP",
+    "alamat": "Jali",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Gayamharjo"
+  },
+  {
+    "npsn": "69971766",
+    "nama": "Sd Islam Terpadu Ash Shiddiq",
+    "jenjang": "SD",
+    "alamat": "Penen Rt 04 Rw 34",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Donoharjo"
+  },
+  {
+    "npsn": "20400839",
+    "nama": "Sd Negeri Srowolan",
+    "jenjang": "SD",
+    "alamat": "Sembung",
+    "kapanewon": "Pakem",
+    "kalurahan": "Purwobinangun"
+  },
+  {
+    "npsn": "20401541",
+    "nama": "Sd Negeri Kowangbinangun",
+    "jenjang": "SD",
+    "alamat": "Kowang",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tamanmartani"
+  },
+  {
+    "npsn": "20401500",
+    "nama": "Sd Muhammadiyah Bolu",
+    "jenjang": "SD",
+    "alamat": "Bolu",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margokaton"
+  },
+  {
+    "npsn": "20401699",
+    "nama": "Sd Negeri Kandangan 2",
+    "jenjang": "SD",
+    "alamat": "Pendekan",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margodadi"
+  },
+  {
+    "npsn": "20401532",
+    "nama": "Sd Negeri Klodangan",
+    "jenjang": "SD",
+    "alamat": "Gamelan",
+    "kapanewon": "Berbah",
+    "kalurahan": "Sendangtirto"
+  },
+  {
+    "npsn": "20401531",
+    "nama": "Sd Negeri Kloposawit",
+    "jenjang": "SD",
+    "alamat": "Girikerto",
+    "kapanewon": "Turi",
+    "kalurahan": "Girikerto"
+  },
+  {
+    "npsn": "20404091",
+    "nama": "Sd Muhammadiyah Suronandan",
+    "jenjang": "SD",
+    "alamat": "Soronandan",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangrejo"
+  },
+  {
+    "npsn": "70049116",
+    "nama": "Mi Al Ikhlas",
+    "jenjang": "MI",
+    "alamat": "Jogotirto Berbah Sleman",
+    "kapanewon": "Berbah",
+    "kalurahan": "Jogotirto"
+  },
+  {
+    "npsn": "20401716",
+    "nama": "Sd Negeri Gombang",
+    "jenjang": "SD",
+    "alamat": "Rajek Lor",
+    "kapanewon": "Mlati",
+    "kalurahan": "Tirtoadi"
+  },
+  {
+    "npsn": "69944313",
+    "nama": "Sma Budi Utama",
+    "jenjang": "SMA",
+    "alamat": "Jl. Wijayakusuma 122, Kutu Dukuh",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20401706",
+    "nama": "Sd Negeri Kaliajir",
+    "jenjang": "SD",
+    "alamat": "Kaliajir Lor",
+    "kapanewon": "Berbah",
+    "kalurahan": "Kalitirto"
+  },
+  {
+    "npsn": "20401604",
+    "nama": "Sd Negeri Nganggrung",
+    "jenjang": "SD",
+    "alamat": "Nganggrung",
+    "kapanewon": "Turi",
+    "kalurahan": "Wonokerto"
+  },
+  {
+    "npsn": "60724862",
+    "nama": "Smp Sunan Averroes",
+    "jenjang": "SMP",
+    "alamat": "Jalan Wonosari Km 7.9 Sekarsuli Rt 06 Rw 23",
+    "kapanewon": "Berbah",
+    "kalurahan": "Sendangtirto"
+  },
+  {
+    "npsn": "20401729",
+    "nama": "Sd Negeri Jatisari",
+    "jenjang": "SD",
+    "alamat": "Jaten",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sendangadi"
+  },
+  {
+    "npsn": "20401657",
+    "nama": "Sd Negeri Depok 2",
+    "jenjang": "SD",
+    "alamat": "Manisrejo",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20404104",
+    "nama": "Sd Negeri Nglempong",
+    "jenjang": "SD",
+    "alamat": "Nglempong",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sariharjo"
+  },
+  {
+    "npsn": "20401424",
+    "nama": "Sd Negeri Banyurejo 2",
+    "jenjang": "SD",
+    "alamat": "Barongan",
+    "kapanewon": "Tempel",
+    "kalurahan": "Banyurejo"
+  },
+  {
+    "npsn": "20401622",
+    "nama": "Sd Negeri Moyudan",
+    "jenjang": "SD",
+    "alamat": "Moyudan",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberrahayu"
+  },
+  {
+    "npsn": "20401177",
+    "nama": "Smks Muhammadiyah 1 Kalasan",
+    "jenjang": "SMK",
+    "alamat": "Ngajeg",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tirtomartani"
+  },
+  {
+    "npsn": "20400966",
+    "nama": "Sd Negeri Sejati",
+    "jenjang": "SD",
+    "alamat": "Sejati Pasar",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberarum"
+  },
+  {
+    "npsn": "20401535",
+    "nama": "Sd Negeri Klegung 1",
+    "jenjang": "SD",
+    "alamat": "Lodoyong",
+    "kapanewon": "Tempel",
+    "kalurahan": "Lumbungrejo"
+  },
+  {
+    "npsn": "20401701",
+    "nama": "Sd Negeri Kalongan",
+    "jenjang": "SD",
+    "alamat": "Kalongan",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20400935",
+    "nama": "Sd Negeri Nogosaren",
+    "jenjang": "SD",
+    "alamat": "Nogosaren",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20400936",
+    "nama": "Sd Negeri Ngringin",
+    "jenjang": "SD",
+    "alamat": "Sejati Trukan Sumberarum Moyudan Sleman Yogyakarta",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberarum"
+  },
+  {
+    "npsn": "20401425",
+    "nama": "Sd Negeri Babarsari",
+    "jenjang": "SD",
+    "alamat": "Kledokan",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20401596",
+    "nama": "Sd Negeri Ngetal",
+    "jenjang": "SD",
+    "alamat": "Ngetal",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margoagung"
+  },
+  {
+    "npsn": "20401634",
+    "nama": "Sd Negeri Gamol",
+    "jenjang": "SD",
+    "alamat": "Gamol",
+    "kapanewon": "Gamping",
+    "kalurahan": "Balecatur"
+  },
+  {
+    "npsn": "70033516",
+    "nama": "Ma Darussalam Jogokerten",
+    "jenjang": "MA",
+    "alamat": "Jl Turi Rt 01/Rw 13 Jogokerten Trimulyo Sleman",
+    "kapanewon": "Sleman",
+    "kalurahan": "Trimulyo"
+  },
+  {
+    "npsn": "70036875",
+    "nama": "Smp Global Islamic School 3",
+    "jenjang": "SMP",
+    "alamat": "Jln. Selokan Mataram, Maguwoharjo, Depok, Sleman",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20401402",
+    "nama": "Sd Negeri Banteran 1",
+    "jenjang": "SD",
+    "alamat": "Bakalan",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Donoharjo"
+  },
+  {
+    "npsn": "69880392",
+    "nama": "Sekolah Menengah Pertama Yogyakarta Independent School",
+    "jenjang": "SPK SMP",
+    "alamat": "Jl. Tegal Mlati No. 1",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20401590",
+    "nama": "Sd Muhammadiyah Gendol 7",
+    "jenjang": "SD",
+    "alamat": "Klangkapan",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margoluwih"
+  },
+  {
+    "npsn": "20400918",
+    "nama": "Sd Negeri Perumnas Condongcatur",
+    "jenjang": "SD",
+    "alamat": "Jl. Flamboyan No.11",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20401656",
+    "nama": "Sd Negeri Deresan",
+    "jenjang": "SD",
+    "alamat": "Jl. Cempaka Ct X, Deresan",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "60714130",
+    "nama": "Mis Qurrota A`Yun",
+    "jenjang": "MI",
+    "alamat": "Blotan Rt 03 Rw 40",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Wedomartani"
+  },
+  {
+    "npsn": "20404096",
+    "nama": "Sd Negeri Candisari",
+    "jenjang": "SD",
+    "alamat": "Candisari",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Wukirharjo"
+  },
+  {
+    "npsn": "70006628",
+    "nama": "Smp Islam Terpadu Bakti Insani",
+    "jenjang": "SMP",
+    "alamat": "Jumeneng Kidul, Rt 6, Rw 21",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sumberadi"
+  },
+  {
+    "npsn": "20401546",
+    "nama": "Sd Negeri Kwagon",
+    "jenjang": "SD",
+    "alamat": "Pare",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidorejo"
+  },
+  {
+    "npsn": "20404587",
+    "nama": "Smp Muhammadiyah 1 Gamping",
+    "jenjang": "SMP",
+    "alamat": "Jl. Wates Km. 6 Yogyakarta. Depok.  Ambarketawang. Gamping. Sleman.",
+    "kapanewon": "Gamping",
+    "kalurahan": "Ambarketawang"
+  },
+  {
+    "npsn": "20401025",
+    "nama": "Smp Negeri 1 Sleman",
+    "jenjang": "SMP",
+    "alamat": "Jl. Bhayangkara 27",
+    "kapanewon": "Sleman",
+    "kalurahan": "Caturharjo"
+  },
+  {
+    "npsn": "20404130",
+    "nama": "Smp Santo Aloysius Sleman",
+    "jenjang": "SMP",
+    "alamat": "Jalan Perkutut, Jaban",
+    "kapanewon": "Sleman",
+    "kalurahan": "Tridadi"
+  },
+  {
+    "npsn": "20400802",
+    "nama": "Sd Negeri Tegalyoso",
+    "jenjang": "SD",
+    "alamat": "Turusan",
+    "kapanewon": "Gamping",
+    "kalurahan": "Banyuraden"
+  },
+  {
+    "npsn": "20401415",
+    "nama": "Sd Negeri Bedog",
+    "jenjang": "SD",
+    "alamat": "Bedog",
+    "kapanewon": "Gamping",
+    "kalurahan": "Trihanggo"
+  },
+  {
+    "npsn": "20401347",
+    "nama": "Sd Muhammadiyah Sidomulyo",
+    "jenjang": "SD",
+    "alamat": "Gancahan Vii",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidomulyo"
+  },
+  {
+    "npsn": "60714128",
+    "nama": "Mis Darul Huda",
+    "jenjang": "MI",
+    "alamat": "Banturejo",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sukoharjo"
+  },
+  {
+    "npsn": "20400979",
+    "nama": "Sd Negeri Sidoarum",
+    "jenjang": "SD",
+    "alamat": "Potrowangsan",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoarum"
+  },
+  {
+    "npsn": "20400841",
+    "nama": "Sd Negeri Susukan",
+    "jenjang": "SD",
+    "alamat": "Susukan",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margokaton"
+  },
+  {
+    "npsn": "20401136",
+    "nama": "Smkn 1 Tempel",
+    "jenjang": "SMK",
+    "alamat": "Jalan Magelang Km 17 Yogyakarta",
+    "kapanewon": "Tempel",
+    "kalurahan": "Margorejo"
+  },
+  {
+    "npsn": "20401021",
+    "nama": "Smp Sultan Agung Seyegan",
+    "jenjang": "SMP",
+    "alamat": "Susukan",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margokaton"
+  },
+  {
+    "npsn": "20404124",
+    "nama": "Smp Muhammadiyah Pakem",
+    "jenjang": "SMP",
+    "alamat": "Tegal Sari Pakembinangun",
+    "kapanewon": "Pakem",
+    "kalurahan": "Pakembinangun"
+  },
+  {
+    "npsn": "20400924",
+    "nama": "Sd Negeri Pogung Kidul",
+    "jenjang": "SD",
+    "alamat": "Pogung Kidul",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20401520",
+    "nama": "Sd Kanisius Minggir",
+    "jenjang": "SD",
+    "alamat": "Minggir",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangagung"
+  },
+  {
+    "npsn": "20401038",
+    "nama": "Smks Yppn Sleman",
+    "jenjang": "SMK",
+    "alamat": "Jl. Tengiri Raya No 2 Kalurahan Minomartani Kapanewon Ngaglik, Kabupaten Sleman",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Minomartani"
+  },
+  {
+    "npsn": "20401722",
+    "nama": "Sd Negeri Jagamangsan 3",
+    "jenjang": "SD",
+    "alamat": "Krasaan",
+    "kapanewon": "Berbah",
+    "kalurahan": "Jogotirto"
+  },
+  {
+    "npsn": "20401078",
+    "nama": "Smp Negeri 1 Moyudan",
+    "jenjang": "SMP",
+    "alamat": "Blendung",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumbersari"
+  },
+  {
+    "npsn": "20401691",
+    "nama": "Sd Negeri Jombor Lor",
+    "jenjang": "SD",
+    "alamat": "Bakalan",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "70048446",
+    "nama": "Smk Ahmad Syafii",
+    "jenjang": "SMK",
+    "alamat": "Jalan Cendrawasih No.001, Pringwulung",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20401365",
+    "nama": "Sd Muhammadiyah Ngabean I",
+    "jenjang": "SD",
+    "alamat": "Kemusuh",
+    "kapanewon": "Tempel",
+    "kalurahan": "Banyurejo"
+  },
+  {
+    "npsn": "20401342",
+    "nama": "Sd Muhammadiyah Trini",
+    "jenjang": "SD",
+    "alamat": "Trini Rt05 Rw17",
+    "kapanewon": "Gamping",
+    "kalurahan": "Trihanggo"
+  },
+  {
+    "npsn": "20400925",
+    "nama": "Sd Negeri Plaosan 2",
+    "jenjang": "SD",
+    "alamat": "Plaosan, Rt 01 / Rw 20",
+    "kapanewon": "Mlati",
+    "kalurahan": "Tlogoadi"
+  },
+  {
+    "npsn": "69962416",
+    "nama": "Sd Sanjaya Tritis",
+    "jenjang": "SD",
+    "alamat": "Tritis",
+    "kapanewon": "Pakem",
+    "kalurahan": "Purwobinangun"
+  },
+  {
+    "npsn": "20401653",
+    "nama": "Sd Negeri Gemawang",
+    "jenjang": "SD",
+    "alamat": "Gemawang",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20404086",
+    "nama": "Sd Muhammadiyah Ngijon I",
+    "jenjang": "SD",
+    "alamat": "Turgenen",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberagung"
+  },
+  {
+    "npsn": "20401543",
+    "nama": "Sd Negeri Madusari 1",
+    "jenjang": "SD",
+    "alamat": "Madubaru",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Madurejo"
+  },
+  {
+    "npsn": "20404108",
+    "nama": "Sd Negeri Pendowoharjo",
+    "jenjang": "SD",
+    "alamat": "Kleben",
+    "kapanewon": "Sleman",
+    "kalurahan": "Pandowoharjo"
+  },
+  {
+    "npsn": "20401129",
+    "nama": "Sman 1 Ngaglik",
+    "jenjang": "SMA",
+    "alamat": "Jl. Palagan Tentara Pelajar, Kayunan",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Donoharjo"
+  },
+  {
+    "npsn": "20401619",
+    "nama": "Sd Negeri Mejing 2",
+    "jenjang": "SD",
+    "alamat": "Patukan",
+    "kapanewon": "Gamping",
+    "kalurahan": "Ambarketawang"
+  },
+  {
+    "npsn": "20400846",
+    "nama": "Sd Negeri Sumber 2",
+    "jenjang": "SD",
+    "alamat": "Sumber Kulon",
+    "kapanewon": "Berbah",
+    "kalurahan": "Kalitirto"
+  },
+  {
+    "npsn": "20401061",
+    "nama": "Smp Negeri 4 Ngaglik",
+    "jenjang": "SMP",
+    "alamat": "Jln. Tentara Pelajar",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sariharjo"
+  },
+  {
+    "npsn": "60727334",
+    "nama": "Mtss Anwar Futuhiyyah",
+    "jenjang": "MTS",
+    "alamat": "Blotan",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Wedomartani"
+  },
+  {
+    "npsn": "20400881",
+    "nama": "Sd Negeri Wonosalam",
+    "jenjang": "SD",
+    "alamat": "Wonosalam",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sukoharjo"
+  },
+  {
+    "npsn": "20400962",
+    "nama": "Sd Negeri Semarangan 2",
+    "jenjang": "SD",
+    "alamat": "Nogosari",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidokarto"
+  },
+  {
+    "npsn": "20401675",
+    "nama": "Sd Negeri Demakijo 1",
+    "jenjang": "SD",
+    "alamat": "Guyangan",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20404115",
+    "nama": "Smp Budi Mulia Dua",
+    "jenjang": "SMP",
+    "alamat": "Jln Raya Tajem, Panjen",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Wedomartani"
+  },
+  {
+    "npsn": "20401305",
+    "nama": "Smks Karya Rini Sleman",
+    "jenjang": "SMK",
+    "alamat": "Jl. Laksda Adisucipto 86",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20400872",
+    "nama": "Smas Gama Depok Yogjakarta",
+    "jenjang": "SMA",
+    "alamat": "Jl. Gejayan Mrican No. 5 Yogyakarta",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20401663",
+    "nama": "Sd Negeri Cemoroharjo",
+    "jenjang": "SD",
+    "alamat": "Cemoroharjo",
+    "kapanewon": "Pakem",
+    "kalurahan": "Candibinangun"
+  },
+  {
+    "npsn": "20401062",
+    "nama": "Smp Negeri 2 Moyudan",
+    "jenjang": "SMP",
+    "alamat": "Setran",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberarum"
+  },
+  {
+    "npsn": "20401380",
+    "nama": "Sd Negeri Bogem 1",
+    "jenjang": "SD",
+    "alamat": "Kepatihan",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tamanmartani"
+  },
+  {
+    "npsn": "20401587",
+    "nama": "Sd Muhammadiyah Ngijon Ii",
+    "jenjang": "SD",
+    "alamat": "Sermo",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberarum"
+  },
+  {
+    "npsn": "20401599",
+    "nama": "Sd Negeri Ngemplak 4",
+    "jenjang": "SD",
+    "alamat": "Jetis",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Widodomartani"
+  },
+  {
+    "npsn": "20400940",
+    "nama": "Sd Negeri Nglahar",
+    "jenjang": "SD",
+    "alamat": "Menulis",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumbersari"
+  },
+  {
+    "npsn": "20401645",
+    "nama": "Sd Negeri Gayamharjo",
+    "jenjang": "SD",
+    "alamat": "Nawung",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Gayamharjo"
+  },
+  {
+    "npsn": "70015076",
+    "nama": "Smp Bumi Cendekia",
+    "jenjang": "SMP",
+    "alamat": "Gombang",
+    "kapanewon": "Mlati",
+    "kalurahan": "Tirtoadi"
+  },
+  {
+    "npsn": "20401055",
+    "nama": "Smp Muhammadiyah 1 Minggir",
+    "jenjang": "SMP",
+    "alamat": "Gedongan,Sendang Arum",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangarum"
+  },
+  {
+    "npsn": "70050708",
+    "nama": "Sma Santri Pancasila",
+    "jenjang": "SMA",
+    "alamat": "Jl. Wonosari No.9, Sekarsuli, Sendangtirto, Kec. Berbah, Kabupaten Sleman, Daera",
+    "kapanewon": "Berbah",
+    "kalurahan": "Sendangtirto"
+  },
+  {
+    "npsn": "70035733",
+    "nama": "Mi Ma`Arif Taskia",
+    "jenjang": "MI",
+    "alamat": "Cokrogaten Bimomartani Ngemplak",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Bimomartani"
+  },
+  {
+    "npsn": "70050605",
+    "nama": "Sma Global Darussalam Academy",
+    "jenjang": "SMA",
+    "alamat": "Jl.Boyong Gondanglegi Pandanpuro Hargobinangun Pakem Sleman",
+    "kapanewon": "Pakem",
+    "kalurahan": "Hargobinangun"
+  },
+  {
+    "npsn": "20401614",
+    "nama": "Sd Negeri Margokaton",
+    "jenjang": "SD",
+    "alamat": "Sonoharjo",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margokaton"
+  },
+  {
+    "npsn": "70047241",
+    "nama": "Sdtk Permata Nusantara",
+    "jenjang": "SDTK",
+    "alamat": "Kaliurang Barat Hargobinangun Pakem Sleman",
+    "kapanewon": "Pakem",
+    "kalurahan": "Hargobinangun"
+  },
+  {
+    "npsn": "20401636",
+    "nama": "Sd Negeri Gabahan",
+    "jenjang": "SD",
+    "alamat": "Gabahan",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sumberadi"
+  },
+  {
+    "npsn": "20400926",
+    "nama": "Sd Negeri Plaosan 1",
+    "jenjang": "SD",
+    "alamat": "Plaosan",
+    "kapanewon": "Mlati",
+    "kalurahan": "Tlogoadi"
+  },
+  {
+    "npsn": "20401169",
+    "nama": "Smas Muhammadiyah Pakem",
+    "jenjang": "SMA",
+    "alamat": "Jl. Kaliurang Km.17 Yogyakarta",
+    "kapanewon": "Pakem",
+    "kalurahan": "Pakembinangun"
+  },
+  {
+    "npsn": "60726866",
+    "nama": "Mis An Nuur",
+    "jenjang": "MI",
+    "alamat": "Ngangkrik",
+    "kapanewon": "Sleman",
+    "kalurahan": "Triharjo"
+  },
+  {
+    "npsn": "20401146",
+    "nama": "Sman 1 Godean",
+    "jenjang": "SMA",
+    "alamat": "Jl. Sidokarto No. 5, Godean, Sleman",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidokarto"
+  },
+  {
+    "npsn": "20401652",
+    "nama": "Sd Negeri Gendengan",
+    "jenjang": "SD",
+    "alamat": "Gendengan",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margodadi"
+  },
+  {
+    "npsn": "20401632",
+    "nama": "Sd Negeri Glagaharjo",
+    "jenjang": "SD",
+    "alamat": "Jetissumur",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Glagaharjo"
+  },
+  {
+    "npsn": "20401650",
+    "nama": "Sd Negeri Gentan",
+    "jenjang": "SD",
+    "alamat": "Gentan, Sinduharjo,",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sinduharjo"
+  },
+  {
+    "npsn": "20401124",
+    "nama": "Sman 1 Sleman",
+    "jenjang": "SMA",
+    "alamat": "Jl. Magelang Km. 14.4 Medari",
+    "kapanewon": "Sleman",
+    "kalurahan": "Caturharjo"
+  },
+  {
+    "npsn": "20401688",
+    "nama": "Sd Negeri Kadisobo 2",
+    "jenjang": "SD",
+    "alamat": "Jogokerten",
+    "kapanewon": "Sleman",
+    "kalurahan": "Trimulyo"
+  },
+  {
+    "npsn": "20401389",
+    "nama": "Sd Negeri Bronggang",
+    "jenjang": "SD",
+    "alamat": "Gayam",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Argomulyo"
+  },
+  {
+    "npsn": "20401074",
+    "nama": "Smp Negeri 4 Sleman",
+    "jenjang": "SMP",
+    "alamat": "Jalan Turi Km.3",
+    "kapanewon": "Sleman",
+    "kalurahan": "Trimulyo"
+  },
+  {
+    "npsn": "20401494",
+    "nama": "Sd Muhammadiyah Domban Iii",
+    "jenjang": "SD",
+    "alamat": "Tegal Domban",
+    "kapanewon": "Tempel",
+    "kalurahan": "Margorejo"
+  },
+  {
+    "npsn": "20400997",
+    "nama": "Sd Negeri Samirono",
+    "jenjang": "SD",
+    "alamat": "Jl. Colombo 002",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "70026483",
+    "nama": "Smpit Baitussalam 2 Cangkringan",
+    "jenjang": "SMP",
+    "alamat": "Salam",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Wukirsari"
+  },
+  {
+    "npsn": "69955982",
+    "nama": "Mts Al Qodir Wukirsari Cangkringan Sleman",
+    "jenjang": "MTS",
+    "alamat": "Tanjung Rt 004 Rw 24",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Wukirsari"
+  },
+  {
+    "npsn": "69772535",
+    "nama": "Smks Kesehatan Sadewa",
+    "jenjang": "SMK",
+    "alamat": "Babarsari Tb Xvi No. 13B  Catur Tunggal Depok Sleman",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20404085",
+    "nama": "Sd Muhammadiyah Komplek Kolombo",
+    "jenjang": "SD",
+    "alamat": "Jl. Rajawali No. 10, Demangan Baru",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20400991",
+    "nama": "Sd Negeri Puren",
+    "jenjang": "SD",
+    "alamat": "Jalan Tantular 93, Pringwulung",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "69772536",
+    "nama": "Smks Budi Mulia Dua",
+    "jenjang": "SMK",
+    "alamat": "Jl. Raya Tajem, Nomporejo, Wedomartani, Ngemplak, Sleman",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Wedomartani"
+  },
+  {
+    "npsn": "20400873",
+    "nama": "Smas Dr Wahidin Mlati",
+    "jenjang": "SMA",
+    "alamat": "Jl. Magelang Km. 5 Mlati",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20401727",
+    "nama": "Sd Negeri Jetak",
+    "jenjang": "SD",
+    "alamat": "Jetak",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidokarto"
+  },
+  {
+    "npsn": "70013203",
+    "nama": "Sd Islam Al-Azhar Cairo Yogyakarta",
+    "jenjang": "SD",
+    "alamat": "Jalan Bimo No. 1, Candirejo",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sardonoharjo"
+  },
+  {
+    "npsn": "20401564",
+    "nama": "Sd Negeri Karakan",
+    "jenjang": "SD",
+    "alamat": "Dukuh",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidomoyo"
+  },
+  {
+    "npsn": "20401361",
+    "nama": "Sd Muhammadiyah Karangharjo",
+    "jenjang": "SD",
+    "alamat": "Bedilan Rt 02 Rw 37",
+    "kapanewon": "Berbah",
+    "kalurahan": "Kalitirto"
+  },
+  {
+    "npsn": "20401660",
+    "nama": "Sd Negeri Condongcatur",
+    "jenjang": "SD",
+    "alamat": "Jl Kaliurang Km 6,5",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20401045",
+    "nama": "Smp Kanisius Kalasan",
+    "jenjang": "SMP",
+    "alamat": "Krajan",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tirtomartani"
+  },
+  {
+    "npsn": "20404586",
+    "nama": "Smpit Ibnu Abbas Godean",
+    "jenjang": "SMP",
+    "alamat": "Beluran",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidomoyo"
+  },
+  {
+    "npsn": "20401734",
+    "nama": "Sd Negeri Jamblangan",
+    "jenjang": "SD",
+    "alamat": "Jamblangan",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margomulyo"
+  },
+  {
+    "npsn": "70032970",
+    "nama": "Ma Pamulangan",
+    "jenjang": "MA",
+    "alamat": "Bulak Tungkul, Beji 013/09, Sidoarum, Godean, Sleman",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20401010",
+    "nama": "Smp Pangudi Luhur Moyudan",
+    "jenjang": "SMP",
+    "alamat": "Mergan, Sumberagung, Moyudan, Sleman",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberagung"
+  },
+  {
+    "npsn": "20724857",
+    "nama": "Smp Islam Al Azhar 26 Yogyakarta",
+    "jenjang": "SMP",
+    "alamat": "Jalan Padjajaran",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20401352",
+    "nama": "Sd Muhammadiyah Gunungharjo 2",
+    "jenjang": "SD",
+    "alamat": "Losari",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Wukirharjo"
+  },
+  {
+    "npsn": "20400967",
+    "nama": "Sd Negeri Sendangagung",
+    "jenjang": "SD",
+    "alamat": "Nanggulan",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangagung"
+  },
+  {
+    "npsn": "20401066",
+    "nama": "Smp Negeri 4 Gamping",
+    "jenjang": "SMP",
+    "alamat": "Kalimanjung",
+    "kapanewon": "Gamping",
+    "kalurahan": "Ambarketawang"
+  },
+  {
+    "npsn": "20407390",
+    "nama": "Smks Muhammadiyah Gamping",
+    "jenjang": "SMK",
+    "alamat": "Jl. Wates Km.6 Depok",
+    "kapanewon": "Gamping",
+    "kalurahan": "Ambarketawang"
+  },
+  {
+    "npsn": "20404133",
+    "nama": "Smp Negeri 4 Depok",
+    "jenjang": "SMP",
+    "alamat": "Babarsari",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20401355",
+    "nama": "Sd Muhammadiyah Girikerto",
+    "jenjang": "SD",
+    "alamat": "Sidorejo",
+    "kapanewon": "Turi",
+    "kalurahan": "Girikerto"
+  },
+  {
+    "npsn": "20401056",
+    "nama": "Smp Muhammadiyah 1 Godean",
+    "jenjang": "SMP",
+    "alamat": "Sidoluhur",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoluhur"
+  },
+  {
+    "npsn": "20401065",
+    "nama": "Smp Negeri 2 Ngaglik",
+    "jenjang": "SMP",
+    "alamat": "Jl.Kaliurang Km. 10",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sinduharjo"
+  },
+  {
+    "npsn": "20401547",
+    "nama": "Sd Negeri Kuwang",
+    "jenjang": "SD",
+    "alamat": "Kwangen-Teplok",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Argomulyo"
+  },
+  {
+    "npsn": "20404148",
+    "nama": "Sd It Ukhuwah Islamiyah",
+    "jenjang": "SD",
+    "alamat": "Jl. Candi Sambisari, Kadirojo 1, Purwomartani, Kalasan, Sleman",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "20401321",
+    "nama": "Smks Ypkk 1 Sleman",
+    "jenjang": "SMK",
+    "alamat": "Jl. Sayangan No. 5 Mejing Wetan",
+    "kapanewon": "Gamping",
+    "kalurahan": "Ambarketawang"
+  },
+  {
+    "npsn": "20411995",
+    "nama": "Mtss Taruna Al Qur`An",
+    "jenjang": "MTS",
+    "alamat": "Jl.Lempongsari 4A",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sariharjo"
+  },
+  {
+    "npsn": "20401178",
+    "nama": "Smks Muda Patria Sleman",
+    "jenjang": "SMK",
+    "alamat": "Jl. Solo Km 16 Bogem Pos Kalasan",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tamanmartani"
+  },
+  {
+    "npsn": "20401508",
+    "nama": "Sd Kanisius Babadan",
+    "jenjang": "SD",
+    "alamat": "Babadan",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Wedomartani"
+  },
+  {
+    "npsn": "69956226",
+    "nama": "Mis Tafaqquh Fiddin Al Mubaarok",
+    "jenjang": "MI",
+    "alamat": "Kendal Rt 05 Rw 12",
+    "kapanewon": "Turi",
+    "kalurahan": "Bangunkerto"
+  },
+  {
+    "npsn": "20401502",
+    "nama": "Sd Muhammadiyah Bendosari",
+    "jenjang": "SD",
+    "alamat": "Bendosari, Rt 02 Rw 02",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Madurejo"
+  },
+  {
+    "npsn": "20400984",
+    "nama": "Sd Negeri Randusari",
+    "jenjang": "SD",
+    "alamat": "Cokrogaten",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Bimomartani"
+  },
+  {
+    "npsn": "60714129",
+    "nama": "Mis Sunan Pandanaran",
+    "jenjang": "MI",
+    "alamat": "Jl. Nglanjaran 4, Nglanjaran",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sardonoharjo"
+  },
+  {
+    "npsn": "20400809",
+    "nama": "Sd Negeri Tamanan 3",
+    "jenjang": "SD",
+    "alamat": "Tegalrejo",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tamanmartani"
+  },
+  {
+    "npsn": "20401344",
+    "nama": "Sd Muhammadiyah Sunten",
+    "jenjang": "SD",
+    "alamat": "Sunten",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangrejo"
+  },
+  {
+    "npsn": "70054327",
+    "nama": "Sma Islam Al Azhar 34 Yogyakarta",
+    "jenjang": "SMA",
+    "alamat": "Jl. Siliwangi (Ring Road Barat)",
+    "kapanewon": "Gamping",
+    "kalurahan": "Banyuraden"
+  },
+  {
+    "npsn": "20401499",
+    "nama": "Sd Muhammadiyah Bulu",
+    "jenjang": "SD",
+    "alamat": "Caren",
+    "kapanewon": "Berbah",
+    "kalurahan": "Jogotirto"
+  },
+  {
+    "npsn": "20404146",
+    "nama": "Sdit Salsabila Klaseman",
+    "jenjang": "SD",
+    "alamat": "Jl. Pamularsih Rt 06/38 Klaseman",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sinduharjo"
+  },
+  {
+    "npsn": "69976387",
+    "nama": "Mi Al-Wahdah",
+    "jenjang": "MI",
+    "alamat": "Jl. Kaliurang Km 10, Dusun Jetis Baran",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sardonoharjo"
+  },
+  {
+    "npsn": "20401142",
+    "nama": "Smks Muhammadiyah 1 Tempel",
+    "jenjang": "SMK",
+    "alamat": "Sanggrahan",
+    "kapanewon": "Tempel",
+    "kalurahan": "Mororejo"
+  },
+  {
+    "npsn": "20400928",
+    "nama": "Sd Negeri Pete",
+    "jenjang": "SD",
+    "alamat": "Pete",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margodadi"
+  },
+  {
+    "npsn": "20401539",
+    "nama": "Sd Negeri Kiyaran 1",
+    "jenjang": "SD",
+    "alamat": "Kiyaran",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Wukirsari"
+  },
+  {
+    "npsn": "70044528",
+    "nama": "Mas Ihsaniyya",
+    "jenjang": "MA",
+    "alamat": "Jl. Bulus Tempel, Bulus I, Candibinangun, Pakem, Sleman",
+    "kapanewon": "Pakem",
+    "kalurahan": "Candibinangun"
+  },
+  {
+    "npsn": "20401020",
+    "nama": "Smp Santo Aloysius Turi",
+    "jenjang": "SMP",
+    "alamat": "Turi",
+    "kapanewon": "Turi",
+    "kalurahan": "Donokerto"
+  },
+  {
+    "npsn": "20401319",
+    "nama": "Smks Muhammadiyah Mlati",
+    "jenjang": "SMK",
+    "alamat": "Jl.Kaliurang Km.6,5 Gg.Timor-Timur Blok F.04",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20401331",
+    "nama": "Sd Muhammadiyah Pajangan 1",
+    "jenjang": "SD",
+    "alamat": "Pajangan",
+    "kapanewon": "Berbah",
+    "kalurahan": "Sendangtirto"
+  },
+  {
+    "npsn": "20400808",
+    "nama": "Sd Negeri Tambakrejo",
+    "jenjang": "SD",
+    "alamat": "Batang",
+    "kapanewon": "Tempel",
+    "kalurahan": "Tambakrejo"
+  },
+  {
+    "npsn": "20401037",
+    "nama": "Smp Bopkri Godean",
+    "jenjang": "SMP",
+    "alamat": "Gancahan V",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidomulyo"
+  },
+  {
+    "npsn": "20401133",
+    "nama": "Sman 2 Sleman",
+    "jenjang": "SMA",
+    "alamat": "Brayut, Pandowoharjo",
+    "kapanewon": "Sleman",
+    "kalurahan": "Pandowoharjo"
+  },
+  {
+    "npsn": "20401526",
+    "nama": "Sd Kanisius Kadirojo",
+    "jenjang": "SD",
+    "alamat": "Kadirojo",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "20401162",
+    "nama": "Sman 1 Cangkringan",
+    "jenjang": "SMA",
+    "alamat": "Jalan Merapi Golf, Bedoyo",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Wukirsari"
+  },
+  {
+    "npsn": "60724865",
+    "nama": "Sdit Sunan Averroes",
+    "jenjang": "SD",
+    "alamat": "Jalan Wonosari Km 7,9 Sekarsuli Rt 6 Rw 23",
+    "kapanewon": "Berbah",
+    "kalurahan": "Sendangtirto"
+  },
+  {
+    "npsn": "20404122",
+    "nama": "Smp Karitas Ngaglik",
+    "jenjang": "SMP",
+    "alamat": "Ngaglik",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sariharjo"
+  },
+  {
+    "npsn": "70012273",
+    "nama": "Sd Eksperimental Mangunan",
+    "jenjang": "SD",
+    "alamat": "Cupuwatu Ii, Rt 3, Rw 1",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "20409910",
+    "nama": "Sd Negeri Kepuharjo",
+    "jenjang": "SD",
+    "alamat": "Batur",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Kepuharjo"
+  },
+  {
+    "npsn": "20401411",
+    "nama": "Sd Negeri Bakalan",
+    "jenjang": "SD",
+    "alamat": "Jombor Lor",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20400883",
+    "nama": "Sd Negeri Watuadeg",
+    "jenjang": "SD",
+    "alamat": "Watuadeg",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Wukirsari"
+  },
+  {
+    "npsn": "20400914",
+    "nama": "Sd Negeri Pendemsari",
+    "jenjang": "SD",
+    "alamat": "Pendem",
+    "kapanewon": "Berbah",
+    "kalurahan": "Tegaltirto"
+  },
+  {
+    "npsn": "20401639",
+    "nama": "Sd Negeri Donokerto",
+    "jenjang": "SD",
+    "alamat": "Gondang",
+    "kapanewon": "Turi",
+    "kalurahan": "Donokerto"
+  },
+  {
+    "npsn": "20404101",
+    "nama": "Sd Negeri Kledokan",
+    "jenjang": "SD",
+    "alamat": "Tunjungan",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Selomartani"
+  },
+  {
+    "npsn": "20401306",
+    "nama": "Smks Ypkk 3 Sleman",
+    "jenjang": "SMK",
+    "alamat": "Ringroad Utara Karangnongko",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20400951",
+    "nama": "Sd Negeri Pakem 4",
+    "jenjang": "SD",
+    "alamat": "Sempol",
+    "kapanewon": "Pakem",
+    "kalurahan": "Harjobinangun"
+  },
+  {
+    "npsn": "20401405",
+    "nama": "Sd Negeri Bangunkerto",
+    "jenjang": "SD",
+    "alamat": "Selobonggo",
+    "kapanewon": "Turi",
+    "kalurahan": "Bangunkerto"
+  },
+  {
+    "npsn": "20401671",
+    "nama": "Sd Negeri Dalangan 1",
+    "jenjang": "SD",
+    "alamat": "Parakan Kulon",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangsari"
+  },
+  {
+    "npsn": "20401693",
+    "nama": "Sd Negeri Jongkang",
+    "jenjang": "SD",
+    "alamat": "Sedan",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sariharjo"
+  },
+  {
+    "npsn": "20401575",
+    "nama": "Sd Negeri Kejambon 1",
+    "jenjang": "SD",
+    "alamat": "Sorobayan",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Sindumartani"
+  },
+  {
+    "npsn": "20400947",
+    "nama": "Sd Negeri Pandanpuro 2",
+    "jenjang": "SD",
+    "alamat": "Tanen",
+    "kapanewon": "Pakem",
+    "kalurahan": "Hargobinangun"
+  },
+  {
+    "npsn": "20401046",
+    "nama": "Smp Kanisius Pakem",
+    "jenjang": "SMP",
+    "alamat": "Sukunan",
+    "kapanewon": "Pakem",
+    "kalurahan": "Pakembinangun"
+  },
+  {
+    "npsn": "20401326",
+    "nama": "Sd Muhammadiyah Sangonan I",
+    "jenjang": "SD",
+    "alamat": "Sangonan",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidorejo"
+  },
+  {
+    "npsn": "20401318",
+    "nama": "Smks Muhammadiyah Pakem",
+    "jenjang": "SMK",
+    "alamat": "Jalan Pakem-Turi Km 0,5",
+    "kapanewon": "Pakem",
+    "kalurahan": "Pakembinangun"
+  },
+  {
+    "npsn": "20401086",
+    "nama": "Smp Negeri 3 Berbah",
+    "jenjang": "SMP",
+    "alamat": "Karongan",
+    "kapanewon": "Berbah",
+    "kalurahan": "Jogotirto"
+  },
+  {
+    "npsn": "20400804",
+    "nama": "Sd Negeri Tawangharjo",
+    "jenjang": "SD",
+    "alamat": "Watuadeg",
+    "kapanewon": "Pakem",
+    "kalurahan": "Purwobinangun"
+  },
+  {
+    "npsn": "20401366",
+    "nama": "Sd Muhammadiyah Mlangi",
+    "jenjang": "SD",
+    "alamat": "Pundung",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20401387",
+    "nama": "Sd Negeri Brengosan 1",
+    "jenjang": "SD",
+    "alamat": "Kayunan",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Donoharjo"
+  },
+  {
+    "npsn": "20401152",
+    "nama": "Smas Muhammadiyah 1 Prambanan",
+    "jenjang": "SMA",
+    "alamat": "Jl. Gatak, Bokoharjo",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Bokoharjo"
+  },
+  {
+    "npsn": "20401572",
+    "nama": "Sd Negeri Kembangjitengan 2",
+    "jenjang": "SD",
+    "alamat": "Sembung",
+    "kapanewon": "Gamping",
+    "kalurahan": "Balecatur"
+  },
+  {
+    "npsn": "70033752",
+    "nama": "Mts Asyifa Al-Barokah",
+    "jenjang": "MTS",
+    "alamat": "Sukunan Rt 08, Rw 19",
+    "kapanewon": "Gamping",
+    "kalurahan": "Banyuraden"
+  },
+  {
+    "npsn": "20401681",
+    "nama": "Sd Negeri Daratan",
+    "jenjang": "SD",
+    "alamat": "Daratan 3",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangarum"
+  },
+  {
+    "npsn": "20401131",
+    "nama": "Sman 1 Minggir Sleman",
+    "jenjang": "SMA",
+    "alamat": "Jl. Pakeran, Sendangmulyo",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangmulyo"
+  },
+  {
+    "npsn": "20401685",
+    "nama": "Sd Kanisius Ngapak",
+    "jenjang": "SD",
+    "alamat": "Pingitan",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberarum"
+  },
+  {
+    "npsn": "20401674",
+    "nama": "Sd Negeri Demakijo 2",
+    "jenjang": "SD",
+    "alamat": "Kwarasan",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20401524",
+    "nama": "Sd Karitas Ngaglik",
+    "jenjang": "SD",
+    "alamat": "Nandan",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sinduharjo"
+  },
+  {
+    "npsn": "20404110",
+    "nama": "Sd Negeri Tridadi",
+    "jenjang": "SD",
+    "alamat": "Pangukan",
+    "kapanewon": "Sleman",
+    "kalurahan": "Tridadi"
+  },
+  {
+    "npsn": "20401625",
+    "nama": "Sd Negeri Mlati 2",
+    "jenjang": "SD",
+    "alamat": "Gondangan",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sendangadi"
+  },
+  {
+    "npsn": "20401421",
+    "nama": "Sd Negeri Banyuurip 2",
+    "jenjang": "SD",
+    "alamat": "Kembang",
+    "kapanewon": "Turi",
+    "kalurahan": "Wonokerto"
+  },
+  {
+    "npsn": "69944551",
+    "nama": "Sma Sains Wahid Hasyim",
+    "jenjang": "SMA",
+    "alamat": "Jl. Wahid Hasyim Gaten",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20401163",
+    "nama": "Sma Sunan Kalijaga Cangkringan",
+    "jenjang": "SMA",
+    "alamat": "Jl. Cangkringan, Argomulyo",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Argomulyo"
+  },
+  {
+    "npsn": "20401601",
+    "nama": "Sd Negeri Ngemplak 2",
+    "jenjang": "SD",
+    "alamat": "Ngemplak",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Umbulmartani"
+  },
+  {
+    "npsn": "20400829",
+    "nama": "Sd Negeri Sorogenen 1",
+    "jenjang": "SD",
+    "alamat": "Jl Solo Km10 Sorogenen",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "20401665",
+    "nama": "Sd Negeri Cebongan",
+    "jenjang": "SD",
+    "alamat": "Cabakan",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sumberadi"
+  },
+  {
+    "npsn": "70006540",
+    "nama": "Mas Anwar Futuhiyyah",
+    "jenjang": "MA",
+    "alamat": "Blotan Desa Wedomartani",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Wedomartani"
+  },
+  {
+    "npsn": "20401075",
+    "nama": "Smp Negeri 2 Gamping",
+    "jenjang": "SMP",
+    "alamat": "Jl. Jambon",
+    "kapanewon": "Gamping",
+    "kalurahan": "Trihanggo"
+  },
+  {
+    "npsn": "20409911",
+    "nama": "Sd Negeri Umbulharjo 2",
+    "jenjang": "SD",
+    "alamat": "Gondang",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Umbulharjo"
+  },
+  {
+    "npsn": "20404107",
+    "nama": "Sd Negeri Potrojayan 2",
+    "jenjang": "SD",
+    "alamat": "Sorogedug Lor",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Madurejo"
+  },
+  {
+    "npsn": "70003341",
+    "nama": "Sma Olifant",
+    "jenjang": "SMA",
+    "alamat": "Jl. Cendrawasih No. 4A-B Demangan Baru",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20401714",
+    "nama": "Sd Negeri Ngrenak",
+    "jenjang": "SD",
+    "alamat": "Karanglo",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidomoyo"
+  },
+  {
+    "npsn": "20401644",
+    "nama": "Sd Negeri Gaten",
+    "jenjang": "SD",
+    "alamat": "Gaten",
+    "kapanewon": "Tempel",
+    "kalurahan": "Sumberejo"
+  },
+  {
+    "npsn": "69956227",
+    "nama": "Mi Al Qodir",
+    "jenjang": "MI",
+    "alamat": "Kedung, Wukirsari",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Wukirsari"
+  },
+  {
+    "npsn": "20401391",
+    "nama": "Sd Negeri Caturtunggal 1",
+    "jenjang": "SD",
+    "alamat": "Jl Pandega Marga 1 Manggung",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "70006535",
+    "nama": "Mtss Afkaaruna Islamic School",
+    "jenjang": "MTS",
+    "alamat": "Pelem Padukuhan Penen Desa Harjo Binangun",
+    "kapanewon": "Pakem",
+    "kalurahan": "Harjobinangun"
+  },
+  {
+    "npsn": "20400964",
+    "nama": "Sd Negeri Selomulyo",
+    "jenjang": "SD",
+    "alamat": "Sembung",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sukoharjo"
+  },
+  {
+    "npsn": "20401406",
+    "nama": "Sd Negeri Banaran",
+    "jenjang": "SD",
+    "alamat": "Jiwan",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Argomulyo"
+  },
+  {
+    "npsn": "20401304",
+    "nama": "Smks Maarif 2 Sleman",
+    "jenjang": "SMK",
+    "alamat": "Turi Km 1 Merdiko Rejo Tempel",
+    "kapanewon": "Tempel",
+    "kalurahan": "Merdikorejo"
+  },
+  {
+    "npsn": "20401388",
+    "nama": "Sd Negeri Brengosan 2",
+    "jenjang": "SD",
+    "alamat": "Kayunan",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Donoharjo"
+  },
+  {
+    "npsn": "20401310",
+    "nama": "Smks Muhammadiyah 2 Turi",
+    "jenjang": "SMK",
+    "alamat": "Jl.Turi Tempel 3,5 Ngablak",
+    "kapanewon": "Turi",
+    "kalurahan": "Bangunkerto"
+  },
+  {
+    "npsn": "20401140",
+    "nama": "Smks Muhammadiyah 2 Moyudan",
+    "jenjang": "SMK",
+    "alamat": "Ngentak-Klangon",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberagung"
+  },
+  {
+    "npsn": "69945435",
+    "nama": "Sd Muhammadiyah Mantaran",
+    "jenjang": "SD",
+    "alamat": "Jl. Turi Km 3 Mantaran",
+    "kapanewon": "Sleman",
+    "kalurahan": "Trimulyo"
+  },
+  {
+    "npsn": "69971764",
+    "nama": "Sd Muhammadiyah 1 Ngaglik",
+    "jenjang": "SD",
+    "alamat": "Klidon Mantren",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sukoharjo"
+  },
+  {
+    "npsn": "20401648",
+    "nama": "Sd Negeri Ngino 1",
+    "jenjang": "SD",
+    "alamat": "Ngebong",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margoagung"
+  },
+  {
+    "npsn": "20401011",
+    "nama": "Smp Muhammadiyah Turi",
+    "jenjang": "SMP",
+    "alamat": "Keringan",
+    "kapanewon": "Turi",
+    "kalurahan": "Wonokerto"
+  },
+  {
+    "npsn": "20407372",
+    "nama": "Sma Islam Terpadu Bina Umat",
+    "jenjang": "SMA",
+    "alamat": "Jl. Setran  Sumber Arum",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberarum"
+  },
+  {
+    "npsn": "20401338",
+    "nama": "Sd Negeri Adisutjipto 2",
+    "jenjang": "SD",
+    "alamat": "Lanud Adisucipto",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20409802",
+    "nama": "Sdit Baitussalam 2",
+    "jenjang": "SD",
+    "alamat": "Salam Wukirsari Cangkringan Sleman D.I. Yogyakarta",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Wukirsari"
+  },
+  {
+    "npsn": "20401513",
+    "nama": "Sdit Ibnu Abbas",
+    "jenjang": "SD",
+    "alamat": "Kragilan",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidomoyo"
+  },
+  {
+    "npsn": "69972080",
+    "nama": "Sd Islam Terpadu Yaa Bunayya",
+    "jenjang": "SD",
+    "alamat": "Jl. Pandega Marta",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20400823",
+    "nama": "Sd Negeri Tinom",
+    "jenjang": "SD",
+    "alamat": "Tinom",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoarum"
+  },
+  {
+    "npsn": "69976385",
+    "nama": "Mi Afkaaruna Islamic School",
+    "jenjang": "MI",
+    "alamat": "Pelem, Padukuhan Penen",
+    "kapanewon": "Pakem",
+    "kalurahan": "Harjobinangun"
+  },
+  {
+    "npsn": "20401386",
+    "nama": "Sd Negeri Berbah 1",
+    "jenjang": "SD",
+    "alamat": "Maredan",
+    "kapanewon": "Berbah",
+    "kalurahan": "Sendangtirto"
+  },
+  {
+    "npsn": "20401090",
+    "nama": "Smp Negeri 4 Pakem",
+    "jenjang": "SMP",
+    "alamat": "Jl. Kaliurang Km.17, Sukunan",
+    "kapanewon": "Pakem",
+    "kalurahan": "Pakembinangun"
+  },
+  {
+    "npsn": "20401414",
+    "nama": "Sd Negeri Banyurejo 1",
+    "jenjang": "SD",
+    "alamat": "Onggojayan",
+    "kapanewon": "Tempel",
+    "kalurahan": "Banyurejo"
+  },
+  {
+    "npsn": "20400830",
+    "nama": "Sd Negeri Soprayan",
+    "jenjang": "SD",
+    "alamat": "Soprayan",
+    "kapanewon": "Turi",
+    "kalurahan": "Girikerto"
+  },
+  {
+    "npsn": "20404585",
+    "nama": "Sd Muhammadiyah Pakem",
+    "jenjang": "SD",
+    "alamat": "Jl Kaliurang Km. 17,5",
+    "kapanewon": "Pakem",
+    "kalurahan": "Pakembinangun"
+  },
+  {
+    "npsn": "20401316",
+    "nama": "Smkn 1 Seyegan",
+    "jenjang": "SMK",
+    "alamat": "Jalan Kebonagung Km.8 Jamblangan",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margomulyo"
+  },
+  {
+    "npsn": "20401068",
+    "nama": "Smp Negeri 3 Depok",
+    "jenjang": "SMP",
+    "alamat": "Sopalan",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20400934",
+    "nama": "Sd Negeri Nogotirto",
+    "jenjang": "SD",
+    "alamat": "Karangtengah",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20401370",
+    "nama": "Sd Muhammadiyah Kragan",
+    "jenjang": "SD",
+    "alamat": "Kragan",
+    "kapanewon": "Tempel",
+    "kalurahan": "Mororejo"
+  },
+  {
+    "npsn": "20400844",
+    "nama": "Sd Negeri Sumberadi 1",
+    "jenjang": "SD",
+    "alamat": "Warak",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sumberadi"
+  },
+  {
+    "npsn": "60714131",
+    "nama": "Mis Ma`Arif Gerjen",
+    "jenjang": "MI",
+    "alamat": "Gerjen",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margomulyo"
+  },
+  {
+    "npsn": "20411985",
+    "nama": "Mtsn 9 Sleman",
+    "jenjang": "MTS",
+    "alamat": "Nayan",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "69954020",
+    "nama": "Sdtk Jogja Patriae Academy",
+    "jenjang": "SDTK",
+    "alamat": "Jl. Ring Road Utara No. 5A, Gandok, Condongcatur, Depok, Sleman",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20401710",
+    "nama": "Sd Negeri Glagahombo 2",
+    "jenjang": "SD",
+    "alamat": "Plotengan",
+    "kapanewon": "Tempel",
+    "kalurahan": "Pondokrejo"
+  },
+  {
+    "npsn": "20401003",
+    "nama": "Sd Negeri Salamrejo",
+    "jenjang": "SD",
+    "alamat": "Trumpon",
+    "kapanewon": "Tempel",
+    "kalurahan": "Merdikorejo"
+  },
+  {
+    "npsn": "20401559",
+    "nama": "Sd Negeri Karangmloko 1",
+    "jenjang": "SD",
+    "alamat": "Jalan Palagan Tentara Pelajar Km 8,5",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sariharjo"
+  },
+  {
+    "npsn": "20411991",
+    "nama": "Mtss Raudhatul Muttaqien",
+    "jenjang": "MTS",
+    "alamat": "Jl. Purwomartani Raya  Dukuhsari  Sidokerto Purwomartani Kalasan Sleman  Diy",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "20401377",
+    "nama": "Sd Negeri Bokong",
+    "jenjang": "SD",
+    "alamat": "Sonoharjo",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margokaton"
+  },
+  {
+    "npsn": "20411887",
+    "nama": "Mas Wahid Hasyim",
+    "jenjang": "MA",
+    "alamat": "Jl.Wahid Hasyim No. 3, Gaten, Condongcatur, Depok, Sleman, Yogyakarta ( 55283 )",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20401303",
+    "nama": "Smkn 2 Godean",
+    "jenjang": "SMK",
+    "alamat": "Jl. Jae Sumantoro",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoagung"
+  },
+  {
+    "npsn": "20404118",
+    "nama": "Smp Hamong Putera Ngaglik",
+    "jenjang": "SMP",
+    "alamat": "Gentan Jln. Kaliurang Km.10",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sinduharjo"
+  },
+  {
+    "npsn": "20401422",
+    "nama": "Sd Negeri Banyuurip 1",
+    "jenjang": "SD",
+    "alamat": "Jambusari",
+    "kapanewon": "Turi",
+    "kalurahan": "Wonokerto"
+  },
+  {
+    "npsn": "70045508",
+    "nama": "Mis Ma`Arif Sindumartani",
+    "jenjang": "MI",
+    "alamat": "Kejambon Lor, Sindumartani, Ngemplak",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Sindumartani"
+  },
+  {
+    "npsn": "20400958",
+    "nama": "Sd Negeri Sendangadi 1",
+    "jenjang": "SD",
+    "alamat": "Jln. Magelang Km 7,5",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sendangadi"
+  },
+  {
+    "npsn": "60714132",
+    "nama": "Mis Nu Margokaton",
+    "jenjang": "MI",
+    "alamat": "Susukan",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margokaton"
+  },
+  {
+    "npsn": "20411994",
+    "nama": "Mtss Sunan Pandanaran",
+    "jenjang": "MTS",
+    "alamat": "Jl. Kaliurang Km 12.5 Candi",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sardonoharjo"
+  },
+  {
+    "npsn": "20401378",
+    "nama": "Sd Negeri Bokoharjo",
+    "jenjang": "SD",
+    "alamat": "Candirejo",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Bokoharjo"
+  },
+  {
+    "npsn": "70002263",
+    "nama": "Smp Montessori",
+    "jenjang": "SMP",
+    "alamat": "Gg. Kepel, Bedog Rt 02 Rw 24",
+    "kapanewon": "Gamping",
+    "kalurahan": "Trihanggo"
+  },
+  {
+    "npsn": "69976391",
+    "nama": "Mts Daarul `Ulum Sinar Melati Iibs Pakembinangun Pakem Sleman",
+    "jenjang": "MTS",
+    "alamat": "Padasan Rt.29, Duwetsari",
+    "kapanewon": "Pakem",
+    "kalurahan": "Pakembinangun"
+  },
+  {
+    "npsn": "60727332",
+    "nama": "Mtss Ma`Arif Darussholihin",
+    "jenjang": "MTS",
+    "alamat": "Jonggrangan",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sumberadi"
+  },
+  {
+    "npsn": "20400907",
+    "nama": "Sd Negeri Percobaan 3",
+    "jenjang": "SD",
+    "alamat": "Jl. Kaliurang Km 17 Sukunan",
+    "kapanewon": "Pakem",
+    "kalurahan": "Pakembinangun"
+  },
+  {
+    "npsn": "20401198",
+    "nama": "Smks Muhammadiyah 1 Sleman",
+    "jenjang": "SMK",
+    "alamat": "Jl.Agrowisata Km 01 Panasan Triharjo Sleman",
+    "kapanewon": "Sleman",
+    "kalurahan": "Triharjo"
+  },
+  {
+    "npsn": "60724851",
+    "nama": "Sma Muhammadiyah Boarding School Sleman Yogyakarta",
+    "jenjang": "SMA",
+    "alamat": "Jl. Piyungan Km. 2 Marangan",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Bokoharjo"
+  },
+  {
+    "npsn": "20401507",
+    "nama": "Sd Kanisius Condongcatur Depok",
+    "jenjang": "SD",
+    "alamat": "Jln.Tambak Boyo Dero",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20401094",
+    "nama": "Smp Negeri 3 Godean",
+    "jenjang": "SMP",
+    "alamat": "Krapyak",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoarum"
+  },
+  {
+    "npsn": "20400955",
+    "nama": "Sd Negeri Pucung",
+    "jenjang": "SD",
+    "alamat": "Pucung",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tamanmartani"
+  },
+  {
+    "npsn": "20401518",
+    "nama": "Sd Kanisius Pondok",
+    "jenjang": "SD",
+    "alamat": "Pondok Kulon, Kalitirto, Berbah, Sleman, D.I. Yogyakarta",
+    "kapanewon": "Berbah",
+    "kalurahan": "Kalitirto"
+  },
+  {
+    "npsn": "20409818",
+    "nama": "Sdit Salman Al Farisi 2",
+    "jenjang": "SD",
+    "alamat": "Jetis",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Wedomartani"
+  },
+  {
+    "npsn": "20400850",
+    "nama": "Sd Negeri Sukomulyo",
+    "jenjang": "SD",
+    "alamat": "Surirejo",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sukoharjo"
+  },
+  {
+    "npsn": "20401103",
+    "nama": "Smp Negeri 5 Sleman",
+    "jenjang": "SMP",
+    "alamat": "Karangasem",
+    "kapanewon": "Sleman",
+    "kalurahan": "Pandowoharjo"
+  },
+  {
+    "npsn": "60714116",
+    "nama": "Mis Wahid Hasyim",
+    "jenjang": "MI",
+    "alamat": "Jl. Cendrawasih, No 001, Pringwulung",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20400871",
+    "nama": "Sma Ikip Veteran Ngemplak",
+    "jenjang": "SMA",
+    "alamat": "Jl. Cangkringan Km 8,2",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Bimomartani"
+  },
+  {
+    "npsn": "20400954",
+    "nama": "Sd Negeri Ngijon 3",
+    "jenjang": "SD",
+    "alamat": "Kaliurang",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberagung"
+  },
+  {
+    "npsn": "20401511",
+    "nama": "Sd Islam Terpadu Salman Al Farisi",
+    "jenjang": "SD",
+    "alamat": "Pogungrejo Rt 13 / Rw 51",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20401485",
+    "nama": "Sd Muhammadiyah Condongcatur",
+    "jenjang": "SD",
+    "alamat": "Jl. Perumnas, Ring Road Utara, Gorongan",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20400882",
+    "nama": "Sd Negeri Watupecah",
+    "jenjang": "SD",
+    "alamat": "Watupecah",
+    "kapanewon": "Tempel",
+    "kalurahan": "Pondokrejo"
+  },
+  {
+    "npsn": "20401578",
+    "nama": "Sd Negeri Keceme 1",
+    "jenjang": "SD",
+    "alamat": "Keceme Rt/Rw 01/46",
+    "kapanewon": "Sleman",
+    "kalurahan": "Caturharjo"
+  },
+  {
+    "npsn": "20401030",
+    "nama": "Smp Negeri 1 Kalasan",
+    "jenjang": "SMP",
+    "alamat": "Jalan Jogja-Solo Km 14,5 Glondong",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tirtomartani"
+  },
+  {
+    "npsn": "20401127",
+    "nama": "Sman 1 Pakem",
+    "jenjang": "SMA",
+    "alamat": "Jl. Kaliurang Km 17,5  Pakem",
+    "kapanewon": "Pakem",
+    "kalurahan": "Pakembinangun"
+  },
+  {
+    "npsn": "20401523",
+    "nama": "Sd Kanisius Klepu",
+    "jenjang": "SD",
+    "alamat": "Klepu",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangmulyo"
+  },
+  {
+    "npsn": "20401695",
+    "nama": "Sd Negeri Jomblang 2",
+    "jenjang": "SD",
+    "alamat": "Lojisari",
+    "kapanewon": "Berbah",
+    "kalurahan": "Tegaltirto"
+  },
+  {
+    "npsn": "20404149",
+    "nama": "Sd It Darul Hikmah",
+    "jenjang": "SD",
+    "alamat": "Jl. Palagan Tentara Pelajar Km. 15 Sembung",
+    "kapanewon": "Pakem",
+    "kalurahan": "Purwobinangun"
+  },
+  {
+    "npsn": "20411895",
+    "nama": "Man 4 Sleman",
+    "jenjang": "MA",
+    "alamat": "Jl. Turi Km 1 Pojok",
+    "kapanewon": "Pakem",
+    "kalurahan": "Harjobinangun"
+  },
+  {
+    "npsn": "20401730",
+    "nama": "Sd Negeri Jaten",
+    "jenjang": "SD",
+    "alamat": "Balong",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Bimomartani"
+  },
+  {
+    "npsn": "20400939",
+    "nama": "Sd Negeri Nglarang",
+    "jenjang": "SD",
+    "alamat": "Nglarang",
+    "kapanewon": "Mlati",
+    "kalurahan": "Tlogoadi"
+  },
+  {
+    "npsn": "20401079",
+    "nama": "Smp Negeri 2 Mlati",
+    "jenjang": "SMP",
+    "alamat": "Mranggen Tegal",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "69946713",
+    "nama": "Sma Islam Al Azhar 9 Yogyakarta",
+    "jenjang": "SMA",
+    "alamat": "Jl. Padjajaran, Ring Road Utara",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20401023",
+    "nama": "Smp Negeri 1 Turi",
+    "jenjang": "SMP",
+    "alamat": "Turi",
+    "kapanewon": "Turi",
+    "kalurahan": "Donokerto"
+  },
+  {
+    "npsn": "69788558",
+    "nama": "Sd Muhammadiyah 2 Pakem",
+    "jenjang": "SD",
+    "alamat": "Ngepring",
+    "kapanewon": "Pakem",
+    "kalurahan": "Purwobinangun"
+  },
+  {
+    "npsn": "69788563",
+    "nama": "Sd Montessori",
+    "jenjang": "SD",
+    "alamat": "Jl. Lempongsari No. 136 B",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sariharjo"
+  },
+  {
+    "npsn": "20404134",
+    "nama": "Smp Negeri 5 Depok",
+    "jenjang": "SMP",
+    "alamat": "Jl. Weling Raya, Karanggayam",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20409807",
+    "nama": "Smp Taman Dewasa Ngemplak",
+    "jenjang": "SMP",
+    "alamat": "Banjarharjo",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Bimomartani"
+  },
+  {
+    "npsn": "20411988",
+    "nama": "Mtss Yayasan Masyithoh Gamping",
+    "jenjang": "MTS",
+    "alamat": "Gamping Kidul",
+    "kapanewon": "Gamping",
+    "kalurahan": "Ambarketawang"
+  },
+  {
+    "npsn": "20401175",
+    "nama": "Smks Muhammadiyah 2 Sleman",
+    "jenjang": "SMK",
+    "alamat": "Jl. D Ronggowarsito No. 2 Medari Caturharjo Sleman",
+    "kapanewon": "Sleman",
+    "kalurahan": "Caturharjo"
+  },
+  {
+    "npsn": "20401376",
+    "nama": "Sd Negeri Caturtunggal 4",
+    "jenjang": "SD",
+    "alamat": "Tempel",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20401586",
+    "nama": "Sd Muhammadiyah Semingin",
+    "jenjang": "SD",
+    "alamat": "Semingin",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumbersari"
+  },
+  {
+    "npsn": "20401372",
+    "nama": "Sd Muhammadiyah Klepu",
+    "jenjang": "SD",
+    "alamat": "Klepu Kidul",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangmulyo"
+  },
+  {
+    "npsn": "20401390",
+    "nama": "Sd Negeri Caturtunggal 3",
+    "jenjang": "SD",
+    "alamat": "Jl Kaliurang Km 4,5 Kocoran",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20400929",
+    "nama": "Sd Negeri Pelemsari",
+    "jenjang": "SD",
+    "alamat": "Pelemsari",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Bokoharjo"
+  },
+  {
+    "npsn": "20401008",
+    "nama": "Smp Negeri 3 Gamping",
+    "jenjang": "SMP",
+    "alamat": "Jl. Ringroad Barat Nogotirto",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20404128",
+    "nama": "Smp Pamungkas Mlati",
+    "jenjang": "SMP",
+    "alamat": "Cebongan",
+    "kapanewon": "Mlati",
+    "kalurahan": "Tlogoadi"
+  },
+  {
+    "npsn": "20401397",
+    "nama": "Sd Negeri Bulus",
+    "jenjang": "SD",
+    "alamat": "Kembangan",
+    "kapanewon": "Pakem",
+    "kalurahan": "Candibinangun"
+  },
+  {
+    "npsn": "70043483",
+    "nama": "Mis Nurul Insani",
+    "jenjang": "MI",
+    "alamat": "Jl Sidomoyo (Kompleks Graha Rocket)",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidomoyo"
+  },
+  {
+    "npsn": "20401442",
+    "nama": "Sd Bopkri Minggir",
+    "jenjang": "SD",
+    "alamat": "Minggir 2",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangagung"
+  },
+  {
+    "npsn": "20401483",
+    "nama": "Sd Muhammadiyah Ambarketawang 1",
+    "jenjang": "SD",
+    "alamat": "Bodeh",
+    "kapanewon": "Gamping",
+    "kalurahan": "Ambarketawang"
+  },
+  {
+    "npsn": "20401654",
+    "nama": "Sd Negeri Gejayan",
+    "jenjang": "SD",
+    "alamat": "Jl. Anggajaya Iii Gejayan",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20400944",
+    "nama": "Sd Negeri Paraksari",
+    "jenjang": "SD",
+    "alamat": "Paraksari",
+    "kapanewon": "Pakem",
+    "kalurahan": "Pakembinangun"
+  },
+  {
+    "npsn": "20401015",
+    "nama": "Smp Muhammadiyah 1 Moyudan",
+    "jenjang": "SMP",
+    "alamat": "Moyudan",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberrahayu"
+  },
+  {
+    "npsn": "60714134",
+    "nama": "Mis Al Ihsan",
+    "jenjang": "MI",
+    "alamat": "Jl. Kalirase Medari",
+    "kapanewon": "Sleman",
+    "kalurahan": "Triharjo"
+  },
+  {
+    "npsn": "20401393",
+    "nama": "Sd Negeri Cangkringan 2",
+    "jenjang": "SD",
+    "alamat": "Jetis Argomulyo",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Argomulyo"
+  },
+  {
+    "npsn": "69772534",
+    "nama": "Sdit Ibnu Abbas Ii Pakem",
+    "jenjang": "SD",
+    "alamat": "Karanggeneng",
+    "kapanewon": "Pakem",
+    "kalurahan": "Purwobinangun"
+  },
+  {
+    "npsn": "20401723",
+    "nama": "Sd Negeri Jali",
+    "jenjang": "SD",
+    "alamat": "Jali",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Gayamharjo"
+  },
+  {
+    "npsn": "20401155",
+    "nama": "Smas Kolombo Depok",
+    "jenjang": "SMA",
+    "alamat": "Jl. Rajawali 10 Komp. Kolombo",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20401006",
+    "nama": "Sd Negeri Rogoyudan",
+    "jenjang": "SD",
+    "alamat": "Kragilan",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20400848",
+    "nama": "Sd Negeri Sukosari",
+    "jenjang": "SD",
+    "alamat": "Losari",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sukoharjo"
+  },
+  {
+    "npsn": "20401492",
+    "nama": "Sd Muhammadiyah Bayen",
+    "jenjang": "SD",
+    "alamat": "Jalan Cangkringan Km 3  Bayen",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "20401032",
+    "nama": "Smp Negeri 1 Godean",
+    "jenjang": "SMP",
+    "alamat": "Jl. Jae Sumantoro",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoluhur"
+  },
+  {
+    "npsn": "20401137",
+    "nama": "Smkn 1 Godean",
+    "jenjang": "SMK",
+    "alamat": "Kowanan - Sidoagung Godean",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoagung"
+  },
+  {
+    "npsn": "69957220",
+    "nama": "Smp Tahfidzqu",
+    "jenjang": "SMP",
+    "alamat": "Perum Dosen Uny, Deresan 3 No. 24 Santren",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20407398",
+    "nama": "Smks Bina Harapan",
+    "jenjang": "SMK",
+    "alamat": "Jl. Kaliurang Km.10, Gentan Sinduharjo Ngaglik Sleman",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sinduharjo"
+  },
+  {
+    "npsn": "20401627",
+    "nama": "Sd Negeri Minomartani 6",
+    "jenjang": "SD",
+    "alamat": "Jln Kakap Xi",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Minomartani"
+  },
+  {
+    "npsn": "69994540",
+    "nama": "Mi Bina Akhlaq",
+    "jenjang": "MI",
+    "alamat": "Jl. Kaliurang Km. 18 Paraksari",
+    "kapanewon": "Pakem",
+    "kalurahan": "Pakembinangun"
+  },
+  {
+    "npsn": "20401002",
+    "nama": "Sd Negeri Sambirejo",
+    "jenjang": "SD",
+    "alamat": "Groyokan",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Sambirejo"
+  },
+  {
+    "npsn": "20401633",
+    "nama": "Sd Negeri Gamping",
+    "jenjang": "SD",
+    "alamat": "Gamping Lor",
+    "kapanewon": "Gamping",
+    "kalurahan": "Ambarketawang"
+  },
+  {
+    "npsn": "20404102",
+    "nama": "Sd Negeri Mangunan",
+    "jenjang": "SD",
+    "alamat": "Mangunan",
+    "kapanewon": "Sleman",
+    "kalurahan": "Caturharjo"
+  },
+  {
+    "npsn": "20400948",
+    "nama": "Sd Negeri Pandanpuro 1",
+    "jenjang": "SD",
+    "alamat": "Pandanpuro",
+    "kapanewon": "Pakem",
+    "kalurahan": "Hargobinangun"
+  },
+  {
+    "npsn": "20400971",
+    "nama": "Sd Negeri Sinduadi 2",
+    "jenjang": "SD",
+    "alamat": "Kutu Patran",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20400853",
+    "nama": "Smas Islam 3 Pakem",
+    "jenjang": "SMA",
+    "alamat": "Jl. Pakem - Turi Km. 0,5 Labasan Pakem",
+    "kapanewon": "Pakem",
+    "kalurahan": "Pakembinangun"
+  },
+  {
+    "npsn": "20400998",
+    "nama": "Sd Negeri Sambiroto 2",
+    "jenjang": "SD",
+    "alamat": "Sidokerto",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "20401028",
+    "nama": "Smp Negeri 1 Mlati",
+    "jenjang": "SMP",
+    "alamat": "Sanggrahan",
+    "kapanewon": "Mlati",
+    "kalurahan": "Tirtoadi"
+  },
+  {
+    "npsn": "69976395",
+    "nama": "Mts Darussalam",
+    "jenjang": "MTS",
+    "alamat": "Tempelsari",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20404120",
+    "nama": "Smp Insan Cendekia Yogyakarta",
+    "jenjang": "SMP",
+    "alamat": "Turi",
+    "kapanewon": "Turi",
+    "kalurahan": "Donokerto"
+  },
+  {
+    "npsn": "69957356",
+    "nama": "Sd Islam Terpadu Khoiru Ummah",
+    "jenjang": "SD",
+    "alamat": "Getas Gandekan",
+    "kapanewon": "Mlati",
+    "kalurahan": "Tlogoadi"
+  },
+  {
+    "npsn": "20400865",
+    "nama": "Smas Angkasa Adisucipto",
+    "jenjang": "SMA",
+    "alamat": "Jl. Janti, Maguwoharjo",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20401709",
+    "nama": "Sd Negeri Jomblang 1",
+    "jenjang": "SD",
+    "alamat": "Candirejo",
+    "kapanewon": "Berbah",
+    "kalurahan": "Tegaltirto"
+  },
+  {
+    "npsn": "20401497",
+    "nama": "Sd Muhammadiyah Dhuri",
+    "jenjang": "SD",
+    "alamat": "Dhuri",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tirtomartani"
+  },
+  {
+    "npsn": "20412001",
+    "nama": "Mtsn 4 Sleman",
+    "jenjang": "MTS",
+    "alamat": "Jl. Purbaya No. 24 Tridadi Sleman 55511",
+    "kapanewon": "Sleman",
+    "kalurahan": "Tridadi"
+  },
+  {
+    "npsn": "20401041",
+    "nama": "Smks Trisula I Depok",
+    "jenjang": "SMK",
+    "alamat": "Jl. Babarsari Tambakbayan Tb Vi/11 Yogyakarta",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20401138",
+    "nama": "Smks Muhammadiyah Cangkringan",
+    "jenjang": "SMK",
+    "alamat": "Jl. Jetis,  Jetis Rt 01 Rw 25",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Argomulyo"
+  },
+  {
+    "npsn": "70049547",
+    "nama": "Mi Insan Utama Balecatur",
+    "jenjang": "MI",
+    "alamat": "Temuwuh Kidul Rt 01 Rw 31 Balecatur",
+    "kapanewon": "Gamping",
+    "kalurahan": "Balecatur"
+  },
+  {
+    "npsn": "70043612",
+    "nama": "Mis Nahdlatul Ulama  Prambanan",
+    "jenjang": "MI",
+    "alamat": "Klero Rt 05 Rw 022",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Sumberharjo"
+  },
+  {
+    "npsn": "60728934",
+    "nama": "Mas Darussalam",
+    "jenjang": "MA",
+    "alamat": "Tempelsari",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20401637",
+    "nama": "Sd Negeri Dukuh 2",
+    "jenjang": "SD",
+    "alamat": "Dukuh",
+    "kapanewon": "Sleman",
+    "kalurahan": "Tridadi"
+  },
+  {
+    "npsn": "20401396",
+    "nama": "Sd Negeri Cancangan",
+    "jenjang": "SD",
+    "alamat": "Gatak",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Wukirsari"
+  },
+  {
+    "npsn": "20401050",
+    "nama": "Smp Muhammadiyah 2 Gamping",
+    "jenjang": "SMP",
+    "alamat": "Guyangan",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20401668",
+    "nama": "Sd Negeri Caturtunggal 6",
+    "jenjang": "SD",
+    "alamat": "Janti Gg Pinus",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "60724854",
+    "nama": "Smpit Alam Nurul Islam",
+    "jenjang": "SMP",
+    "alamat": "Gumuk",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoarum"
+  },
+  {
+    "npsn": "20400824",
+    "nama": "Sd Negeri Timbulharjo",
+    "jenjang": "SD",
+    "alamat": "Jalan Krodan No.11",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20401351",
+    "nama": "Sd Muhammadiyah Karanganjir",
+    "jenjang": "SD",
+    "alamat": "Karanganjir",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberarum"
+  },
+  {
+    "npsn": "20401368",
+    "nama": "Sd Muhammadiyah Kronggahan",
+    "jenjang": "SD",
+    "alamat": "Kronggahan",
+    "kapanewon": "Gamping",
+    "kalurahan": "Trihanggo"
+  },
+  {
+    "npsn": "20401680",
+    "nama": "Sd Negeri Dayuharjo",
+    "jenjang": "SD",
+    "alamat": "Jl. Damai Jaban, Sinduharjo, Ngaglik, Sleman",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sinduharjo"
+  },
+  {
+    "npsn": "20401609",
+    "nama": "Sd Negeri Mayangan",
+    "jenjang": "SD",
+    "alamat": "Mayangan",
+    "kapanewon": "Gamping",
+    "kalurahan": "Trihanggo"
+  },
+  {
+    "npsn": "20411892",
+    "nama": "Mas Sunan Pandanaran",
+    "jenjang": "MA",
+    "alamat": "Jl. Kaliurang Km 12,5 Ngaglik,Sleman,, Yogyakarta",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sardonoharjo"
+  },
+  {
+    "npsn": "20401705",
+    "nama": "Sd Negeri Kaliduren",
+    "jenjang": "SD",
+    "alamat": "Kaliduren 2",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberagung"
+  },
+  {
+    "npsn": "20401089",
+    "nama": "Smp Negeri 2 Prambanan",
+    "jenjang": "SMP",
+    "alamat": "Pereng",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Sumberharjo"
+  },
+  {
+    "npsn": "20401052",
+    "nama": "Smp Muhammadiyah 1 Seyegan",
+    "jenjang": "SMP",
+    "alamat": "Grogol",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margodadi"
+  },
+  {
+    "npsn": "20404092",
+    "nama": "Sd Teruna Bangsa",
+    "jenjang": "SD",
+    "alamat": "Villa Seturan Indah Blok D -10",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20401076",
+    "nama": "Smp Negeri 3 Sleman",
+    "jenjang": "SMP",
+    "alamat": "Jalan Magelang Km. 10, Ngancar",
+    "kapanewon": "Sleman",
+    "kalurahan": "Tridadi"
+  },
+  {
+    "npsn": "60714115",
+    "nama": "Mis Sultan Agung",
+    "jenjang": "MI",
+    "alamat": "Jl. Kaliurang Km. 7",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "70009355",
+    "nama": "Mis Daarul `Ulum 2 Sinar Melati",
+    "jenjang": "MI",
+    "alamat": "Padasan Rt 029 Desa Pakem Binangun",
+    "kapanewon": "Pakem",
+    "kalurahan": "Pakembinangun"
+  },
+  {
+    "npsn": "20401728",
+    "nama": "Sd Negeri Jatisawit",
+    "jenjang": "SD",
+    "alamat": "Jatisawit",
+    "kapanewon": "Gamping",
+    "kalurahan": "Balecatur"
+  },
+  {
+    "npsn": "69881872",
+    "nama": "Mis Husnayain Sleman",
+    "jenjang": "MI",
+    "alamat": "Tegalsari",
+    "kapanewon": "Tempel",
+    "kalurahan": "Lumbungrejo"
+  },
+  {
+    "npsn": "20401490",
+    "nama": "Sd Muhammadiyah Balerante",
+    "jenjang": "SD",
+    "alamat": "Sempu",
+    "kapanewon": "Turi",
+    "kalurahan": "Wonokerto"
+  },
+  {
+    "npsn": "20400886",
+    "nama": "Sd Negeri Turi 3",
+    "jenjang": "SD",
+    "alamat": "Gading",
+    "kapanewon": "Turi",
+    "kalurahan": "Donokerto"
+  },
+  {
+    "npsn": "20401031",
+    "nama": "Smp Negeri 2 Pakem",
+    "jenjang": "SMP",
+    "alamat": "Jl. Kaliurang , Km.20",
+    "kapanewon": "Pakem",
+    "kalurahan": "Hargobinangun"
+  },
+  {
+    "npsn": "20401525",
+    "nama": "Sd Kanisius Kalasan",
+    "jenjang": "SD",
+    "alamat": "Kringinan",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tirtomartani"
+  },
+  {
+    "npsn": "20401687",
+    "nama": "Sd Negeri Kadisobo 3",
+    "jenjang": "SD",
+    "alamat": "Jl. Agrowisata Km. 3 Klelen",
+    "kapanewon": "Sleman",
+    "kalurahan": "Trimulyo"
+  },
+  {
+    "npsn": "20401057",
+    "nama": "Smp Muhammadiyah 1 Berbah",
+    "jenjang": "SMP",
+    "alamat": "Krikilan",
+    "kapanewon": "Berbah",
+    "kalurahan": "Tegaltirto"
+  },
+  {
+    "npsn": "20401676",
+    "nama": "Sd Negeri Delegan 3",
+    "jenjang": "SD",
+    "alamat": "Polangan",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Sumberharjo"
+  },
+  {
+    "npsn": "20400831",
+    "nama": "Sd Negeri Sompokan",
+    "jenjang": "SD",
+    "alamat": "Sompokan",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margomulyo"
+  },
+  {
+    "npsn": "20401022",
+    "nama": "Smp Sunan Kalijogo",
+    "jenjang": "SMP",
+    "alamat": "Banaran",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Argomulyo"
+  },
+  {
+    "npsn": "20401667",
+    "nama": "Sd Negeri Caturtunggal 7",
+    "jenjang": "SD",
+    "alamat": "Jl. Gambir No.6B Karangasem Baru, Caturtunggal, Depok, Sleman",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20401550",
+    "nama": "Sd Negeri Krapyak 1",
+    "jenjang": "SD",
+    "alamat": "Krapyak",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Wedomartani"
+  },
+  {
+    "npsn": "20401694",
+    "nama": "Sd Negeri Jonggrangan",
+    "jenjang": "SD",
+    "alamat": "Jonggrangan, Rt 01/ Rw 15",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangmulyo"
+  },
+  {
+    "npsn": "20401161",
+    "nama": "Sman 1 Depok",
+    "jenjang": "SMA",
+    "alamat": "Babarsari Caturtunggal",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "69928051",
+    "nama": "Mtssibnu Sina Sleman",
+    "jenjang": "MTS",
+    "alamat": "Jalan Berbah-Sampakan Tegaltirto Berbah Sleman",
+    "kapanewon": "Berbah",
+    "kalurahan": "Tegaltirto"
+  },
+  {
+    "npsn": "20404119",
+    "nama": "Smp Islam Terpadu Bina Umat",
+    "jenjang": "SMP",
+    "alamat": "Setran",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberarum"
+  },
+  {
+    "npsn": "20401571",
+    "nama": "Sd Negeri Kenaran 1",
+    "jenjang": "SD",
+    "alamat": "Karangturi",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Sumberharjo"
+  },
+  {
+    "npsn": "20401527",
+    "nama": "Sd Kanisius Jetis Depok",
+    "jenjang": "SD",
+    "alamat": "Jetis Depok",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangsari"
+  },
+  {
+    "npsn": "20401357",
+    "nama": "Sd Muhammadiyah Gendol Iv",
+    "jenjang": "SD",
+    "alamat": "Krasakan",
+    "kapanewon": "Tempel",
+    "kalurahan": "Lumbungrejo"
+  },
+  {
+    "npsn": "20401069",
+    "nama": "Smp Negeri 1 Depok",
+    "jenjang": "SMP",
+    "alamat": "Jl. Sonokeling No 5 Rt 9 Rw 32 Gejayan",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20407341",
+    "nama": "Sd Muhammadiyah Prambanan",
+    "jenjang": "SD",
+    "alamat": "Jl Prambanan - Piyungan Km.01 Ringinsari",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Bokoharjo"
+  },
+  {
+    "npsn": "69772538",
+    "nama": "Smks Taman Karya Madya Ngemplak",
+    "jenjang": "SMK",
+    "alamat": "Banjarharjo, Bimomartani, Ngemplak Sleman",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Bimomartani"
+  },
+  {
+    "npsn": "70014170",
+    "nama": "Mi Tahfizhul Qur`An Sahabat Qur`An Ibnu Mas`Ud Yogyakarta",
+    "jenjang": "MI",
+    "alamat": "Tebon Xiii Rt04/Rw030",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoluhur"
+  },
+  {
+    "npsn": "20401371",
+    "nama": "Sd Muhammadiyah Kliwonan",
+    "jenjang": "SD",
+    "alamat": "Kliwonan",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidorejo"
+  },
+  {
+    "npsn": "70043209",
+    "nama": "Smp Sahabatqu",
+    "jenjang": "SMP",
+    "alamat": "Padukan, Pakembinangun, Pakem, Sleman",
+    "kapanewon": "Pakem",
+    "kalurahan": "Pakembinangun"
+  },
+  {
+    "npsn": "20400816",
+    "nama": "Sd Negeri Tuguran",
+    "jenjang": "SD",
+    "alamat": "Tuguran",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20401720",
+    "nama": "Sd Negeri Nglengking",
+    "jenjang": "SD",
+    "alamat": "Nglengking",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangrejo"
+  },
+  {
+    "npsn": "20401556",
+    "nama": "Sd Negeri Karangnongko 2",
+    "jenjang": "SD",
+    "alamat": "Dalangan",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tirtomartani"
+  },
+  {
+    "npsn": "20401493",
+    "nama": "Sd Muhammadiyah Domban 4",
+    "jenjang": "SD",
+    "alamat": "Jl Panggeran",
+    "kapanewon": "Sleman",
+    "kalurahan": "Triharjo"
+  },
+  {
+    "npsn": "20401403",
+    "nama": "Sd Negeri Banteng",
+    "jenjang": "SD",
+    "alamat": "Banteng",
+    "kapanewon": "Pakem",
+    "kalurahan": "Hargobinangun"
+  },
+  {
+    "npsn": "20401491",
+    "nama": "Sd Muhammadiyah Banyuraden",
+    "jenjang": "SD",
+    "alamat": "Dukuh",
+    "kapanewon": "Gamping",
+    "kalurahan": "Banyuraden"
+  },
+  {
+    "npsn": "20401192",
+    "nama": "Smkn 1 Kalasan",
+    "jenjang": "SMK",
+    "alamat": "Randugunting",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tamanmartani"
+  },
+  {
+    "npsn": "20401314",
+    "nama": "Smks Nasional",
+    "jenjang": "SMK",
+    "alamat": "Teguhan",
+    "kapanewon": "Berbah",
+    "kalurahan": "Kalitirto"
+  },
+  {
+    "npsn": "20401496",
+    "nama": "Sd Muhammadiyah Domban 1",
+    "jenjang": "SD",
+    "alamat": "Karanggawang",
+    "kapanewon": "Tempel",
+    "kalurahan": "Mororejo"
+  },
+  {
+    "npsn": "20401409",
+    "nama": "Sd Negeri Balangan 2",
+    "jenjang": "SD",
+    "alamat": "Nyangkringan",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangrejo"
+  },
+  {
+    "npsn": "20400982",
+    "nama": "Sd Negeri Rejodani",
+    "jenjang": "SD",
+    "alamat": "Jalan Palagan Tentara Pelajar Km 11 Rejodani",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sariharjo"
+  },
+  {
+    "npsn": "20411998",
+    "nama": "Mtss Yapi Pakem",
+    "jenjang": "MTS",
+    "alamat": "Jalan Kaliurang Km 17 Labasan Pakembinangun Pakem Sleman D I Yogyakarta",
+    "kapanewon": "Pakem",
+    "kalurahan": "Pakembinangun"
+  },
+  {
+    "npsn": "20411987",
+    "nama": "Mtss Ummul Quro",
+    "jenjang": "MTS",
+    "alamat": "Jl. Kaliurang Km 7 Babadan Baru",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20401049",
+    "nama": "Smp Muhammadiyah 2 Mlati",
+    "jenjang": "SMP",
+    "alamat": "Jl.Kaliurang Km 6.7 Gg. Timor Timur",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20400813",
+    "nama": "Sd Negeri Temanggal",
+    "jenjang": "SD",
+    "alamat": "Temanggal 2",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "20404114",
+    "nama": "Smp Angkasa Adisutjipto Depok",
+    "jenjang": "SMP",
+    "alamat": "Jl. Janti, Lanud Adisutjipto",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20411989",
+    "nama": "Mtss Miftahunnajah",
+    "jenjang": "MTS",
+    "alamat": "Trini",
+    "kapanewon": "Gamping",
+    "kalurahan": "Trihanggo"
+  },
+  {
+    "npsn": "20409736",
+    "nama": "Sekolah Dasar Negeri Model Sleman",
+    "jenjang": "SD",
+    "alamat": "Blotan",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Wedomartani"
+  },
+  {
+    "npsn": "20401151",
+    "nama": "Smas Muhammadiyah 1 Sleman",
+    "jenjang": "SMA",
+    "alamat": "Jl. Magelang Km. 13 Sleman",
+    "kapanewon": "Sleman",
+    "kalurahan": "Triharjo"
+  },
+  {
+    "npsn": "20401109",
+    "nama": "Smp Negeri 2 Cangkringan",
+    "jenjang": "SMP",
+    "alamat": "Pagerjurang",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Kepuharjo"
+  },
+  {
+    "npsn": "20401051",
+    "nama": "Smp Muhammadiyah 2 Depok",
+    "jenjang": "SMP",
+    "alamat": "Jl Swadaya Iv Karangasem Condongcatur",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20401087",
+    "nama": "Smp Negeri 3 Tempel",
+    "jenjang": "SMP",
+    "alamat": "Jl. Gendol",
+    "kapanewon": "Tempel",
+    "kalurahan": "Pondokrejo"
+  },
+  {
+    "npsn": "69941727",
+    "nama": "Mas Nur Iman Sleman",
+    "jenjang": "MA",
+    "alamat": "Jalan Masjid Patok Negoro No. 9 Mlangi",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20401018",
+    "nama": "Smp Muhammadiyah 1 Tempel",
+    "jenjang": "SMP",
+    "alamat": "Gendol",
+    "kapanewon": "Tempel",
+    "kalurahan": "Sumberejo"
+  },
+  {
+    "npsn": "20407422",
+    "nama": "Smp Muhammadiyah Boarding School",
+    "jenjang": "SMP",
+    "alamat": "Jl Piyungan Km 2 Marangan",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Bokoharjo"
+  },
+  {
+    "npsn": "20400814",
+    "nama": "Sd Negeri Tempursari",
+    "jenjang": "SD",
+    "alamat": "Kenteng",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Sumberharjo"
+  },
+  {
+    "npsn": "60714118",
+    "nama": "Mis Al Huda",
+    "jenjang": "MI",
+    "alamat": "Karangnongko",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "60714139",
+    "nama": "Mis Nurul Huda",
+    "jenjang": "MI",
+    "alamat": "Pokoh",
+    "kapanewon": "Tempel",
+    "kalurahan": "Banyurejo"
+  },
+  {
+    "npsn": "20400845",
+    "nama": "Sd Negeri Sumberrahayu",
+    "jenjang": "SD",
+    "alamat": "Kembangan",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberrahayu"
+  },
+  {
+    "npsn": "20400874",
+    "nama": "Smas Darul Hikmah",
+    "jenjang": "SMA",
+    "alamat": "Jl. Palagan Tentara Pelajar Km 15 Sembung Purwobinangun Pakem Sleman",
+    "kapanewon": "Pakem",
+    "kalurahan": "Purwobinangun"
+  },
+  {
+    "npsn": "20400834",
+    "nama": "Sd Negeri Sleman 5",
+    "jenjang": "SD",
+    "alamat": "Krapyak",
+    "kapanewon": "Sleman",
+    "kalurahan": "Triharjo"
+  },
+  {
+    "npsn": "20401373",
+    "nama": "Sd Muhammadiyah Kedungbanteng Ii",
+    "jenjang": "SD",
+    "alamat": "Bendosari",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumbersari"
+  },
+  {
+    "npsn": "20409812",
+    "nama": "Sd Budi Utama",
+    "jenjang": "SD",
+    "alamat": "Jl Wijayakusuma 121B",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "69976396",
+    "nama": "Mts Al-Barokah",
+    "jenjang": "MTS",
+    "alamat": "Margoluwih, Seyegan, Sleman, D.I.Yogyakarta",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margoluwih"
+  },
+  {
+    "npsn": "20401528",
+    "nama": "Sd It Bina Anak Sholeh Ii Yogyakarta",
+    "jenjang": "SD",
+    "alamat": "Jl Kaliurang Km 10.9",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sardonoharjo"
+  },
+  {
+    "npsn": "20401510",
+    "nama": "Sd It Taruna Alquran",
+    "jenjang": "SD",
+    "alamat": "Jongkang",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sariharjo"
+  },
+  {
+    "npsn": "20401413",
+    "nama": "Sd Negeri Banyuraden",
+    "jenjang": "SD",
+    "alamat": "Dowangan",
+    "kapanewon": "Gamping",
+    "kalurahan": "Banyuraden"
+  },
+  {
+    "npsn": "20400985",
+    "nama": "Sd Negeri Pusmalang",
+    "jenjang": "SD",
+    "alamat": "Pusmalang",
+    "kapanewon": "Cangkringan",
+    "kalurahan": "Wukirsari"
+  },
+  {
+    "npsn": "20401170",
+    "nama": "Smas Islam 1 Sleman",
+    "jenjang": "SMA",
+    "alamat": "Jl. Wates Km. 3.5 Gamping",
+    "kapanewon": "Gamping",
+    "kalurahan": "Banyuraden"
+  },
+  {
+    "npsn": "70055434",
+    "nama": "Sekolah Rakyat Menengah Atas 20 Sleman",
+    "jenjang": "SMA",
+    "alamat": "Jl. Karang Mojo, Bromonilan, Purwomartani, Kec. Kalasan, Kab. Sleman",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "20411889",
+    "nama": "Man 1 Sleman",
+    "jenjang": "MA",
+    "alamat": "Jl. Pramuka Rt.02 Rw.10 Nglarang",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoarum"
+  },
+  {
+    "npsn": "20400978",
+    "nama": "Sd Negeri Sidoluhur",
+    "jenjang": "SD",
+    "alamat": "Berjo Kulon, Sidoluhur, Godean, Sleman",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidoluhur"
+  },
+  {
+    "npsn": "20401328",
+    "nama": "Sd Muhammadiyah Sambisari",
+    "jenjang": "SD",
+    "alamat": "Sambisari",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Purwomartani"
+  },
+  {
+    "npsn": "60714123",
+    "nama": "Mis Baburroyyan",
+    "jenjang": "MI",
+    "alamat": "Kiyudan",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Selomartani"
+  },
+  {
+    "npsn": "20401141",
+    "nama": "Smks Muhammadiyah 1 Turi",
+    "jenjang": "SMK",
+    "alamat": "Keringan",
+    "kapanewon": "Turi",
+    "kalurahan": "Wonokerto"
+  },
+  {
+    "npsn": "20400957",
+    "nama": "Sd Negeri Sendangadi 2",
+    "jenjang": "SD",
+    "alamat": "Tegalturi",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sendangadi"
+  },
+  {
+    "npsn": "69982417",
+    "nama": "Smp Cahaya Bangsa Utama",
+    "jenjang": "SMP",
+    "alamat": "Jl. Kh Muhdi, Corongan",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20401106",
+    "nama": "Smp Negeri 4 Kalasan",
+    "jenjang": "SMP",
+    "alamat": "Jongkangan",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tamanmartani"
+  },
+  {
+    "npsn": "20401332",
+    "nama": "Sd Muhammadiyah Noyokerten",
+    "jenjang": "SD",
+    "alamat": "Noyokerten",
+    "kapanewon": "Berbah",
+    "kalurahan": "Sendangtirto"
+  },
+  {
+    "npsn": "20401540",
+    "nama": "Sd Negeri Koroulon 2",
+    "jenjang": "SD",
+    "alamat": "Rogobangsan",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Bimomartani"
+  },
+  {
+    "npsn": "20409859",
+    "nama": "Sd Budi Mulia Dua Pandeansari",
+    "jenjang": "SD",
+    "alamat": "Komplek Pandeansari Blok Iv",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "60726061",
+    "nama": "Smp Budi Utama Mlati",
+    "jenjang": "SMP",
+    "alamat": "Jl. Wijayakusuma 150 Yogyakarta",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "60727333",
+    "nama": "Mtss Hidayatullah",
+    "jenjang": "MTS",
+    "alamat": "Balong",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sariharjo"
+  },
+  {
+    "npsn": "20409808",
+    "nama": "Sd Al Islam",
+    "jenjang": "SD",
+    "alamat": "Jl. Babarsari Tb Xii No 8A Rt12 Rw04 Tambakbayan, Caturtunggal, Depok Sleman",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "20401480",
+    "nama": "Sd Muhammadiyah Balecatur",
+    "jenjang": "SD",
+    "alamat": "Sumber",
+    "kapanewon": "Gamping",
+    "kalurahan": "Balecatur"
+  },
+  {
+    "npsn": "20401610",
+    "nama": "Sd Negeri Margorejo",
+    "jenjang": "SD",
+    "alamat": "Ngabean",
+    "kapanewon": "Tempel",
+    "kalurahan": "Margorejo"
+  },
+  {
+    "npsn": "20400919",
+    "nama": "Sd Negeri Potrojayan 3",
+    "jenjang": "SD",
+    "alamat": "Jamusan",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Bokoharjo"
+  },
+  {
+    "npsn": "20401703",
+    "nama": "Sd Negeri Kaliurang 1",
+    "jenjang": "SD",
+    "alamat": "Jl Kesehatan 18, Kaliurang Barat",
+    "kapanewon": "Pakem",
+    "kalurahan": "Hargobinangun"
+  },
+  {
+    "npsn": "20401702",
+    "nama": "Sd Negeri Kaliurang 2",
+    "jenjang": "SD",
+    "alamat": "Jl. Pelajar 1, Kaliurang",
+    "kapanewon": "Pakem",
+    "kalurahan": "Hargobinangun"
+  },
+  {
+    "npsn": "20401562",
+    "nama": "Sd Negeri Karangasem",
+    "jenjang": "SD",
+    "alamat": "Karangasem",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "20401498",
+    "nama": "Sd Muhammadiyah Dadapan",
+    "jenjang": "SD",
+    "alamat": "Dadapan",
+    "kapanewon": "Turi",
+    "kalurahan": "Wonokerto"
+  },
+  {
+    "npsn": "60714127",
+    "nama": "Min 2 Sleman",
+    "jenjang": "MI",
+    "alamat": "Jl. Kaliurang Km. 9,3",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sinduharjo"
+  },
+  {
+    "npsn": "20401670",
+    "nama": "Sd Negeri Dalangan",
+    "jenjang": "SD",
+    "alamat": "Dalangan",
+    "kapanewon": "Sleman",
+    "kalurahan": "Caturharjo"
+  },
+  {
+    "npsn": "20411893",
+    "nama": "Mas Taruna Al Qur`An",
+    "jenjang": "MA",
+    "alamat": "Jl. Lempongsari 4A",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sariharjo"
+  },
+  {
+    "npsn": "20401007",
+    "nama": "Sd Negeri Pundong",
+    "jenjang": "SD",
+    "alamat": "Pundong",
+    "kapanewon": "Mlati",
+    "kalurahan": "Tirtoadi"
+  },
+  {
+    "npsn": "20401324",
+    "nama": "Sd Muhammadiyah Saren",
+    "jenjang": "SD",
+    "alamat": "Saren",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberrahayu"
+  },
+  {
+    "npsn": "70010982",
+    "nama": "Smp Islam Al-Azhar Cairo",
+    "jenjang": "SMP",
+    "alamat": "Jalan Bimo, Candirejo (Jl. Kaliurang Km 13.5)",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sardonoharjo"
+  },
+  {
+    "npsn": "20404090",
+    "nama": "Sd Muhammadiyah Sleman",
+    "jenjang": "SD",
+    "alamat": "Jl Kenari Srimulyo",
+    "kapanewon": "Sleman",
+    "kalurahan": "Triharjo"
+  },
+  {
+    "npsn": "20401317",
+    "nama": "Smks Muhammadiyah Prambanan",
+    "jenjang": "SMK",
+    "alamat": "Jl. Prambanan - Piyungan Km. 1",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Bokoharjo"
+  },
+  {
+    "npsn": "20401661",
+    "nama": "Sd Negeri Clumprit",
+    "jenjang": "SD",
+    "alamat": "Clumprit",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sardonoharjo"
+  },
+  {
+    "npsn": "20401495",
+    "nama": "Sd Muhammadiyah Domban 2",
+    "jenjang": "SD",
+    "alamat": "Karanggawang",
+    "kapanewon": "Tempel",
+    "kalurahan": "Mororejo"
+  },
+  {
+    "npsn": "20404144",
+    "nama": "Sd Islam Terpadu Bakti Insani",
+    "jenjang": "SD",
+    "alamat": "Jln Letnan Sumanto Srimulyo",
+    "kapanewon": "Sleman",
+    "kalurahan": "Triharjo"
+  },
+  {
+    "npsn": "20401134",
+    "nama": "Smks 17 1 Seyegan",
+    "jenjang": "SMK",
+    "alamat": "Jl. Godean Seyegan",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margodadi"
+  },
+  {
+    "npsn": "20401612",
+    "nama": "Sd Negeri Margomulyo 1",
+    "jenjang": "SD",
+    "alamat": "Mriyan",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margomulyo"
+  },
+  {
+    "npsn": "70011954",
+    "nama": "Smp Sains Wahid Hasyim",
+    "jenjang": "SMP",
+    "alamat": "Jl. Wahid Hasyim Gaten Dabag",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "70025407",
+    "nama": "Smp Teladan",
+    "jenjang": "SMP",
+    "alamat": "Jl. Kabupaten No. 99 Karang Tengah",
+    "kapanewon": "Gamping",
+    "kalurahan": "Nogotirto"
+  },
+  {
+    "npsn": "20401356",
+    "nama": "Sd Muhammadiyah Gendol Vi",
+    "jenjang": "SD",
+    "alamat": "Barak 1",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margoluwih"
+  },
+  {
+    "npsn": "20401005",
+    "nama": "Sd Negeri Salakan Lor",
+    "jenjang": "SD",
+    "alamat": "Salakan",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Selomartani"
+  },
+  {
+    "npsn": "20401563",
+    "nama": "Sd Negeri Karanganyar",
+    "jenjang": "SD",
+    "alamat": "Jangkang",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Widodomartani"
+  },
+  {
+    "npsn": "20409728",
+    "nama": "Smks Muhammadiyah Minggir",
+    "jenjang": "SMK",
+    "alamat": "Sidorejo",
+    "kapanewon": "Minggir",
+    "kalurahan": "Sendangrejo"
+  },
+  {
+    "npsn": "20400915",
+    "nama": "Sd Negeri Pencar",
+    "jenjang": "SD",
+    "alamat": "Pencar",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Sindumartani"
+  },
+  {
+    "npsn": "20401043",
+    "nama": "Smks Putra Samodera Yogyakarta",
+    "jenjang": "SMK",
+    "alamat": "Jl. Wates Km.4 Somodaran",
+    "kapanewon": "Gamping",
+    "kalurahan": "Banyuraden"
+  },
+  {
+    "npsn": "20401700",
+    "nama": "Sd Negeri Kandangan 1",
+    "jenjang": "SD",
+    "alamat": "Kurahan Iii",
+    "kapanewon": "Seyegan",
+    "kalurahan": "Margodadi"
+  },
+  {
+    "npsn": "20401605",
+    "nama": "Sd Negeri Ngangkrik",
+    "jenjang": "SD",
+    "alamat": "Jl Letkol Subadri No.58",
+    "kapanewon": "Sleman",
+    "kalurahan": "Triharjo"
+  },
+  {
+    "npsn": "20401147",
+    "nama": "Smas Muhammadiyah Kalasan",
+    "jenjang": "SMA",
+    "alamat": "Jl. Dhuri Tirtomartani, Kalasan",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tirtomartani"
+  },
+  {
+    "npsn": "20401593",
+    "nama": "Sd Negeri Nanggulan",
+    "jenjang": "SD",
+    "alamat": "Jl. Waringin, Nanggulan",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20401629",
+    "nama": "Sd Negeri Minomartani 1",
+    "jenjang": "SD",
+    "alamat": "Mlandangan",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Minomartani"
+  },
+  {
+    "npsn": "69772537",
+    "nama": "Smks Kesehatan Binatama",
+    "jenjang": "SMK",
+    "alamat": "Jalan Monumen Yogya Kembali 134",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20404103",
+    "nama": "Sd Negeri Ngablak",
+    "jenjang": "SD",
+    "alamat": "Ngablak",
+    "kapanewon": "Turi",
+    "kalurahan": "Bangunkerto"
+  },
+  {
+    "npsn": "20400807",
+    "nama": "Sd Negeri Tanjungtirto 1",
+    "jenjang": "SD",
+    "alamat": "Tanjungtirto",
+    "kapanewon": "Berbah",
+    "kalurahan": "Kalitirto"
+  },
+  {
+    "npsn": "69880393",
+    "nama": "Sekolah Menengah Atas Yogyakarta Independent School",
+    "jenjang": "SPK SMA",
+    "alamat": "Jl. Tegal Mlati No. 1",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sinduadi"
+  },
+  {
+    "npsn": "20401533",
+    "nama": "Sd Negeri Klegung 3",
+    "jenjang": "SD",
+    "alamat": "Kopen",
+    "kapanewon": "Tempel",
+    "kalurahan": "Lumbungrejo"
+  },
+  {
+    "npsn": "70044379",
+    "nama": "Mas Afkaaruna Islamic School",
+    "jenjang": "MA",
+    "alamat": "Jl Kaliurang Km 12,5 Pelem Rt 004 Rw 024",
+    "kapanewon": "Pakem",
+    "kalurahan": "Harjobinangun"
+  },
+  {
+    "npsn": "20400921",
+    "nama": "Sd Negeri Pokoh 1",
+    "jenjang": "SD",
+    "alamat": "Pokoh",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Wedomartani"
+  },
+  {
+    "npsn": "20401514",
+    "nama": "Sd It Hidayatullah",
+    "jenjang": "SD",
+    "alamat": "Jl Palagan Tentara Pelajar Km 14,5",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Donoharjo"
+  },
+  {
+    "npsn": "70012063",
+    "nama": "Sma Sahabatqu",
+    "jenjang": "SMA",
+    "alamat": "Jalan Nusa Indah No. 38 Gandok",
+    "kapanewon": "Depok",
+    "kalurahan": "Condongcatur"
+  },
+  {
+    "npsn": "60714125",
+    "nama": "Mis Darussholihin",
+    "jenjang": "MI",
+    "alamat": "Jonggrangan",
+    "kapanewon": "Mlati",
+    "kalurahan": "Sumberadi"
+  },
+  {
+    "npsn": "70032967",
+    "nama": "Ma Diponegoro",
+    "jenjang": "MA",
+    "alamat": "Jl. P. Diponegoro, Sembego",
+    "kapanewon": "Depok",
+    "kalurahan": "Maguwoharjo"
+  },
+  {
+    "npsn": "20401156",
+    "nama": "Smas Kolese De Britto Depok",
+    "jenjang": "SMA",
+    "alamat": "Jl. Laksda Adisucipto 161",
+    "kapanewon": "Depok",
+    "kalurahan": "Caturtunggal"
+  },
+  {
+    "npsn": "69958625",
+    "nama": "Roudlotuth Tholibin",
+    "jenjang": "PONDOK PESANTREN",
+    "alamat": "Jalan Lpmp Tawang - Tanjungan Rt 06 Rw 26",
+    "kapanewon": "Kalasan",
+    "kalurahan": "Tirtomartani"
+  },
+  {
+    "npsn": "20401440",
+    "nama": "Sd Bopkri Sidomulyo 2",
+    "jenjang": "SD",
+    "alamat": "Gancahan 8",
+    "kapanewon": "Godean",
+    "kalurahan": "Sidomulyo"
+  },
+  {
+    "npsn": "69957288",
+    "nama": "Sdit Darussalam Selokerto",
+    "jenjang": "SD",
+    "alamat": "Selokerto",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sardonoharjo"
+  },
+  {
+    "npsn": "20401104",
+    "nama": "Smp Negeri 4 Tempel",
+    "jenjang": "SMP",
+    "alamat": "Soka Tegal",
+    "kapanewon": "Tempel",
+    "kalurahan": "Merdikorejo"
+  },
+  {
+    "npsn": "20411894",
+    "nama": "Mas Hidayatullah",
+    "jenjang": "MA",
+    "alamat": "Jl. Palagan Tentara Pelajar Km. 14,5, Balong, Donoharjo, Ngaglik",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Donoharjo"
+  },
+  {
+    "npsn": "20404139",
+    "nama": "Smks Islam Moyudan",
+    "jenjang": "SMK",
+    "alamat": "Gedongan",
+    "kapanewon": "Moyudan",
+    "kalurahan": "Sumberagung"
+  },
+  {
+    "npsn": "20401073",
+    "nama": "Smp Negeri 3 Ngaglik",
+    "jenjang": "SMP",
+    "alamat": "Candi",
+    "kapanewon": "Ngaglik",
+    "kalurahan": "Sardonoharjo"
+  },
+  {
+    "npsn": "20401617",
+    "nama": "Sd Negeri Malangrejo",
+    "jenjang": "SD",
+    "alamat": "Jetis",
+    "kapanewon": "Ngemplak",
+    "kalurahan": "Wedomartani"
+  },
+  {
+    "npsn": "20401570",
+    "nama": "Sd Negeri Kenaran 2",
+    "jenjang": "SD",
+    "alamat": "Watubalik",
+    "kapanewon": "Prambanan",
+    "kalurahan": "Sumberharjo"
+  },
+  {
+    "npsn": "20407611",
+    "nama": "Tk Aba Pereng Dawe",
+    "jenjang": "TK",
+    "alamat": "",
+    "kapanewon": "Gamping",
+    "kalurahan": "Balecatur"
+  },
+  {
+    "npsn": "20407595",
+    "nama": "Tk Aba Gamping",
+    "jenjang": "TK",
+    "alamat": "",
+    "kapanewon": "Gamping",
+    "kalurahan": "Ambarketawang"
+  },
+  {
+    "npsn": "20407616",
+    "nama": "Tk Mutiara Gamping",
+    "jenjang": "TK",
+    "alamat": "",
+    "kapanewon": "Gamping",
+    "kalurahan": "Balecatur"
+  },
+  {
+    "npsn": "69886557",
+    "nama": "Pos Paud Mekar Harapan",
+    "jenjang": "SPS",
+    "alamat": "",
+    "kapanewon": "Gamping",
+    "kalurahan": "Balecatur"
+  }
+]

@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: ews_aps_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ews_user
+      POSTGRES_PASSWORD: ews_password
+      POSTGRES_DB: ews_aps_sleman
+    ports:
+      - "5432:5432"
+    volumes:
+      - ews_pg_data:/var/lib/postgresql/data
+
+volumes:
+  ews_pg_data:

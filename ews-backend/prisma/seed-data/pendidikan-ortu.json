@@ -1,0 +1,62 @@
+[
+  {
+    "nama": "PAUD",
+    "kodeOrdinal": 0
+  },
+  {
+    "nama": "Tidak sekolah",
+    "kodeOrdinal": 0
+  },
+  {
+    "nama": "Putus SD",
+    "kodeOrdinal": 1
+  },
+  {
+    "nama": "SD / sederajat",
+    "kodeOrdinal": 2
+  },
+  {
+    "nama": "SMP / sederajat",
+    "kodeOrdinal": 3
+  },
+  {
+    "nama": "Lainnya",
+    "kodeOrdinal": 4
+  },
+  {
+    "nama": "SMA / sederajat",
+    "kodeOrdinal": 4
+  },
+  {
+    "nama": "D1",
+    "kodeOrdinal": 5
+  },
+  {
+    "nama": "D2",
+    "kodeOrdinal": 5
+  },
+  {
+    "nama": "D3",
+    "kodeOrdinal": 5
+  },
+  {
+    "nama": "D4",
+    "kodeOrdinal": 6
+  },
+  {
+    "nama": "S1",
+    "kodeOrdinal": 6
+  },
+  {
+    "nama": "S2",
+    "kodeOrdinal": 7
+  },
+  {
+    "nama": "Sp-1",
+    "kodeOrdinal": 7
+  },
+  {
+    "nama": "S3",
+    "kodeOrdinal": 8
+  }
+]

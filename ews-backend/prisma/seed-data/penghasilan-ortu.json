@@ -1,0 +1,30 @@
+[
+  {
+    "nama": "Tidak Berpenghasilan",
+    "kodeOrdinal": 0
+  },
+  {
+    "nama": "Kurang dari Rp. 500,000",
+    "kodeOrdinal": 1
+  },
+  {
+    "nama": "Rp. 500,000 - Rp. 999,999",
+    "kodeOrdinal": 2
+  },
+  {
+    "nama": "Rp. 1,000,000 - Rp. 1,999,999",
+    "kodeOrdinal": 3
+  },
+  {
+    "nama": "Rp. 2,000,000 - Rp. 4,999,999",
+    "kodeOrdinal": 4
+  },
+  {
+    "nama": "Rp. 5,000,000 - Rp. 20,000,000",
+    "kodeOrdinal": 5
+  },
+  {
+    "nama": "Lebih dari Rp. 20,000,000",
+    "kodeOrdinal": 6
+  }
+]
