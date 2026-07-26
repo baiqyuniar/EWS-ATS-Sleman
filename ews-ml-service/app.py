@@ -89,8 +89,8 @@ def _flatten_features(payload: StudentFeatures) -> Dict[str, Optional[float]]:
     }
 
 
-@app.get("/health")
-def health():
+@app.get("/cek")
+def cek():
     return {"status": "ok"}
 
 
