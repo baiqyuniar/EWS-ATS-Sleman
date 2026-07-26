@@ -24,25 +24,25 @@ export default function SlemanGeoMap() {
     { id: "prambanan", name: "Prambanan" },
   ];
 
-  const regionMap: any = {
-    Godean: "godean",
-    Ngaglik: "ngaglik",
-    Tempel: "tempel",
-    Turi: "turi",
-    Pakem: "pakem",
-    Cangkringan: "cangkringan",
-    Minggir: "minggir",
-    Seyegan: "seyegan",
-    Sleman: "sleman",
-    Ngemplak: "ngemplak",
-    Moyudan: "moyudan",
-    Mlati: "mlati",
-    Depok: "depok",
-    Kalasan: "kalasan",
-    Gamping: "gamping",
-    Berbah: "berbah",
-    Prambanan: "prambanan",
-  };
+  // const regionMap: any = {
+  //   Godean: "godean",
+  //   Ngaglik: "ngaglik",
+  //   Tempel: "tempel",
+  //   Turi: "turi",
+  //   Pakem: "pakem",
+  //   Cangkringan: "cangkringan",
+  //   Minggir: "minggir",
+  //   Seyegan: "seyegan",
+  //   Sleman: "sleman",
+  //   Ngemplak: "ngemplak",
+  //   Moyudan: "moyudan",
+  //   Mlati: "mlati",
+  //   Depok: "depok",
+  //   Kalasan: "kalasan",
+  //   Gamping: "gamping",
+  //   Berbah: "berbah",
+  //   Prambanan: "prambanan",
+  // };
 
   const schoolData: Record<
     string,
@@ -74,13 +74,13 @@ export default function SlemanGeoMap() {
     prambanan: [{ name: "SMK Prambanan", risk: 45, status: "Sedang" }],
   };
 
-  const getColor = (value: number) => {
-    if (value >= 90) return "#EF4444";
-    if (value >= 75) return "#FB923C";
-    if (value >= 60) return "#FDE047";
-    if (value >= 45) return "#86EFAC";
-    return "#4ADE80";
-  };
+  // const getColor = (value: number) => {
+  //   if (value >= 90) return "#EF4444";
+  //   if (value >= 75) return "#FB923C";
+  //   if (value >= 60) return "#FDE047";
+  //   if (value >= 45) return "#86EFAC";
+  //   return "#4ADE80";
+  // };
 
   const selectedSchools = selectedRegion
     ? schoolData[selectedRegion] || []

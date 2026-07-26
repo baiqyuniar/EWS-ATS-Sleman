@@ -1,10 +1,9 @@
-import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import type { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { GeoJSON, MapContainer, TileLayer } from "react-leaflet";
 
 import geojsonData from "../../data/Sleman-kepanewon.json";
 import { riskData } from "../../data/riskDummy";
-import {zoomControl} from "leaflet";
 
 type Props = {
   onRegionClick: (regionId: string) => void;

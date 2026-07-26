@@ -50,6 +50,7 @@ export default function ReportTable() {
               <th className="text-left p-4">Wilayah</th>
               <th className="text-left p-4">Kategori</th>
               <th className="text-left p-4">Status</th>
+              <th className="text-center p-4">Aksi</th>
             </tr>
           </thead>
 
@@ -57,7 +58,10 @@ export default function ReportTable() {
             {reports.map((item) => {
               const style = statusStyle[item.statusColor] ?? statusStyle.slate;
               return (
-                <tr key={item.id} className="border-t hover:bg-slate-50">
+                <tr
+                  key={item.id}
+                  className="border-t hover:bg-slate-50"
+                >
                   <td className="p-4">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center font-semibold text-blue-700">
@@ -65,7 +69,9 @@ export default function ReportTable() {
                       </div>
 
                       <div>
-                        <p className="font-semibold">{item.studentName}</p>
+                        <p className="font-semibold">
+                          {item.studentName}
+                        </p>
 
                         <p className="text-xs text-slate-500">
                           NIK {item.nikMasked}
@@ -74,7 +80,9 @@ export default function ReportTable() {
                     </div>
                   </td>
 
-                  <td className="p-4">{item.wilayah}</td>
+                  <td className="p-4">
+                    {item.wilayah}
+                  </td>
 
                   <td className="p-4">
                     <span
@@ -86,7 +94,9 @@ export default function ReportTable() {
 
                   <td className="p-4">
                     <div className="flex items-center gap-2">
-                      <div className={`w-2 h-2 rounded-full ${style.dot}`} />
+                      <div
+                        className={`w-2 h-2 rounded-full ${style.dot}`}
+                      />
 
                       {item.status}
                     </div>

@@ -1,22 +1,41 @@
-import { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   ArrowLeft,
-  Home,
   Building2,
-  ClipboardList,
-  ShieldCheck,
-  Eye as EyeIcon,
-  Users2,
-  Lock,
-  RotateCcw,
-  Loader2,
-  Plus,
   CheckCircle2,
+  ClipboardList,
+  Eye as EyeIcon,
+  Home,
+  Loader2,
+  Lock,
+  Plus,
+  RotateCcw,
+  ShieldCheck,
+  Users2,
 } from "lucide-react";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
+import CaseTimeline from "../../components/cases/CaseTimeline";
+import FileUploadField from "../../components/cases/FileUploadField";
+import {
+  InterventionCreatePanel,
+  InterventionResultForm,
+  ReviewPanel,
+  SubmitCompletionButton,
+  VerifyReferralButton,
+} from "../../components/cases/ReferralActionPanels";
+import { ErrorAlert, SuccessAlert } from "../../components/ui/Alert";
+import {
+  AssignmentStatusBadge,
+  CaseSourceBadge,
+  CaseStatusBadge,
+  RiskBadge,
+} from "../../components/ui/Badge";
+import Modal from "../../components/ui/Modal";
+import { useAuth } from "../../hooks/useAuth";
 import DashboardLayout from "../../layouts/DashboardLayout";
+import { apiErrorMessage } from "../../lib/api";
 import {
   getCase,
   getCaseTimeline,
@@ -24,46 +43,27 @@ import {
   verifikasiPengaduan,
 } from "../../services/cases.service";
 import { createHomeVisit } from "../../services/home-visit.service";
-import { createReferral } from "../../services/referral.service";
+import { opdApi, riskFactorsApi } from "../../services/master.service";
 import {
-  createMonitoring,
   closeCase,
+  createMonitoring,
   reopenCase,
 } from "../../services/monitoring.service";
-import { opdApi, riskFactorsApi } from "../../services/master.service";
-import { useAuth } from "../../hooks/useAuth";
-import { apiErrorMessage } from "../../lib/api";
-import {
-  CaseStatusBadge,
-  CaseSourceBadge,
-  RiskBadge,
-  AssignmentStatusBadge,
-} from "../../components/ui/Badge";
-import { ErrorAlert, SuccessAlert } from "../../components/ui/Alert";
-import Modal from "../../components/ui/Modal";
-import CaseTimeline from "../../components/cases/CaseTimeline";
-import FileUploadField from "../../components/cases/FileUploadField";
-import {
-  VerifyReferralButton,
-  InterventionCreatePanel,
-  InterventionResultForm,
-  SubmitCompletionButton,
-  ReviewPanel,
-} from "../../components/cases/ReferralActionPanels";
-import { HOME_VISIT_RESULT_LABEL, RISK_LABEL } from "../../types/api";
+import { createReferral } from "../../services/referral.service";
 import type {
-  HomeVisitResult,
-  RiskCategory,
-  Referral,
   Case,
+  HomeVisitResult,
+  Referral,
+  RiskCategory,
   UserRole,
 } from "../../types/api";
+import { HOME_VISIT_RESULT_LABEL, RISK_LABEL } from "../../types/api";
 
 export default function CaseDetailPage() {
   const { id } = useParams();
   const caseId = Number(id);
   const navigate = useNavigate();
-  const { role } = useAuth();
+  const { role, user } = useAuth();
   const qc = useQueryClient();
 
   const { data: kase, isLoading } = useQuery({
@@ -281,6 +281,7 @@ export default function CaseDetailPage() {
             kase={kase}
             role={role}
             isAdmin={isAdmin}
+            currentOpdId={user?.opdId ?? null}
             invalidate={invalidate}
           />
         ))}
@@ -537,7 +538,7 @@ function HomeVisitPanel({
         className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm"
       />
       <FileUploadField
-        label="Bukti Foto Home Visit (wajib)"
+        label="Bukti Foto Home Visit (BR-15, wajib)"
         urls={fotoUrls}
         onChange={setFotoUrls}
         accept="image/*"
@@ -572,14 +573,26 @@ function ReferralCard({
   kase,
   role,
   isAdmin,
+  currentOpdId,
   invalidate,
 }: {
   referral: Referral;
   kase: Case;
   role: UserRole | null;
   isAdmin: boolean;
+  currentOpdId: number | null;
   invalidate: () => void;
 }) {
+  // Fix: sebelumnya semua aksi khusus OPD (verifikasi/isi intervensi/submit selesai)
+  // dicek hanya lewat `role === "OPD"` — tanpa membandingkan referral.opdId dengan
+  // OPD akun yang login. Akibatnya saat rujukan multi-OPD, akun OPD mana pun melihat
+  // tombol aksi di SEMUA kartu OPD (termasuk OPD lain), bukan cuma kartu miliknya
+  // sendiri. Backend sudah menolak aksi lintas-OPD (403/404), tapi tombolnya tetap
+  // tampil di UI dan bikin bingung. `isOwnOpd` di bawah dipakai untuk mengganti
+  // seluruh pengecekan `role === "OPD"` pada aksi.
+  const isOwnOpd =
+    role === "OPD" && currentOpdId !== null && referral.opdId === currentOpdId;
+
   return (
     <Section
       icon={Building2}
@@ -612,7 +625,7 @@ function ReferralCard({
               <p className="text-sm text-emerald-700 bg-emerald-50 rounded-xl px-3 py-2 mt-2">
                 Hasil: {iv.hasil}
               </p>
-            ) : role === "OPD" || isAdmin ? (
+            ) : isOwnOpd || isAdmin ? (
               <InterventionResultForm
                 interventionId={iv.id}
                 onDone={invalidate}
@@ -626,19 +639,19 @@ function ReferralCard({
         ))}
       </div>
 
-      {referral.status === "MENUNGGU" && role === "OPD" && (
+      {referral.status === "MENUNGGU" && isOwnOpd && (
         <VerifyReferralButton referralId={referral.id} onDone={invalidate} />
       )}
 
       {["DIRUJUK_OPD", "INTERVENSI_BERJALAN"].includes(kase.status) &&
-        role === "OPD" && (
+        isOwnOpd && (
           <InterventionCreatePanel
             referralId={referral.id}
             onDone={invalidate}
           />
         )}
 
-      {kase.status === "INTERVENSI_BERJALAN" && role === "OPD" && (
+      {kase.status === "INTERVENSI_BERJALAN" && isOwnOpd && (
         <SubmitCompletionButton referralId={referral.id} onDone={invalidate} />
       )}
 

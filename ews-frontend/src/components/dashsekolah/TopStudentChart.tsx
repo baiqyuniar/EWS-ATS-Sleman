@@ -1,13 +1,13 @@
 import {
-  ResponsiveContainer,
+  Bar,
   BarChart,
+  CartesianGrid,
+  Cell,
+  LabelList,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  Tooltip,
-  Bar,
-  Cell,
-  CartesianGrid,
-  LabelList,
 } from "recharts";
 
 const data = [
@@ -92,18 +92,14 @@ export default function TopStudentsChart() {
               border: "1px solid #E2E8F0",
               boxShadow: "0 6px 18px rgba(0,0,0,.08)",
             }}
-            formatter={(value: number) => [`${value}%`, "Skor Risiko"]}
+            formatter={(value) => [`${value}%`, "Skor Risiko"]}
           />
 
-          <Bar
-            dataKey="risk"
-            radius={[0, 10, 10, 0]}
-            barSize={22}
-          >
+          <Bar dataKey="risk" radius={[0, 10, 10, 0]} barSize={22}>
             <LabelList
               dataKey="risk"
               position="right"
-              formatter={(value: number) => `${value}%`}
+              formatter={(value) => `${value as number}%`}
               style={{
                 fill: "#1E293B",
                 fontWeight: 600,
@@ -112,10 +108,7 @@ export default function TopStudentsChart() {
             />
 
             {data.map((item, index) => (
-              <Cell
-                key={index}
-                fill={getColor(item.risk)}
-              />
+              <Cell key={index} fill={getColor(item.risk)} />
             ))}
           </Bar>
         </BarChart>
