@@ -3,7 +3,12 @@
 // Keep in sync with prisma/schema.prisma when the backend changes.
 // =====================================================================
 
-export type UserRole = "ADMIN" | "SEKOLAH" | "KAPANEWON" | "OPD" | "DINAS_PENDIDIKAN";
+export type UserRole =
+  | "ADMIN"
+  | "SEKOLAH"
+  | "KAPANEWON"
+  | "OPD"
+  | "DINAS_PENDIDIKAN";
 
 export type RiskCategory = "RENDAH" | "SEDANG" | "TINGGI";
 
@@ -22,7 +27,10 @@ export type CaseStatus =
   | "MONITORING" // S09
   | "CLOSED_CASE"; // S10 (final)
 
-export type HomeVisitResult = "BELUM_SELESAI" | "KEMBALI_SEKOLAH" | "TIDAK_KEMBALI";
+export type HomeVisitResult =
+  | "BELUM_SELESAI"
+  | "KEMBALI_SEKOLAH"
+  | "TIDAK_KEMBALI";
 
 export type AssignmentStatus =
   | "MENUNGGU"
@@ -36,7 +44,12 @@ export type ReviewDecision = "APPROVE" | "PERLU_PERBAIKAN";
 
 export type PredictionSource = "ML_BATCH" | "MANUAL";
 
-export type StudentStatus = "AKTIF" | "PUTUS_SEKOLAH" | "KEMBALI_SEKOLAH" | "LULUS" | "PINDAH";
+export type StudentStatus =
+  | "AKTIF"
+  | "PUTUS_SEKOLAH"
+  | "KEMBALI_SEKOLAH"
+  | "LULUS"
+  | "PINDAH";
 
 // Asal Referral: dari alur Case (BR-10, oleh Kapanewon) atau jalur ringan rujukan
 // siswa Putus Sekolah (DO) langsung oleh Admin, tanpa Case.
@@ -76,16 +89,12 @@ export interface School {
   latitude?: number | null;
   longitude?: number | null;
   active: boolean;
+  // Hanya 4 indikator sulingjar yang dipakai model ML final — lihat
+  // ews-ml-service/models/*_spec.json (fitur D.18, D.1, D.2, D.6).
   sulingjarKesiapsiagaanBencana?: number | null;
   sulingjarKualitasPembelajaran?: number | null;
   sulingjarRefleksiGuru?: number | null;
-  sulingjarKepemimpinanKepsek?: number | null;
-  sulingjarIklimKeamanan?: number | null;
   sulingjarIklimKesetaraanGender?: number | null;
-  sulingjarIklimKebinekaan?: number | null;
-  sulingjarIklimInklusivitas?: number | null;
-  sulingjarPartisipasiWarga?: number | null;
-  sulingjarProgramSatuanPendidikan?: number | null;
   createdAt: string;
   updatedAt: string;
 }
@@ -178,7 +187,12 @@ export interface LabelCount {
 export interface StudentAnalytics {
   totalSiswa: number;
   sebaranJenisKelamin: LabelCount[];
-  sebaranRisiko: { rendah: number; sedang: number; tinggi: number; belumDiprediksi: number };
+  sebaranRisiko: {
+    rendah: number;
+    sedang: number;
+    tinggi: number;
+    belumDiprediksi: number;
+  };
   sebaranAgama: LabelCount[];
   sebaranJenisTinggal: LabelCount[];
   sebaranAlatTransportasi: LabelCount[];
@@ -405,7 +419,11 @@ export interface Prediction {
   datasetBatch?: string | null;
   uploadedById?: number | null;
   createdAt: string;
-  riskFactors?: { riskFactorId: number; weight?: number | null; riskFactor: RiskFactor }[];
+  riskFactors?: {
+    riskFactorId: number;
+    weight?: number | null;
+    riskFactor: RiskFactor;
+  }[];
 }
 
 // ---------------------------------------------------------------------
@@ -583,25 +601,18 @@ export interface CreateStudentPayload {
   kodePenghasilanIbu?: number;
 }
 
-export type UpdateStudentPayload = Partial<CreateStudentPayload> & { status?: StudentStatus };
+export type UpdateStudentPayload = Partial<CreateStudentPayload> & {
+  status?: StudentStatus;
+};
 
 export interface SimulatePredictionPayload {
   studentId: number;
-
   num?: number;
-
   kodePendidikanAyah?: number;
   kodePendidikanIbu?: number;
   kodePenghasilanAyah?: number;
   kodePenghasilanIbu?: number;
-
   riskFactorIds?: number[];
-
-  // Tambahkan ini
-  sulingjarD18?: number;
-  sulingjarD1?: number;
-  sulingjarD2?: number;
-  sulingjarD6?: number;
 }
 
 export interface BulkPredictionRow {

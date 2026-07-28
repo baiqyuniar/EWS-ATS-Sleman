@@ -37,16 +37,15 @@ FEATURE_LABELS: Dict[str, str] = {
     "kode_pendidikan_ibu": "Tingkat pendidikan ibu",
     "kode_penghasilan_ayah": "Tingkat penghasilan ayah",
     "kode_penghasilan_ibu": "Tingkat penghasilan ibu",
-    "sulingjar_kesiapsiagaan_bencana": "Mutu sekolah: kesiapsiagaan bencana",
-    "sulingjar_kualitas_pembelajaran": "Mutu sekolah: kualitas pembelajaran",
-    "sulingjar_refleksi_guru": "Mutu sekolah: refleksi & perbaikan pembelajaran guru",
-    "sulingjar_kepemimpinan_kepsek": "Mutu sekolah: kepemimpinan kepala sekolah",
-    "sulingjar_iklim_keamanan": "Mutu sekolah: iklim keamanan",
-    "sulingjar_iklim_kesetaraan_gender": "Mutu sekolah: iklim kesetaraan gender",
-    "sulingjar_iklim_kebinekaan": "Mutu sekolah: iklim kebinekaan",
-    "sulingjar_iklim_inklusivitas": "Mutu sekolah: iklim inklusivitas",
-    "sulingjar_partisipasi_warga": "Mutu sekolah: partisipasi warga sekolah",
-    "sulingjar_program_satuan_pendidikan": "Mutu sekolah: program satuan pendidikan",
+    # Kunci di sini HARUS persis sama dengan nama fitur di models/*_spec.json
+    # (mis. "sulingjar_D.18"), karena _top_reasons() mencocokkan berdasarkan
+    # nama fitur booster, bukan nama ramah di API. Hanya 4 indikator sulingjar
+    # berikut yang benar-benar dipakai model final (aspd_num + tanpa_aspd
+    # gabungan) — lihat platform_export/models/*_spec.json di repo ewsDropOut.
+    "sulingjar_D.18": "Mutu sekolah: kesiapsiagaan bencana",
+    "sulingjar_D.1": "Mutu sekolah: kualitas pembelajaran",
+    "sulingjar_D.2": "Mutu sekolah: refleksi & perbaikan pembelajaran guru",
+    "sulingjar_D.6": "Mutu sekolah: iklim kesetaraan gender",
 }
 
 

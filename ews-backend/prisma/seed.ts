@@ -3,15 +3,6 @@ import * as bcrypt from "bcrypt";
 import * as fs from "fs";
 import * as path from "path";
 
-interface SchoolSeed {
-  npsn: string;
-  nama: string;
-  jenjang: string;
-  alamat: string;
-  kapanewon: string;
-  kalurahan: string;
-}
-
 const prisma = new PrismaClient();
 
 function loadJson<T>(fileName: string): T {
@@ -29,19 +20,57 @@ async function main() {
   console.log(`Wilayah: ${wilayahData.length} kalurahan tersimpan.`);
 
   // ---------------- Sekolah: 889 sekolah se-Kabupaten Sleman (dari data Dapodik/referensi) ----------------
-  const schoolsData =
-    loadJson<
-      {
-        npsn: string;
-        nama: string;
-        jenjang: string;
-        alamat: string;
-        kapanewon: string;
-        kalurahan: string;
-      }[]
-    >("schools.json");
+  const schoolsData = loadJson<
+    {
+      npsn: string;
+      nama: string;
+      jenjang: string;
+      alamat: string;
+      kapanewon: string;
+      kalurahan: string;
+    }[]
+  >("schools.json");
   await prisma.school.createMany({ data: schoolsData, skipDuplicates: true });
   console.log(`Sekolah: ${schoolsData.length} sekolah tersimpan.`);
+
+  // ---------------- Sulingjar: indikator mutu sekolah (Survei Lingkungan Belajar) ----------------
+  // Sumber: Data_Sulingjar_Sleman.xlsx (Kemendikbud), dikonversi ke JSON dengan hanya
+  // 4 indikator yang dipakai model ML final (aspd_num + tanpa_aspd gabungan — lihat
+  // ews-ml-service/models/*_spec.json: D.18, D.1, D.2, D.6). Nilai Kurang/Sedang/Baik
+  // pada file sumber sudah dikonversi ke 1/2/3 (docs/CODEBOOK.md repo ewsDropOut).
+  // Field ini disimpan di level School (bukan Student) — karena mutu sekolah berlaku
+  // untuk semua siswa di sekolah itu, seluruh siswa otomatis "mewarisi" nilai ini lewat
+  // relasi Student.school saat fitur ML dibangun (lihat PredictionService.buildFeatures
+  // di ews-backend).
+  const sulingjarData = loadJson<
+    {
+      npsn: string;
+      nama: string | null;
+      sulingjarKesiapsiagaanBencana: number | null;
+      sulingjarKualitasPembelajaran: number | null;
+      sulingjarRefleksiGuru: number | null;
+      sulingjarIklimKesetaraanGender: number | null;
+    }[]
+  >("sulingjar.json");
+
+  let sulingjarUpdated = 0;
+  for (const s of sulingjarData) {
+    const result = await prisma.school.updateMany({
+      where: { npsn: s.npsn },
+      data: {
+        sulingjarKesiapsiagaanBencana: s.sulingjarKesiapsiagaanBencana,
+        sulingjarKualitasPembelajaran: s.sulingjarKualitasPembelajaran,
+        sulingjarRefleksiGuru: s.sulingjarRefleksiGuru,
+        sulingjarIklimKesetaraanGender: s.sulingjarIklimKesetaraanGender,
+      },
+    });
+    sulingjarUpdated += result.count;
+  }
+  console.log(
+    `Sulingjar: ${sulingjarUpdated} sekolah diperbarui dengan data mutu sekolah ` +
+      `(dari ${sulingjarData.length} baris di sumber, dicocokkan lewat NPSN; sisanya ` +
+      `tidak punya NPSN yang cocok di master sekolah — umumnya TK/PAUD di luar cakupan survei).`,
+  );
 
   // ---------------- Faktor Anak Tidak Sekolah (23 kategori resmi) ----------------
   const riskFactorsData =
@@ -65,32 +94,64 @@ async function main() {
   const kebutuhanKhususData = loadJson<{ kode: string | null; nama: string }[]>(
     "kebutuhan-khusus.json",
   );
-  await prisma.kebutuhanKhusus.createMany({ data: kebutuhanKhususData, skipDuplicates: true });
-  console.log(`Master Kebutuhan Khusus: ${kebutuhanKhususData.length} data tersimpan.`);
+  await prisma.kebutuhanKhusus.createMany({
+    data: kebutuhanKhususData,
+    skipDuplicates: true,
+  });
+  console.log(
+    `Master Kebutuhan Khusus: ${kebutuhanKhususData.length} data tersimpan.`,
+  );
 
   const jenisTinggalData = loadJson<{ nama: string }[]>("jenis-tinggal.json");
-  await prisma.jenisTinggal.createMany({ data: jenisTinggalData, skipDuplicates: true });
-  console.log(`Master Jenis Tinggal: ${jenisTinggalData.length} data tersimpan.`);
+  await prisma.jenisTinggal.createMany({
+    data: jenisTinggalData,
+    skipDuplicates: true,
+  });
+  console.log(
+    `Master Jenis Tinggal: ${jenisTinggalData.length} data tersimpan.`,
+  );
 
-  const alatTransportasiData = loadJson<{ nama: string }[]>("alat-transportasi.json");
-  await prisma.alatTransportasi.createMany({ data: alatTransportasiData, skipDuplicates: true });
-  console.log(`Master Alat Transportasi: ${alatTransportasiData.length} data tersimpan.`);
+  const alatTransportasiData = loadJson<{ nama: string }[]>(
+    "alat-transportasi.json",
+  );
+  await prisma.alatTransportasi.createMany({
+    data: alatTransportasiData,
+    skipDuplicates: true,
+  });
+  console.log(
+    `Master Alat Transportasi: ${alatTransportasiData.length} data tersimpan.`,
+  );
 
   const pekerjaanOrtuData = loadJson<{ nama: string }[]>("pekerjaan-ortu.json");
-  await prisma.pekerjaanOrtu.createMany({ data: pekerjaanOrtuData, skipDuplicates: true });
-  console.log(`Master Pekerjaan Ortu: ${pekerjaanOrtuData.length} data tersimpan.`);
+  await prisma.pekerjaanOrtu.createMany({
+    data: pekerjaanOrtuData,
+    skipDuplicates: true,
+  });
+  console.log(
+    `Master Pekerjaan Ortu: ${pekerjaanOrtuData.length} data tersimpan.`,
+  );
 
   const pendidikanOrtuData = loadJson<{ nama: string; kodeOrdinal: number }[]>(
     "pendidikan-ortu.json",
   );
-  await prisma.pendidikanOrtu.createMany({ data: pendidikanOrtuData, skipDuplicates: true });
-  console.log(`Master Pendidikan Ortu: ${pendidikanOrtuData.length} data tersimpan.`);
+  await prisma.pendidikanOrtu.createMany({
+    data: pendidikanOrtuData,
+    skipDuplicates: true,
+  });
+  console.log(
+    `Master Pendidikan Ortu: ${pendidikanOrtuData.length} data tersimpan.`,
+  );
 
   const penghasilanOrtuData = loadJson<{ nama: string; kodeOrdinal: number }[]>(
     "penghasilan-ortu.json",
   );
-  await prisma.penghasilanOrtu.createMany({ data: penghasilanOrtuData, skipDuplicates: true });
-  console.log(`Master Penghasilan Ortu: ${penghasilanOrtuData.length} data tersimpan.`);
+  await prisma.penghasilanOrtu.createMany({
+    data: penghasilanOrtuData,
+    skipDuplicates: true,
+  });
+  console.log(
+    `Master Penghasilan Ortu: ${penghasilanOrtuData.length} data tersimpan.`,
+  );
 
   // ---------------- OPD ----------------
   const opdData = [
@@ -187,7 +248,9 @@ async function main() {
     opdId: o.id,
   }));
   await prisma.user.createMany({ data: opdUsers, skipDuplicates: true });
-  console.log(`Users OPD: ${opdUsers.length} akun tersimpan (1 per OPD, password: opd123).`);
+  console.log(
+    `Users OPD: ${opdUsers.length} akun tersimpan (1 per OPD, password: opd123).`,
+  );
 
   await prisma.user.upsert({
     where: { email: "dinas@sleman.go.id" },
@@ -381,7 +444,9 @@ async function main() {
   const studentsAktifData = loadJson<StudentAktifSeed[]>("students-aktif.json");
 
   // Lookup maps nama -> id untuk semua master mastering data
-  const agamaIdByNama = new Map((await prisma.agama.findMany()).map((x) => [x.nama, x.id]));
+  const agamaIdByNama = new Map(
+    (await prisma.agama.findMany()).map((x) => [x.nama, x.id]),
+  );
   const kebutuhanKhususIdByNama = new Map(
     (await prisma.kebutuhanKhusus.findMany()).map((x) => [x.nama, x.id]),
   );
@@ -402,87 +467,98 @@ async function main() {
   );
 
   let skippedNoSchool = 0;
-  const studentsAktifToCreate = studentsAktifData
-    .map((r) => {
-      const schoolId = schoolIdByNpsn.get(r.npsn);
-      if (!schoolId) skippedNoSchool++;
-      const pendAyah = r.pendidikanAyahNama ? pendidikanOrtuByNama.get(r.pendidikanAyahNama) : undefined;
-      const pendIbu = r.pendidikanIbuNama ? pendidikanOrtuByNama.get(r.pendidikanIbuNama) : undefined;
-      const pengAyah = r.penghasilanAyahNama ? penghasilanOrtuByNama.get(r.penghasilanAyahNama) : undefined;
-      const pengIbu = r.penghasilanIbuNama ? penghasilanOrtuByNama.get(r.penghasilanIbuNama) : undefined;
+  const studentsAktifToCreate = studentsAktifData.map((r) => {
+    const schoolId = schoolIdByNpsn.get(r.npsn);
+    if (!schoolId) skippedNoSchool++;
+    const pendAyah = r.pendidikanAyahNama
+      ? pendidikanOrtuByNama.get(r.pendidikanAyahNama)
+      : undefined;
+    const pendIbu = r.pendidikanIbuNama
+      ? pendidikanOrtuByNama.get(r.pendidikanIbuNama)
+      : undefined;
+    const pengAyah = r.penghasilanAyahNama
+      ? penghasilanOrtuByNama.get(r.penghasilanAyahNama)
+      : undefined;
+    const pengIbu = r.penghasilanIbuNama
+      ? penghasilanOrtuByNama.get(r.penghasilanIbuNama)
+      : undefined;
 
-      return {
-        nisn: r.nisn,
-        nik: r.nik,
-        nama: r.nama ?? "-",
-        jenisKelamin: r.jenisKelamin ?? undefined,
-        tanggalLahir: r.tanggalLahir ? new Date(r.tanggalLahir) : undefined,
-        tempatLahir: r.tempatLahir ?? undefined,
-        kelas: r.kelas ?? undefined,
-        alamat: r.alamatJalan ?? undefined,
-        namaOrtu: r.namaOrtu ?? undefined,
-        status: "AKTIF" as const,
-        schoolId,
+    return {
+      nisn: r.nisn,
+      nik: r.nik,
+      nama: r.nama ?? "-",
+      jenisKelamin: r.jenisKelamin ?? undefined,
+      tanggalLahir: r.tanggalLahir ? new Date(r.tanggalLahir) : undefined,
+      tempatLahir: r.tempatLahir ?? undefined,
+      kelas: r.kelas ?? undefined,
+      alamat: r.alamatJalan ?? undefined,
+      namaOrtu: r.namaOrtu ?? undefined,
+      status: "AKTIF" as const,
+      schoolId,
 
-        agamaId: r.agamaNama ? agamaIdByNama.get(r.agamaNama) : undefined,
-        kebutuhanKhususId: r.kebutuhanKhususNama
-          ? kebutuhanKhususIdByNama.get(r.kebutuhanKhususNama)
-          : undefined,
+      agamaId: r.agamaNama ? agamaIdByNama.get(r.agamaNama) : undefined,
+      kebutuhanKhususId: r.kebutuhanKhususNama
+        ? kebutuhanKhususIdByNama.get(r.kebutuhanKhususNama)
+        : undefined,
 
-        alamatJalan: r.alamatJalan ?? undefined,
-        rt: r.rt ?? undefined,
-        rw: r.rw ?? undefined,
-        namaDusun: r.namaDusun ?? undefined,
-        desaKelurahan: r.desaKelurahan ?? undefined,
-        kecamatan: r.kecamatan ?? undefined,
-        kabupaten: r.kabupaten ?? undefined,
-        provinsi: r.provinsi ?? undefined,
+      alamatJalan: r.alamatJalan ?? undefined,
+      rt: r.rt ?? undefined,
+      rw: r.rw ?? undefined,
+      namaDusun: r.namaDusun ?? undefined,
+      desaKelurahan: r.desaKelurahan ?? undefined,
+      kecamatan: r.kecamatan ?? undefined,
+      kabupaten: r.kabupaten ?? undefined,
+      provinsi: r.provinsi ?? undefined,
 
-        jenisTinggalId: r.jenisTinggalNama ? jenisTinggalIdByNama.get(r.jenisTinggalNama) : undefined,
-        alatTransportasiId: r.alatTransportasiNama
-          ? alatTransportasiIdByNama.get(r.alatTransportasiNama)
-          : undefined,
+      jenisTinggalId: r.jenisTinggalNama
+        ? jenisTinggalIdByNama.get(r.jenisTinggalNama)
+        : undefined,
+      alatTransportasiId: r.alatTransportasiNama
+        ? alatTransportasiIdByNama.get(r.alatTransportasiNama)
+        : undefined,
 
-        nikAyah: r.nikAyah ?? undefined,
-        nikIbu: r.nikIbu ?? undefined,
-        anakKeberapa: r.anakKeberapa ?? undefined,
-        penerimaKps: r.penerimaKps ?? undefined,
-        noKps: r.noKps ?? undefined,
-        layakPip: r.layakPip ?? undefined,
-        penerimaKip: r.penerimaKip ?? undefined,
-        noKip: r.noKip ?? undefined,
-        namaKip: r.namaKip ?? undefined,
-        noKks: r.noKks ?? undefined,
-        regAktaLahir: r.regAktaLahir ?? undefined,
+      nikAyah: r.nikAyah ?? undefined,
+      nikIbu: r.nikIbu ?? undefined,
+      anakKeberapa: r.anakKeberapa ?? undefined,
+      penerimaKps: r.penerimaKps ?? undefined,
+      noKps: r.noKps ?? undefined,
+      layakPip: r.layakPip ?? undefined,
+      penerimaKip: r.penerimaKip ?? undefined,
+      noKip: r.noKip ?? undefined,
+      namaKip: r.namaKip ?? undefined,
+      noKks: r.noKks ?? undefined,
+      regAktaLahir: r.regAktaLahir ?? undefined,
 
-        namaAyah: r.namaAyah ?? undefined,
-        tahunLahirAyah: r.tahunLahirAyah ?? undefined,
-        pendidikanAyahId: pendAyah?.id,
-        pekerjaanAyahId: r.pekerjaanAyahNama ? pekerjaanOrtuIdByNama.get(r.pekerjaanAyahNama) : undefined,
-        penghasilanAyahId: pengAyah?.id,
-        kebutuhanKhususAyahId: r.kebutuhanKhususAyahNama
-          ? kebutuhanKhususIdByNama.get(r.kebutuhanKhususAyahNama)
-          : undefined,
-        // Sinkron otomatis ke fitur ML lama (ordinal), sama seperti StudentsService.syncOrdinalCodes
-        kodePendidikanAyah: pendAyah?.kodeOrdinal,
-        kodePenghasilanAyah: pengAyah?.kodeOrdinal,
+      namaAyah: r.namaAyah ?? undefined,
+      tahunLahirAyah: r.tahunLahirAyah ?? undefined,
+      pendidikanAyahId: pendAyah?.id,
+      pekerjaanAyahId: r.pekerjaanAyahNama
+        ? pekerjaanOrtuIdByNama.get(r.pekerjaanAyahNama)
+        : undefined,
+      penghasilanAyahId: pengAyah?.id,
+      kebutuhanKhususAyahId: r.kebutuhanKhususAyahNama
+        ? kebutuhanKhususIdByNama.get(r.kebutuhanKhususAyahNama)
+        : undefined,
+      // Sinkron otomatis ke fitur ML lama (ordinal), sama seperti StudentsService.syncOrdinalCodes
+      kodePendidikanAyah: pendAyah?.kodeOrdinal,
+      kodePenghasilanAyah: pengAyah?.kodeOrdinal,
 
-        namaIbu: r.namaIbu ?? undefined,
-        tahunLahirIbu: r.tahunLahirIbu ?? undefined,
-        pendidikanIbuId: pendIbu?.id,
-        pekerjaanIbuId: r.pekerjaanIbuNama ? pekerjaanOrtuIdByNama.get(r.pekerjaanIbuNama) : undefined,
-        penghasilanIbuId: pengIbu?.id,
-        kebutuhanKhususIbuId: r.kebutuhanKhususIbuNama
-          ? kebutuhanKhususIdByNama.get(r.kebutuhanKhususIbuNama)
-          : undefined,
-        kodePendidikanIbu: pendIbu?.kodeOrdinal,
-        kodePenghasilanIbu: pengIbu?.kodeOrdinal,
-      };
-    })
-    // BR: siswa tanpa sekolah valid tetap disimpan (schoolId undefined) supaya data tidak hilang,
-    // hanya dicatat di log untuk ditindaklanjuti Admin.
-    ;
-
+      namaIbu: r.namaIbu ?? undefined,
+      tahunLahirIbu: r.tahunLahirIbu ?? undefined,
+      pendidikanIbuId: pendIbu?.id,
+      pekerjaanIbuId: r.pekerjaanIbuNama
+        ? pekerjaanOrtuIdByNama.get(r.pekerjaanIbuNama)
+        : undefined,
+      penghasilanIbuId: pengIbu?.id,
+      kebutuhanKhususIbuId: r.kebutuhanKhususIbuNama
+        ? kebutuhanKhususIdByNama.get(r.kebutuhanKhususIbuNama)
+        : undefined,
+      kodePendidikanIbu: pendIbu?.kodeOrdinal,
+      kodePenghasilanIbu: pengIbu?.kodeOrdinal,
+    };
+  });
+  // BR: siswa tanpa sekolah valid tetap disimpan (schoolId undefined) supaya data tidak hilang,
+  // hanya dicatat di log untuk ditindaklanjuti Admin.
   await prisma.student.createMany({
     data: studentsAktifToCreate,
     skipDuplicates: true, // NISN/NIK unik — idempotent re-seed

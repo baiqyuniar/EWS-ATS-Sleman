@@ -43,18 +43,15 @@ export class PredictionService {
         dto?.kodePenghasilanAyah ?? student.kodePenghasilanAyah ?? null,
       kode_penghasilan_ibu:
         dto?.kodePenghasilanIbu ?? student.kodePenghasilanIbu ?? null,
+      // Hanya 4 indikator sulingjar yang dipakai model ML final (lihat
+      // ews-ml-service/models/*_spec.json). Field sulingjar lain sudah
+      // dihapus dari School model karena tidak dipakai model manapun.
       sulingjar: school
         ? {
             kesiapsiagaan_bencana: school.sulingjarKesiapsiagaanBencana,
             kualitas_pembelajaran: school.sulingjarKualitasPembelajaran,
             refleksi_guru: school.sulingjarRefleksiGuru,
-            kepemimpinan_kepsek: school.sulingjarKepemimpinanKepsek,
-            iklim_keamanan: school.sulingjarIklimKeamanan,
             iklim_kesetaraan_gender: school.sulingjarIklimKesetaraanGender,
-            iklim_kebinekaan: school.sulingjarIklimKebinekaan,
-            iklim_inklusivitas: school.sulingjarIklimInklusivitas,
-            partisipasi_warga: school.sulingjarPartisipasiWarga,
-            program_satuan_pendidikan: school.sulingjarProgramSatuanPendidikan,
           }
         : {},
     };
@@ -244,7 +241,9 @@ export class PredictionService {
     }
     if (user.role === UserRole.KAPANEWON) {
       if (!user.wilayahId) return { id: -1 };
-      const wilayah = await this.prisma.wilayah.findUnique({ where: { id: user.wilayahId } });
+      const wilayah = await this.prisma.wilayah.findUnique({
+        where: { id: user.wilayahId },
+      });
       if (!wilayah) return { id: -1 };
       const schools = await this.prisma.school.findMany({
         where: { kapanewon: wilayah.kapanewon },
@@ -256,7 +255,10 @@ export class PredictionService {
     return {};
   }
 
-  async findAll(query: PaginationDto & { riskCategory?: string }, user: CurrentUserPayload) {
+  async findAll(
+    query: PaginationDto & { riskCategory?: string },
+    user: CurrentUserPayload,
+  ) {
     const page = query.page ?? 1;
     const limit = query.limit ?? 20;
     const where: any = { student: await this.studentWhereForUser(user) };
@@ -299,7 +301,10 @@ export class PredictionService {
   async findActionableRisks(user: CurrentUserPayload) {
     const studentWhere = await this.studentWhereForUser(user);
     const predictions = await this.prisma.prediction.findMany({
-      where: { riskCategory: { in: ["SEDANG", "TINGGI"] }, student: studentWhere },
+      where: {
+        riskCategory: { in: ["SEDANG", "TINGGI"] },
+        student: studentWhere,
+      },
       distinct: ["studentId"],
       orderBy: [{ studentId: "asc" }, { createdAt: "desc" }],
       include: { student: { include: { school: true, cases: true } } },
