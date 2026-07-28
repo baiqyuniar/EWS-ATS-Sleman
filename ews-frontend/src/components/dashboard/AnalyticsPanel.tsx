@@ -1,4 +1,4 @@
-import { Loader2, Users, ShieldAlert, HandCoins, Sparkles } from "lucide-react";
+import { Loader2, Users, HandCoins} from "lucide-react";
 import type { StudentAnalytics, LabelCount } from "../../types/api";
 
 // Panel "Analisis Otomatis" — menampilkan agregasi mastering data siswa
@@ -74,20 +74,7 @@ export default function AnalyticsPanel({
 
       {/* Ringkasan risiko & bantuan sosial */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="bg-white rounded-2xl border border-slate-200 p-4 flex items-center gap-3">
-          <div className="p-2.5 rounded-xl bg-red-100 text-red-600"><ShieldAlert size={18} /></div>
-          <div>
-            <p className="text-xl font-bold text-slate-800">{sebaranRisiko.tinggi}</p>
-            <p className="text-xs text-slate-500">Risiko Tinggi</p>
-          </div>
-        </div>
-        <div className="bg-white rounded-2xl border border-slate-200 p-4 flex items-center gap-3">
-          <div className="p-2.5 rounded-xl bg-yellow-100 text-yellow-600"><Sparkles size={18} /></div>
-          <div>
-            <p className="text-xl font-bold text-slate-800">{sebaranRisiko.sedang}</p>
-            <p className="text-xs text-slate-500">Risiko Sedang</p>
-          </div>
-        </div>
+       
         <div className="bg-white rounded-2xl border border-slate-200 p-4 flex items-center gap-3">
           <div className="p-2.5 rounded-xl bg-blue-100 text-blue-600"><Users size={18} /></div>
           <div>

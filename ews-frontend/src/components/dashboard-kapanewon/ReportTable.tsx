@@ -50,7 +50,6 @@ export default function ReportTable() {
               <th className="text-left p-4">Wilayah</th>
               <th className="text-left p-4">Kategori</th>
               <th className="text-left p-4">Status</th>
-              <th className="text-center p-4">Aksi</th>
             </tr>
           </thead>
 
@@ -102,11 +101,7 @@ export default function ReportTable() {
                     </div>
                   </td>
 
-                  <td className="text-center p-4">
-                    <button className="text-blue-600 font-semibold hover:text-blue-800">
-                      Detail
-                    </button>
-                  </td>
+                  
                 </tr>
               );
             })}

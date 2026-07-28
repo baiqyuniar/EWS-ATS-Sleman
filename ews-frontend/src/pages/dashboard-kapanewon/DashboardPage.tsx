@@ -5,7 +5,6 @@ import ProgressCard from "../../components/dashboard-kapanewon/ProgressCard";
 import StatusCard from "../../components/dashboard-kapanewon/StatusCard";
 import DashboardChart from "../../components/dashboard-kapanewon/DashboardChart";
 import ReportTable from "../../components/dashboard-kapanewon/ReportTable";
-import VillageHeatmap from "../../components/dashboard-kapanewon/VillageHeatmap";
 import AnalyticsPanel from "../../components/dashboard/AnalyticsPanel";
 import {
   GraduationCap,
@@ -113,21 +112,7 @@ export default function DashboardPage() {
         {/* ================= TABLE ================= */}
 
         <ReportTable />
-{/* ================= HEATMAP ================= */}
 
-<div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
-  <div className="mb-6">
-    <h2 className="text-xl font-bold text-slate-800">
-      Peta Risiko Kapanewon
-    </h2>
-
-    <p className="text-sm text-slate-500">
-      Persebaran risiko anak tidak sekolah di Kabupaten Sleman
-    </p>
-  </div>
-
-  <VillageHeatmap />
-</div>
 
         {/* ===================================================== */}
         {/* ANALISIS OTOMATIS — MASTERING DATA */}

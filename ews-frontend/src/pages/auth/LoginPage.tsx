@@ -12,9 +12,9 @@ import { defaultRouteForRole } from "../../routes/roleRoutes";
 
 const DEMO_ACCOUNTS = [
   { role: "Admin", email: "admin@sleman.go.id", password: "admin123" },
-  { role: "Sekolah", email: "sekolah@sleman.go.id", password: "sekolah123" },
-  { role: "Kapanewon", email: "kapanewon@sleman.go.id", password: "kapanewon123" },
-  { role: "OPD", email: "opd@sleman.go.id", password: "opd123" },
+  { role: "Sekolah", email: "sekolah.20401408@sleman.go.id", password: "sekolah123" },
+  { role: "Kapanewon", email: "kapanewon.gamping@sleman.go.id", password: "kapanewon123" },
+  { role: "OPD", email: "opd.dinsos@sleman.go.id", password: "opd123" },
   { role: "Dinas Pendidikan", email: "dinas@sleman.go.id", password: "dinas123" },
 ];
 
