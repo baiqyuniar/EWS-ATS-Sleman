@@ -64,7 +64,7 @@ export default function DashboardPage() {
               </div>
 
               <h1 className="text-4xl font-bold">
-                Selamat Datang 👋
+                Selamat Datang
               </h1>
 
               <p className="mt-4 max-w-2xl text-blue-50 leading-7">
@@ -186,21 +186,27 @@ export default function DashboardPage() {
         {/* PROGRESS */}
         {/* ===================================================== */}
 
-        <ProgressCard
-          title="Progress Penanganan Sekolah"
-          items={[
-            { label: "Verifikasi Kasus", value: progressOf("Verifikasi Kasus") },
-            { label: "Home Visit", value: progressOf("Home Visit") },
-            { label: "Intervensi Berjalan", value: progressOf("Intervensi Berjalan") },
-            { label: "Kasus Selesai", value: progressOf("Kasus Selesai") },
-          ]}
-        />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
-        {/* ===================================================== */}
-        {/* PRIORITY TABLE */}
-        {/* ===================================================== */}
+  {/* Progress */}
+  <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6">
+    <ProgressCard
+      title="Progress Penanganan Sekolah"
+      items={[
+        { label: "Verifikasi Kasus", value: progressOf("Verifikasi Kasus") },
+        { label: "Home Visit", value: progressOf("Home Visit") },
+        { label: "Intervensi Berjalan", value: progressOf("Intervensi Berjalan") },
+        { label: "Kasus Selesai", value: progressOf("Kasus Selesai") },
+      ]}
+    />
+  </div>
 
-        <ReportTable />
+  {/* Report Table */}
+  <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6">
+    <ReportTable />
+  </div>
+
+</div>
 
         {/* ===================================================== */}
         {/* ANALISIS OTOMATIS — MASTERING DATA */}

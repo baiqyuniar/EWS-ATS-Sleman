@@ -12,7 +12,6 @@ Sebelum itu, letakkan file model di models/ (lihat models/README.md):
     models/tanpa_aspd_spec.json
     models/tanpa_aspd_booster.json
 """
-
 from typing import Dict, List, Optional
 
 from fastapi import FastAPI, HTTPException
@@ -30,24 +29,14 @@ scorer = TieredScorer()
 
 
 class SulingjarIndicators(BaseModel):
-    """Indikator mutu sekolah (level sekolah, dari survei lingkungan belajar / Rapor Pendidikan).
-    Nilai 1=Kurang, 2=Sedang, 3=Baik. Semua opsional — isi sesuai ketersediaan data sekolah."""
 
-    kesiapsiagaan_bencana: Optional[int] = None
-    kualitas_pembelajaran: Optional[int] = None
-    refleksi_guru: Optional[int] = None
-    kepemimpinan_kepsek: Optional[int] = None
-    iklim_keamanan: Optional[int] = None
-    iklim_kesetaraan_gender: Optional[int] = None
-    iklim_kebinekaan: Optional[int] = None
-    iklim_inklusivitas: Optional[int] = None
-    partisipasi_warga: Optional[int] = None
-    program_satuan_pendidikan: Optional[int] = None
+    kesiapsiagaan_bencana: Optional[int] = None  # -> sulingjar_D.18
+    kualitas_pembelajaran: Optional[int] = None  # -> sulingjar_D.1
+    refleksi_guru: Optional[int] = None  # -> sulingjar_D.2
+    iklim_kesetaraan_gender: Optional[int] = None  # -> sulingjar_D.6
 
 
 class StudentFeatures(BaseModel):
-    """Sesuai docs/CODEBOOK.md pada repo ewsDropOut."""
-
     nisn: Optional[str] = Field(None, description="ID siswa, hanya untuk pelacakan di response")
     jk_bin: int = Field(..., description="1 = laki-laki, 0 = perempuan")
     num: Optional[float] = Field(None, description="Skor numerasi ASPD 0-100. Kosongkan jika siswa tidak punya skor asesmen.")
@@ -76,16 +65,10 @@ def _flatten_features(payload: StudentFeatures) -> Dict[str, Optional[float]]:
         "kode_pendidikan_ibu": payload.kode_pendidikan_ibu,
         "kode_penghasilan_ayah": payload.kode_penghasilan_ayah,
         "kode_penghasilan_ibu": payload.kode_penghasilan_ibu,
-        "sulingjar_kesiapsiagaan_bencana": s.kesiapsiagaan_bencana,
-        "sulingjar_kualitas_pembelajaran": s.kualitas_pembelajaran,
-        "sulingjar_refleksi_guru": s.refleksi_guru,
-        "sulingjar_kepemimpinan_kepsek": s.kepemimpinan_kepsek,
-        "sulingjar_iklim_keamanan": s.iklim_keamanan,
-        "sulingjar_iklim_kesetaraan_gender": s.iklim_kesetaraan_gender,
-        "sulingjar_iklim_kebinekaan": s.iklim_kebinekaan,
-        "sulingjar_iklim_inklusivitas": s.iklim_inklusivitas,
-        "sulingjar_partisipasi_warga": s.partisipasi_warga,
-        "sulingjar_program_satuan_pendidikan": s.program_satuan_pendidikan,
+        "sulingjar_D.18": s.kesiapsiagaan_bencana,
+        "sulingjar_D.1": s.kualitas_pembelajaran,
+        "sulingjar_D.2": s.refleksi_guru,
+        "sulingjar_D.6": s.iklim_kesetaraan_gender,
     }
 
 

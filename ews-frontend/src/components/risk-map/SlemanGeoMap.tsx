@@ -50,26 +50,26 @@ export default function SlemanGeoMap() {
   > = {
     tempel: [{ name: "SMP Negeri 1 Tempel", risk: 72, status: "Tinggi" }],
     turi: [{ name: "SD Negeri Turi", risk: 65, status: "Tinggi" }],
-    pakem: [{ name: "SMA Negeri Pakem", risk: 88, status: "Sangat Tinggi" }],
+    pakem: [{ name: "SMA Negeri Pakem", risk: 88, status: "Tinggi" }],
     cangkringan: [{ name: "SMK Cangkringan", risk: 55, status: "Sedang" }],
     minggir: [{ name: "SD Negeri Minggir", risk: 35, status: "Rendah" }],
     seyegan: [{ name: "SMP Negeri Seyegan", risk: 48, status: "Sedang" }],
     sleman: [{ name: "SMA Negeri Sleman", risk: 74, status: "Tinggi" }],
-    ngaglik: [{ name: "SMK Ngaglik", risk: 93, status: "Kritis" }],
+    ngaglik: [{ name: "SMK Ngaglik", risk: 93, status: "Tinggi" }],
     ngemplak: [{ name: "SMP Negeri Ngemplak", risk: 58, status: "Sedang" }],
     moyudan: [{ name: "SD Negeri Moyudan", risk: 40, status: "Rendah" }],
     godean: [
-      { name: "SMP Negeri 1 Godean", risk: 92, status: "Kritis" },
+      { name: "SMP Negeri 1 Godean", risk: 92, status: "Tinggi" },
       { name: "SD Negeri Sidomoyo", risk: 68, status: "Tinggi" },
       { name: "SMK Muhammadiyah Godean", risk: 40, status: "Rendah" },
     ],
-    mlati: [{ name: "SMK Negeri Mlati", risk: 91, status: "Kritis" }],
+    mlati: [{ name: "SMK Negeri Mlati", risk: 91, status: "Tinggi" }],
     depok: [
-      { name: "SMA Negeri 1 Depok", risk: 97, status: "Kritis" },
-      { name: "SMP Negeri 2 Depok", risk: 80, status: "Sangat Tinggi" },
+      { name: "SMA Negeri 1 Depok", risk: 97, status: "Tinggi" },
+      { name: "SMP Negeri 2 Depok", risk: 80, status: "Tinggi" },
     ],
     kalasan: [{ name: "SMK Kalasan", risk: 62, status: "Tinggi" }],
-    gamping: [{ name: "SMA Gamping", risk: 81, status: "Sangat Tinggi" }],
+    gamping: [{ name: "SMA Gamping", risk: 81, status: "Tinggi" }],
     berbah: [{ name: "SMP Negeri Berbah", risk: 50, status: "Sedang" }],
     prambanan: [{ name: "SMK Prambanan", risk: 45, status: "Sedang" }],
   };
@@ -105,41 +105,28 @@ export default function SlemanGeoMap() {
               setSelectedRegion(regionId);
             }}
           />
-          <div className="flex flex-wrap items-center gap-6 mt-6 px-2">
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded bg-red-500" />
-              <span className="text-sm text-slate-600 font-medium">
-                Kritis (90+)
-              </span>
-            </div>
+        </div>
 
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded bg-orange-400" />
-              <span className="text-sm text-slate-600 font-medium">
-                Tinggi (75-89)
-              </span>
-            </div>
+        <div className="flex flex-col gap-3 mt-4">
+          <div className="flex items-center gap-2">
+            <div className="w-4 h-4 rounded bg-orange-400" />
+            <span className="text-sm text-slate-600 font-medium">
+              Tinggi (75-90+)
+            </span>
+          </div>
 
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded bg-yellow-300" />
-              <span className="text-sm text-slate-600 font-medium">
-                Sedang (60-74)
-              </span>
-            </div>
+          <div className="flex items-center gap-2">
+            <div className="w-4 h-4 rounded bg-yellow-300" />
+            <span className="text-sm text-slate-600 font-medium">
+              Sedang (60-74)
+            </span>
+          </div>
 
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded bg-green-300" />
-              <span className="text-sm text-slate-600 font-medium">
-                Rendah (45-59)
-              </span>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded bg-green-500" />
-              <span className="text-sm text-slate-600 font-medium">
-                Sangat Rendah (&lt;45)
-              </span>
-            </div>
+          <div className="flex items-center gap-2">
+            <div className="w-4 h-4 rounded bg-green-300" />
+            <span className="text-sm text-slate-600 font-medium">
+              Rendah (0-59)
+            </span>
           </div>
         </div>
       </div>

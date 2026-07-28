@@ -160,19 +160,10 @@ model School {
   longitude Float?
   active    Boolean  @default(true)
 
-  // Indikator mutu sekolah dari Survei Lingkungan Belajar / Rapor Pendidikan
-  // (docs/CODEBOOK.md, repo ewsDropOut: `sulingjar_*`). Skala 1=Kurang, 2=Sedang, 3=Baik.
-  // Level sekolah -> dipakai sebagai fitur ML untuk semua siswa di sekolah ini.
-  sulingjarKesiapsiagaanBencana    Int?
-  sulingjarKualitasPembelajaran    Int?
-  sulingjarRefleksiGuru            Int?
-  sulingjarKepemimpinanKepsek      Int?
-  sulingjarIklimKeamanan           Int?
-  sulingjarIklimKesetaraanGender   Int?
-  sulingjarIklimKebinekaan         Int?
-  sulingjarIklimInklusivitas       Int?
-  sulingjarPartisipasiWarga        Int?
-  sulingjarProgramSatuanPendidikan Int?
+  sulingjarKesiapsiagaanBencana    Int? // sulingjar_D.18
+  sulingjarKualitasPembelajaran    Int? // sulingjar_D.1
+  sulingjarRefleksiGuru            Int? // sulingjar_D.2
+  sulingjarIklimKesetaraanGender   Int? // sulingjar_D.6
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

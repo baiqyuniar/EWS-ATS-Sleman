@@ -1,13 +1,16 @@
-import { IsArray, IsInt, IsNumber, IsOptional, Max, Min } from 'class-validator';
+import {
+  IsArray,
+  IsInt,
+  IsNumber,
+  IsOptional,
+  Max,
+  Min,
+} from "class-validator";
 
-// Fitur sesuai docs/CODEBOOK.md pada repo ewsDropOut (https://github.com/hdmeasure/ewsDropOut).
-// Dipakai oleh "Simulasi Prediksi" (1 siswa) maupun bulk-upload (banyak siswa sekaligus).
 export class SimulatePredictionDto {
   @IsInt()
   studentId: number;
 
-  // Override opsional: jika tidak dikirim, service akan mengambil dari data Student/School
-  // tersimpan (numerasi, kodePendidikanAyah/Ibu, kodePenghasilanAyah/Ibu, sulingjar sekolah).
   @IsOptional()
   @IsNumber()
   @Min(0)
@@ -38,7 +41,35 @@ export class SimulatePredictionDto {
   @Max(6)
   kodePenghasilanIbu?: number;
 
+  // ===========================
+  // SULINGJAR
+  // ===========================
+
+  @IsOptional()
+  @IsInt()
+  @Min(0)
+  @Max(3)
+  sulingjarD18?: number;
+
+  @IsOptional()
+  @IsInt()
+  @Min(0)
+  @Max(3)
+  sulingjarD1?: number;
+
+  @IsOptional()
+  @IsInt()
+  @Min(0)
+  @Max(3)
+  sulingjarD2?: number;
+
+  @IsOptional()
+  @IsInt()
+  @Min(0)
+  @Max(3)
+  sulingjarD6?: number;
+
   @IsOptional()
   @IsArray()
-  riskFactorIds?: number[]; // faktor risiko tambahan (master data) yang ingin dilampirkan manual
+  riskFactorIds?: number[];
 }

@@ -107,8 +107,19 @@ export default function ReportsPage() {
                     {key.replace(/([A-Z])/g, " $1")}
                   </p>
                   <p className="text-xl font-bold text-slate-800 mt-1">
-                    {typeof value === "number" ? value : JSON.stringify(value)}
-                  </p>
+                {Array.isArray(value) ? (
+                  value.map((item: any, index: number) => (
+                    <div key={index} className="text-sm font-medium">
+                      {(item.status ?? item.source)
+                      .replace(/_/g, " ")
+                      .toLowerCase()
+                      .replace(/\b\w/g, (c: string) => c.toUpperCase())}
+                    </div>
+                  ))
+                ) : (
+                  value
+                )}
+              </p>
                 </div>
               ))}
             </div>

@@ -131,88 +131,212 @@ export default function SimulasiPredictionPage() {
                 meng-override nilai tersebut untuk simulasi ini saja.
               </p>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="text-xs font-medium text-slate-600 mb-1 block">
-                    Numerasi (0-100)
-                  </label>
-                  <input
-                    type="number"
-                    min={0}
-                    max={100}
-                    onChange={(e) =>
-                      setOverrides({
-                        ...overrides,
-                        num:
-                          e.target.value === ""
-                            ? undefined
-                            : Number(e.target.value),
-                      })
-                    }
-                    className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-medium text-slate-600 mb-1 block">
-                    Kode Pendidikan Ayah (0-8)
-                  </label>
-                  <input
-                    type="number"
-                    min={0}
-                    max={8}
-                    onChange={(e) =>
-                      setOverrides({
-                        ...overrides,
-                        kodePendidikanAyah:
-                          e.target.value === ""
-                            ? undefined
-                            : Number(e.target.value),
-                      })
-                    }
-                    className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-medium text-slate-600 mb-1 block">
-                    Kode Pendidikan Ibu (0-8)
-                  </label>
-                  <input
-                    type="number"
-                    min={0}
-                    max={8}
-                    onChange={(e) =>
-                      setOverrides({
-                        ...overrides,
-                        kodePendidikanIbu:
-                          e.target.value === ""
-                            ? undefined
-                            : Number(e.target.value),
-                      })
-                    }
-                    className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm"
-                  />
-                </div>
-                <div>
-                  <label className="text-xs font-medium text-slate-600 mb-1 block">
-                    Kode Penghasilan Ayah (0-6)
-                  </label>
-                  <input
-                    type="number"
-                    min={0}
-                    max={6}
-                    onChange={(e) =>
-                      setOverrides({
-                        ...overrides,
-                        kodePenghasilanAyah:
-                          e.target.value === ""
-                            ? undefined
-                            : Number(e.target.value),
-                      })
-                    }
-                    className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm"
-                  />
-                </div>
-              </div>
+<div className="grid grid-cols-2 gap-4">
+  {/* Numerasi */}
+  <div>
+    <label className="text-xs font-medium text-slate-600 mb-1 block">
+      Numerasi (0-100)
+    </label>
+    <input
+      type="number"
+      min={0}
+      max={100}
+      value={overrides.num ?? ""}
+      onChange={(e) =>
+        setOverrides({
+          ...overrides,
+          num: e.target.value === "" ? undefined : Number(e.target.value),
+        })
+      }
+      className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm"
+    />
+  </div>
+
+  {/* Pendidikan Ayah */}
+  <div>
+    <label className="text-xs font-medium text-slate-600 mb-1 block">
+      Kode Pendidikan Ayah (0-8)
+    </label>
+    <input
+      type="number"
+      min={0}
+      max={8}
+      value={overrides.kodePendidikanAyah ?? ""}
+      onChange={(e) =>
+        setOverrides({
+          ...overrides,
+          kodePendidikanAyah:
+            e.target.value === "" ? undefined : Number(e.target.value),
+        })
+      }
+      className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm"
+    />
+  </div>
+
+  {/* Pendidikan Ibu */}
+  <div>
+    <label className="text-xs font-medium text-slate-600 mb-1 block">
+      Kode Pendidikan Ibu (0-8)
+    </label>
+    <input
+      type="number"
+      min={0}
+      max={8}
+      value={overrides.kodePendidikanIbu ?? ""}
+      onChange={(e) =>
+        setOverrides({
+          ...overrides,
+          kodePendidikanIbu:
+            e.target.value === "" ? undefined : Number(e.target.value),
+        })
+      }
+      className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm"
+    />
+  </div>
+
+  {/* Penghasilan Ayah */}
+  <div>
+    <label className="text-xs font-medium text-slate-600 mb-1 block">
+      Kode Penghasilan Ayah (0-6)
+    </label>
+    <input
+      type="number"
+      min={0}
+      max={6}
+      value={overrides.kodePenghasilanAyah ?? ""}
+      onChange={(e) =>
+        setOverrides({
+          ...overrides,
+          kodePenghasilanAyah:
+            e.target.value === "" ? undefined : Number(e.target.value),
+        })
+      }
+      className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm"
+    />
+  </div>
+
+  {/* Penghasilan Ibu */}
+  <div>
+    <label className="text-xs font-medium text-slate-600 mb-1 block">
+      Kode Penghasilan Ibu (0-6)
+    </label>
+    <input
+      type="number"
+      min={0}
+      max={6}
+      value={overrides.kodePenghasilanIbu ?? ""}
+      onChange={(e) =>
+        setOverrides({
+          ...overrides,
+          kodePenghasilanIbu:
+            e.target.value === "" ? undefined : Number(e.target.value),
+        })
+      }
+      className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm"
+    />
+  </div>
+</div>
+              {/* ===================================================== */}
+{/* ===================================================== */}
+{/* MUTU SEKOLAH (SULINGJAR) */}
+{/* ===================================================== */}
+
+<div className="mt-6">
+  <h3 className="text-sm font-semibold text-slate-700 mb-4">
+    Mutu Sekolah (Sulingjar)
+  </h3>
+
+  <div className="grid grid-cols-2 gap-4">
+
+    <div>
+      <label className="text-xs font-medium text-slate-600 mb-1 block">
+        Kesiapsiagaan Bencana (0–3)
+      </label>
+
+      <input
+        type="number"
+        min={0}
+        max={3}
+        onChange={(e) =>
+          setOverrides({
+            ...overrides,
+            sulingjarD18:
+              e.target.value === ""
+                ? undefined
+                : Number(e.target.value),
+          })
+        }
+        className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm"
+      />
+    </div>
+
+    <div>
+      <label className="text-xs font-medium text-slate-600 mb-1 block">
+        Kualitas Pembelajaran (0–3)
+      </label>
+
+      <input
+        type="number"
+        min={0}
+        max={3}
+        onChange={(e) =>
+          setOverrides({
+            ...overrides,
+            sulingjarD1:
+              e.target.value === ""
+                ? undefined
+                : Number(e.target.value),
+          })
+        }
+        className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm"
+      />
+    </div>
+
+    <div>
+      <label className="text-xs font-medium text-slate-600 mb-1 block">
+        Refleksi Guru (0–3)
+      </label>
+
+      <input
+        type="number"
+        min={0}
+        max={3}
+        onChange={(e) =>
+          setOverrides({
+            ...overrides,
+            sulingjarD2:
+              e.target.value === ""
+                ? undefined
+                : Number(e.target.value),
+          })
+        }
+        className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm"
+      />
+    </div>
+
+    <div>
+      <label className="text-xs font-medium text-slate-600 mb-1 block">
+        Iklim Kesetaraan Gender (0–3)
+      </label>
+
+      <input
+        type="number"
+        min={0}
+        max={3}
+        onChange={(e) =>
+          setOverrides({
+            ...overrides,
+            sulingjarD6:
+              e.target.value === ""
+                ? undefined
+                : Number(e.target.value),
+          })
+        }
+        className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm"
+      />
+    </div>
+  </div>
+</div>
 
               <ErrorAlert
                 message={

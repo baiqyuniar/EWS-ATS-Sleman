@@ -587,12 +587,21 @@ export type UpdateStudentPayload = Partial<CreateStudentPayload> & { status?: St
 
 export interface SimulatePredictionPayload {
   studentId: number;
+
   num?: number;
+
   kodePendidikanAyah?: number;
   kodePendidikanIbu?: number;
   kodePenghasilanAyah?: number;
   kodePenghasilanIbu?: number;
+
   riskFactorIds?: number[];
+
+  // Tambahkan ini
+  sulingjarD18?: number;
+  sulingjarD1?: number;
+  sulingjarD2?: number;
+  sulingjarD6?: number;
 }
 
 export interface BulkPredictionRow {
