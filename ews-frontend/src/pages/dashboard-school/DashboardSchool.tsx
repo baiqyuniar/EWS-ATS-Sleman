@@ -1,15 +1,11 @@
 import {
-  GraduationCap,
-  AlertTriangle,
-  Eye,
-  CheckCircle2,
   School2,
 } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 
 import DashboardLayout from "../../layouts/DashboardLayout";
 
-import SummaryCard from "../../components/dashsekolah/SummaryCard";
+//import SummaryCard from "../../components/dashsekolah/SummaryCard";
 import ProgressCard from "../../components/dashsekolah/ProgressTable";
 import StatusCard from "../../components/dashsekolah/StatCard";
 import DashboardChart from "../../components/dashsekolah/DashboardChart";
@@ -120,45 +116,7 @@ export default function DashboardPage() {
 
         </div>
 
-        {/* ===================================================== */}
-        {/* SUMMARY CARD */}
-        {/* ===================================================== */}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-
-          <SummaryCard
-            title="Total Siswa"
-            value={d?.totalSiswa ?? "-"}
-            subtitle="Siswa aktif"
-            icon={<GraduationCap size={24} />}
-            iconBg="bg-blue-100 text-blue-700"
-          />
-
-          <SummaryCard
-            title="Risiko Tinggi"
-            value={d?.risikoTinggi ?? "-"}
-            subtitle="Perlu intervensi"
-            icon={<AlertTriangle size={24} />}
-            iconBg="bg-red-100 text-red-700"
-          />
-
-          <SummaryCard
-            title="Sedang Dipantau"
-            value={d?.sedangDipantau ?? "-"}
-            subtitle="Monitoring Guru BK"
-            icon={<Eye size={24} />}
-            iconBg="bg-yellow-100 text-yellow-700"
-          />
-
-          <SummaryCard
-            title="Intervensi Selesai"
-            value={d?.intervensiSelesai ?? "-"}
-            subtitle="Kasus selesai"
-            icon={<CheckCircle2 size={24} />}
-            iconBg="bg-green-100 text-green-700"
-          />
-
-        </div>
 
         {/* ===================================================== */}
         {/* CHART + TIMELINE */}

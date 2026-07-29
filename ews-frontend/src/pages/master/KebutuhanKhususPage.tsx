@@ -1,4 +1,3 @@
-import { HeartHandshake } from "lucide-react";
 import MasterCrudPage from "../../components/master/MasterCrudPage";
 import { kebutuhanKhususApi } from "../../services/master.service";
 import type { KebutuhanKhusus } from "../../types/api";
@@ -6,9 +5,6 @@ import type { KebutuhanKhusus } from "../../types/api";
 export default function KebutuhanKhususPage() {
   return (
     <MasterCrudPage<KebutuhanKhusus>
-      title="Master Kebutuhan Khusus"
-      description="Kelola daftar kategori kebutuhan khusus (Dapodik) untuk siswa maupun orang tua."
-      icon={HeartHandshake}
       queryKey="master-kebutuhan-khusus"
       api={kebutuhanKhususApi}
       searchPlaceholder="Cari kebutuhan khusus..."

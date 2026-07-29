@@ -1,4 +1,3 @@
-import { Building2 } from "lucide-react";
 import MasterCrudPage from "../../components/master/MasterCrudPage";
 import { opdApi } from "../../services/master.service";
 import type { Opd } from "../../types/api";
@@ -6,9 +5,6 @@ import type { Opd } from "../../types/api";
 export default function OpdPage() {
   return (
     <MasterCrudPage<Opd>
-      title="Master OPD"
-      description="Kelola daftar OPD tujuan rujukan (Kapanewon memilih dari daftar ini saat merujuk kasus)."
-      icon={Building2}
       queryKey="master-opd"
       api={opdApi}
       searchPlaceholder="Cari nama OPD..."

@@ -84,18 +84,6 @@ export default function StudentDoListPage() {
     <DashboardLayout>
       <div className="space-y-6">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center">
-            <UserX size={22} />
-          </div>
-          <div>
-            <h2 className="text-lg font-bold text-slate-800">
-              Siswa Putus Sekolah (DO)
-            </h2>
-            <p className="text-sm text-slate-500">
-              Daftar siswa berstatus Putus Sekolah. Admin dapat merujuk langsung
-              ke OPD terkait untuk penanganan lebih lanjut.
-            </p>
-          </div>
         </div>
 
         <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">

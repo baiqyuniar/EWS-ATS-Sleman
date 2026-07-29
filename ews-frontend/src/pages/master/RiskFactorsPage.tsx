@@ -1,4 +1,3 @@
-import { AlertTriangle } from "lucide-react";
 import MasterCrudPage from "../../components/master/MasterCrudPage";
 import { riskFactorsApi } from "../../services/master.service";
 import type { RiskFactor } from "../../types/api";
@@ -6,9 +5,6 @@ import type { RiskFactor } from "../../types/api";
 export default function RiskFactorsPage() {
   return (
     <MasterCrudPage<RiskFactor>
-      title="Master Faktor Risiko"
-      description="Kelola kategori & faktor risiko yang dipakai Kapanewon saat membuat rujukan."
-      icon={AlertTriangle}
       queryKey="master-risk-factors"
       api={riskFactorsApi}
       searchPlaceholder="Cari faktor risiko..."

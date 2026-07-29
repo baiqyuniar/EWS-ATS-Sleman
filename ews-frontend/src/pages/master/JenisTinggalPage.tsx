@@ -1,4 +1,3 @@
-import { Home } from "lucide-react";
 import MasterCrudPage from "../../components/master/MasterCrudPage";
 import { jenisTinggalApi } from "../../services/master.service";
 import type { JenisTinggal } from "../../types/api";
@@ -6,9 +5,6 @@ import type { JenisTinggal } from "../../types/api";
 export default function JenisTinggalPage() {
   return (
     <MasterCrudPage<JenisTinggal>
-      title="Master Jenis Tinggal"
-      description="Kelola daftar jenis tempat tinggal siswa (bersama orang tua, wali, asrama, dll)."
-      icon={Home}
       queryKey="master-jenis-tinggal"
       api={jenisTinggalApi}
       searchPlaceholder="Cari jenis tinggal..."

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { FileBarChart, Download, Loader2 } from "lucide-react";
+import { Download, Loader2 } from "lucide-react";
 
 import DashboardLayout from "../../layouts/DashboardLayout";
 import {
@@ -51,23 +51,22 @@ export default function ReportsPage() {
       ? Object.entries(rekap as Record<string, any>)
       : [];
 
-  return (
-    <DashboardLayout>
-      <div className="space-y-6">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center">
-              <FileBarChart size={22} />
-            </div>
-            <div>
-              <h2 className="text-lg font-bold text-slate-800">
-                Laporan &amp; Rekapitulasi
-              </h2>
-              <p className="text-sm text-slate-500">
-                Rekap kasus, statistik sekolah, dan ekspor data.
-              </p>
-            </div>
+return (
+  <DashboardLayout>
+    <div className="space-y-6">
+      <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6">
+
+        {/* Toolbar */}
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pb-5 border-b border-slate-100">
+          <div>
+            <h3 className="text-lg font-bold text-slate-800">
+              Rekap Kasus
+            </h3>
+            <p className="text-sm text-slate-500">
+              Ringkasan statistik kasus berdasarkan periode.
+            </p>
           </div>
+
           <div className="flex flex-wrap items-center gap-2">
             <input
               type="date"
@@ -75,57 +74,75 @@ export default function ReportsPage() {
               onChange={(e) => setFrom(e.target.value)}
               className="px-3 py-2.5 rounded-xl border border-slate-200 text-sm"
             />
+
             <span className="text-slate-400 text-sm">s/d</span>
+
             <input
               type="date"
               value={to}
               onChange={(e) => setTo(e.target.value)}
               className="px-3 py-2.5 rounded-xl border border-slate-200 text-sm"
             />
+
             <button
               onClick={handleExport}
-              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2.5 rounded-2xl text-sm"
+              className="flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700"
             >
-              <Download size={16} /> Ekspor CSV
+              <Download size={16} />
+              Ekspor CSV
             </button>
           </div>
         </div>
 
-        <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6">
-          <h3 className="font-bold text-slate-800 mb-4">Rekap Kasus</h3>
+        {/* Rekap */}
+        <div className="mt-6">
           {loadingRekap ? (
-            <div className="flex items-center gap-2 text-slate-400 py-8 justify-center">
-              <Loader2 className="animate-spin" size={18} /> Memuat rekap...
+            <div className="flex items-center justify-center gap-2 py-10 text-slate-400">
+              <Loader2 className="animate-spin" size={18} />
+              Memuat rekap...
             </div>
           ) : rekapEntries.length === 0 ? (
-            <p className="text-sm text-slate-400">Data rekap belum tersedia.</p>
+            <div className="py-10 text-center text-sm text-slate-400">
+              Data rekap belum tersedia.
+            </div>
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {rekapEntries.map(([key, value]) => (
-                <div key={key} className="bg-slate-50 rounded-2xl p-4">
-                  <p className="text-xs text-slate-500 capitalize">
+                <div
+                  key={key}
+                  className="rounded-2xl border border-slate-100 bg-slate-50 p-4 transition hover:shadow-sm"
+                >
+                  <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
                     {key.replace(/([A-Z])/g, " $1")}
                   </p>
-                  <p className="text-xl font-bold text-slate-800 mt-1">
-                {Array.isArray(value) ? (
-                  value.map((item: any, index: number) => (
-                    <div key={index} className="text-sm font-medium">
-                      {(item.status ?? item.source)
-                      .replace(/_/g, " ")
-                      .toLowerCase()
-                      .replace(/\b\w/g, (c: string) => c.toUpperCase())}
-                    </div>
-                  ))
-                ) : (
-                  value
-                )}
-              </p>
+
+                  <div className="mt-2">
+                    {Array.isArray(value) ? (
+                      value.map((item: any, index: number) => (
+                        <div
+                          key={index}
+                          className="text-sm font-semibold text-slate-700"
+                        >
+                          {(item.status ?? item.source)
+                            .replace(/_/g, " ")
+                            .toLowerCase()
+                            .replace(/\b\w/g, (c: string) =>
+                              c.toUpperCase()
+                            )}
+                        </div>
+                      ))
+                    ) : (
+                      <span className="text-3xl font-bold text-slate-800">
+                        {value}
+                      </span>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
           )}
         </div>
-
+        </div>
         <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6">
           <h3 className="font-bold text-slate-800 mb-4">
             Statistik per Sekolah

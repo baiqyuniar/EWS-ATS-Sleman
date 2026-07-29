@@ -1,4 +1,3 @@
-import { Wallet } from "lucide-react";
 import MasterCrudPage from "../../components/master/MasterCrudPage";
 import { penghasilanOrtuApi } from "../../services/master.service";
 import type { PenghasilanOrtu } from "../../types/api";
@@ -6,9 +5,6 @@ import type { PenghasilanOrtu } from "../../types/api";
 export default function PenghasilanOrtuPage() {
   return (
     <MasterCrudPage<PenghasilanOrtu>
-      title="Master Penghasilan Orang Tua"
-      description="Kelola rentang penghasilan ayah/ibu siswa. Kode ordinal (0-6) dipakai fitur prediksi ML — urutkan dari terendah ke tertinggi."
-      icon={Wallet}
       queryKey="master-penghasilan-ortu"
       api={penghasilanOrtuApi}
       searchPlaceholder="Cari rentang penghasilan..."
