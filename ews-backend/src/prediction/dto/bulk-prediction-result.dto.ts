@@ -1,5 +1,5 @@
 export class BulkPredictionResultDto {
-  studentId!: number;
+  nisn!:string;
 
   success!: boolean;
 

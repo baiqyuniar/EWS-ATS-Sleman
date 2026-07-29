@@ -69,11 +69,18 @@ export class PredictionService {
   // Tries the real ML model (ews-ml-service) first; falls back to the rule-based
   // placeholder engine only if the ML service is not configured/unreachable.
   async simulate(dto: SimulatePredictionDto, uploadedById: number) {
-    const student = await this.prisma.student.findUnique({
-      where: { id: dto.studentId },
-      include: { school: true },
-    });
-    if (!student) throw new NotFoundException("Siswa tidak ditemukan");
+  const student = await this.prisma.student.findUnique({
+    where: {
+      nisn: dto.nisn,
+    },
+    include: {
+      school: true,
+    },
+  });
+
+  if (!student) {
+    throw new NotFoundException("Siswa tidak ditemukan");
+  }
 
     const features = this.buildFeatures(student, dto);
     const mlResult = await this.mlClient.predict(features);
@@ -113,7 +120,7 @@ export class PredictionService {
 
     return this.prisma.prediction.create({
       data: {
-        studentId: dto.studentId,
+        studentId: student.id,
         probabilitas,
         riskCategory: riskCategory as any,
         probDo,
@@ -140,28 +147,41 @@ export class PredictionService {
   // Batch upload: dipakai untuk memproses banyak siswa sekaligus (mis. hasil ASPD tahunan).
   // `rows` minimal berisi { studentId }, boleh menambahkan override fitur per baris.
   async bulkCreate(
-    rows: Array<{ studentId: number } & Partial<SimulatePredictionDto>>,
+    rows: SimulatePredictionDto[],
     uploadedById: number,
     datasetBatch: string,
   ) {
     const results: BulkPredictionResultDto[] = [];
     for (const row of rows) {
-      const student = await this.prisma.student.findUnique({
-        where: { id: row.studentId },
-        include: { school: true },
-      });
+        if (!row.nisn) {
+          results.push({
+            nisn: "",
+            success: false,
+            error: "NISN wajib diisi",
+          });
+          continue;
+        }
 
-      if (!student) {
-        results.push({
-          studentId: row.studentId,
-          success: false,
-          error: "Siswa tidak ditemukan",
+        const student = await this.prisma.student.findUnique({
+          where: {
+            nisn: row.nisn,
+          },
+          include: {
+            school: true,
+          },
         });
-        continue;
-      }
 
-      const features = this.buildFeatures(student, row);
-      const mlResult = await this.mlClient.predict(features);
+        if (!student) {
+          results.push({
+            nisn: row.nisn,
+            success: false,
+            error: "Siswa tidak ditemukan",
+          });
+          continue;
+        }
+
+        const features = this.buildFeatures(student, row);
+        const mlResult = await this.mlClient.predict(features);
 
       let probabilitas: number;
       let riskCategory: "RENDAH" | "SEDANG" | "TINGGI";
@@ -179,7 +199,7 @@ export class PredictionService {
         probabilitas = Math.round((mlResult.prob_do ?? 0) * 10000) / 100;
       } else if (mlResult) {
         results.push({
-          studentId: row.studentId,
+          nisn: row.nisn,
           success: false,
           error: "Data Tidak Lengkap untuk model ML",
         });
@@ -198,23 +218,23 @@ export class PredictionService {
         modelDipakai = "fallback-rule-based";
       }
 
-      const prediction = await this.prisma.prediction.create({
-        data: {
-          studentId: row.studentId,
-          probabilitas,
-          riskCategory: riskCategory as any,
-          probDo,
-          risikoDoLabel,
-          alasanRisiko,
-          modelDipakai,
-          source: "ML_BATCH",
-          datasetBatch,
-          uploadedById,
-        },
-      });
+        const prediction = await this.prisma.prediction.create({
+    data: {
+      studentId: student.id,
+      probabilitas,
+      riskCategory: riskCategory as any,
+      probDo,
+      risikoDoLabel,
+      alasanRisiko,
+      modelDipakai,
+      source: "ML_BATCH",
+      datasetBatch,
+      uploadedById,
+    },
+  });
 
       results.push({
-        studentId: row.studentId,
+        nisn: row.nisn,
         success: true,
         predictionId: prediction.id,
         probabilitas: prediction.probabilitas,

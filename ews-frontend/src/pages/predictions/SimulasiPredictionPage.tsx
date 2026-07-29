@@ -270,73 +270,73 @@ export default function SimulasiPredictionPage() {
       />
     </div>
 
-    <div>
-      <label className="text-xs font-medium text-slate-600 mb-1 block">
-        Kualitas Pembelajaran (0–3)
-      </label>
+        <div>
+          <label className="text-xs font-medium text-slate-600 mb-1 block">
+            Kualitas Pembelajaran (0–3)
+          </label>
 
-      <input
-        type="number"
-        min={0}
-        max={3}
-        onChange={(e) =>
-          setOverrides({
-            ...overrides,
-            sulingjarD1:
-              e.target.value === ""
-                ? undefined
-                : Number(e.target.value),
-          })
-        }
-        className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm"
-      />
+          <input
+            type="number"
+            min={0}
+            max={3}
+            onChange={(e) =>
+              setOverrides({
+                ...overrides,
+                sulingjarD1:
+                  e.target.value === ""
+                    ? undefined
+                    : Number(e.target.value),
+              })
+            }
+            className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm"
+          />
+        </div>
+
+        <div>
+          <label className="text-xs font-medium text-slate-600 mb-1 block">
+            Refleksi Guru (0–3)
+          </label>
+
+          <input
+            type="number"
+            min={0}
+            max={3}
+            onChange={(e) =>
+              setOverrides({
+                ...overrides,
+                sulingjarD2:
+                  e.target.value === ""
+                    ? undefined
+                    : Number(e.target.value),
+              })
+            }
+            className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm"
+          />
+        </div>
+
+        <div>
+          <label className="text-xs font-medium text-slate-600 mb-1 block">
+            Iklim Kesetaraan Gender (0–3)
+          </label>
+
+          <input
+            type="number"
+            min={0}
+            max={3}
+            onChange={(e) =>
+              setOverrides({
+                ...overrides,
+                sulingjarD6:
+                  e.target.value === ""
+                    ? undefined
+                    : Number(e.target.value),
+              })
+            }
+            className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm"
+          />
+        </div>
+      </div>
     </div>
-
-    <div>
-      <label className="text-xs font-medium text-slate-600 mb-1 block">
-        Refleksi Guru (0–3)
-      </label>
-
-      <input
-        type="number"
-        min={0}
-        max={3}
-        onChange={(e) =>
-          setOverrides({
-            ...overrides,
-            sulingjarD2:
-              e.target.value === ""
-                ? undefined
-                : Number(e.target.value),
-          })
-        }
-        className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm"
-      />
-    </div>
-
-    <div>
-      <label className="text-xs font-medium text-slate-600 mb-1 block">
-        Iklim Kesetaraan Gender (0–3)
-      </label>
-
-      <input
-        type="number"
-        min={0}
-        max={3}
-        onChange={(e) =>
-          setOverrides({
-            ...overrides,
-            sulingjarD6:
-              e.target.value === ""
-                ? undefined
-                : Number(e.target.value),
-          })
-        }
-        className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm"
-      />
-    </div>
-  </div>
-</div>
 
               <ErrorAlert
                 message={
