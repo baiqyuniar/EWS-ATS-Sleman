@@ -612,20 +612,29 @@ export interface SimulatePredictionPayload {
   kodePendidikanIbu?: number;
   kodePenghasilanAyah?: number;
   kodePenghasilanIbu?: number;
+  sulingjarD18?: number;
+  sulingjarD1?: number;
+  sulingjarD2?: number;
+  sulingjarD6?: number;
   riskFactorIds?: number[];
 }
 
 export interface BulkPredictionRow {
-  studentId: number;
+  nisn: string;
   num?: number;
   kodePendidikanAyah?: number;
   kodePendidikanIbu?: number;
   kodePenghasilanAyah?: number;
   kodePenghasilanIbu?: number;
+  sulingjarD18?: number;
+  sulingjarD1?: number;
+  sulingjarD2?: number;
+  sulingjarD6?: number;
 }
 
 export interface BulkPredictionResult {
-  studentId: number;
+  nisn: string;
+  studentId?: number;
   success: boolean;
   predictionId?: number;
   probabilitas?: number;

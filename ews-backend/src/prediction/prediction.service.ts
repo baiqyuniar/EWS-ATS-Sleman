@@ -68,11 +68,16 @@ export class PredictionService {
   // "2. Klasifikasi Risiko" — single-student prediction (Simulasi Prediksi).
   // Tries the real ML model (ews-ml-service) first; falls back to the rule-based
   // placeholder engine only if the ML service is not configured/unreachable.
-  async simulate(dto: SimulatePredictionDto, uploadedById: number) {
-    const student = await this.prisma.student.findUnique({
-      where: { id: dto.studentId },
+  async simulate(dto: SimulatePredictionDto, user: CurrentUserPayload) {
+    // BOLA fix (sama seperti findAll/findByStudent): tanpa scoping ini, akun SEKOLAH
+    // mana pun bisa menjalankan prediksi ML untuk siswa sekolah lain hanya dengan
+    // menebak/tahu studentId-nya.
+    const studentWhere = await this.studentWhereForUser(user);
+    const student = await this.prisma.student.findFirst({
+      where: { id: dto.studentId, ...studentWhere },
       include: { school: true },
     });
+    // 404 (bukan 403): tidak membocorkan keberadaan siswa di luar wewenang requester.
     if (!student) throw new NotFoundException("Siswa tidak ditemukan");
 
     const features = this.buildFeatures(student, dto);
@@ -87,8 +92,11 @@ export class PredictionService {
 
     if (mlResult) {
       if (mlResult.risiko_do === "Data Tidak Lengkap") {
+        const missingList = mlResult.alasan_risiko?.length
+          ? ` Kolom yang masih kosong: ${mlResult.alasan_risiko.join(", ")}.`
+          : "";
         throw new BadRequestException(
-          `Data siswa belum lengkap untuk model "${mlResult.model_dipakai}". Lengkapi data akademik/keluarga siswa (atau data mutu sekolah) terlebih dahulu, lalu coba lagi.`,
+          `Data siswa belum lengkap untuk model "${mlResult.model_dipakai}".${missingList} Lengkapi data akademik/keluarga siswa (atau data mutu sekolah) terlebih dahulu, lalu coba lagi.`,
         );
       }
       probDo = mlResult.prob_do;
@@ -121,7 +129,7 @@ export class PredictionService {
         alasanRisiko,
         modelDipakai,
         source: "MANUAL",
-        uploadedById,
+        uploadedById: user.userId,
         riskFactors: dto.riskFactorIds
           ? {
               create: dto.riskFactorIds.map((riskFactorId) => ({
@@ -138,24 +146,30 @@ export class PredictionService {
   }
 
   // Batch upload: dipakai untuk memproses banyak siswa sekaligus (mis. hasil ASPD tahunan).
-  // `rows` minimal berisi { studentId }, boleh menambahkan override fitur per baris.
+  // `rows` minimal berisi { nisn } (bukan studentId internal — sekolah tidak punya ID
+  // database kita, tapi selalu punya NISN), boleh menambahkan override fitur per baris.
   async bulkCreate(
-    rows: Array<{ studentId: number } & Partial<SimulatePredictionDto>>,
-    uploadedById: number,
+    rows: Array<
+      { nisn: string } & Partial<Omit<SimulatePredictionDto, "studentId">>
+    >,
+    user: CurrentUserPayload,
     datasetBatch: string,
   ) {
+    // BOLA fix (sama seperti simulate()): tanpa scoping ini, akun SEKOLAH bisa
+    // batch-predict siswa sekolah lain hanya dengan tahu NISN-nya.
+    const studentWhere = await this.studentWhereForUser(user);
     const results: BulkPredictionResultDto[] = [];
     for (const row of rows) {
-      const student = await this.prisma.student.findUnique({
-        where: { id: row.studentId },
+      const student = await this.prisma.student.findFirst({
+        where: { nisn: row.nisn, ...studentWhere },
         include: { school: true },
       });
 
       if (!student) {
         results.push({
-          studentId: row.studentId,
+          nisn: row.nisn,
           success: false,
-          error: "Siswa tidak ditemukan",
+          error: "Siswa dengan NISN ini tidak ditemukan",
         });
         continue;
       }
@@ -178,10 +192,14 @@ export class PredictionService {
         riskCategory = this.bandToRiskCategory(mlResult.risk_band);
         probabilitas = Math.round((mlResult.prob_do ?? 0) * 10000) / 100;
       } else if (mlResult) {
+        const missingList = mlResult.alasan_risiko?.length
+          ? `: ${mlResult.alasan_risiko.join(", ")}`
+          : "";
         results.push({
-          studentId: row.studentId,
+          nisn: student.nisn,
+          studentId: student.id,
           success: false,
-          error: "Data Tidak Lengkap untuk model ML",
+          error: `Data Tidak Lengkap untuk model "${mlResult.model_dipakai}"${missingList}`,
         });
         continue;
       } else {
@@ -200,7 +218,7 @@ export class PredictionService {
 
       const prediction = await this.prisma.prediction.create({
         data: {
-          studentId: row.studentId,
+          studentId: student.id,
           probabilitas,
           riskCategory: riskCategory as any,
           probDo,
@@ -209,12 +227,13 @@ export class PredictionService {
           modelDipakai,
           source: "ML_BATCH",
           datasetBatch,
-          uploadedById,
+          uploadedById: user.userId,
         },
       });
 
       results.push({
-        studentId: row.studentId,
+        nisn: student.nisn,
+        studentId: student.id,
         success: true,
         predictionId: prediction.id,
         probabilitas: prediction.probabilitas,
