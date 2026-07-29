@@ -20,19 +20,23 @@ export class PredictionController {
   @Roles(UserRole.SEKOLAH)
   @Post('simulate')
   simulate(@Body() dto: SimulatePredictionDto, @CurrentUser() user: CurrentUserPayload) {
-    return this.service.simulate(dto, user.userId);
+    return this.service.simulate(dto, user);
   }
 
   @Roles(UserRole.SEKOLAH)
   @Post('bulk-upload')
   bulkUpload(
-    @Body() body: { datasetBatch: string; rows: Array<{ studentId: number } & Partial<SimulatePredictionDto>> },
+    @Body()
+    body: {
+      datasetBatch: string;
+      rows: Array<{ nisn: string } & Partial<Omit<SimulatePredictionDto, 'studentId'>>>;
+    },
     @CurrentUser() user: CurrentUserPayload,
   ) {
     // NOTE: for a real CSV/XLSX file upload, add a Multer FileInterceptor here and
     // parse the file server-side (e.g. with the `xlsx` package) into `rows` before
     // calling bulkCreate. This JSON-rows endpoint keeps the contract stable either way.
-    return this.service.bulkCreate(body.rows, user.userId, body.datasetBatch);
+    return this.service.bulkCreate(body.rows, user, body.datasetBatch);
   }
 
   // Prediksi ML mentah (skor & alasan risiko) tidak relevan untuk alur kerja OPD

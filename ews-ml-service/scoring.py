@@ -92,7 +92,9 @@ class LoadedModel:
         row = [feature_values.get(f) for f in self.features]
         if any(v is None for v in row):
             missing = [f for f, v in zip(self.features, row) if v is None]
-            raise ValueError(f"Data tidak lengkap untuk model ini, kolom hilang: {missing}")
+            err = ValueError(f"Data tidak lengkap untuk model ini, kolom hilang: {missing}")
+            err.missing_features = missing  # type: ignore[attr-defined]
+            raise err
 
         X = np.array([row], dtype=float)
         dmatrix = xgb.DMatrix(X, feature_names=self.features)
@@ -162,12 +164,20 @@ class TieredScorer:
                 "alasan_risiko": alasan,
                 "model_dipakai": model_name,
             }
-        except ValueError:
-            # Kolom wajib untuk tier ini masih kosong.
+        except ValueError as e:
+            # Kolom wajib untuk tier ini masih kosong. Catatan penting: `num` TIDAK
+            # pernah termasuk dalam daftar ini kalau model_name == "tanpa_aspd", karena
+            # tier itu memang tidak memakai fitur `num` sama sekali (lihat features di
+            # tanpa_aspd_spec.json). Jadi kalau siswa tidak punya skor numerasi, sistem
+            # sudah otomatis pindah ke tier ini — error "Data Tidak Lengkap" di sini
+            # berarti ada fitur LAIN (pendidikan/penghasilan ortu atau mutu sekolah)
+            # yang masih kosong, bukan karena numerasi kosong.
+            missing = getattr(e, "missing_features", [])
+            missing_labels = [FEATURE_LABELS.get(f, f) for f in missing]
             return {
                 "prob_do": None,
                 "risiko_do": "Data Tidak Lengkap",
                 "risk_band": None,
-                "alasan_risiko": [],
+                "alasan_risiko": missing_labels,
                 "model_dipakai": model_name,
             }

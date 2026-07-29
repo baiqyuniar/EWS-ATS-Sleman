@@ -68,19 +68,17 @@ export class PredictionService {
   // "2. Klasifikasi Risiko" — single-student prediction (Simulasi Prediksi).
   // Tries the real ML model (ews-ml-service) first; falls back to the rule-based
   // placeholder engine only if the ML service is not configured/unreachable.
-  async simulate(dto: SimulatePredictionDto, uploadedById: number) {
-  const student = await this.prisma.student.findUnique({
-    where: {
-      nisn: dto.nisn,
-    },
-    include: {
-      school: true,
-    },
-  });
-
-  if (!student) {
-    throw new NotFoundException("Siswa tidak ditemukan");
-  }
+  async simulate(dto: SimulatePredictionDto, user: CurrentUserPayload) {
+    // BOLA fix (sama seperti findAll/findByStudent): tanpa scoping ini, akun SEKOLAH
+    // mana pun bisa menjalankan prediksi ML untuk siswa sekolah lain hanya dengan
+    // menebak/tahu studentId-nya.
+    const studentWhere = await this.studentWhereForUser(user);
+    const student = await this.prisma.student.findFirst({
+      where: { id: dto.studentId, ...studentWhere },
+      include: { school: true },
+    });
+    // 404 (bukan 403): tidak membocorkan keberadaan siswa di luar wewenang requester.
+    if (!student) throw new NotFoundException("Siswa tidak ditemukan");
 
     const features = this.buildFeatures(student, dto);
     const mlResult = await this.mlClient.predict(features);
@@ -94,8 +92,11 @@ export class PredictionService {
 
     if (mlResult) {
       if (mlResult.risiko_do === "Data Tidak Lengkap") {
+        const missingList = mlResult.alasan_risiko?.length
+          ? ` Kolom yang masih kosong: ${mlResult.alasan_risiko.join(", ")}.`
+          : "";
         throw new BadRequestException(
-          `Data siswa belum lengkap untuk model "${mlResult.model_dipakai}". Lengkapi data akademik/keluarga siswa (atau data mutu sekolah) terlebih dahulu, lalu coba lagi.`,
+          `Data siswa belum lengkap untuk model "${mlResult.model_dipakai}".${missingList} Lengkapi data akademik/keluarga siswa (atau data mutu sekolah) terlebih dahulu, lalu coba lagi.`,
         );
       }
       probDo = mlResult.prob_do;
@@ -128,7 +129,7 @@ export class PredictionService {
         alasanRisiko,
         modelDipakai,
         source: "MANUAL",
-        uploadedById,
+        uploadedById: user.userId,
         riskFactors: dto.riskFactorIds
           ? {
               create: dto.riskFactorIds.map((riskFactorId) => ({
@@ -145,43 +146,36 @@ export class PredictionService {
   }
 
   // Batch upload: dipakai untuk memproses banyak siswa sekaligus (mis. hasil ASPD tahunan).
-  // `rows` minimal berisi { studentId }, boleh menambahkan override fitur per baris.
+  // `rows` minimal berisi { nisn } (bukan studentId internal — sekolah tidak punya ID
+  // database kita, tapi selalu punya NISN), boleh menambahkan override fitur per baris.
   async bulkCreate(
-    rows: SimulatePredictionDto[],
-    uploadedById: number,
+    rows: Array<
+      { nisn: string } & Partial<Omit<SimulatePredictionDto, "studentId">>
+    >,
+    user: CurrentUserPayload,
     datasetBatch: string,
   ) {
+    // BOLA fix (sama seperti simulate()): tanpa scoping ini, akun SEKOLAH bisa
+    // batch-predict siswa sekolah lain hanya dengan tahu NISN-nya.
+    const studentWhere = await this.studentWhereForUser(user);
     const results: BulkPredictionResultDto[] = [];
     for (const row of rows) {
-        if (!row.nisn) {
-          results.push({
-            nisn: "",
-            success: false,
-            error: "NISN wajib diisi",
-          });
-          continue;
-        }
+      const student = await this.prisma.student.findFirst({
+        where: { nisn: row.nisn, ...studentWhere },
+        include: { school: true },
+      });
 
-        const student = await this.prisma.student.findUnique({
-          where: {
-            nisn: row.nisn,
-          },
-          include: {
-            school: true,
-          },
+      if (!student) {
+        results.push({
+          nisn: row.nisn,
+          success: false,
+          error: "Siswa dengan NISN ini tidak ditemukan",
         });
+        continue;
+      }
 
-        if (!student) {
-          results.push({
-            nisn: row.nisn,
-            success: false,
-            error: "Siswa tidak ditemukan",
-          });
-          continue;
-        }
-
-        const features = this.buildFeatures(student, row);
-        const mlResult = await this.mlClient.predict(features);
+      const features = this.buildFeatures(student, row);
+      const mlResult = await this.mlClient.predict(features);
 
       let probabilitas: number;
       let riskCategory: "RENDAH" | "SEDANG" | "TINGGI";
@@ -190,20 +184,26 @@ export class PredictionService {
       let alasanRisiko: string[] = [];
       let modelDipakai: string | null = null;
 
-      if (mlResult && mlResult.risiko_do !== "Data Tidak Lengkap") {
+      if (mlResult) {
+        if (mlResult.risiko_do === "Data Tidak Lengkap") {
+          const missingList = mlResult.alasan_risiko?.length
+            ? `: ${mlResult.alasan_risiko.join(", ")}`
+            : "";
+          results.push({
+            nisn: student.nisn,
+            studentId: student.id,
+            success: false,
+            error: `Data Tidak Lengkap untuk model "${mlResult.model_dipakai}"${missingList}`,
+          });
+          continue;
+        }
+
         probDo = mlResult.prob_do;
         risikoDoLabel = mlResult.risiko_do;
         alasanRisiko = mlResult.alasan_risiko;
         modelDipakai = mlResult.model_dipakai;
         riskCategory = this.bandToRiskCategory(mlResult.risk_band);
         probabilitas = Math.round((mlResult.prob_do ?? 0) * 10000) / 100;
-      } else if (mlResult) {
-        results.push({
-          nisn: row.nisn,
-          success: false,
-          error: "Data Tidak Lengkap untuk model ML",
-        });
-        continue;
       } else {
         const fallback = this.engine.score({
           num: features.num,
@@ -218,23 +218,24 @@ export class PredictionService {
         modelDipakai = "fallback-rule-based";
       }
 
-        const prediction = await this.prisma.prediction.create({
-    data: {
-      studentId: student.id,
-      probabilitas,
-      riskCategory: riskCategory as any,
-      probDo,
-      risikoDoLabel,
-      alasanRisiko,
-      modelDipakai,
-      source: "ML_BATCH",
-      datasetBatch,
-      uploadedById,
-    },
-  });
+      const prediction = await this.prisma.prediction.create({
+        data: {
+          studentId: student.id,
+          probabilitas,
+          riskCategory: riskCategory as any,
+          probDo,
+          risikoDoLabel,
+          alasanRisiko,
+          modelDipakai,
+          source: "ML_BATCH",
+          datasetBatch,
+          uploadedById: user.userId,
+        },
+      });
 
       results.push({
-        nisn: row.nisn,
+        nisn: student.nisn,
+        studentId: student.id,
         success: true,
         predictionId: prediction.id,
         probabilitas: prediction.probabilitas,

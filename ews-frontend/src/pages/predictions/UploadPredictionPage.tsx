@@ -4,13 +4,13 @@ import { Upload, FileSpreadsheet, Download, CheckCircle2, XCircle } from "lucide
 
 import DashboardLayout from "../../layouts/DashboardLayout";
 import { bulkUploadPredictions } from "../../services/prediction.service";
-import type { BulkPredictionResponse, BulkPredictionRow } from "../../types/api";
+import type { BulkPredictionResponse, BulkPredictionRow, RiskCategory } from "../../types/api";
 import { ErrorAlert } from "../../components/ui/Alert";
 import { apiErrorMessage } from "../../lib/api";
 import { RiskBadge } from "../../components/ui/Badge";
 
 const TEMPLATE_HEADER =
-  "studentId,num,kodePendidikanAyah,kodePendidikanIbu,kodePenghasilanAyah,kodePenghasilanIbu";
+  "nisn,num,kodePendidikanAyah,kodePendidikanIbu,kodePenghasilanAyah,kodePenghasilanIbu";
 
 function parseCsv(text: string): BulkPredictionRow[] {
   const lines = text
@@ -21,13 +21,14 @@ function parseCsv(text: string): BulkPredictionRow[] {
   const headers = lines[0].split(",").map((h) => h.trim());
   return lines.slice(1).map((line) => {
     const values = line.split(",").map((v) => v.trim());
-    const row: any = {};
+    const row: Record<string, string | number> = {};
     headers.forEach((h, i) => {
       const raw = values[i];
       if (raw === undefined || raw === "") return;
-      row[h] = h === "studentId" ? parseInt(raw, 10) : Number(raw);
+      // nisn tetap string (bisa berawalan angka 0) — kolom lain numerik.
+      row[h] = h === "nisn" ? raw : Number(raw);
     });
-    return row as BulkPredictionRow;
+    return row as unknown as BulkPredictionRow;
   });
 }
 
@@ -50,14 +51,17 @@ export default function UploadPredictionPage() {
       const parsed = parseCsv(text);
       if (parsed.length === 0) throw new Error("File kosong atau format tidak sesuai");
       setRows(parsed);
-    } catch (err: any) {
-      setParseError(err.message || "Gagal membaca file");
+    } catch (err: unknown) {
+      setParseError(err instanceof Error ? err.message : "Gagal membaca file");
       setRows([]);
     }
   };
 
   const downloadTemplate = () => {
-    const blob = new Blob([TEMPLATE_HEADER + "\n1,75,4,4,2,2\n"], { type: "text/csv" });
+    const blob = new Blob(
+      [TEMPLATE_HEADER + "\n0012345678,75,4,4,2,2\n"],
+      { type: "text/csv" },
+    );
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
@@ -169,10 +173,10 @@ export default function UploadPredictionPage() {
                     ) : (
                       <XCircle size={16} className="text-red-500" />
                     )}
-                    <span className="text-slate-600">Student #{r.studentId}</span>
+                    <span className="text-slate-600">NISN {r.nisn}</span>
                   </div>
                   {r.success && r.riskCategory ? (
-                    <RiskBadge value={r.riskCategory as any} />
+                    <RiskBadge value={r.riskCategory as RiskCategory} />
                   ) : (
                     <span className="text-xs text-red-500">{r.error}</span>
                   )}
