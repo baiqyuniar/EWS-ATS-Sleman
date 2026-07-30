@@ -1,4 +1,3 @@
-import { Briefcase } from "lucide-react";
 import MasterCrudPage from "../../components/master/MasterCrudPage";
 import { pekerjaanOrtuApi } from "../../services/master.service";
 import type { PekerjaanOrtu } from "../../types/api";
@@ -6,9 +5,6 @@ import type { PekerjaanOrtu } from "../../types/api";
 export default function PekerjaanOrtuPage() {
   return (
     <MasterCrudPage<PekerjaanOrtu>
-      title="Master Pekerjaan Orang Tua"
-      description="Kelola daftar pekerjaan ayah/ibu siswa."
-      icon={Briefcase}
       queryKey="master-pekerjaan-ortu"
       api={pekerjaanOrtuApi}
       searchPlaceholder="Cari pekerjaan..."

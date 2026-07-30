@@ -36,9 +36,9 @@ interface CrudApi<T> {
 }
 
 interface Props<T extends { id: number }> {
-  title: string;
-  description: string;
-  icon: LucideIcon;
+  title?: string;
+  description?: string;
+  icon?: LucideIcon;
   queryKey: string;
   api: CrudApi<T>;
   columns: ColumnConfig<T>[];
@@ -123,44 +123,47 @@ export default function MasterCrudPage<T extends { id: number }>({
 
   return (
     <DashboardLayout>
-      <div className="space-y-6">
+      <div className="space-y-0">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center">
-              <Icon size={22} />
+              {Icon ? <Icon size={22} /> : null}
             </div>
             <div>
               <h2 className="text-lg font-bold text-slate-800">{title}</h2>
               <p className="text-sm text-slate-500">{description}</p>
             </div>
           </div>
-          {!readOnly && (
-            <button
-              onClick={openCreate}
-              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 rounded-2xl transition"
-            >
-              <Plus size={18} />
-              Tambah
-            </button>
-          )}
         </div>
 
         <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
           <div className="p-4 border-b border-slate-100">
-            <div className="relative max-w-sm">
-              <Search
-                size={16}
-                className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"
-              />
-              <input
-                value={search}
-                onChange={(e) => {
-                  setSearch(e.target.value);
-                  setPage(1);
-                }}
-                placeholder={searchPlaceholder ?? "Cari..."}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/30"
-              />
+            <div className="flex items-center justify-between gap-4">
+              <div className="relative max-w-sm w-full">
+                <Search
+                  size={16}
+                  className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"
+                />
+                <input
+                  value={search}
+                  onChange={(e) => {
+                    setSearch(e.target.value);
+                    setPage(1);
+                  }}
+                  placeholder={searchPlaceholder ?? "Cari..."}
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/30"
+                />
+              </div>
+
+              {!readOnly && (
+                <button
+                  onClick={openCreate}
+                  className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2.5 rounded-xl transition whitespace-nowrap"
+                >
+                  <Plus size={18} />
+                  Tambah
+                </button>
+              )}
             </div>
           </div>
 

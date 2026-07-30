@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import { Users as UsersIcon } from "lucide-react";
 import MasterCrudPage from "../../components/master/MasterCrudPage";
 import { schoolsApi, opdApi, wilayahApi } from "../../services/master.service";
 import {
@@ -44,9 +43,6 @@ export default function UsersPage() {
 
   return (
     <MasterCrudPage<AppUser>
-      title="Master User"
-      description="Kelola akun pengguna untuk seluruh peran."
-      icon={UsersIcon}
       queryKey="master-users"
       api={{
         list: getUsers,

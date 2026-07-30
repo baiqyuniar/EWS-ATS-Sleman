@@ -21,16 +21,6 @@ export default function ReferralsInboxPage() {
     <DashboardLayout>
       <div className="space-y-6">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center">
-            <Inbox size={22} />
-          </div>
-          <div>
-            <h2 className="text-lg font-bold text-slate-800">Rujukan Masuk</h2>
-            <p className="text-sm text-slate-500">
-              Seluruh rujukan yang ditujukan ke OPD — dari Kasus maupun rujukan
-              langsung siswa Putus Sekolah (DO).
-            </p>
-          </div>
         </div>
 
         <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">

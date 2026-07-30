@@ -1,4 +1,3 @@
-import { Bus } from "lucide-react";
 import MasterCrudPage from "../../components/master/MasterCrudPage";
 import { alatTransportasiApi } from "../../services/master.service";
 import type { AlatTransportasi } from "../../types/api";
@@ -6,9 +5,6 @@ import type { AlatTransportasi } from "../../types/api";
 export default function AlatTransportasiPage() {
   return (
     <MasterCrudPage<AlatTransportasi>
-      title="Master Alat Transportasi"
-      description="Kelola daftar alat transportasi siswa ke sekolah."
-      icon={Bus}
       queryKey="master-alat-transportasi"
       api={alatTransportasiApi}
       searchPlaceholder="Cari alat transportasi..."

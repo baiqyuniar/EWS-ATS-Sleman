@@ -121,7 +121,7 @@ export class PredictionService {
 
     return this.prisma.prediction.create({
       data: {
-        studentId: dto.studentId,
+        studentId: student.id,
         probabilitas,
         riskCategory: riskCategory as any,
         probDo,
@@ -184,24 +184,26 @@ export class PredictionService {
       let alasanRisiko: string[] = [];
       let modelDipakai: string | null = null;
 
-      if (mlResult && mlResult.risiko_do !== "Data Tidak Lengkap") {
+      if (mlResult) {
+        if (mlResult.risiko_do === "Data Tidak Lengkap") {
+          const missingList = mlResult.alasan_risiko?.length
+            ? `: ${mlResult.alasan_risiko.join(", ")}`
+            : "";
+          results.push({
+            nisn: student.nisn,
+            studentId: student.id,
+            success: false,
+            error: `Data Tidak Lengkap untuk model "${mlResult.model_dipakai}"${missingList}`,
+          });
+          continue;
+        }
+
         probDo = mlResult.prob_do;
         risikoDoLabel = mlResult.risiko_do;
         alasanRisiko = mlResult.alasan_risiko;
         modelDipakai = mlResult.model_dipakai;
         riskCategory = this.bandToRiskCategory(mlResult.risk_band);
         probabilitas = Math.round((mlResult.prob_do ?? 0) * 10000) / 100;
-      } else if (mlResult) {
-        const missingList = mlResult.alasan_risiko?.length
-          ? `: ${mlResult.alasan_risiko.join(", ")}`
-          : "";
-        results.push({
-          nisn: student.nisn,
-          studentId: student.id,
-          success: false,
-          error: `Data Tidak Lengkap untuk model "${mlResult.model_dipakai}"${missingList}`,
-        });
-        continue;
       } else {
         const fallback = this.engine.score({
           num: features.num,

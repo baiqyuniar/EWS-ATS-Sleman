@@ -1,8 +1,3 @@
-// =====================================================================
-// Types mirroring backend (ews-backend) Prisma schema & DTOs exactly.
-// Keep in sync with prisma/schema.prisma when the backend changes.
-// =====================================================================
-
 export type UserRole =
   | "ADMIN"
   | "SEKOLAH"
@@ -403,6 +398,9 @@ export interface Student {
   updatedAt: string;
   // Rujukan DO langsung (origin=DO_STUDENT) terbaru, jika ada. Diisi backend saat findAll.
   referrals?: Referral[];
+  // Hasil prediksi ML terbaru (jika ada, array berisi maksimal 1 item, urut terbaru
+  // dulu). Diisi backend saat findAll — dipakai kolom "Prediksi" di daftar siswa.
+  predictions?: Prediction[];
 }
 
 export interface Prediction {

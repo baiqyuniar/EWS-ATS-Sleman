@@ -33,6 +33,7 @@ const MASTER_INCLUDE = {
 export class StudentsService {
   constructor(private prisma: PrismaService) {}
 
+<<<<<<< HEAD
   // BR: kodePendidikanAyah/Ibu & kodePenghasilanAyah/Ibu adalah fitur ML lama
   // (ordinal, lih. schema.prisma). Ketika pendidikan/penghasilan diisi lewat
   // mastering data (FK), sinkronkan otomatis dari kodeOrdinal master supaya
@@ -40,6 +41,8 @@ export class StudentsService {
   // bila kode diisi manual secara eksplisit di payload yang sama.
   // Generic <T> supaya tipe asli DTO (mis. field wajib nisn/nik/nama di
   // CreateStudentDto) tetap terjaga, bukan melebar jadi Record<string, any>.
+=======
+>>>>>>> 0b7ea111870ecffa581884e536c11e6d75895b45
   private async syncOrdinalCodes<T extends Record<string, any>>(
     dto: T,
   ): Promise<T> {
@@ -78,8 +81,11 @@ export class StudentsService {
     if (existing) throw new ConflictException("NISN/NIK siswa sudah terdaftar");
 
     const data = await this.syncOrdinalCodes(dto);
+<<<<<<< HEAD
     // BOLA fix: user SEKOLAH tidak boleh menitipkan siswa ke schoolId sekolah lain —
     // paksa schoolId mengikuti sekolah akun yang login, abaikan nilai dari payload.
+=======
+>>>>>>> 0b7ea111870ecffa581884e536c11e6d75895b45
     const schoolId =
       user.role === "SEKOLAH" ? (user.schoolId ?? undefined) : data.schoolId;
     return this.prisma.student.create({
@@ -93,10 +99,7 @@ export class StudentsService {
     });
   }
 
-  // SEKOLAH users only see students of their own school (data scoping).
-  // `status` query lets FE memisahkan siswa Aktif vs Putus Sekolah (DO); `status=PUTUS_SEKOLAH`
-  // dipakai halaman "Siswa DO" (Admin) untuk daftar kandidat rujukan ke OPD.
-  async findAll(query: FindStudentsQueryDto, user: CurrentUserPayload) {
+   async findAll(query: FindStudentsQueryDto, user: CurrentUserPayload) {
     const page = query.page ?? 1;
     const limit = query.limit ?? 20;
     const where: any = query.search
@@ -132,6 +135,13 @@ export class StudentsService {
             orderBy: { createdAt: "desc" },
             take: 1,
             include: { opd: { select: { id: true, nama: true } } },
+          },
+          // Hasil prediksi ML terbaru (jika ada) — dipakai FE untuk menampilkan
+          // persentase & kategori risiko langsung di kolom "Prediksi" tanpa
+          // request terpisah per baris.
+          predictions: {
+            orderBy: { createdAt: "desc" },
+            take: 1,
           },
           ...MASTER_INCLUDE,
         },

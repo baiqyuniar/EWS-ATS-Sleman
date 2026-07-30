@@ -1,4 +1,3 @@
-import { BookOpen } from "lucide-react";
 import MasterCrudPage from "../../components/master/MasterCrudPage";
 import { regulationsApi } from "../../services/master.service";
 import type { Regulation } from "../../types/api";
@@ -6,9 +5,6 @@ import type { Regulation } from "../../types/api";
 export default function RegulationsPage() {
   return (
     <MasterCrudPage<Regulation>
-      title="Master Regulasi"
-      description="Kelola daftar regulasi/peraturan rujukan sistem EWS-APS."
-      icon={BookOpen}
       queryKey="master-regulations"
       api={regulationsApi}
       searchPlaceholder="Cari regulasi..."

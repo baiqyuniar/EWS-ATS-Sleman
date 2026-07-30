@@ -1,4 +1,4 @@
-import { BookHeart } from "lucide-react";
+
 import MasterCrudPage from "../../components/master/MasterCrudPage";
 import { agamaApi } from "../../services/master.service";
 import type { Agama } from "../../types/api";
@@ -6,9 +6,6 @@ import type { Agama } from "../../types/api";
 export default function AgamaPage() {
   return (
     <MasterCrudPage<Agama>
-      title="Master Agama"
-      description="Kelola daftar agama yang dipakai pada data siswa."
-      icon={BookHeart}
       queryKey="master-agama"
       api={agamaApi}
       searchPlaceholder="Cari agama..."

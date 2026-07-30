@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
 import {
-  Sparkles,
   Building2,
 } from "lucide-react";
 
@@ -26,9 +25,6 @@ export default function InterventionTypesPage() {
 
   return (
     <MasterCrudPage<InterventionType>
-      title="Jenis Intervensi"
-      description="Kelola seluruh jenis intervensi yang digunakan oleh OPD dalam penanganan Anak Tidak Sekolah (ATS)."
-      icon={Sparkles}
       queryKey="master-intervention-types"
       api={interventionTypesApi}
       searchPlaceholder="Cari berdasarkan kode atau nama intervensi..."

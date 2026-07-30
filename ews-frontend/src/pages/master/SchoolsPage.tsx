@@ -1,4 +1,4 @@
-import { School as SchoolIcon } from "lucide-react";
+
 import MasterCrudPage from "../../components/master/MasterCrudPage";
 import { schoolsApi } from "../../services/master.service";
 import type { School } from "../../types/api";
@@ -6,9 +6,6 @@ import type { School } from "../../types/api";
 export default function SchoolsPage() {
   return (
     <MasterCrudPage<School>
-      title="Master Sekolah"
-      description="Kelola satuan pendidikan di Kabupaten Sleman."
-      icon={SchoolIcon}
       queryKey="master-schools"
       api={schoolsApi}
       searchPlaceholder="Cari nama / NPSN sekolah..."
