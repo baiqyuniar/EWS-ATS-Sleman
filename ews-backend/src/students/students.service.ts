@@ -1,8 +1,16 @@
-import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
-import { PrismaService } from '../prisma/prisma.service';
-import { CreateStudentDto, FindStudentsQueryDto, UpdateStudentDto } from './dto/student.dto';
-import { buildPaginationMeta } from '../common/pagination.dto';
-import { CurrentUserPayload } from '../auth/current-user.decorator';
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+} from "@nestjs/common";
+import { PrismaService } from "../prisma/prisma.service";
+import {
+  CreateStudentDto,
+  FindStudentsQueryDto,
+  UpdateStudentDto,
+} from "./dto/student.dto";
+import { buildPaginationMeta } from "../common/pagination.dto";
+import { CurrentUserPayload } from "../auth/current-user.decorator";
 
 // Relasi mastering data yang ditampilkan di detail/list siswa. Dipisah supaya
 // mudah dipakai ulang di findAll/findOne.
@@ -32,22 +40,32 @@ export class StudentsService {
   // bila kode diisi manual secara eksplisit di payload yang sama.
   // Generic <T> supaya tipe asli DTO (mis. field wajib nisn/nik/nama di
   // CreateStudentDto) tetap terjaga, bukan melebar jadi Record<string, any>.
-  private async syncOrdinalCodes<T extends Record<string, any>>(dto: T): Promise<T> {
+  private async syncOrdinalCodes<T extends Record<string, any>>(
+    dto: T,
+  ): Promise<T> {
     const data: any = { ...dto };
     if (data.pendidikanAyahId && data.kodePendidikanAyah === undefined) {
-      const m = await this.prisma.pendidikanOrtu.findUnique({ where: { id: data.pendidikanAyahId } });
+      const m = await this.prisma.pendidikanOrtu.findUnique({
+        where: { id: data.pendidikanAyahId },
+      });
       if (m) data.kodePendidikanAyah = m.kodeOrdinal;
     }
     if (data.pendidikanIbuId && data.kodePendidikanIbu === undefined) {
-      const m = await this.prisma.pendidikanOrtu.findUnique({ where: { id: data.pendidikanIbuId } });
+      const m = await this.prisma.pendidikanOrtu.findUnique({
+        where: { id: data.pendidikanIbuId },
+      });
       if (m) data.kodePendidikanIbu = m.kodeOrdinal;
     }
     if (data.penghasilanAyahId && data.kodePenghasilanAyah === undefined) {
-      const m = await this.prisma.penghasilanOrtu.findUnique({ where: { id: data.penghasilanAyahId } });
+      const m = await this.prisma.penghasilanOrtu.findUnique({
+        where: { id: data.penghasilanAyahId },
+      });
       if (m) data.kodePenghasilanAyah = m.kodeOrdinal;
     }
     if (data.penghasilanIbuId && data.kodePenghasilanIbu === undefined) {
-      const m = await this.prisma.penghasilanOrtu.findUnique({ where: { id: data.penghasilanIbuId } });
+      const m = await this.prisma.penghasilanOrtu.findUnique({
+        where: { id: data.penghasilanIbuId },
+      });
       if (m) data.kodePenghasilanIbu = m.kodeOrdinal;
     }
     return data as T;
@@ -57,17 +75,20 @@ export class StudentsService {
     const existing = await this.prisma.student.findFirst({
       where: { OR: [{ nisn: dto.nisn }, { nik: dto.nik }] },
     });
-    if (existing) throw new ConflictException('NISN/NIK siswa sudah terdaftar');
+    if (existing) throw new ConflictException("NISN/NIK siswa sudah terdaftar");
 
     const data = await this.syncOrdinalCodes(dto);
     // BOLA fix: user SEKOLAH tidak boleh menitipkan siswa ke schoolId sekolah lain —
     // paksa schoolId mengikuti sekolah akun yang login, abaikan nilai dari payload.
-    const schoolId = user.role === 'SEKOLAH' ? user.schoolId ?? undefined : data.schoolId;
+    const schoolId =
+      user.role === "SEKOLAH" ? (user.schoolId ?? undefined) : data.schoolId;
     return this.prisma.student.create({
       data: {
         ...data,
         schoolId,
-        tanggalLahir: data.tanggalLahir ? new Date(data.tanggalLahir) : undefined,
+        tanggalLahir: data.tanggalLahir
+          ? new Date(data.tanggalLahir)
+          : undefined,
       } as any,
     });
   }
@@ -81,9 +102,9 @@ export class StudentsService {
     const where: any = query.search
       ? {
           OR: [
-            { nama: { contains: query.search, mode: 'insensitive' as const } },
-            { nisn: { contains: query.search, mode: 'insensitive' as const } },
-            { nik: { contains: query.search, mode: 'insensitive' as const } },
+            { nama: { contains: query.search, mode: "insensitive" as const } },
+            { nisn: { contains: query.search, mode: "insensitive" as const } },
+            { nik: { contains: query.search, mode: "insensitive" as const } },
           ],
         }
       : {};
@@ -94,7 +115,7 @@ export class StudentsService {
       where.status = { not: query.excludeStatus };
     }
 
-    if (user.role === 'SEKOLAH' && user.schoolId) {
+    if (user.role === "SEKOLAH" && user.schoolId) {
       where.schoolId = user.schoolId;
     }
 
@@ -103,10 +124,12 @@ export class StudentsService {
         where,
         include: {
           school: { select: { id: true, nama: true } },
-          alasanDoRiskFactor: { select: { id: true, kode: true, nama: true, kategori: true } },
+          alasanDoRiskFactor: {
+            select: { id: true, kode: true, nama: true, kategori: true },
+          },
           referrals: {
-            where: { origin: 'DO_STUDENT' },
-            orderBy: { createdAt: 'desc' },
+            where: { origin: "DO_STUDENT" },
+            orderBy: { createdAt: "desc" },
             take: 1,
             include: { opd: { select: { id: true, nama: true } } },
           },
@@ -114,7 +137,7 @@ export class StudentsService {
         },
         skip: (page - 1) * limit,
         take: limit,
-        orderBy: { nama: 'asc' },
+        orderBy: { nama: "asc" },
       }),
       this.prisma.student.count({ where }),
     ]);
@@ -130,15 +153,19 @@ export class StudentsService {
       where: { id },
       include: {
         school: true,
-        predictions: { orderBy: { createdAt: 'desc' }, take: 5 },
-        cases: { orderBy: { createdAt: 'desc' } },
+        predictions: { orderBy: { createdAt: "desc" }, take: 5 },
+        cases: { orderBy: { createdAt: "desc" } },
         ...MASTER_INCLUDE,
       },
     });
-    if (!student) throw new NotFoundException('Siswa tidak ditemukan');
-    if (user.role === 'SEKOLAH' && user.schoolId && student.schoolId !== user.schoolId) {
+    if (!student) throw new NotFoundException("Siswa tidak ditemukan");
+    if (
+      user.role === "SEKOLAH" &&
+      user.schoolId &&
+      student.schoolId !== user.schoolId
+    ) {
       // 404 (bukan 403) supaya tidak membocorkan keberadaan data siswa sekolah lain.
-      throw new NotFoundException('Siswa tidak ditemukan');
+      throw new NotFoundException("Siswa tidak ditemukan");
     }
     return student;
   }
@@ -147,15 +174,23 @@ export class StudentsService {
     await this.findOne(id, user);
     const data = await this.syncOrdinalCodes(dto);
     // Cegah user SEKOLAH memindahkan siswa keluar dari sekolahnya sendiri via update.
-    if (user.role === 'SEKOLAH') delete (data as any).schoolId;
+    if (user.role === "SEKOLAH") delete (data as any).schoolId;
     return this.prisma.student.update({
       where: { id },
-      data: { ...data, tanggalLahir: data.tanggalLahir ? new Date(data.tanggalLahir) : undefined } as any,
+      data: {
+        ...data,
+        tanggalLahir: data.tanggalLahir
+          ? new Date(data.tanggalLahir)
+          : undefined,
+      } as any,
     });
   }
 
   async remove(id: number, user: CurrentUserPayload) {
     await this.findOne(id, user);
-    return this.prisma.student.update({ where: { id }, data: { status: 'PINDAH' } });
+    return this.prisma.student.update({
+      where: { id },
+      data: { status: "PINDAH" },
+    });
   }
 }
