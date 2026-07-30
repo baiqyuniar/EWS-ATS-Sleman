@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { Upload,  Download, CheckCircle2, XCircle } from "lucide-react";
+import { Upload, Download, CheckCircle2, XCircle } from "lucide-react";
+import * as XLSX from "xlsx";
 
 import DashboardLayout from "../../layouts/DashboardLayout";
 import { bulkUploadPredictions } from "../../services/prediction.service";
@@ -9,27 +10,38 @@ import { ErrorAlert } from "../../components/ui/Alert";
 import { apiErrorMessage } from "../../lib/api";
 import { RiskBadge } from "../../components/ui/Badge";
 
-const TEMPLATE_HEADER =
-  "nisn,num,kodePendidikanAyah,kodePendidikanIbu,kodePenghasilanAyah,kodePenghasilanIbu";
+const TEMPLATE_COLUMNS = [
+  "nisn",
+  "num",
+  "kodePendidikanAyah",
+  "kodePendidikanIbu",
+  "kodePenghasilanAyah",
+  "kodePenghasilanIbu",
+] as const;
 
-function parseCsv(text: string): BulkPredictionRow[] {
-  const lines = text
-    .split(/\r?\n/)
-    .map((l) => l.trim())
-    .filter(Boolean);
-  if (lines.length < 2) return [];
-  const headers = lines[0].split(",").map((h) => h.trim());
-  return lines.slice(1).map((line) => {
-    const values = line.split(",").map((v) => v.trim());
-    const row: Record<string, string | number> = {};
-    headers.forEach((h, i) => {
-      const raw = values[i];
-      if (raw === undefined || raw === "") return;
-      // nisn tetap string (bisa berawalan angka 0) — kolom lain numerik.
-      row[h] = h === "nisn" ? raw : Number(raw);
+const TEMPLATE_HEADER = TEMPLATE_COLUMNS.join(",");
+function parseExcelRows(data: ArrayBuffer): BulkPredictionRow[] {
+  const workbook = XLSX.read(data, { type: "array" });
+  const sheet = workbook.Sheets[workbook.SheetNames[0]];
+  if (!sheet) return [];
+  const raw: unknown[][] = XLSX.utils.sheet_to_json<unknown[]>(sheet, { header: 1, defval: null });
+  if (raw.length < 2) return [];
+
+  const headers: string[] = raw[0].map((h: unknown) => String(h ?? "").trim());
+  return raw
+    .slice(1)
+    .filter((line: unknown[]) => line.some((cell) => cell !== null && cell !== ""))
+    .map((line: unknown[]) => {
+      const values = line;
+      const row: Record<string, string | number> = {};
+      headers.forEach((h: string, i: number) => {
+        const cell = values[i];
+        if (cell === null || cell === undefined || cell === "") return;
+        // nisn tetap string (bisa berawalan angka 0) — kolom lain numerik.
+        row[h] = h === "nisn" ? String(cell).trim() : Number(cell);
+      });
+      return row as unknown as BulkPredictionRow;
     });
-    return row as unknown as BulkPredictionRow;
-  });
 }
 
 export default function UploadPredictionPage() {
@@ -47,8 +59,8 @@ export default function UploadPredictionPage() {
     setFileName(file.name);
     setParseError("");
     try {
-      const text = await file.text();
-      const parsed = parseCsv(text);
+      const buffer = await file.arrayBuffer();
+      const parsed = parseExcelRows(buffer);
       if (parsed.length === 0) throw new Error("File kosong atau format tidak sesuai");
       setRows(parsed);
     } catch (err: unknown) {
@@ -58,16 +70,14 @@ export default function UploadPredictionPage() {
   };
 
   const downloadTemplate = () => {
-    const blob = new Blob(
-      [TEMPLATE_HEADER + "\n0012345678,75,4,4,2,2\n"],
-      { type: "text/csv" },
-    );
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "template-prediksi-batch.csv";
-    a.click();
-    URL.revokeObjectURL(url);
+    // NISN contoh sengaja berupa string (bukan number) supaya SheetJS menyimpannya
+    // sebagai sel teks — angka nol di depan NISN tidak hilang saat dibuka di Excel.
+    const exampleRow: (string | number)[] = ["0012345678", 75, 4, 4, 2, 2];
+    const sheet = XLSX.utils.aoa_to_sheet([[...TEMPLATE_COLUMNS], exampleRow]);
+    sheet["!cols"] = TEMPLATE_COLUMNS.map((c) => ({ wch: Math.max(c.length + 2, 12) }));
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, sheet, "Template");
+    XLSX.writeFile(workbook, "template-prediksi-batch.xlsx");
   };
 
 return (
@@ -82,7 +92,7 @@ return (
           className="inline-flex w-fit items-center gap-2 rounded-xl border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600 transition-all hover:bg-blue-100 hover:border-blue-300"
         >
           <Download size={16} />
-          Unduh Template CSV
+          Unduh Template Excel
         </button>
 
         <div className="text-xs text-slate-500">
@@ -116,15 +126,15 @@ return (
           >
             <Upload size={28} className="mx-auto text-slate-400 mb-3" />
             <p className="text-sm font-medium text-slate-600">
-              {fileName || "Klik atau seret file CSV ke sini"}
+              {fileName || "Klik atau seret file Excel ke sini"}
             </p>
             <p className="text-xs text-slate-400 mt-1">
-              {rows.length > 0 ? `${rows.length} baris terbaca` : "Format: .csv"}
+              {rows.length > 0 ? `${rows.length} baris terbaca` : "Format: .xlsx, .xls"}
             </p>
             <input
               ref={fileRef}
               type="file"
-              accept=".csv"
+              accept=".xlsx,.xls"
               className="hidden"
               onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])}
             />

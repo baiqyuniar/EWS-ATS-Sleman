@@ -92,6 +92,12 @@ export default function Navbar() {
       icon: <Users size={20} />,
       iconBg: "bg-sky-50 text-sky-600",
     },
+    "/students1": {
+      title: "Daftar Siswa Aktif",
+      description: "Data induk siswa aktif lintas sekolah Kabupaten Sleman",
+      icon: <Users size={20} />,
+      iconBg: "bg-sky-50 text-sky-600",
+    },
 
     "/students/do": {
       title: "Siswa Putus Sekolah",

@@ -7,6 +7,7 @@ import DashboardPageDinas1 from "./pages/dashboard-dinas/DashboardPage1";
 import DashboardPageKapanewon from "./pages/dashboard-kapanewon/DashboardPage";
 import RiskMapPage from "./pages/risk-map/RiskMapPage";
 import SchoolDashboard from "./pages/dashboard-school/DashboardSchool";
+import StudentListPage1 from "./pages/students/DasboardSchool1"
 import ProtectedRoute from "./routes/ProtectedRoute";
 
 import StudentListPage from "./pages/students/StudentListPage";
@@ -58,6 +59,14 @@ export default function App() {
         element={
           <ProtectedRoute roles={["SEKOLAH"]}>
             <DashboardSchoolPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/students1"
+        element={
+          <ProtectedRoute roles={["SEKOLAH"]}>
+            <StudentListPage1 />
           </ProtectedRoute>
         }
       />
