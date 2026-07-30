@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
+import {Link} from "react-router-dom";
 import { getTopRiskStudents } from "../../services/dashboard.service";
 
 const statusStyle: Record<string, { badge: string; dot: string }> = {
@@ -27,9 +28,12 @@ export default function ReportTable() {
           </p>
         </div>
 
-        <button className="text-blue-600 font-semibold hover:text-blue-800">
-          Lihat Semua
-        </button>
+        <Link
+  to="/cases"
+  className="text-sm font-semibold text-blue-700 hover:text-blue-900"
+>
+  Lihat Semua Laporan
+</Link>
       </div>
 
       {isLoading ? (
@@ -41,82 +45,95 @@ export default function ReportTable() {
           Belum ada data prediksi risiko untuk sekolah ini.
         </div>
       ) : (
-        <table className="w-full">
-          <thead className="bg-slate-50 text-sm text-slate-500">
-            <tr>
-              <th className="text-left p-4">Siswa</th>
-              <th className="text-left p-4">Kelas</th>
-              <th className="text-left p-4">Risiko</th>
-              <th className="text-left p-4">Faktor Dominan</th>
-              <th className="text-left p-4">Status</th>
-              <th className="text-center p-4">Aksi</th>
-            </tr>
-          </thead>
+  <div className="divide-y divide-slate-100">
+    {reports.map((item) => {
+      const style =
+        statusStyle[item.status] ??
+        statusStyle["Belum Ditindak"];
 
-          <tbody>
-            {reports.map((item) => {
-              const style = statusStyle[item.status] ?? statusStyle["Belum Ditindak"];
-              return (
-                <tr
-                  key={item.studentId}
-                  className="border-t border-slate-100 hover:bg-slate-50 transition"
-                >
-                  <td className="p-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-11 h-11 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-600">
-                        {item.name.charAt(0)}
-                      </div>
+      return (
+        <div
+          key={item.studentId}
+          className="p-5 hover:bg-slate-50 transition"
+        >
+          <div className="flex items-start justify-between gap-4">
 
-                      <div>
-                        <p className="font-semibold text-slate-800">
-                          {item.name}
-                        </p>
+            {/* Left */}
+            <div className="flex items-start gap-3 flex-1 min-w-0">
 
-                        <p className="text-xs text-slate-500">
-                          NISN {item.nisn}
-                        </p>
-                      </div>
-                    </div>
-                  </td>
+              <div className="w-11 h-11 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-700 shrink-0">
+                {item.name.charAt(0)}
+              </div>
 
-                  <td className="p-4 font-medium">
+              <div className="min-w-0 flex-1">
+
+                <h3 className="font-semibold text-slate-800 truncate">
+                  {item.name}
+                </h3>
+
+                <p className="text-xs text-slate-500">
+                  NISN {item.nisn}
+                </p>
+
+                <div className="flex flex-wrap items-center gap-2 mt-3">
+
+                  <span className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-medium">
                     {item.kelas}
-                  </td>
+                  </span>
 
-                  <td className="p-4">
-                    <span className="font-bold text-red-600">
-                      {item.risiko}%
-                    </span>
-                  </td>
+                  <span className="px-2.5 py-1 rounded-lg bg-blue-100 text-blue-700 text-xs font-medium">
+                    {item.factor}
+                  </span>
 
-                  <td className="p-4">
-                    <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">
-                      {item.factor}
-                    </span>
-                  </td>
+                </div>
 
-                  <td className="p-4">
-                    <div className="flex items-center gap-2">
-                      <div className={`w-2.5 h-2.5 rounded-full ${style.dot}`} />
+              </div>
+            </div>
 
-                      <span
-                        className={`px-3 py-1 rounded-full text-xs font-semibold ${style.badge}`}
-                      >
-                        {item.status}
-                      </span>
-                    </div>
-                  </td>
+            {/* Right */}
+            <div className="text-right shrink-0">
 
-                  <td className="text-center p-4">
-                    <button className="text-blue-600 font-semibold hover:text-blue-800">
-                      Detail
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+              <p className="text-xs text-slate-500">
+                Risiko
+              </p>
+
+              <p className="text-2xl font-bold text-red-600">
+                {item.risiko}%
+              </p>
+
+            </div>
+
+          </div>
+
+          {/* Bottom */}
+          <div className="flex items-center justify-between mt-4">
+
+            <div className="flex items-center gap-2">
+
+              <div
+                className={`w-2.5 h-2.5 rounded-full ${style.dot}`}
+              />
+
+              <span
+                className={`px-3 py-1 rounded-full text-xs font-semibold ${style.badge}`}
+              >
+                {item.status}
+              </span>
+
+            </div>
+
+            <Link
+              to={`/cases/${item.studentId}`}
+              className="text-sm font-semibold text-blue-600 hover:text-blue-800"
+            >
+              Detail →
+            </Link>
+
+          </div>
+        </div>
+      );
+    })}
+  </div>
       )}
     </div>
   );

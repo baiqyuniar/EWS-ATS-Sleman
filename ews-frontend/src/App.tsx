@@ -4,6 +4,7 @@ import LoginPage from "./pages/auth/LoginPage";
 import DashboardPage from "./pages/dashboard/DashboardPage";
 import DashboardSchoolPage from "./pages/dashboard-school/DashboardSchool";
 import DashboardPageDinas from "./pages/dashboard-dinas/DashboardPage";
+import DashboardPageDinas1 from "./pages/dashboard-dinas/DashboardPage1";
 import DashboardPageKapanewon from "./pages/dashboard-kapanewon/DashboardPage";
 import RiskMapPage from "./pages/risk-map/RiskMapPage";
 import SchoolDashboard from "./pages/dashboard-school/DashboardSchool";
@@ -69,6 +70,14 @@ export default function App() {
             <DashboardPageDinas />
           </ProtectedRoute>
         }
+      />
+      <Route
+      path="/dashboard/dinas1"
+      element={
+        <ProtectedRoute roles={["OPD"]}>
+          <DashboardPageDinas1 />
+        </ProtectedRoute>
+      }
       />
 
       <Route

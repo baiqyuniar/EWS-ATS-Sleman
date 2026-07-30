@@ -51,7 +51,7 @@ const menuGroups: MenuGroup[] = [
         name: "Dashboard Dinas",
         icon: LayoutDashboard,
         path: "/dashboard",
-        roles: ["ADMIN"],
+        roles: ["ADMIN", "DINAS_PENDIDIKAN"],
       },
       {
         name: "Dashboard Sekolah",
@@ -63,6 +63,12 @@ const menuGroups: MenuGroup[] = [
         name: "Dashboard OPD",
         icon: LayoutDashboard,
         path: "/dashboard/dinas",
+        roles: ["OPD"],
+      },
+      {
+        name: "Dashboard OPD",
+        icon: LayoutDashboard,
+        path: "/dashboard/dinas1",
         roles: ["OPD"],
       },
       {

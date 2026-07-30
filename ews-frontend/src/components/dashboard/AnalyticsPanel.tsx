@@ -1,4 +1,4 @@
-import { Loader2, Users, HandCoins} from "lucide-react";
+import { Loader2} from "lucide-react";
 import type { StudentAnalytics, LabelCount } from "../../types/api";
 
 // Panel "Analisis Otomatis" — menampilkan agregasi mastering data siswa
@@ -61,7 +61,7 @@ export default function AnalyticsPanel({
     );
   }
 
-  const { sebaranRisiko, bantuanSosial } = data;
+  // const { sebaranRisiko, bantuanSosial } = data;
 
   return (
     <div className="space-y-6">
@@ -72,7 +72,7 @@ export default function AnalyticsPanel({
         </p>
       </div>
 
-      {/* Ringkasan risiko & bantuan sosial */}
+      {/* Ringkasan risiko & bantuan sosial
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
        
         <div className="bg-white rounded-2xl border border-slate-200 p-4 flex items-center gap-3">
@@ -91,7 +91,7 @@ export default function AnalyticsPanel({
             <p className="text-xs text-slate-500">Penerima KIP/KPS</p>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
         <BreakdownList title="Sebaran Agama" data={data.sebaranAgama} />

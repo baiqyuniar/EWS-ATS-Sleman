@@ -73,7 +73,12 @@ export default function Navbar() {
       icon: <LayoutDashboard size={20} />,
       iconBg: "bg-blue-50 text-blue-600",
     },
-
+    "/dashboard/dinas1":{
+      title: "Dashboard OPD",
+      description: "Monitoring risiko anak tidak sekolah Kabupaten Sleman",
+      icon: <LayoutDashboard size={20} />,
+      iconBg: "bg-blue-50 text-blue-600",
+    },
     "/risk-map": {
       title: "Peta Risiko Kabupaten Sleman",
       description: "Visualisasi persebaran risiko anak tidak sekolah",

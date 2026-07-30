@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { Loader2 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { getRecentCases } from "../../services/dashboard.service";
 
 const statusStyle: Record<string, { badge: string; dot: string }> = {
@@ -29,9 +30,12 @@ export default function ReportTable() {
           </p>
         </div>
 
-        <button className="text-sm font-semibold text-blue-700 hover:text-blue-900">
-          Lihat Semua Laporan
-        </button>
+        <Link
+  to="/cases"
+  className="text-sm font-semibold text-blue-700 hover:text-blue-900"
+>
+  Lihat Semua Laporan
+</Link>
       </div>
 
       {isLoading ? (
@@ -103,9 +107,12 @@ export default function ReportTable() {
                   </td>
 
                   <td className="text-center p-4">
-                    <button className="text-blue-600 font-semibold hover:text-blue-800">
-                      Detail
-                    </button>
+                    <Link
+                  to={`/cases/${item.id}`}
+                  className="text-blue-600 font-semibold hover:text-blue-800"
+                >
+                  Detail
+                </Link>
                   </td>
                 </tr>
               );

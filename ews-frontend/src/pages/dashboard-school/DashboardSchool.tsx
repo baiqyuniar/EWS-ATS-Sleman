@@ -32,6 +32,7 @@ export default function DashboardPage() {
   const d = dashboard as SekolahDashboardData | undefined;
   const progressOf = (label: string) => d?.progress.find((p) => p.label === label)?.value ?? 0;
 
+
   return (
     <DashboardLayout>
       <div className="space-y-8">
@@ -40,81 +41,82 @@ export default function DashboardPage() {
         {/* WELCOME */}
         {/* ===================================================== */}
 
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-700 via-blue-600 to-sky-500 text-white p-8 shadow-xl">
+{/* ===================================================== */}
+{/* WELCOME */}
+{/* ===================================================== */}
 
-          <div className="absolute -right-16 -top-16 w-72 h-72 bg-white/10 rounded-full" />
-          <div className="absolute -left-20 -bottom-20 w-60 h-60 bg-white/10 rounded-full" />
+<div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-700 via-blue-600 to-sky-500 text-white p-8 shadow-xl">
 
-          <div className="relative flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+  {/* Background */}
+  <div className="absolute -right-16 -top-16 w-72 h-72 rounded-full bg-white/10" />
+  <div className="absolute -left-20 -bottom-20 w-60 h-60 rounded-full bg-white/10" />
 
-            <div>
+  <div className="relative flex flex-col xl:flex-row xl:items-center xl:justify-between gap-8">
 
-              <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md rounded-full px-4 py-2 mb-5">
+    {/* Left */}
+    <div className="flex-1">
 
-                <School2 size={18} />
+      <div className="inline-flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-md px-4 py-2 mb-5">
+        <School2 size={18} />
+        <span className="text-sm font-medium">
+          Dashboard Sekolah
+        </span>
+      </div>
 
-                <span className="text-sm font-medium">
-                  Dashboard Sekolah
-                </span>
+      <h1 className="text-3xl lg:text-4xl font-bold">
+        Selamat Datang
+      </h1>
 
-              </div>
+      <p className="mt-4 max-w-2xl text-blue-50 leading-7">
+        Pantau kondisi siswa secara real-time,
+        lakukan monitoring risiko Anak Tidak Sekolah,
+        serta kelola proses intervensi dengan lebih cepat
+        dan terintegrasi.
+      </p>
 
-              <h1 className="text-4xl font-bold">
-                Selamat Datang
-              </h1>
+    </div>
 
-              <p className="mt-4 max-w-2xl text-blue-50 leading-7">
-                Pantau kondisi siswa secara real-time,
-                lakukan monitoring risiko Anak Tidak Sekolah,
-                serta kelola proses intervensi dengan lebih cepat
-                dan terintegrasi.
-              </p>
+    {/* Right */}
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full xl:w-auto">
 
-            </div>
+      {/* Intervensi */}
+      <div className="rounded-2xl bg-white/15 backdrop-blur-md border border-white/20 p-5 text-center min-w-[170px]">
+        <h2 className="text-3xl font-bold">
+          {d?.intervensiBerjalan ?? "-"}
+        </h2>
 
-            <div className="grid grid-cols-3 gap-4">
+        <p className="text-sm text-blue-100 mt-2">
+          Intervensi Berjalan
+        </p>
+      </div>
 
-              <div className="rounded-2xl bg-white/15 backdrop-blur-md border border-white/20 p-5 text-center">
+      {/* Belum Diprediksi */}
+      <div className="rounded-2xl bg-white/15 backdrop-blur-md border border-white/20 p-5 text-center">
+      <h2 className="text-3xl font-bold">
+        {analytics?.sebaranRisiko?.belumDiprediksi ?? "-"}
+      </h2>
 
-                <h2 className="text-3xl font-bold">
-                  {d?.totalSiswa ?? "-"}
-                </h2>
+      <p className="text-sm text-blue-100 mt-1">
+        Belum Diprediksi
+      </p>
+    </div>
 
-                <p className="text-sm text-blue-100 mt-1">
-                  Total Siswa
-                </p>
+      {/* Penerima KIP */}
+      <div className="rounded-2xl bg-white/15 backdrop-blur-md border border-white/20 p-5 text-center">
+  <h2 className="text-3xl font-bold">
+    {analytics?.bantuanSosial?.penerimaKip ?? "-"}
+  </h2>
 
-              </div>
+  <p className="text-sm text-blue-100 mt-1">
+    Penerima KIP
+  </p>
+</div>
 
-              <div className="rounded-2xl bg-white/15 backdrop-blur-md border border-white/20 p-5 text-center">
+    </div>
 
-                <h2 className="text-3xl font-bold">
-                  {d?.risikoTinggi ?? "-"}
-                </h2>
+  </div>
 
-                <p className="text-sm text-blue-100 mt-1">
-                  Risiko Tinggi
-                </p>
-
-              </div>
-
-              <div className="rounded-2xl bg-white/15 backdrop-blur-md border border-white/20 p-5 text-center">
-
-                <h2 className="text-3xl font-bold">
-                  {d?.intervensiBerjalan ?? "-"}
-                </h2>
-
-                <p className="text-sm text-blue-100 mt-1">
-                  Intervensi
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
+</div>
 
 
 
