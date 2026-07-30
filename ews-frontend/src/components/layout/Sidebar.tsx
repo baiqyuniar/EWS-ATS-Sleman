@@ -66,12 +66,6 @@ const menuGroups: MenuGroup[] = [
         roles: ["OPD"],
       },
       {
-        name: "Dashboard OPD",
-        icon: LayoutDashboard,
-        path: "/dashboard/dinas1",
-        roles: ["OPD"],
-      },
-      {
         name: "Dashboard Kapanewon",
         icon: LayoutDashboard,
         path: "/dashboard/kapanewon",

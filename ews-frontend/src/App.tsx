@@ -3,7 +3,6 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "./pages/auth/LoginPage";
 import DashboardPage from "./pages/dashboard/DashboardPage";
 import DashboardSchoolPage from "./pages/dashboard-school/DashboardSchool";
-import DashboardPageDinas from "./pages/dashboard-dinas/DashboardPage";
 import DashboardPageDinas1 from "./pages/dashboard-dinas/DashboardPage1";
 import DashboardPageKapanewon from "./pages/dashboard-kapanewon/DashboardPage";
 import RiskMapPage from "./pages/risk-map/RiskMapPage";
@@ -64,15 +63,7 @@ export default function App() {
       />
 
       <Route
-        path="/dashboard/dinas"
-        element={
-          <ProtectedRoute roles={["OPD"]}>
-            <DashboardPageDinas />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-      path="/dashboard/dinas1"
+      path="/dashboard/dinas"
       element={
         <ProtectedRoute roles={["OPD"]}>
           <DashboardPageDinas1 />
