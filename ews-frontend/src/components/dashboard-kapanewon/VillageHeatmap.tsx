@@ -4,14 +4,17 @@ import {
   AlertTriangle,
   Loader2,
 } from "lucide-react";
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { getKapanewonHeatmap } from "../../services/dashboard.service";
 
 export default function VillageHeatmap() {
+  const [mode, setMode] = useState<"residence" | "school">("residence");
+
   const { data: villages, isLoading } = useQuery({
-    queryKey: ["dashboard", "kapanewon-heatmap"],
-    queryFn: getKapanewonHeatmap,
+    queryKey: ["dashboard", "kapanewon-heatmap", mode],
+    queryFn: () => getKapanewonHeatmap(mode),
   });
 
   const getStatus = (risk: number) => {
@@ -48,17 +51,46 @@ export default function VillageHeatmap() {
     return totalStudents > 0 ? (highRisk / totalStudents) * 100 : 0;
   };
 
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center py-16 text-slate-400">
-        <Loader2 className="animate-spin mr-2" size={20} /> Memuat data...
-      </div>
-    );
-  }
-
   return (
     <div>
 
+      {/* Toggle mode */}
+      <div className="flex flex-wrap items-center gap-3 mb-6">
+        <div className="inline-flex rounded-xl border border-slate-200 p-1 bg-slate-50">
+          <button
+            onClick={() => setMode("residence")}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
+              mode === "residence"
+                ? "bg-blue-600 text-white shadow-sm"
+                : "text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            Tempat Tinggal Siswa
+          </button>
+          <button
+            onClick={() => setMode("school")}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
+              mode === "school"
+                ? "bg-blue-600 text-white shadow-sm"
+                : "text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            Lokasi Sekolah
+          </button>
+        </div>
+        <p className="text-xs text-slate-400">
+          {mode === "residence"
+            ? "Dikelompokkan berdasarkan kecamatan tempat siswa tinggal (bisa berbeda dari kecamatan sekolahnya)."
+            : "Dikelompokkan berdasarkan kecamatan lokasi sekolah, tanpa memandang tempat tinggal siswa."}
+        </p>
+      </div>
+
+      {isLoading ? (
+        <div className="flex items-center justify-center py-16 text-slate-400">
+          <Loader2 className="animate-spin mr-2" size={20} /> Memuat data...
+        </div>
+      ) : (
+      <>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
 
         {(villages ?? []).map((village) => {
@@ -211,6 +243,9 @@ export default function VillageHeatmap() {
         </div>
 
       </div>
+      </>
+      )}
+
 
     </div>
   );

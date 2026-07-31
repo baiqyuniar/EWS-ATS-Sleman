@@ -33,16 +33,6 @@ const MASTER_INCLUDE = {
 export class StudentsService {
   constructor(private prisma: PrismaService) {}
 
-<<<<<<< HEAD
-  // BR: kodePendidikanAyah/Ibu & kodePenghasilanAyah/Ibu adalah fitur ML lama
-  // (ordinal, lih. schema.prisma). Ketika pendidikan/penghasilan diisi lewat
-  // mastering data (FK), sinkronkan otomatis dari kodeOrdinal master supaya
-  // model ML selalu terisi tanpa perlu input ganda — tapi tetap tidak menimpa
-  // bila kode diisi manual secara eksplisit di payload yang sama.
-  // Generic <T> supaya tipe asli DTO (mis. field wajib nisn/nik/nama di
-  // CreateStudentDto) tetap terjaga, bukan melebar jadi Record<string, any>.
-=======
->>>>>>> 0b7ea111870ecffa581884e536c11e6d75895b45
   private async syncOrdinalCodes<T extends Record<string, any>>(
     dto: T,
   ): Promise<T> {
@@ -81,11 +71,6 @@ export class StudentsService {
     if (existing) throw new ConflictException("NISN/NIK siswa sudah terdaftar");
 
     const data = await this.syncOrdinalCodes(dto);
-<<<<<<< HEAD
-    // BOLA fix: user SEKOLAH tidak boleh menitipkan siswa ke schoolId sekolah lain —
-    // paksa schoolId mengikuti sekolah akun yang login, abaikan nilai dari payload.
-=======
->>>>>>> 0b7ea111870ecffa581884e536c11e6d75895b45
     const schoolId =
       user.role === "SEKOLAH" ? (user.schoolId ?? undefined) : data.schoolId;
     return this.prisma.student.create({
@@ -99,7 +84,7 @@ export class StudentsService {
     });
   }
 
-   async findAll(query: FindStudentsQueryDto, user: CurrentUserPayload) {
+  async findAll(query: FindStudentsQueryDto, user: CurrentUserPayload) {
     const page = query.page ?? 1;
     const limit = query.limit ?? 20;
     const where: any = query.search

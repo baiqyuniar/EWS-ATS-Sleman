@@ -194,7 +194,15 @@ export class DashboardService {
 
   // Dipakai komponen "VillageHeatmap" (peta risiko per kapanewon), dipakai di
   // Dashboard Kapanewon, OPD, dan Dinas/Admin — cakupan seluruh Kabupaten Sleman.
-  async getKapanewonHeatmap() {
+  // mode='residence' (default): kelompokkan berdasarkan kecamatan tempat siswa
+  //   TINGGAL (student.kecamatan, data riil Dapodik/ATS) — siswa lazim bersekolah
+  //   lintas kapanewon, jadi ini yang mencerminkan sebaran risiko per wilayah tempat
+  //   tinggal secara akurat.
+  // mode='school': kelompokkan berdasarkan kapanewon lokasi SEKOLAH (school.kapanewon)
+  //   — berguna untuk sudut pandang kelembagaan/administratif (sekolah mana saja yang
+  //   ada di kapanewon ini), dipakai mis. Dashboard Kapanewon untuk melihat beban
+  //   sekolah-sekolah di wilayahnya sendiri, terpisah dari sebaran tempat tinggal.
+  async getKapanewonHeatmap(mode: 'residence' | 'school' = 'residence') {
     const kapanewonList = await this.prisma.wilayah.findMany({
       distinct: ['kapanewon'],
       select: { kapanewon: true },
@@ -203,12 +211,16 @@ export class DashboardService {
 
     return Promise.all(
       kapanewonList.map(async ({ kapanewon }) => {
-        const schools = await this.prisma.school.findMany({
-          where: { kapanewon },
-          select: { id: true },
-        });
-        const schoolIds = schools.map((s) => s.id);
-        const studentWhere = { schoolId: { in: schoolIds }, status: 'AKTIF' as const };
+        let studentWhere: any;
+        if (mode === 'school') {
+          const schools = await this.prisma.school.findMany({
+            where: { kapanewon },
+            select: { id: true },
+          });
+          studentWhere = { schoolId: { in: schools.map((s) => s.id) }, status: 'AKTIF' as const };
+        } else {
+          studentWhere = { kecamatan: kapanewon, status: 'AKTIF' as const };
+        }
         const [totalStudents, riskStats] = await Promise.all([
           this.prisma.student.count({ where: studentWhere }),
           this.latestRiskCounts(studentWhere),
