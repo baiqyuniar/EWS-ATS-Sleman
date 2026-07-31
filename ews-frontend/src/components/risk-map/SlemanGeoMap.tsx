@@ -109,21 +109,21 @@ export default function SlemanGeoMap() {
 
         <div className="flex flex-col gap-3 mt-4">
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded bg-orange-400" />
+            <div className="w-4 h-4 rounded bg-red-400" />
             <span className="text-sm text-slate-600 font-medium">
               Tinggi (75-90+)
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded bg-yellow-300" />
+            <div className="w-4 h-4 rounded bg-yellow-400" />
             <span className="text-sm text-slate-600 font-medium">
               Sedang (60-74)
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded bg-green-300" />
+            <div className="w-4 h-4 rounded bg-green-400" />
             <span className="text-sm text-slate-600 font-medium">
               Rendah (0-59)
             </span>

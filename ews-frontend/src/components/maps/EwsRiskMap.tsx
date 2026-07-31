@@ -12,12 +12,9 @@ type Props = {
 const center: LatLngExpression = [-7.716, 110.355];
 
 const getColor = (risk: number) => {
-  if (risk >= 0.9) return "#EF4444";
-  if (risk >= 0.75) return "#FB923C";
+  if (risk >= 0.9) return "#fb3c3c";
   if (risk >= 0.6) return "#FDE047";
-  if (risk >= 0.45) return "#86EFAC";
-
-  return "#91cf60";
+  return "#4ad651";
 };
 
 const regionMap: Record<string, string> = {

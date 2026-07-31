@@ -121,6 +121,21 @@ export default function StudentListPage() {
       value: r.id,
       label: r.nama,
     }));
+    const getRiskBadgeColor = (riskCategory?: string) => {
+  switch (riskCategory?.toUpperCase()) {
+    case "RENDAH":
+      return "bg-green-100 text-green-700";
+
+    case "SEDANG":
+      return "bg-yellow-100 text-yellow-700";
+
+    case "TINGGI":
+      return "bg-red-100 text-red-700";
+
+    default:
+      return "bg-slate-100 text-slate-700";
+  }
+};
 
   return (
     <>
@@ -188,9 +203,13 @@ export default function StudentListPage() {
                 <div className="flex items-center gap-2 flex-wrap">
                   {latest ? (
                     <>
-                      <span className="rounded-full bg-slate-200 px-2 py-0.5 text-xs font-semibold text-slate-800">
-                        {latest.riskCategory}
-                      </span>
+                      <span
+                    className={`rounded-full px-2 py-0.5 text-xs font-semibold ${getRiskBadgeColor(
+                      latest.riskCategory
+                    )}`}
+                  >
+                    {latest.riskCategory}
+                  </span>
 
                       <span className="text-xs text-slate-500">
                         {latest.probabilitas.toFixed(1)}%
