@@ -84,7 +84,7 @@ export class StudentsService {
     });
   }
 
-   async findAll(query: FindStudentsQueryDto, user: CurrentUserPayload) {
+  async findAll(query: FindStudentsQueryDto, user: CurrentUserPayload) {
     const page = query.page ?? 1;
     const limit = query.limit ?? 20;
     const where: any = query.search

@@ -1,25 +1,16 @@
-import {
-  MapPin,
-  Users,
-  AlertTriangle,
-  Loader2,
-} from "lucide-react";
+import { MapPin, Users, AlertTriangle, Loader2 } from "lucide-react";
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+
 import { getKapanewonHeatmap } from "../../services/dashboard.service";
 
-type Props = {
-  expanded: boolean;
-};
+export default function VillageHeatmap() {
+  const [mode, setMode] = useState<"residence" | "school">("residence");
 
-export default function VillageHeatmap({ expanded }: Props) {
   const { data: villages, isLoading } = useQuery({
-    queryKey: ["dashboard", "kapanewon-heatmap"],
-    queryFn: getKapanewonHeatmap,
+    queryKey: ["dashboard", "kapanewon-heatmap", mode],
+    queryFn: () => getKapanewonHeatmap(mode),
   });
-
-  const displayedVillages = expanded
-    ? villages ?? []
-    : (villages ?? []).slice(0, 3);
 
   const getStatus = (risk: number) => {
     if (risk >= 130) {
@@ -48,117 +39,159 @@ export default function VillageHeatmap({ expanded }: Props) {
     };
   };
 
-  const getPercentage = (
-    highRisk: number,
-    totalStudents: number
-  ) => {
-    return totalStudents > 0
-      ? (highRisk / totalStudents) * 100
-      : 0;
+  const getPercentage = (highRisk: number, totalStudents: number) => {
+    return totalStudents > 0 ? (highRisk / totalStudents) * 100 : 0;
   };
 
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center py-16 text-slate-400">
-        <Loader2 className="animate-spin mr-2" size={20} />
-        Memuat data...
-      </div>
-    );
-  }
-
   return (
-    <div className="space-y-3">
-      {displayedVillages.map((village) => {
-        const percentage = getPercentage(village.highRisk, village.totalStudents);
-        const status = getStatus(percentage);
-
-        return (
-          <div
-            key={village.name}
-            className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 rounded-xl border border-slate-200 bg-white px-5 py-4 hover:border-blue-200 hover:shadow-sm transition"
+    <div>
+      {/* Toggle mode */}
+      <div className="flex flex-wrap items-center gap-3 mb-6">
+        <div className="inline-flex rounded-xl border border-slate-200 p-1 bg-slate-50">
+          <button
+            onClick={() => setMode("residence")}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
+              mode === "residence"
+                ? "bg-blue-600 text-white shadow-sm"
+                : "text-slate-600 hover:bg-slate-100"
+            }`}
           >
-    {/* Nama Kapanewon */}
-    <div className="flex items-center gap-3 lg:w-64">
-      <div className="h-10 w-10 rounded-xl bg-blue-50 flex items-center justify-center">
-        <MapPin size={18} className="text-blue-600" />
-      </div>
-
-      <div>
-        <h3 className="font-semibold text-slate-800">
-          {village.name}
-        </h3>
-
-        <p className="text-xs text-slate-500">
-          {village.totalStudents.toLocaleString("id-ID")} siswa
-        </p>
-      </div>
-    </div>
-
-    {/* Progress */}
-    <div className="flex-1">
-      <div className="flex justify-between text-xs mb-2">
-        <span className="text-slate-500">
-          Tingkat Risiko
-        </span>
-
-        <span className={`font-semibold ${status.color}`}>
-          {percentage.toFixed(1)}%
-        </span>
-      </div>
-
-      <div className="h-2 rounded-full bg-slate-100 overflow-hidden">
-        <div
-          className={`${status.bg} h-full rounded-full`}
-          style={{
-            width: `${Math.min(percentage, 100)}%`,
-          }}
-        />
-      </div>
-    </div>
-
-    {/* Statistik */}
-    <div className="flex items-center justify-between lg:justify-end gap-8 lg:w-64">
-
-      <div className="text-center">
-        <Users
-          size={16}
-          className="mx-auto text-slate-400 mb-1"
-        />
-
-        <p className="text-xs text-slate-500">
-          Total
-        </p>
-
-        <p className="font-bold text-slate-800">
-          {village.totalStudents}
+            Tempat Tinggal Siswa
+          </button>
+          <button
+            onClick={() => setMode("school")}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
+              mode === "school"
+                ? "bg-blue-600 text-white shadow-sm"
+                : "text-slate-600 hover:bg-slate-100"
+            }`}
+          >
+            Lokasi Sekolah
+          </button>
+        </div>
+        <p className="text-xs text-slate-400">
+          {mode === "residence"
+            ? "Dikelompokkan berdasarkan kecamatan tempat siswa tinggal (bisa berbeda dari kecamatan sekolahnya)."
+            : "Dikelompokkan berdasarkan kecamatan lokasi sekolah, tanpa memandang tempat tinggal siswa."}
         </p>
       </div>
 
-      <div className="text-center">
-        <AlertTriangle
-          size={16}
-          className={`mx-auto mb-1 ${status.color}`}
-        />
+      {isLoading ? (
+        <div className="flex items-center justify-center py-16 text-slate-400">
+          <Loader2 className="animate-spin mr-2" size={20} /> Memuat data...
+        </div>
+      ) : (
+        <>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {(villages ?? []).map((village) => {
+              const status = getStatus(village.highRisk);
 
-        <p className="text-xs text-slate-500">
-          Risiko
-        </p>
+              const percentage = getPercentage(
+                village.highRisk,
+                village.totalStudents,
+              );
 
-        <p className={`font-bold ${status.color}`}>
-          {village.highRisk}
-        </p>
-      </div>
+              return (
+                <div
+                  key={village.name}
+                  className="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                >
+                  {/* Header */}
 
-      <span
-        className={`px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap ${status.badge}`}
-      >
-        {status.text}
-      </span>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <MapPin size={18} className="text-blue-600" />
 
-    </div>
-  </div>
-        );
-      })}
+                        <h3 className="font-bold text-lg text-slate-800">
+                          {village.name}
+                        </h3>
+                      </div>
+
+                      <p className="text-sm text-slate-500 mt-1">Kapanewon</p>
+                    </div>
+
+                    <span
+                      className={`px-3 py-1 rounded-full text-xs font-semibold ${status.badge}`}
+                    >
+                      {status.text}
+                    </span>
+                  </div>
+
+                  {/* Statistik */}
+
+                  <div className="grid grid-cols-2 gap-5 mt-6">
+                    <div>
+                      <div className="flex items-center gap-2 text-slate-500 text-sm">
+                        <Users size={16} />
+                        Total
+                      </div>
+
+                      <p className="text-2xl font-bold mt-2 text-slate-800">
+                        {village.totalStudents.toLocaleString("id-ID")}
+                      </p>
+                    </div>
+
+                    <div>
+                      <div className="flex items-center gap-2 text-slate-500 text-sm">
+                        <AlertTriangle size={16} />
+                        Risiko
+                      </div>
+
+                      <p className={`text-2xl font-bold mt-2 ${status.color}`}>
+                        {village.highRisk}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Progress */}
+
+                  <div className="mt-6">
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="text-slate-500">Tingkat Risiko</span>
+
+                      <span className={status.color}>
+                        {percentage.toFixed(1)}%
+                      </span>
+                    </div>
+
+                    <div className="h-2 rounded-full bg-slate-100 overflow-hidden">
+                      <div
+                        className={`h-full rounded-full ${status.bg}`}
+                        style={{
+                          width: `${percentage}%`,
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Legend */}
+
+          <div className="mt-8 flex flex-wrap gap-6">
+            <div className="flex items-center gap-3">
+              <div className="w-4 h-4 rounded-full bg-emerald-500" />
+
+              <span className="text-sm text-slate-600">Rendah (&lt;80)</span>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <div className="w-4 h-4 rounded-full bg-yellow-500" />
+
+              <span className="text-sm text-slate-600">Sedang (80-129)</span>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <div className="w-4 h-4 rounded-full bg-red-500" />
+
+              <span className="text-sm text-slate-600">Tinggi (≥130)</span>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }
