@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { Plus, Pencil, Trash2, Search, Loader2 } from "lucide-react";
+import {
+  Plus,
+  Pencil,
+  Trash2,
+  Search,
+  Loader2,
+  Database,
+} from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 import DashboardLayout from "../../layouts/DashboardLayout";
@@ -176,7 +183,11 @@ export default function MasterCrudPage<T extends { id: number }>({
               <ErrorAlert message="Gagal memuat data dari server. Pastikan backend berjalan." />
             </div>
           ) : rows.length === 0 ? (
-            <EmptyState icon={Icon} title="Belum ada data" description="Data akan muncul di sini." />
+            <EmptyState
+  icon={Icon ?? Database}
+  title="Belum ada data"
+  description="Data akan muncul di sini."
+/>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full text-sm">

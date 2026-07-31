@@ -6,16 +6,19 @@ import {
 } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { getKapanewonHeatmap } from "../../services/dashboard.service";
+import { useState } from "react";
 
 type Props = {
   expanded: boolean;
 };
 
 export default function VillageHeatmap({ expanded }: Props) {
-  const { data: villages, isLoading } = useQuery({
-    queryKey: ["dashboard", "kapanewon-heatmap"],
-    queryFn: getKapanewonHeatmap,
-  });
+  const [mode] = useState<"residence" | "school">("residence");
+
+const { data: villages = [], isLoading } = useQuery({
+  queryKey: ["dashboard", "kapanewon-heatmap", mode],
+  queryFn: () => getKapanewonHeatmap(mode),
+});
 
   const displayedVillages = expanded
     ? villages ?? []
