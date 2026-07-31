@@ -188,11 +188,25 @@ export default function StudentListPage() {
           },
           {
             header: "Status",
-            render: (r) => (
-              <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600">
-                {STUDENT_STATUS_LABEL[r.status]}
-              </span>
-            ),
+            render: (r) => {
+              const statusClass = {
+                AKTIF: "bg-green-100 text-green-700",
+                PUTUS_SEKOLAH: "bg-red-100 text-red-700",
+                LULUS: "bg-blue-100 text-blue-700",
+                PINDAH: "bg-yellow-100 text-yellow-700",
+              };
+
+              return (
+                <span
+                  className={`rounded-full px-2.5 py-1 text-xs font-semibold ${
+                    statusClass[r.status as keyof typeof statusClass] ??
+                    "bg-slate-100 text-slate-600"
+                  }`}
+                >
+                  {STUDENT_STATUS_LABEL[r.status]}
+                </span>
+              );
+            },
           },
           {
             header: "Prediksi",

@@ -79,7 +79,6 @@ const menuGroups: MenuGroup[] = [
     title: "SISWA & PREDIKSI",
     menus: [
       { name: "Daftar Siswa", icon: Users, path: "/students" },
-      { name: "Daftar Siswa", icon: Users, path: "/students1" },
       {
         name: "Siswa Putus Sekolah (DO)",
         icon: UserX,
