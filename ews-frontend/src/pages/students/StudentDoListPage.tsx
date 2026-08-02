@@ -147,11 +147,13 @@ export default function StudentDoListPage() {
                         <td className="px-6 py-3.5 font-mono text-xs text-slate-500">
                           {r.nisn}
                         </td>
-                        <td className="px-6 py-3.5 font-medium text-slate-800">
+                        <td className="px-6 py-3.5 font-medium text-slate-800 uppercase">
                           {r.nama}
                         </td>
                         <td className="px-6 py-3.5">
-                          {r.school?.nama || (
+                          {r.school?.nama ? (
+                            <span className="uppercase">{r.school.nama}</span>
+                          ) : (
                             <span className="text-slate-400">-</span>
                           )}
                         </td>
@@ -174,7 +176,7 @@ export default function StudentDoListPage() {
                         <td className="px-6 py-3.5">
                           {latestReferral ? (
                             <div className="flex items-center gap-2 flex-wrap">
-                              <span className="text-xs text-slate-600">
+                              <span className="text-xs text-slate-600 uppercase">
                                 {latestReferral.opd?.nama}
                               </span>
                               <RiskBadge value={latestReferral.tingkatRisiko} />
@@ -247,7 +249,7 @@ export default function StudentDoListPage() {
               <option value="">Pilih OPD</option>
               {opdOptions.map((o) => (
                 <option key={o.id} value={o.id}>
-                  {o.nama}
+                  {o.nama.toUpperCase()}
                 </option>
               ))}
             </select>

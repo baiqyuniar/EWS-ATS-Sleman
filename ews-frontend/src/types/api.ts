@@ -566,6 +566,16 @@ export interface Case {
 export interface LoginPayload {
   email: string;
   password: string;
+  captchaToken: string;
+  captchaNonce: string;
+  /** Honeypot — harus selalu kosong, lihat LoginPage.tsx */
+  website?: string;
+}
+
+export interface CaptchaChallenge {
+  token: string;
+  challenge: string;
+  difficulty: number;
 }
 
 export interface LoginResponse {

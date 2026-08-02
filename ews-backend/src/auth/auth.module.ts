@@ -5,6 +5,9 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { JwtStrategy } from './jwt.strategy';
+import { CaptchaService } from './captcha.service';
+import { WebauthnService } from './webauthn.service';
+import { WebauthnController } from './webauthn.controller';
 import { getJwtSecret } from '../config/security.config';
 
 @Module({
@@ -19,8 +22,8 @@ import { getJwtSecret } from '../config/security.config';
       }),
     }),
   ],
-  providers: [AuthService, JwtStrategy],
-  controllers: [AuthController],
+  providers: [AuthService, JwtStrategy, CaptchaService, WebauthnService],
+  controllers: [AuthController, WebauthnController],
   exports: [AuthService],
 })
 export class AuthModule {}

@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ShieldCheck, Eye, EyeOff, LogIn, Mail, Lock, Loader2 } from "lucide-react";
+import { ShieldCheck, Eye, EyeOff, LogIn, Mail, Lock, Loader2, CheckCircle2, KeyRound } from "lucide-react";
 
-import { login } from "../../services/auth.service";
+import { login, getCaptcha } from "../../services/auth.service";
+import { loginWithPasskey, browserSupportsWebAuthn } from "../../services/webauthn.service";
 import { saveSession } from "../../store/auth.store";
 import { apiErrorMessage } from "../../lib/api";
 import { ErrorAlert } from "../../components/ui/Alert";
 import { defaultRouteForRole } from "../../routes/roleRoutes";
-//import logoSleman from "../../assets/logo-sleman.png";
-//import backgroundLogin from "../../assets/bg_login.png";
+import { solveCaptcha } from "../../lib/pow-captcha";
+import logoSleman from "../../assets/logo-sleman.png";
 
 const DEMO_ACCOUNTS = [
   { role: "Admin", email: "admin@sleman.go.id", password: "admin123" },
@@ -18,25 +19,100 @@ const DEMO_ACCOUNTS = [
   { role: "Dinas Pendidikan", email: "dinas@sleman.go.id", password: "dinas123" },
 ];
 
+type CaptchaStatus = "loading" | "solving" | "ready" | "error";
+
 export default function LoginPage() {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // Honeypot: field tersembunyi (lihat render di bawah) yang harus SELALU kosong.
+  // Manusia normal tidak pernah bisa mengisinya (off-screen, aria-hidden,
+  // tabIndex=-1). Kalau terisi, backend menolak login dengan pesan yang sama
+  // seperti password salah — lihat AuthService.login().
+  const [website, setWebsite] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // Login pakai passkey — jalur terpisah dari form password di atas. Tidak
+  // melalui captcha PoW/honeypot karena ceremony WebAuthn sendiri sudah
+  // mensyaratkan kehadiran fisik pengguna (sentuh sensor sidik jari/PIN
+  // perangkat), yang jadi bukti jauh lebih kuat daripada captcha apa pun.
+  const [passkeyLoading, setPasskeyLoading] = useState(false);
+  const passkeySupported = browserSupportsWebAuthn();
+
+  const handlePasskeyLogin = async () => {
+    if (!email) {
+      setError("Isi email dulu untuk masuk dengan passkey.");
+      return;
+    }
+    setError("");
+    setPasskeyLoading(true);
+    try {
+      const session = await loginWithPasskey(email);
+      saveSession(session);
+      navigate(defaultRouteForRole(session.user.role));
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "Login dengan passkey gagal.";
+      setError(
+        message.toLowerCase().includes("notallowed")
+          ? "Dibatalkan atau waktu habis saat verifikasi passkey."
+          : message,
+      );
+    } finally {
+      setPasskeyLoading(false);
+    }
+  };
+
+  // Captcha Proof-of-Work (lihat CaptchaService di backend + lib/pow-captcha.ts):
+  // diselesaikan OTOMATIS di background (Web Worker) begitu halaman dimuat —
+  // tidak ada yang perlu diketik pengguna. Dibuat ulang tiap kali halaman dimuat
+  // & tiap kali percobaan login gagal, supaya token lama yang sudah terpakai
+  // tidak bisa dicoba berulang oleh script otomatis.
+  const [captchaStatus, setCaptchaStatus] = useState<CaptchaStatus>("loading");
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [captchaNonce, setCaptchaNonce] = useState("");
+  const [captchaError, setCaptchaError] = useState("");
+
+  const refreshCaptcha = async () => {
+    setCaptchaStatus("loading");
+    setCaptchaError("");
+    setCaptchaNonce("");
+    try {
+      const challenge = await getCaptcha();
+      setCaptchaToken(challenge.token);
+      setCaptchaStatus("solving");
+      const nonce = await solveCaptcha(challenge.challenge, challenge.difficulty);
+      setCaptchaNonce(nonce);
+      setCaptchaStatus("ready");
+    } catch (err) {
+      setCaptchaStatus("error");
+      setCaptchaError(
+        err instanceof Error ? err.message : "Gagal memverifikasi keamanan browser.",
+      );
+    }
+  };
+
+  useEffect(() => {
+    refreshCaptcha();
+  }, []);
+
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (captchaStatus !== "ready") return;
     try {
       setError("");
       setLoading(true);
-      const session = await login({ email, password });
+      const session = await login({ email, password, captchaToken, captchaNonce, website });
       saveSession(session);
       navigate(defaultRouteForRole(session.user.role));
     } catch (err) {
       setError(apiErrorMessage(err, "Email atau password salah"));
+      // Captcha (dan lockdown, kalau berlaku) selalu dibuat ulang setelah gagal —
+      // baik captcha yang sudah dipakai maupun password salah, supaya token lama
+      // tidak bisa dicoba berulang oleh script otomatis.
+      refreshCaptcha();
     } finally {
       setLoading(false);
     }
@@ -46,12 +122,21 @@ return (
   <div className="min-h-screen flex bg-slate-100">
 
     {/* ================= LEFT ================= */}
-    <div className="hidden lg:flex lg:w-[58%] relative overflow-hidden">
+    <div className="hidden lg:flex lg:w-[58%] relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-blue-900">
 
+      {/* Foto Kantor Dinas Pendidikan Kabupaten Sleman.
+          Taruh file foto resmi di ews-frontend/public/images/dinas-pendidikan-sleman.jpg
+          (disarankan foto landscape, minimal 1600x1200px, ukuran file < 1MB supaya
+          halaman login tetap cepat dimuat). Kalau file belum ada, onError di bawah
+          menyembunyikan gambar yang rusak dan membiarkan gradasi biru di atas sebagai
+          fallback, supaya halaman tetap rapi. */}
       <img
-        src="/images/login-bg.jpg"
-        alt="Login"
+        src="/images/dinas-pendidikan-sleman.jpg"
+        alt="Kantor Dinas Pendidikan Kabupaten Sleman"
         className="absolute inset-0 w-full h-full object-cover"
+        onError={(e) => {
+          (e.currentTarget as HTMLImageElement).style.display = "none";
+        }}
       />
 
       {/* overlay */}
@@ -63,8 +148,12 @@ return (
         {/* Header */}
         <div className="flex items-center gap-4">
 
-          <div className="w-14 h-14 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center">
-            <ShieldCheck size={30} />
+          <div className="w-14 h-14 rounded-3xl bg-white flex items-center justify-center shadow-lg p-2 shrink-0">
+            <img
+              src={logoSleman}
+              alt="Logo Kabupaten Sleman"
+              className="w-full h-full object-contain"
+            />
           </div>
 
           <div>
@@ -180,6 +269,23 @@ return (
 
     <div className="mb-8">
 
+      <div className="flex items-center gap-3 mb-6 lg:hidden">
+
+        <div className="w-11 h-11 rounded-2xl bg-white border border-slate-200 flex items-center justify-center shadow-sm p-1.5 shrink-0">
+          <img
+            src={logoSleman}
+            alt="Logo Kabupaten Sleman"
+            className="w-full h-full object-contain"
+          />
+        </div>
+
+        <div>
+          <p className="font-bold text-slate-800 leading-tight">Gandheng-ATS</p>
+          <p className="text-xs text-slate-500">Kabupaten Sleman</p>
+        </div>
+
+      </div>
+
       <div className="inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-blue-700 font-semibold text-sm">
 
         <ShieldCheck size={16} />
@@ -211,6 +317,26 @@ return (
         onSubmit={handleLogin}
         className="space-y-5"
       >
+
+        {/* Honeypot anti-bot — SENGAJA disembunyikan dari manusia (bukan
+            display:none, karena beberapa bot secara spesifik melewati field
+            display:none; posisi off-screen lebih efektif menjebak bot yang asal
+            isi semua input). Jangan diisi. */}
+        <div
+          aria-hidden="true"
+          style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}
+        >
+          <label htmlFor="website">Jangan isi field ini</label>
+          <input
+            id="website"
+            name="website"
+            type="text"
+            tabIndex={-1}
+            autoComplete="off"
+            value={website}
+            onChange={(e) => setWebsite(e.target.value)}
+          />
+        </div>
 
         <ErrorAlert message={error} />
 
@@ -282,24 +408,51 @@ return (
 
         </div>
 
-        {/* Remember */}
+        {/* Captcha (Proof-of-Work — otomatis, tidak perlu diketik) */}
+
+        <div className="flex items-center gap-2.5 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+
+          {captchaStatus === "ready" ? (
+            <CheckCircle2 size={18} className="text-green-500 shrink-0" />
+          ) : captchaStatus === "error" ? (
+            <ShieldCheck size={18} className="text-red-400 shrink-0" />
+          ) : (
+            <Loader2 size={18} className="animate-spin text-blue-500 shrink-0" />
+          )}
+
+          <span className="flex-1 text-sm text-slate-600">
+            {captchaStatus === "loading" && "Menyiapkan verifikasi keamanan..."}
+            {captchaStatus === "solving" && "Memverifikasi keamanan browser Anda..."}
+            {captchaStatus === "ready" && "Verifikasi keamanan berhasil"}
+            {captchaStatus === "error" && (captchaError || "Verifikasi keamanan gagal")}
+          </span>
+
+          {captchaStatus === "error" && (
+            <button
+              type="button"
+              onClick={refreshCaptcha}
+              className="text-xs font-semibold text-blue-600 hover:underline shrink-0"
+            >
+              Coba lagi
+            </button>
+          )}
+
+        </div>
+
+        {/* Lupa Password */}
 
         <div className="flex items-center justify-between">
 
-          <label className="flex items-center gap-2 text-sm text-slate-600">
+          <p className="text-xs text-slate-400 leading-5 max-w-[70%]">
 
-            <input
-              type="checkbox"
-              className="rounded"
-            />
+            Untuk keamanan data pribadi (NIK), sesi login tidak diingat otomatis
+            di perangkat ini.
 
-            Ingat saya
-
-          </label>
+          </p>
 
           <button
             type="button"
-            className="text-sm text-blue-600 hover:underline"
+            className="text-sm text-blue-600 hover:underline shrink-0"
           >
             Lupa Password?
           </button>
@@ -309,11 +462,11 @@ return (
         {/* Button */}
 
         <button
-          disabled={loading}
-          className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold flex justify-center items-center gap-3 transition shadow-lg"
+          disabled={loading || captchaStatus !== "ready"}
+          className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold flex justify-center items-center gap-3 transition shadow-lg disabled:opacity-60 disabled:cursor-not-allowed"
         >
 
-          {loading ? (
+          {loading || captchaStatus !== "ready" ? (
 
             <Loader2
               size={20}
@@ -326,11 +479,31 @@ return (
 
           )}
 
-          {loading ? "Memproses..." : "Masuk"}
+          {loading
+            ? "Memproses..."
+            : captchaStatus !== "ready"
+              ? "Menyiapkan verifikasi..."
+              : "Masuk"}
 
         </button>
 
       </form>
+
+      {passkeySupported && (
+        <button
+          type="button"
+          onClick={handlePasskeyLogin}
+          disabled={passkeyLoading}
+          className="w-full mt-3 py-3 rounded-2xl border border-slate-200 hover:border-blue-400 hover:bg-blue-50 transition text-sm font-semibold text-slate-600 flex items-center justify-center gap-2 disabled:opacity-60"
+        >
+          {passkeyLoading ? (
+            <Loader2 size={16} className="animate-spin" />
+          ) : (
+            <KeyRound size={16} />
+          )}
+          {passkeyLoading ? "Menunggu verifikasi..." : "Masuk dengan Passkey"}
+        </button>
+      )}
 
       {/* Divider */}
 
@@ -416,7 +589,8 @@ return (
             <p className="text-sm text-slate-500 mt-1 leading-6">
 
               Seluruh aktivitas login dicatat untuk menjaga keamanan
-              dan akuntabilitas akses pengguna.
+              dan akuntabilitas akses pengguna. Akun akan terkunci sementara
+              setelah beberapa kali percobaan password yang gagal.
 
             </p>
 

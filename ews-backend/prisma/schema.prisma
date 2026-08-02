@@ -108,6 +108,12 @@ model User {
   role         UserRole
   active       Boolean  @default(true)
 
+  // SECURITY: lockdown policy — dilacak per akun (bukan cuma per-IP lewat throttler)
+  // supaya percobaan brute-force yang menyebar dari banyak IP tetap kena kunci.
+  // Direset ke 0/null setiap kali login berhasil. Lihat AuthService.login().
+  failedLoginAttempts Int       @default(0)
+  lockedUntil         DateTime?
+
   // Scoping: a SEKOLAH user belongs to one school, OPD user to one OPD,
   // KAPANEWON user to one wilayah (kapanewon). ADMIN & DINAS are unscoped.
   schoolId  Int?
@@ -129,7 +135,49 @@ model User {
   timelineEntries    CaseTimeline[]   @relation("TimelineActor")
   predictions        Prediction[]     @relation("PredictionUploadedBy")
 
+  // Passkey/WebAuthn — lihat model WebAuthnCredential di bawah. Saat ini hanya
+  // dipakai oleh role ADMIN (lihat WebauthnController), tapi tabelnya generik
+  // per-user supaya bisa diperluas ke role lain nanti tanpa migrasi ulang.
+  webauthnCredentials WebAuthnCredential[]
+
   @@map("users")
+}
+
+// Passkey (WebAuthn) — kredensial biometrik/hardware key yang didaftarkan user
+// untuk login tanpa password. Lihat src/auth/webauthn.service.ts. Saat ini
+// pendaftaran dibatasi ke role ADMIN (akun berisiko tinggi), lihat
+// WebauthnController — tapi disimpan generik per-user untuk fleksibilitas ke depan.
+model WebAuthnCredential {
+  id     Int  @id @default(autoincrement())
+  userId Int
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Base64url credential ID dari authenticator — dipakai browser untuk memilih
+  // kredensial yang tepat saat login (allowCredentials).
+  credentialId String @unique
+
+  // Public key (COSE, raw bytes) — dipakai untuk verifikasi signature setiap
+  // login, TIDAK PERNAH ada private key yang tersimpan di server/database ini
+  // (private key selamanya tinggal di authenticator/perangkat pengguna).
+  publicKey Bytes
+
+  // Signature counter dari authenticator — naik setiap dipakai. Dicek supaya
+  // TIDAK BOLEH turun/sama dari nilai tersimpan; kalau turun berarti indikasi
+  // kredensial di-clone (replay attack), lihat WebauthnService.verifyAuthentication().
+  counter BigInt @default(0)
+
+  // Transport yang didukung authenticator (usb, ble, nfc, internal, hybrid),
+  // disimpan sebagai JSON string array — dipakai untuk allowCredentials.
+  transports String?
+
+  // Label perangkat yang diberikan user sendiri saat registrasi (mis. "Laptop
+  // Kerja", "YubiKey"), supaya gampang dikenali di daftar & saat mau dihapus.
+  deviceLabel String?
+
+  createdAt  DateTime  @default(now())
+  lastUsedAt DateTime?
+
+  @@map("webauthn_credentials")
 }
 
 model Wilayah {
@@ -335,7 +383,14 @@ model Regulation {
 model Student {
   id           Int           @id @default(autoincrement())
   nisn         String        @unique
-  nik          String        @unique
+
+  // SECURITY (UU PDP No. 27/2022): NIK disimpan TERENKRIPSI (AES-256-GCM, lihat
+  // src/common/crypto.util.ts) — bukan plaintext. Karena ciphertext-nya acak per
+  // baris (IV berbeda tiap enkripsi), constraint UNIQUE & pencarian exact-match
+  // tidak bisa langsung memakai kolom `nik` — dipakai kolom `nikHash` (HMAC-SHA256
+  // deterministik dari NIK asli, tidak reversible) sebagai blind index.
+  nik          String // ciphertext, lihat catatan di atas — jangan query langsung
+  nikHash      String?       @unique // blind index untuk uniqueness & pencarian; nullable sementara utk migrasi data lama
   nama         String
   tanggalLahir DateTime?
   jenisKelamin String? // L/P -> dipetakan ke jk_bin (1=L, 0=P) untuk model ML

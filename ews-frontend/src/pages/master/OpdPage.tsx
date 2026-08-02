@@ -12,7 +12,7 @@ export default function OpdPage() {
       emptyValue={{ active: true }}
       columns={[
         { header: "Kode", render: (r) => <span className="font-mono text-xs text-slate-500">{r.kode}</span> },
-        { header: "Nama OPD", render: (r) => <span className="font-medium text-slate-800">{r.nama}</span> },
+        { header: "Nama OPD", render: (r) => <span className="font-medium text-slate-800 uppercase">{r.nama}</span> },
         { header: "Jenis Layanan", render: (r) => r.jenisLayanan || <span className="text-slate-400">-</span> },
         { header: "Kontak", render: (r) => r.kontak || <span className="text-slate-400">-</span> },
         {

@@ -27,6 +27,10 @@ export interface FieldConfig {
   placeholder?: string;
   hideOnEdit?: boolean;
   helpText?: string;
+  /** Batas jumlah karakter (mis. NIK = 16, NISN = 10). Hanya berlaku untuk type "text". */
+  maxLength?: number;
+  /** Hanya izinkan digit 0-9 saat mengetik (mis. NIK/NISN). Hanya berlaku untuk type "text". */
+  numericOnly?: boolean;
 }
 
 export interface ColumnConfig<T> {
@@ -312,24 +316,34 @@ export default function MasterCrudPage<T extends { id: number }>({
                             ? "email"
                             : "text"
                     }
+                    inputMode={field.numericOnly ? "numeric" : undefined}
                     required={field.required}
+                    maxLength={field.maxLength}
                     value={form[field.name] ?? ""}
-                    onChange={(e) =>
+                    onChange={(e) => {
+                      let value = e.target.value;
+                      if (field.numericOnly) value = value.replace(/\D/g, "");
+                      if (field.maxLength) value = value.slice(0, field.maxLength);
                       setForm({
                         ...form,
                         [field.name]:
                           field.type === "number"
-                            ? e.target.value === ""
+                            ? value === ""
                               ? ""
-                              : Number(e.target.value)
-                            : e.target.value,
-                      })
-                    }
+                              : Number(value)
+                            : value,
+                      });
+                    }}
                     placeholder={field.placeholder}
                     className="w-full px-4 py-2.5 rounded-2xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/30"
                   />
                 )}
                 {field.helpText && <p className="text-xs text-slate-400 mt-1">{field.helpText}</p>}
+                {field.maxLength && (
+                  <p className="text-xs text-slate-400 mt-1">
+                    {(form[field.name] ?? "").toString().length}/{field.maxLength} karakter
+                  </p>
+                )}
               </div>
             ))}
 

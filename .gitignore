@@ -3,3 +3,4 @@ venv
 node_modules/
 venv/
 __pycache__/
+*.md

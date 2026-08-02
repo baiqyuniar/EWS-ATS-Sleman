@@ -21,7 +21,7 @@ export default function SchoolsPage() {
         {
           header: "Nama Sekolah",
           render: (r) => (
-            <span className="font-medium text-slate-800">{r.nama}</span>
+            <span className="font-medium text-slate-800 uppercase">{r.nama}</span>
           ),
         },
         { header: "Jenjang", render: (r) => r.jenjang },

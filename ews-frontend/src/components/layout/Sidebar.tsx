@@ -22,6 +22,7 @@ import {
   Briefcase,
   GraduationCap,
   Wallet,
+  KeyRound,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -30,6 +31,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { logout } from "../../store/auth.store";
 import type { UserRole } from "../../types/api";
+import logoSleman from "../../assets/logo-sleman.png";
 
 interface MenuItem {
   name: string;
@@ -191,6 +193,12 @@ const menuGroups: MenuGroup[] = [
       },
     ],
   },
+  {
+    title: "PENGATURAN",
+    menus: [
+      { name: "Passkey Akun", icon: KeyRound, path: "/settings/passkey", roles: ["ADMIN"] },
+    ],
+  },
 ];
 
 export default function Sidebar() {
@@ -223,12 +231,16 @@ export default function Sidebar() {
     <aside className="w-72 bg-[#172339] text-white min-h-screen p-5 hidden md:flex flex-col">
       {/* LOGO */}
       <div className="flex items-center gap-3 mb-10 px-2">
-        <div className="w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center font-bold text-lg shadow-lg">
-          EWS
+        <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shadow-lg p-1.5 shrink-0">
+          <img
+            src={logoSleman}
+            alt="Logo Kabupaten Sleman"
+            className="w-full h-full object-contain"
+          />
         </div>
         <div>
-          <h1 className="font-bold text-lg">EWS-APS</h1>
-          <p className="text-sm text-slate-400">Kabupaten Sleman</p>
+          <h1 className="font-bold text-lg leading-tight">Gandheng-ATS</h1>
+          <p className="text-sm text-slate-400">Berbasis EWS</p>
         </div>
       </div>
 

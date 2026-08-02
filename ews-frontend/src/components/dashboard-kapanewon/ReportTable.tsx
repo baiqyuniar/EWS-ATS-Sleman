@@ -72,7 +72,7 @@ export default function ReportTable() {
                       </div>
 
                       <div>
-                        <p className="font-semibold">
+                        <p className="font-semibold uppercase">
                           {item.studentName}
                         </p>
 

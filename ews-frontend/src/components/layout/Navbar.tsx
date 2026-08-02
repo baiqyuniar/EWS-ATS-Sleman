@@ -276,7 +276,7 @@ export default function Navbar() {
   }
 
   if (!currentPage) {
-    currentPage = { title: "EWS-APS", description: "Kabupaten Sleman" };
+    currentPage = { title: "Gandheng-ATS", description: "Berbasis EWS" };
   }
 
   const initial = user?.name?.charAt(0)?.toUpperCase() ?? "?";

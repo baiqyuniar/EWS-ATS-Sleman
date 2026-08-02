@@ -43,7 +43,7 @@ export default function StudentListPage() {
 
   const schoolOptions = (schoolData?.data ?? []).map((s) => ({
     value: s.id,
-    label: s.nama,
+    label: s.nama.toUpperCase(),
   }));
 
   const { data: agamaData } = useQuery({
@@ -167,7 +167,7 @@ export default function StudentListPage() {
           {
             header: "Nama",
             render: (r) => (
-              <span className="font-medium text-slate-800">
+              <span className="font-medium text-slate-800 uppercase">
                 {r.nama}
               </span>
             ),
@@ -175,7 +175,9 @@ export default function StudentListPage() {
           {
             header: "Sekolah",
             render: (r) =>
-              r.school?.nama ?? (
+              r.school?.nama ? (
+                <span className="uppercase">{r.school.nama}</span>
+              ) : (
                 <span className="text-slate-400">-</span>
               ),
           },
@@ -258,8 +260,8 @@ export default function StudentListPage() {
           },
         ]}
         fields={[
-        { name: "nisn", label: "NISN", required: true },
-        { name: "nik", label: "NIK", required: true },
+        { name: "nisn", label: "NISN", required: true, maxLength: 10, numericOnly: true, helpText: "NISN harus 10 digit angka" },
+        { name: "nik", label: "NIK", required: true, maxLength: 16, numericOnly: true, helpText: "NIK harus 16 digit angka" },
         { name: "nama", label: "Nama Lengkap", required: true },
         { name: "tempatLahir", label: "Tempat Lahir" },
         { name: "tanggalLahir", label: "Tanggal Lahir", type: "date" },
@@ -470,7 +472,7 @@ export default function StudentListPage() {
 
               <div>
                 <p className="text-xs text-slate-500">Nama</p>
-                <p className="font-semibold">
+                <p className="font-semibold uppercase">
                   {selectedPrediction.student.nama}
                 </p>
               </div>

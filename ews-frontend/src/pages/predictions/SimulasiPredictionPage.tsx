@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
-import { BrainCircuit, Search, FilePlus2, Loader2 } from "lucide-react";
+import { BrainCircuit, Search, FilePlus2, Loader2, Info } from "lucide-react";
 
 import DashboardLayout from "../../layouts/DashboardLayout";
 import { getStudents } from "../../services/students.service";
@@ -25,6 +25,11 @@ export default function SimulasiPredictionPage() {
     Partial<SimulatePredictionPayload>
   >({});
   const [result, setResult] = useState<Prediction | null>(null);
+  // Keterangan skala kode pendidikan/penghasilan/sulingjar — disembunyikan
+  // secara default (toggle) supaya form tidak terlalu panjang, tapi bisa dibuka
+  // sewaktu-waktu tanpa perlu berpindah halaman/dokumen.
+  const [showKodeLegend, setShowKodeLegend] = useState(false);
+  const [showSulingjarLegend, setShowSulingjarLegend] = useState(false);
 
   const { data: studentData, isFetching } = useQuery({
     queryKey: ["students-search", search],
@@ -90,14 +95,14 @@ export default function SimulasiPredictionPage() {
                         key={s.id}
                         onClick={() => {
                           setStudentId(s.id);
-                          setSearch(`${s.nama} (${s.nisn})`);
+                          setSearch(`${s.nama.toUpperCase()} (${s.nisn})`);
                         }}
                         className="w-full text-left px-4 py-2.5 hover:bg-slate-50 text-sm"
                       >
-                        <p className="font-medium text-slate-700">{s.nama}</p>
+                        <p className="font-medium text-slate-700 uppercase">{s.nama}</p>
                         <p className="text-xs text-slate-400">
                           NISN {s.nisn} &middot;{" "}
-                          {s.school?.nama ?? "Belum ada sekolah"}
+                          {s.school?.nama ? s.school.nama.toUpperCase() : "Belum ada sekolah"}
                         </p>
                       </button>
                     ))}
@@ -223,6 +228,55 @@ export default function SimulasiPredictionPage() {
     />
   </div>
 </div>
+
+              {/* Keterangan skala kode pendidikan & penghasilan — nilai persis sama
+                  dengan kodeOrdinal di menu Master Data > Pendidikan/Penghasilan
+                  Orang Tua, supaya tidak ada dua sumber kebenaran yang beda. */}
+              <div className="rounded-2xl border border-slate-200 bg-slate-50">
+                <button
+                  type="button"
+                  onClick={() => setShowKodeLegend((v) => !v)}
+                  className="w-full flex items-center gap-2 px-4 py-2.5 text-xs font-medium text-slate-600"
+                >
+                  <Info size={14} className="text-blue-500" />
+                  {showKodeLegend ? "Sembunyikan" : "Lihat"} keterangan kode pendidikan &amp; penghasilan
+                </button>
+                {showKodeLegend && (
+                  <div className="px-4 pb-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-600">
+                    <div>
+                      <p className="font-semibold text-slate-700 mb-1.5">Kode Pendidikan (0-8)</p>
+                      <ul className="space-y-0.5">
+                        <li>0 = PAUD / Tidak sekolah</li>
+                        <li>1 = Putus SD</li>
+                        <li>2 = SD / sederajat</li>
+                        <li>3 = SMP / sederajat</li>
+                        <li>4 = SMA / sederajat / Lainnya</li>
+                        <li>5 = D1 / D2 / D3</li>
+                        <li>6 = D4 / S1</li>
+                        <li>7 = S2 / Sp-1</li>
+                        <li>8 = S3</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-slate-700 mb-1.5">Kode Penghasilan (0-6)</p>
+                      <ul className="space-y-0.5">
+                        <li>0 = Tidak berpenghasilan</li>
+                        <li>1 = &lt; Rp500.000</li>
+                        <li>2 = Rp500.000 – Rp999.999</li>
+                        <li>3 = Rp1.000.000 – Rp1.999.999</li>
+                        <li>4 = Rp2.000.000 – Rp4.999.999</li>
+                        <li>5 = Rp5.000.000 – Rp20.000.000</li>
+                        <li>6 = &gt; Rp20.000.000</li>
+                      </ul>
+                    </div>
+                    <p className="sm:col-span-2 text-slate-400">
+                      Sumber: menu Master Data &rarr; Pendidikan Orang Tua / Penghasilan Orang Tua.
+                      Kalau daftar di sana pernah diubah, angka di atas mengikuti data terbaru —
+                      cek menu Master Data untuk kepastian.
+                    </p>
+                  </div>
+                )}
+              </div>
               {/* ===================================================== */}
 {/* ===================================================== */}
 {/* MUTU SEKOLAH (SULINGJAR) */}
@@ -323,6 +377,38 @@ export default function SimulasiPredictionPage() {
           />
         </div>
       </div>
+
+      {/* Keterangan skala sulingjar — mengikuti kategori umum Asesmen Nasional/
+          Rapor Pendidikan Kemendikbud (skor resmi 1,00–3,00: Kurang/Sedang/Baik). */}
+      <div className="mt-3 rounded-2xl border border-slate-200 bg-slate-50">
+        <button
+          type="button"
+          onClick={() => setShowSulingjarLegend((v) => !v)}
+          className="w-full flex items-center gap-2 px-4 py-2.5 text-xs font-medium text-slate-600"
+        >
+          <Info size={14} className="text-blue-500" />
+          {showSulingjarLegend ? "Sembunyikan" : "Lihat"} keterangan skala 0–3
+        </button>
+        {showSulingjarLegend && (
+          <div className="px-4 pb-4 text-xs text-slate-600 space-y-1">
+            <p>
+              Mengikuti kategori Rapor Pendidikan Kemendikbud (Asesmen Nasional),
+              semakin tinggi angka semakin baik:
+            </p>
+            <ul className="space-y-0.5 pl-1">
+              <li><span className="font-semibold">1</span> = Kurang</li>
+              <li><span className="font-semibold">2</span> = Sedang</li>
+              <li><span className="font-semibold">3</span> = Baik</li>
+            </ul>
+            <p className="text-slate-400">
+              Skor resmi Rapor Pendidikan berbentuk desimal 1,00–3,00; di sistem ini
+              disederhanakan menjadi bilangan bulat 0–3 untuk kebutuhan model ML.
+              Kalau data sekolah untuk indikator ini belum ada, kolom akan kosong
+              (bukan otomatis terisi 0).
+            </p>
+          </div>
+        )}
+      </div>
     </div>
 
               <ErrorAlert
@@ -420,11 +506,11 @@ export default function SimulasiPredictionPage() {
                   className="flex items-center justify-between gap-3 p-3 rounded-2xl border border-slate-100"
                 >
                   <div className="min-w-0">
-                    <p className="text-sm font-medium text-slate-700 truncate">
+                    <p className="text-sm font-medium text-slate-700 truncate uppercase">
                       {p.student?.nama}
                     </p>
                     <p className="text-xs text-slate-400">
-                      {p.student?.school?.nama ?? "-"}
+                      {p.student?.school?.nama ? p.student.school.nama.toUpperCase() : "-"}
                     </p>
                   </div>
                   <RiskBadge value={p.riskCategory} />

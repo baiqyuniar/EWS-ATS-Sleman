@@ -11,6 +11,15 @@ import {
 } from "./dto/student.dto";
 import { buildPaginationMeta } from "../common/pagination.dto";
 import { CurrentUserPayload } from "../auth/current-user.decorator";
+import { blindIndex, decryptSensitive, encryptSensitive } from "../common/crypto.util";
+
+// SECURITY: NIK disimpan terenkripsi (lihat src/common/crypto.util.ts) — helper di
+// bawah ini men-decrypt kolom `nik` sebelum data dikembalikan ke client, dan
+// dipakai konsisten di findAll/findOne supaya tidak ada jalur yang lupa decrypt.
+function withDecryptedNik<T extends { nik?: string | null }>(student: T): T {
+  if (!student) return student;
+  return { ...student, nik: decryptSensitive(student.nik ?? null) ?? student.nik };
+}
 
 // Relasi mastering data yang ditampilkan di detail/list siswa. Dipisah supaya
 // mudah dipakai ulang di findAll/findOne.
@@ -65,34 +74,43 @@ export class StudentsService {
   }
 
   async create(dto: CreateStudentDto, user: CurrentUserPayload) {
+    const nikHash = blindIndex(dto.nik);
     const existing = await this.prisma.student.findFirst({
-      where: { OR: [{ nisn: dto.nisn }, { nik: dto.nik }] },
+      where: { OR: [{ nisn: dto.nisn }, { nikHash }] },
     });
     if (existing) throw new ConflictException("NISN/NIK siswa sudah terdaftar");
 
     const data = await this.syncOrdinalCodes(dto);
     const schoolId =
       user.role === "SEKOLAH" ? (user.schoolId ?? undefined) : data.schoolId;
-    return this.prisma.student.create({
+    const created = await this.prisma.student.create({
       data: {
         ...data,
+        nik: encryptSensitive(dto.nik),
+        nikHash,
         schoolId,
         tanggalLahir: data.tanggalLahir
           ? new Date(data.tanggalLahir)
           : undefined,
       } as any,
     });
+    return withDecryptedNik(created);
   }
 
   async findAll(query: FindStudentsQueryDto, user: CurrentUserPayload) {
     const page = query.page ?? 1;
     const limit = query.limit ?? 20;
+    // NIK sekarang terenkripsi (ciphertext acak per baris) — tidak bisa dicari
+    // dengan `contains` di database. Kalau teks pencarian persis 16 digit angka,
+    // dianggap pencarian NIK exact-match lewat blind index (nikHash); selain itu
+    // NIK dilewati dari pencarian (nama & NISN tetap bisa dicari sebagian/contains).
+    const searchIsExactNik = query.search ? /^\d{16}$/.test(query.search.trim()) : false;
     const where: any = query.search
       ? {
           OR: [
             { nama: { contains: query.search, mode: "insensitive" as const } },
             { nisn: { contains: query.search, mode: "insensitive" as const } },
-            { nik: { contains: query.search, mode: "insensitive" as const } },
+            ...(searchIsExactNik ? [{ nikHash: blindIndex(query.search.trim()) }] : []),
           ],
         }
       : {};
@@ -136,7 +154,7 @@ export class StudentsService {
       }),
       this.prisma.student.count({ where }),
     ]);
-    return { data, meta: buildPaginationMeta(total, page, limit) };
+    return { data: data.map(withDecryptedNik), meta: buildPaginationMeta(total, page, limit) };
   }
 
   // BOLA fix: sebelumnya findOne tidak menerima `user` sama sekali, sehingga siswa
@@ -162,7 +180,7 @@ export class StudentsService {
       // 404 (bukan 403) supaya tidak membocorkan keberadaan data siswa sekolah lain.
       throw new NotFoundException("Siswa tidak ditemukan");
     }
-    return student;
+    return withDecryptedNik(student);
   }
 
   async update(id: number, dto: UpdateStudentDto, user: CurrentUserPayload) {
@@ -170,7 +188,7 @@ export class StudentsService {
     const data = await this.syncOrdinalCodes(dto);
     // Cegah user SEKOLAH memindahkan siswa keluar dari sekolahnya sendiri via update.
     if (user.role === "SEKOLAH") delete (data as any).schoolId;
-    return this.prisma.student.update({
+    const updated = await this.prisma.student.update({
       where: { id },
       data: {
         ...data,
@@ -179,6 +197,7 @@ export class StudentsService {
           : undefined,
       } as any,
     });
+    return withDecryptedNik(updated);
   }
 
   async remove(id: number, user: CurrentUserPayload) {

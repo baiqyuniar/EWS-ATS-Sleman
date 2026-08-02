@@ -37,6 +37,7 @@ import PendidikanOrtuPage from "./pages/master/PendidikanOrtuPage";
 import PenghasilanOrtuPage from "./pages/master/PenghasilanOrtuPage";
 
 import ReportsPage from "./pages/reports/ReportsPage";
+import PasskeySettingsPage from "./pages/settings/PasskeySettingsPage";
 
 export default function App() {
   return (
@@ -183,6 +184,14 @@ export default function App() {
       />
 
       {/* Master Data — khusus Admin */}
+      <Route
+        path="/settings/passkey"
+        element={
+          <ProtectedRoute roles={["ADMIN"]}>
+            <PasskeySettingsPage />
+          </ProtectedRoute>
+        }
+      />
       <Route
         path="/master/users"
         element={

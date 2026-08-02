@@ -5,11 +5,17 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import helmet from 'helmet';
 import { AppModule } from './app.module';
 import { AllExceptionsFilter } from './common/all-exceptions.filter';
+import { assertEncryptionKeyConfigured } from './config/security.config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const config = app.get(ConfigService);
   const isProd = config.get<string>('NODE_ENV') === 'production';
+
+  // SECURITY: NIK siswa disimpan terenkripsi (lihat src/common/crypto.util.ts) —
+  // menolak start kalau ENCRYPTION_KEY belum diset/tidak valid, sama seperti
+  // validasi JWT_SECRET (fail fast saat deploy, bukan saat data sudah bocor).
+  assertEncryptionKeyConfigured(config);
 
   // --- Security headers (CSP, HSTS, X-Frame-Options, X-Content-Type-Options, dll) ---
   // CSP dimatikan otomatis saat Swagger UI aktif (Swagger butuh inline script/style)

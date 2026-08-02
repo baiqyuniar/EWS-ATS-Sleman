@@ -102,6 +102,11 @@ return (
           {TEMPLATE_HEADER}
         </div>
       </div>
+      <p className="px-0 pb-1 text-xs text-slate-400">
+        Keterangan nilai <code className="font-mono">kodePendidikanAyah/Ibu</code> (0-8) dan{" "}
+        <code className="font-mono">kodePenghasilanAyah/Ibu</code> (0-6) sama dengan yang
+        dipakai di halaman Simulasi Prediksi &amp; Master Data Pendidikan/Penghasilan Orang Tua.
+      </p>
       </div>
 
           <div>

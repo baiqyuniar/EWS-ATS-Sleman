@@ -67,11 +67,11 @@ export default function ReferralsInboxPage() {
                               <span className="w-2 h-2 rounded-full bg-red-500 shrink-0" />
                             )}
                             <div>
-                              <p className="font-medium text-slate-800">
+                              <p className="font-medium text-slate-800 uppercase">
                                 {student?.nama ?? "-"}
                               </p>
                               <p className="text-xs text-slate-400">
-                                {student?.school?.nama ?? "-"}
+                                {student?.school?.nama ? student.school.nama.toUpperCase() : "-"}
                               </p>
                             </div>
                           </div>

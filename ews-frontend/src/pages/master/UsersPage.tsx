@@ -26,11 +26,11 @@ export default function UsersPage() {
 
   const schoolOptions = (schoolData?.data ?? []).map((s) => ({
     value: s.id,
-    label: s.nama,
+    label: s.nama.toUpperCase(),
   }));
   const opdOptions = (opdData?.data ?? []).map((o) => ({
     value: o.id,
-    label: o.nama,
+    label: o.nama.toUpperCase(),
   }));
   const wilayahOptions = (wilayahData?.data ?? []).map((w) => ({
     value: w.id,

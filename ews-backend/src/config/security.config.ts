@@ -37,3 +37,27 @@ export function getJwtSecret(config: ConfigService): string {
   }
   return secret;
 }
+
+/**
+ * SECURITY: NIK siswa (data pribadi anak, UU PDP No. 27/2022) disimpan terenkripsi
+ * (AES-256-GCM) di database — lihat src/common/crypto.util.ts. Sama seperti
+ * JWT_SECRET, aplikasi menolak start jika ENCRYPTION_KEY tidak diset/tidak valid,
+ * supaya kesalahan konfigurasi ketahuan saat deploy, bukan saat data sudah bocor.
+ */
+export function assertEncryptionKeyConfigured(config: ConfigService): void {
+  const raw = config.get<string>('ENCRYPTION_KEY');
+  const isProd = config.get<string>('NODE_ENV') === 'production';
+
+  if (!raw) {
+    throw new Error(
+      'ENCRYPTION_KEY belum diset. Set environment variable ENCRYPTION_KEY (base64, 32 byte) ' +
+        'sebelum menjalankan aplikasi. Contoh generate: `openssl rand -base64 32`.',
+    );
+  }
+  const decodedLength = Buffer.from(raw, 'base64').length;
+  if (decodedLength !== 32) {
+    const message = `ENCRYPTION_KEY tidak valid: hasil decode base64 harus tepat 32 byte (didapat ${decodedLength} byte).`;
+    if (isProd) throw new Error(message);
+    console.warn(`[SECURITY WARNING] ${message} Generate ulang dengan: \`openssl rand -base64 32\`.`);
+  }
+}

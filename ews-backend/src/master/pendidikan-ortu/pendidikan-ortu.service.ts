@@ -21,7 +21,10 @@ export class PendidikanOrtuService {
         }
       : {};
     const [data, total] = await Promise.all([
-      this.prisma.pendidikanOrtu.findMany({ where, skip: (page - 1) * limit, take: limit, orderBy: { nama: 'asc' } }),
+      // Diurutkan ASC berdasarkan kodeOrdinal (bukan nama) supaya daftar tampil
+      // sesuai jenjang: dari "Tidak sekolah"/SD naik ke S3 — bukan alfabetis
+      // (alfabetis akan menaruh "S1" sebelum "SD", yang salah urutan jenjang).
+      this.prisma.pendidikanOrtu.findMany({ where, skip: (page - 1) * limit, take: limit, orderBy: { kodeOrdinal: 'asc' } }),
       this.prisma.pendidikanOrtu.count({ where }),
     ]);
     return { data, meta: buildPaginationMeta(total, page, limit) };

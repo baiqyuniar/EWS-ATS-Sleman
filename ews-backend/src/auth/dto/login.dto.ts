@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty, Matches, MinLength } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsOptional, IsString, Matches, MinLength } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 // SECURITY: kebijakan kompleksitas password minimal — mencegah password lemah
@@ -18,6 +18,27 @@ export class LoginDto {
   @ApiProperty({ example: 'admin123' })
   @IsNotEmpty()
   password: string;
+
+  // CAPTCHA Proof-of-Work (lihat CaptchaService) — token dari GET /auth/captcha,
+  // nonce adalah hasil solve PoW yang dihitung browser. Wajib diisi supaya login
+  // tidak bisa dijalankan bot/script otomatis tanpa biaya komputasi.
+  @ApiProperty({ description: 'Token captcha dari GET /auth/captcha' })
+  @IsNotEmpty({ message: 'Captcha wajib diisi' })
+  captchaToken: string;
+
+  @ApiProperty({ description: 'Nonce hasil solve Proof-of-Work captcha' })
+  @IsNotEmpty({ message: 'Captcha belum selesai diverifikasi, coba lagi' })
+  captchaNonce: string;
+
+  // HONEYPOT: field tersembunyi dari manusia (off-screen + aria-hidden di frontend,
+  // lihat LoginPage.tsx) tapi tetap ada di DOM sehingga bot yang mengisi SEMUA field
+  // form secara otomatis (tanpa benar-benar "melihat" halaman) akan mengisi ini juga.
+  // Manusia normal tidak pernah mengisinya karena tidak terlihat/tidak terjangkau
+  // oleh tab/screen reader yang wajar. Opsional karena manusia memang tidak mengisi.
+  @ApiProperty({ required: false, description: 'WAJIB kosong — field jebakan anti-bot' })
+  @IsOptional()
+  @IsString()
+  website?: string;
 }
 
 export class ChangePasswordDto {

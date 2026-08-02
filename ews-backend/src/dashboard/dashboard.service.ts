@@ -2,6 +2,7 @@ import { ForbiddenException, Injectable } from '@nestjs/common';
 import { CaseSource, CaseStatus, Prisma, UserRole } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 import { CurrentUserPayload } from '../auth/current-user.decorator';
+import { decryptSensitive } from '../common/crypto.util';
 
 @Injectable()
 export class DashboardService {
@@ -75,7 +76,9 @@ export class DashboardService {
     };
 
     return cases.map((c) => {
-      const nik = c.student.nik ?? '';
+      // NIK disimpan terenkripsi (lihat src/common/crypto.util.ts) — decrypt dulu
+      // sebelum disamarkan, supaya masking bekerja pada digit asli, bukan ciphertext.
+      const nik = decryptSensitive(c.student.nik) ?? '';
       const nikMasked = nik.length > 6 ? nik.slice(0, 6) + 'X'.repeat(nik.length - 6) : nik;
       const wilayah =
         c.student.desaKelurahan ??

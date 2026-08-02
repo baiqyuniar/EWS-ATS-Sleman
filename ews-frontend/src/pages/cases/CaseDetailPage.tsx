@@ -113,12 +113,12 @@ export default function CaseDetailPage() {
               <p className="font-mono text-sm font-semibold text-blue-700">
                 {kase.nomorKasus}
               </p>
-              <h1 className="text-xl font-bold text-slate-800 mt-1">
+              <h1 className="text-xl font-bold text-slate-800 mt-1 uppercase">
                 {kase.student?.nama}
               </h1>
               <p className="text-sm text-slate-500">
                 NISN {kase.student?.nisn} &middot;{" "}
-                {kase.student?.school?.nama ?? "-"}
+                {kase.student?.school?.nama ? kase.student.school.nama.toUpperCase() : "-"}
               </p>
             </div>
             <div className="flex flex-col items-end gap-2">
@@ -596,10 +596,10 @@ function ReferralCard({
   return (
     <Section
       icon={Building2}
-      title={`Rujukan & Intervensi — ${referral.opd.nama}`}
+      title={`Rujukan & Intervensi — ${referral.opd.nama.toUpperCase()}`}
     >
       <div className="flex flex-wrap items-center gap-3 mb-4">
-        <span className="text-sm font-semibold text-slate-700">
+        <span className="text-sm font-semibold text-slate-700 uppercase">
           {referral.opd.nama}
         </span>
         <RiskBadge value={referral.tingkatRisiko} />
@@ -783,7 +783,7 @@ function ReferralPanel({
                   onChange={() => toggleOpd(o.id)}
                   className="rounded border-slate-300"
                 />
-                {o.nama}
+                {o.nama.toUpperCase()}
               </label>
             ))}
             {!opdData?.data.length && (

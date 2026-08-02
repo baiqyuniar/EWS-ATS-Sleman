@@ -21,7 +21,10 @@ export class PenghasilanOrtuService {
         }
       : {};
     const [data, total] = await Promise.all([
-      this.prisma.penghasilanOrtu.findMany({ where, skip: (page - 1) * limit, take: limit, orderBy: { nama: 'asc' } }),
+      // Diurutkan ASC berdasarkan kodeOrdinal (bukan nama) supaya daftar tampil
+      // sesuai urutan tingkat penghasilan: dari "Tidak Berpenghasilan" naik ke
+      // rentang Rupiah tertinggi — bukan alfabetis.
+      this.prisma.penghasilanOrtu.findMany({ where, skip: (page - 1) * limit, take: limit, orderBy: { kodeOrdinal: 'asc' } }),
       this.prisma.penghasilanOrtu.count({ where }),
     ]);
     return { data, meta: buildPaginationMeta(total, page, limit) };

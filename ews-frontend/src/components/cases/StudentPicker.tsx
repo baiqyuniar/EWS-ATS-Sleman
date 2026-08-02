@@ -29,7 +29,7 @@ export default function StudentPicker({ value, onChange, initialSearch }: Props)
       <div className="relative">
         <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
         <input
-          value={value ? `${value.nama} (${value.nisn})` : search}
+          value={value ? `${value.nama.toUpperCase()} (${value.nisn})` : search}
           onChange={(e) => {
             onChange(null);
             setSearch(e.target.value);
@@ -53,9 +53,9 @@ export default function StudentPicker({ value, onChange, initialSearch }: Props)
               }}
               className="w-full text-left px-4 py-2.5 hover:bg-slate-50 text-sm"
             >
-              <p className="font-medium text-slate-700">{s.nama}</p>
+              <p className="font-medium text-slate-700 uppercase">{s.nama}</p>
               <p className="text-xs text-slate-400">
-                NISN {s.nisn} &middot; {s.school?.nama ?? "Belum ada sekolah"}
+                NISN {s.nisn} &middot; {s.school?.nama ? s.school.nama.toUpperCase() : "Belum ada sekolah"}
               </p>
             </button>
           ))}

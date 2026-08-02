@@ -3,8 +3,16 @@ import { PrismaClient, UserRole } from "@prisma/client";
 import * as bcrypt from "bcrypt";
 import * as fs from "fs";
 import * as path from "path";
+import { encryptSensitive, blindIndex } from "../src/common/crypto.util";
 
 const prisma = new PrismaClient();
+
+// SECURITY: NIK disimpan terenkripsi (lihat src/common/crypto.util.ts) — seed data
+// juga wajib melalui ini, bukan hanya jalur aplikasi (StudentsService), supaya tidak
+// ada NIK plaintext yang masuk ke database lewat `npm run seed`.
+function encryptNikFields<T extends { nik: string }>(row: T): T & { nikHash: string } {
+  return { ...row, nik: encryptSensitive(row.nik), nikHash: blindIndex(row.nik) };
+}
 
 function loadJson<T>(fileName: string): T {
   const filePath = path.join(__dirname, "seed-data", fileName);
@@ -337,7 +345,7 @@ async function main() {
         kodePenghasilanAyah: 4,
         kodePenghasilanIbu: 2,
       },
-    ],
+    ].map(encryptNikFields),
     skipDuplicates: true,
   });
 
@@ -385,7 +393,7 @@ async function main() {
   }));
 
   await prisma.student.createMany({
-    data: doStudentsToCreate,
+    data: doStudentsToCreate.map(encryptNikFields),
     skipDuplicates: true, // NISN/NIK unik — lewati bila sudah ada (idempotent re-seed)
   });
   const withSchool = doStudentsToCreate.filter((d) => d.schoolId).length;
@@ -561,7 +569,7 @@ async function main() {
   // BR: siswa tanpa sekolah valid tetap disimpan (schoolId undefined) supaya data tidak hilang,
   // hanya dicatat di log untuk ditindaklanjuti Admin.
   await prisma.student.createMany({
-    data: studentsAktifToCreate,
+    data: studentsAktifToCreate.map(encryptNikFields),
     skipDuplicates: true, // NISN/NIK unik — idempotent re-seed
   });
   console.log(

@@ -67,9 +67,9 @@ export default function ReferralDetailPage() {
                 <p className="text-xs font-semibold text-red-600 uppercase tracking-wide">
                   Rujukan Siswa Putus Sekolah (DO)
                 </p>
-                <h1 className="text-xl font-bold text-slate-800">{student?.nama}</h1>
+                <h1 className="text-xl font-bold text-slate-800 uppercase">{student?.nama}</h1>
                 <p className="text-sm text-slate-500">
-                  NISN {student?.nisn} &middot; {student?.school?.nama ?? "-"}
+                  NISN {student?.nisn} &middot; {student?.school?.nama ? student.school.nama.toUpperCase() : "-"}
                 </p>
               </div>
             </div>
@@ -90,7 +90,7 @@ export default function ReferralDetailPage() {
             </div>
             <div>
               <h2 className="font-bold text-slate-800">Rujukan & Intervensi OPD</h2>
-              <p className="text-sm text-slate-500">{referral.opd?.nama}</p>
+              <p className="text-sm text-slate-500 uppercase">{referral.opd?.nama}</p>
             </div>
           </div>
 

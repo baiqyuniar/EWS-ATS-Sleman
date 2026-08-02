@@ -166,11 +166,11 @@ export default function CaseListPage() {
                     </td>
 
                     <td className="px-6 py-4">
-                      <p className="font-semibold text-slate-800">
+                      <p className="font-semibold text-slate-800 uppercase">
                         {c.student?.nama}
                       </p>
                       <p className="text-xs text-slate-400">
-                        {c.student?.school?.nama ?? "-"}
+                        {c.student?.school?.nama ? c.student.school.nama.toUpperCase() : "-"}
                       </p>
                     </td>
 

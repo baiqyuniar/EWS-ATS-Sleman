@@ -24,16 +24,19 @@ export class ReportsService {
   }
 
   // Statistik: risk map data — count of cases per school for the Risk Map page.
+  // Ditampilkan pakai NPSN (identitas resmi sekolah dari Dapodik), bukan id
+  // internal database — id internal cuma relevan di dalam sistem ini, sedangkan
+  // NPSN dikenal & bisa dicek silang oleh pengguna di luar sistem (mis. Dapodik).
   async statistikSekolah() {
     const rows = await this.prisma.case.findMany({
       include: { student: { include: { school: true } } },
     });
-    const bySchool = new Map<string, { schoolId: number; nama: string; total: number; aktif: number }>();
+    const bySchool = new Map<string, { npsn: string; nama: string; total: number; aktif: number }>();
     for (const c of rows) {
       const school = c.student.school;
       if (!school) continue;
       const key = String(school.id);
-      const entry = bySchool.get(key) ?? { schoolId: school.id, nama: school.nama, total: 0, aktif: 0 };
+      const entry = bySchool.get(key) ?? { npsn: school.npsn, nama: school.nama, total: 0, aktif: 0 };
       entry.total += 1;
       if (!['SELESAI_PENCEGAHAN', 'CLOSED_CASE'].includes(c.status)) entry.aktif += 1;
       bySchool.set(key, entry);

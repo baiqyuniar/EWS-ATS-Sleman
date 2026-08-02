@@ -1,5 +1,13 @@
-import { IsDateString, IsInt, IsNotEmpty, IsNumber, IsOptional, IsString, Max, Min } from 'class-validator';
+import { IsDateString, IsInt, IsNotEmpty, IsNumber, IsOptional, IsString, Matches, Max, Min } from 'class-validator';
 import { PaginationDto } from '../../common/pagination.dto';
+
+// Mastering data: NIK selalu 16 digit angka, NISN selalu 10 digit angka (standar
+// Dapodik/Dukcapil). Divalidasi di sini (bukan hanya di frontend) supaya data yang
+// masuk lewat API mana pun (form, bulk-upload, dsb.) tetap konsisten.
+const NIK_REGEX = /^\d{16}$/;
+const NIK_MESSAGE = 'NIK harus tepat 16 digit angka';
+const NISN_REGEX = /^\d{10}$/;
+const NISN_MESSAGE = 'NISN harus tepat 10 digit angka';
 
 // `status`: filter persis (mis. "PUTUS_SEKOLAH" untuk halaman Siswa DO).
 // `excludeStatus`: filter tidak-sama-dengan (dipakai daftar siswa aktif untuk menyembunyikan DO).
@@ -28,8 +36,8 @@ class MasteringDataFields {
   @IsOptional() @IsInt() jenisTinggalId?: number;
   @IsOptional() @IsInt() alatTransportasiId?: number;
 
-  @IsOptional() nikAyah?: string;
-  @IsOptional() nikIbu?: string;
+  @IsOptional() @Matches(NIK_REGEX, { message: `Ayah: ${NIK_MESSAGE}` }) nikAyah?: string;
+  @IsOptional() @Matches(NIK_REGEX, { message: `Ibu: ${NIK_MESSAGE}` }) nikIbu?: string;
   @IsOptional() @IsInt() anakKeberapa?: number;
   @IsOptional() penerimaKps?: boolean;
   @IsOptional() @IsString() noKps?: string;
@@ -56,8 +64,8 @@ class MasteringDataFields {
 }
 
 export class CreateStudentDto extends MasteringDataFields {
-  @IsNotEmpty() nisn: string;
-  @IsNotEmpty() nik: string;
+  @IsNotEmpty() @Matches(NISN_REGEX, { message: NISN_MESSAGE }) nisn: string;
+  @IsNotEmpty() @Matches(NIK_REGEX, { message: NIK_MESSAGE }) nik: string;
   @IsNotEmpty() nama: string;
   @IsOptional() @IsDateString() tanggalLahir?: string;
   @IsOptional() jenisKelamin?: string; // 'L' | 'P'

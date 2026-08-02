@@ -20,7 +20,7 @@ export default function InterventionTypesPage() {
 
   const opdOptions = (opdData?.data ?? []).map((o) => ({
     value: o.id,
-    label: o.nama,
+    label: o.nama.toUpperCase(),
   }));
 
   return (
@@ -65,7 +65,7 @@ export default function InterventionTypesPage() {
             r.opd ? (
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-sm font-medium">
                 <Building2 size={15} />
-                {r.opd.nama}
+                {r.opd.nama.toUpperCase()}
               </span>
             ) : (
               <span className="text-slate-400">-</span>

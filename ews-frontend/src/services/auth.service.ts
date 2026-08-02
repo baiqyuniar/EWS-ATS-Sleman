@@ -1,5 +1,10 @@
 import { api } from "../lib/api";
-import type { LoginPayload, LoginResponse, AppUser } from "../types/api";
+import type { LoginPayload, LoginResponse, AppUser, CaptchaChallenge } from "../types/api";
+
+export const getCaptcha = async (): Promise<CaptchaChallenge> => {
+  const { data } = await api.get<CaptchaChallenge>("/auth/captcha");
+  return data;
+};
 
 export const login = async (payload: LoginPayload): Promise<LoginResponse> => {
   const { data } = await api.post<LoginResponse>("/auth/login", payload);

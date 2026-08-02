@@ -67,7 +67,7 @@ export default function ReportTable() {
 
               <div className="min-w-0 flex-1">
 
-                <h3 className="font-semibold text-slate-800 truncate">
+                <h3 className="font-semibold text-slate-800 truncate uppercase">
                   {item.name}
                 </h3>
 

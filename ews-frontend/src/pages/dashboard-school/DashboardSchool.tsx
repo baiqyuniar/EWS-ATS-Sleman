@@ -175,7 +175,7 @@ export default function DashboardPage() {
         <AnalyticsPanel
           data={analytics}
           isLoading={analyticsLoading}
-          scopeLabel={analytics?.school ? `sekolah ${analytics.school.nama}` : "sekolah Anda"}
+          scopeLabel={analytics?.school ? `sekolah ${analytics.school.nama.toUpperCase()}` : "sekolah Anda"}
         />
 
       </div>
