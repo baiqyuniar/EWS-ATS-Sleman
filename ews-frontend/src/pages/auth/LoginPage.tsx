@@ -11,13 +11,13 @@ import { defaultRouteForRole } from "../../routes/roleRoutes";
 import { solveCaptcha } from "../../lib/pow-captcha";
 import logoSleman from "../../assets/logo-sleman.png";
 
-const DEMO_ACCOUNTS = [
-  { role: "Admin", email: "admin@sleman.go.id", password: "admin123" },
-  { role: "Sekolah", email: "sekolah.20401408@sleman.go.id", password: "sekolah123" },
-  { role: "Kapanewon", email: "kapanewon.gamping@sleman.go.id", password: "kapanewon123" },
-  { role: "OPD", email: "opd.dinsos@sleman.go.id", password: "opd123" },
-  { role: "Dinas Pendidikan", email: "dinas@sleman.go.id", password: "dinas123" },
-];
+// const DEMO_ACCOUNTS = [
+//   { role: "Admin", email: "admin@sleman.go.id", password: "admin123" },
+//   { role: "Sekolah", email: "sekolah.20401408@sleman.go.id", password: "sekolah123" },
+//   { role: "Kapanewon", email: "kapanewon.gamping@sleman.go.id", password: "kapanewon123" },
+//   { role: "OPD", email: "opd.dinsos@sleman.go.id", password: "opd123" },
+//   { role: "Dinas Pendidikan", email: "dinas@sleman.go.id", password: "dinas123" },
+// ];
 
 type CaptchaStatus = "loading" | "solving" | "ready" | "error";
 
@@ -26,19 +26,13 @@ export default function LoginPage() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // Honeypot: field tersembunyi (lihat render di bawah) yang harus SELALU kosong.
-  // Manusia normal tidak pernah bisa mengisinya (off-screen, aria-hidden,
-  // tabIndex=-1). Kalau terisi, backend menolak login dengan pesan yang sama
-  // seperti password salah — lihat AuthService.login().
+  
   const [website, setWebsite] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // Login pakai passkey — jalur terpisah dari form password di atas. Tidak
-  // melalui captcha PoW/honeypot karena ceremony WebAuthn sendiri sudah
-  // mensyaratkan kehadiran fisik pengguna (sentuh sensor sidik jari/PIN
-  // perangkat), yang jadi bukti jauh lebih kuat daripada captcha apa pun.
+  
   const [passkeyLoading, setPasskeyLoading] = useState(false);
   const passkeySupported = browserSupportsWebAuthn();
 
@@ -65,11 +59,7 @@ export default function LoginPage() {
     }
   };
 
-  // Captcha Proof-of-Work (lihat CaptchaService di backend + lib/pow-captcha.ts):
-  // diselesaikan OTOMATIS di background (Web Worker) begitu halaman dimuat —
-  // tidak ada yang perlu diketik pengguna. Dibuat ulang tiap kali halaman dimuat
-  // & tiap kali percobaan login gagal, supaya token lama yang sudah terpakai
-  // tidak bisa dicoba berulang oleh script otomatis.
+  
   const [captchaStatus, setCaptchaStatus] = useState<CaptchaStatus>("loading");
   const [captchaToken, setCaptchaToken] = useState("");
   const [captchaNonce, setCaptchaNonce] = useState("");
@@ -124,12 +114,6 @@ return (
     {/* ================= LEFT ================= */}
     <div className="hidden lg:flex lg:w-[58%] relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-blue-900">
 
-      {/* Foto Kantor Dinas Pendidikan Kabupaten Sleman.
-          Taruh file foto resmi di ews-frontend/public/images/dinas-pendidikan-sleman.jpg
-          (disarankan foto landscape, minimal 1600x1200px, ukuran file < 1MB supaya
-          halaman login tetap cepat dimuat). Kalau file belum ada, onError di bawah
-          menyembunyikan gambar yang rusak dan membiarkan gradasi biru di atas sebagai
-          fallback, supaya halaman tetap rapi. */}
       <img
         src="/images/dinas-pendidikan-sleman.jpg"
         alt="Kantor Dinas Pendidikan Kabupaten Sleman"
@@ -286,13 +270,6 @@ return (
 
       </div>
 
-      <div className="inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-blue-700 font-semibold text-sm">
-
-        <ShieldCheck size={16} />
-
-        Sistem Aman
-
-      </div>
 
       <h4 className="mt-5 text-4xl font-black text-slate-800">
 
@@ -318,10 +295,6 @@ return (
         className="space-y-5"
       >
 
-        {/* Honeypot anti-bot — SENGAJA disembunyikan dari manusia (bukan
-            display:none, karena beberapa bot secara spesifik melewati field
-            display:none; posisi off-screen lebih efektif menjebak bot yang asal
-            isi semua input). Jangan diisi. */}
         <div
           aria-hidden="true"
           style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", overflow: "hidden" }}
@@ -441,14 +414,7 @@ return (
 
         {/* Lupa Password */}
 
-        <div className="flex items-center justify-between">
-
-          <p className="text-xs text-slate-400 leading-5 max-w-[70%]">
-
-            Untuk keamanan data pribadi (NIK), sesi login tidak diingat otomatis
-            di perangkat ini.
-
-          </p>
+        {/* <div className="flex items-center justify-between">
 
           <button
             type="button"
@@ -457,7 +423,7 @@ return (
             Lupa Password?
           </button>
 
-        </div>
+        </div> */}
 
         {/* Button */}
 
@@ -507,7 +473,7 @@ return (
 
       {/* Divider */}
 
-      <div className="flex items-center my-7">
+      {/* <div className="flex items-center my-7">
 
         <div className="flex-1 h-px bg-slate-200" />
 
@@ -519,9 +485,9 @@ return (
 
         <div className="flex-1 h-px bg-slate-200" />
 
-      </div>
+      </div> */}
 
-      {/* Demo */}
+      {/* Demo
 
       <div className="space-y-2">
 
@@ -565,11 +531,11 @@ return (
 
         ))}
 
-      </div>
+      </div> */}
 
       {/* Security */}
 
-      <div className="mt-8 rounded-2xl bg-slate-50 border border-slate-200 p-4">
+      {/* <div className="mt-8 rounded-2xl bg-slate-50 border border-slate-200 p-4">
 
         <div className="flex gap-3">
 
@@ -598,7 +564,7 @@ return (
 
         </div>
 
-      </div>
+      </div> */}
 
     </div>
 
