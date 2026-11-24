@@ -46,41 +46,52 @@ jobs:
           npm run build
 
           echo "🌐 5. Deploying Frontend to Web Server..."
-          TARGET_DIR=""
-          # Cek jika ada file index.html di /var/www/html atau lokasi sejenis
-          for dir in /var/www/html /var/www/gandheng-ats /var/www/ews-ats; do
-            if [ -d "$dir" ] && [ -f "$dir/index.html" ]; then
-              TARGET_DIR="$dir"
-              break
-            fi
+          mkdir -p ~/apps/EWS-ATS/ews-backend/uploads
+          INFO_FILE="$HOME/apps/EWS-ATS/ews-backend/uploads/deploy-info.txt"
+          echo "=== DEPLOY DIAGNOSTIC ===" > "$INFO_FILE"
+          echo "Date: $(date)" >> "$INFO_FILE"
+          echo "User: $(whoami)" >> "$INFO_FILE"
+          echo "PWD: $(pwd)" >> "$INFO_FILE"
+
+          # 1. Cari lokasi aset yang sedang disajikan web server
+          echo "--- SEARCHING FOR OLD ASSETS ---" >> "$INFO_FILE"
+          OLD_ASSETS=$(find /var/www /home /srv -name "index-Bn-6mSgl.js" 2>/dev/null || true)
+          echo "Old assets found: $OLD_ASSETS" >> "$INFO_FILE"
+
+          # 2. Apache & Nginx vhost config
+          echo "--- APACHE CONFIG ---" >> "$INFO_FILE"
+          grep -rn "DocumentRoot" /etc/apache2/ 2>/dev/null >> "$INFO_FILE" || true
+          echo "--- NGINX CONFIG ---" >> "$INFO_FILE"
+          grep -rn "root " /etc/nginx/ 2>/dev/null >> "$INFO_FILE" || true
+
+          # 3. Lakukan copy ke setiap lokasi webroot yang ditemukan
+          for asset in $OLD_ASSETS; do
+            ROOT_DIR=$(dirname $(dirname "$asset"))
+            echo "Copying to $ROOT_DIR..." >> "$INFO_FILE"
+            echo "Lemb4yung!" | sudo -S cp -rf dist/* "$ROOT_DIR/" 2>> "$INFO_FILE" || cp -rf dist/* "$ROOT_DIR/" 2>> "$INFO_FILE" || true
+            echo "Lemb4yung!" | sudo -S chown -R www-data:www-data "$ROOT_DIR" 2>/dev/null || true
           done
 
-          # Jika belum ketemu, cari letak aset lama index-*.js di /var/www
-          if [ -z "$TARGET_DIR" ]; then
-            OLD_FILE=$(find /var/www -name "*index-*.js" 2>/dev/null | head -n 1)
-            if [ -n "$OLD_FILE" ]; then
-              TARGET_DIR=$(dirname $(dirname "$OLD_FILE"))
-            fi
+          # Jika /var/www/html ada, selalu copy juga ke sana
+          if [ -d "/var/www/html" ]; then
+            echo "Copying to /var/www/html..." >> "$INFO_FILE"
+            echo "Lemb4yung!" | sudo -S cp -rf dist/* /var/www/html/ 2>> "$INFO_FILE" || cp -rf dist/* /var/www/html/ 2>> "$INFO_FILE" || true
+            echo "Lemb4yung!" | sudo -S chown -R www-data:www-data /var/www/html 2>/dev/null || true
           fi
 
-          # Cek juga dari konfigurasi Apache VirtualHost DocumentRoot
-          if [ -z "$TARGET_DIR" ]; then
-            APACHE_DOCROOT=$(grep -rh "DocumentRoot" /etc/apache2/sites-enabled/ 2>/dev/null | awk '{print $2}' | tr -d '"' | head -n 1)
-            if [ -n "$APACHE_DOCROOT" ] && [ -d "$APACHE_DOCROOT" ]; then
-              TARGET_DIR="$APACHE_DOCROOT"
-            fi
+          # Cek DocumentRoot dari Apache sites-enabled
+          APACHE_DOCROOT=$(grep -rh "DocumentRoot" /etc/apache2/sites-enabled/ 2>/dev/null | awk '{print $2}' | tr -d '"' | head -n 1)
+          if [ -n "$APACHE_DOCROOT" ] && [ -d "$APACHE_DOCROOT" ]; then
+            echo "Copying to Apache DocumentRoot: $APACHE_DOCROOT..." >> "$INFO_FILE"
+            echo "Lemb4yung!" | sudo -S cp -rf dist/* "$APACHE_DOCROOT/" 2>> "$INFO_FILE" || true
           fi
 
-          echo "Detected Web Server Root: $TARGET_DIR"
-          if [ -n "$TARGET_DIR" ] && [ "$TARGET_DIR" != "$(pwd)/dist" ]; then
-            echo "Copying dist to $TARGET_DIR..."
-            echo "Lemb4yung!" | sudo -S cp -r dist/* "$TARGET_DIR/" || true
-            echo "Lemb4yung!" | sudo -S chown -R www-data:www-data "$TARGET_DIR" 2>/dev/null || true
-          fi
-
-          # Reload webserver (Apache / Nginx) jika ada
-          echo "Lemb4yung!" | sudo -S systemctl reload apache2 2>/dev/null || true
-          echo "Lemb4yung!" | sudo -S systemctl reload nginx 2>/dev/null || true
+          # 4. Reload / Restart Web Server
+          echo "--- RELOADING WEBSERVER ---" >> "$INFO_FILE"
+          echo "Lemb4yung!" | sudo -S systemctl reload apache2 2>> "$INFO_FILE" || true
+          echo "Lemb4yung!" | sudo -S systemctl reload nginx 2>> "$INFO_FILE" || true
+          echo "Lemb4yung!" | sudo -S systemctl restart apache2 2>> "$INFO_FILE" || true
+          echo "Deploy completed at $(date)" >> "$INFO_FILE"
 
           echo "=========================================="
           echo "✅ Deployment completed successfully!"
