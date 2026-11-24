@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Download, Loader2, FileBarChart, Info } from "lucide-react";
+import { Download, Loader2, FileBarChart, Info, CheckCircle2, Clock, FileSpreadsheet } from "lucide-react";
 
 import DashboardLayout from "../../layouts/DashboardLayout";
 import {
@@ -9,6 +9,8 @@ import {
   getExportRows,
 } from "../../services/reports.service";
 import type { CaseStatus, CaseSource } from "../../types/api";
+import { exportRekapKasusExcel } from "../../utils/reportExcel";
+import { useToast } from "../../context/ToastContext";
 
 // Label untuk halaman Laporan sengaja dibuat berbeda dari CASE_STATUS_LABEL di
 // types/api.ts (yang masih pakai kode "S01"-"S10" untuk kebutuhan teknis di
@@ -38,6 +40,8 @@ const SUMBER_LABEL: Record<CaseSource, string> = {
 export default function ReportsPage() {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
+  const [isExportingExcel, setIsExportingExcel] = useState(false);
+  const toast = useToast();
 
   const { data: rekap, isLoading: loadingRekap } = useQuery({
     queryKey: ["reports-rekap", from, to],
@@ -49,13 +53,37 @@ export default function ReportsPage() {
     queryFn: getStatistikSekolah,
   });
 
-  const handleExport = async () => {
+  const handleExportExcel = async () => {
+    try {
+      setIsExportingExcel(true);
+      const rows = await getExportRows({
+        from: from || undefined,
+        to: to || undefined,
+      });
+      const data = Array.isArray(rows) ? rows : ((rows as any)?.data ?? []);
+      if (!data.length) {
+        toast.warning("Tidak ada data kasus pada periode yang dipilih untuk diekspor");
+        return;
+      }
+      exportRekapKasusExcel({ data, from, to });
+      toast.success("File Laporan Rekap Excel (.xlsx) berhasil diunduh!", "Unduh Berhasil");
+    } catch (err) {
+      toast.error("Gagal mengunduh laporan rekap Excel.", "Gagal");
+    } finally {
+      setIsExportingExcel(false);
+    }
+  };
+
+  const handleExportCsv = async () => {
     const rows = await getExportRows({
       from: from || undefined,
       to: to || undefined,
     });
     const data = Array.isArray(rows) ? rows : ((rows as any)?.data ?? []);
-    if (!data.length) return;
+    if (!data.length) {
+      toast.warning("Tidak ada data kasus pada periode yang dipilih.");
+      return;
+    }
     const headers = Object.keys(data[0]);
     const csv = [
       headers.join(","),
@@ -70,6 +98,7 @@ export default function ReportsPage() {
     a.download = `laporan-ews-aps-${new Date().toISOString().slice(0, 10)}.csv`;
     a.click();
     URL.revokeObjectURL(url);
+    toast.success("File CSV berhasil diunduh!");
   };
 
   // Jumlah kasus per status/sumber, dicocokkan ke tabel label di atas — status
@@ -80,6 +109,13 @@ export default function ReportsPage() {
   const jumlahPerSumber = (source: CaseSource) =>
     rekap?.bySource.find((s) => s.source === source)?._count ?? 0;
   const totalKasus = rekap?.total ?? 0;
+
+  const jumlahSelesai =
+    jumlahPerStatus("SELESAI_PENCEGAHAN") + jumlahPerStatus("CLOSED_CASE");
+  const jumlahBelumSelesai = totalKasus - jumlahSelesai;
+  const persenSelesai = totalKasus > 0 ? Math.round((jumlahSelesai / totalKasus) * 100) : 0;
+  const persenBelumSelesai = totalKasus > 0 ? Math.round((jumlahBelumSelesai / totalKasus) * 100) : 0;
+
   const statusTerbanyak = [...STATUS_URUTAN]
     .map((s) => ({ ...s, jumlah: jumlahPerStatus(s.status) }))
     .sort((a, b) => b.jumlah - a.jumlah)[0];
@@ -117,10 +153,25 @@ export default function ReportsPage() {
               />
 
               <button
-                onClick={handleExport}
-                className="flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700"
+                onClick={handleExportExcel}
+                disabled={isExportingExcel}
+                className="flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:opacity-50 shadow-sm"
+                title="Unduh Rekap Laporan Kasus Format Excel (.xlsx) Lengkap"
               >
-                <Download size={16} />
+                {isExportingExcel ? (
+                  <Loader2 size={16} className="animate-spin" />
+                ) : (
+                  <FileSpreadsheet size={16} />
+                )}
+                <span>Unduh Rekap Excel (.xlsx)</span>
+              </button>
+
+              <button
+                onClick={handleExportCsv}
+                className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+                title="Ekspor CSV Data Mentah"
+              >
+                <Download size={15} />
                 Ekspor CSV
               </button>
             </div>
@@ -155,6 +206,52 @@ export default function ReportsPage() {
                       </>
                     )}
                   </p>
+                </div>
+
+                {/* Status Penyelesaian Kasus: Selesai vs Belum Selesai */}
+                <div>
+                  <h4 className="text-sm font-semibold text-slate-700 mb-3">
+                    Status Penyelesaian Kasus
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="rounded-2xl border border-emerald-100 bg-gradient-to-br from-emerald-50/80 to-white p-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-semibold text-emerald-700 uppercase tracking-wider flex items-center gap-1.5">
+                          <CheckCircle2 size={15} className="text-emerald-600" />
+                          Kasus Sudah Terselesaikan
+                        </span>
+                        <span className="rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-bold text-emerald-800">
+                          {persenSelesai}%
+                        </span>
+                      </div>
+                      <div className="mt-2 flex items-baseline gap-2">
+                        <span className="text-3xl font-extrabold text-emerald-900">{jumlahSelesai}</span>
+                        <span className="text-xs text-emerald-600 font-medium">kasus selesai</span>
+                      </div>
+                      <p className="mt-1 text-xs text-slate-500">
+                        Anak berhasil dicegah DO / kembali bersekolah (Selesai Pencegahan & Kasus Ditutup).
+                      </p>
+                    </div>
+
+                    <div className="rounded-2xl border border-amber-100 bg-gradient-to-br from-amber-50/80 to-white p-4">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-semibold text-amber-700 uppercase tracking-wider flex items-center gap-1.5">
+                          <Clock size={15} className="text-amber-600" />
+                          Kasus Belum Selesai (Sedang Ditangani)
+                        </span>
+                        <span className="rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-bold text-amber-800">
+                          {persenBelumSelesai}%
+                        </span>
+                      </div>
+                      <div className="mt-2 flex items-baseline gap-2">
+                        <span className="text-3xl font-extrabold text-amber-900">{jumlahBelumSelesai}</span>
+                        <span className="text-xs text-amber-600 font-medium">kasus aktif</span>
+                      </div>
+                      <p className="mt-1 text-xs text-slate-500">
+                        Masih dalam tahapan verifikasi, home visit, rujukan OPD, atau pemantauan berkala.
+                      </p>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Berdasarkan sumber laporan */}

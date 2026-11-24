@@ -54,7 +54,20 @@ export class ReportsService {
     }
     return this.prisma.case.findMany({
       where,
-      include: { student: { include: { school: true } }, referrals: { include: { opd: true } } },
+      include: {
+        student: { include: { school: true } },
+        report: true,
+        homeVisits: { orderBy: { visitNumber: 'asc' } },
+        referrals: {
+          include: {
+            opd: true,
+            riskFactor: true,
+            interventions: { include: { interventionType: true } },
+            reviews: true,
+          },
+        },
+        monitorings: { orderBy: { createdAt: 'desc' } },
+      },
       orderBy: { createdAt: 'desc' },
     });
   }

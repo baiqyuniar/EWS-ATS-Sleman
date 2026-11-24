@@ -12,11 +12,13 @@ import {
   RotateCcw,
   ShieldCheck,
   Users2,
+  FileText,
 } from "lucide-react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import CaseTimeline from "../../components/cases/CaseTimeline";
+import CasePdfReportModal from "../../components/cases/CasePdfReportModal";
 import FileUploadField from "../../components/cases/FileUploadField";
 import {
   InterventionCreatePanel,
@@ -77,6 +79,7 @@ export default function CaseDetailPage() {
     queryFn: () => getCaseTimeline(caseId),
     enabled: !!caseId,
   });
+  const [showPdfReport, setShowPdfReport] = useState(false);
 
   const invalidate = () => {
     qc.invalidateQueries({ queryKey: ["case", caseId] });
@@ -100,12 +103,20 @@ export default function CaseDetailPage() {
   return (
     <DashboardLayout>
       <div className="max-w-4xl mx-auto space-y-6">
-        <button
-          onClick={() => navigate("/cases")}
-          className="flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-slate-700"
-        >
-          <ArrowLeft size={16} /> Kembali ke Daftar Kasus
-        </button>
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <button
+            onClick={() => navigate("/cases")}
+            className="flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-slate-700"
+          >
+            <ArrowLeft size={16} /> Kembali ke Daftar Kasus
+          </button>
+          <button
+            onClick={() => setShowPdfReport(true)}
+            className="inline-flex items-center gap-2 text-sm font-semibold text-rose-700 bg-rose-50 border border-rose-200 hover:bg-rose-100 hover:border-rose-300 px-4 py-2.5 rounded-2xl shadow-sm transition"
+          >
+            <FileText size={16} /> Unduh / Cetak Laporan Kasus (PDF)
+          </button>
+        </div>
 
         {/* HEADER */}
         <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6">
@@ -322,6 +333,13 @@ export default function CaseDetailPage() {
           <CaseTimeline entries={timeline ?? []} />
         </Section>
       </div>
+
+      {showPdfReport && (
+        <CasePdfReportModal
+          kase={kase}
+          onClose={() => setShowPdfReport(false)}
+        />
+      )}
     </DashboardLayout>
   );
 }
