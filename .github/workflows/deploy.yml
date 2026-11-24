@@ -10,6 +10,8 @@ jobs:
   deploy:
     name: Deploy to Production
     runs-on: self-hosted
+    permissions:
+      contents: read
 
     steps:
       - name: Update & Build EWS-ATS Sleman
@@ -27,6 +29,9 @@ jobs:
           cd ~/apps/EWS-ATS
 
           echo "📥 1. Pulling latest code from GitHub..."
+          # Pastikan safe directory dan gunakan token GitHub Actions (bebas kendala SSH key)
+          git config --global --add safe.directory /home/disdik/apps/EWS-ATS || true
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/baiqyuniar/EWS-ATS-Sleman.git
           git pull origin main
 
           echo "⚙️ 2. Building Backend (ews-backend)..."
