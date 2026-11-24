@@ -36,6 +36,7 @@ import Modal from "../../components/ui/Modal";
 import { useAuth } from "../../hooks/useAuth";
 import DashboardLayout from "../../layouts/DashboardLayout";
 import { apiErrorMessage } from "../../lib/api";
+import { useToast } from "../../context/ToastContext";
 import {
   getCase,
   getCaseTimeline,
@@ -367,13 +368,20 @@ function VerifikasiNikPanel({
   onDone: () => void;
 }) {
   const [catatan, setCatatan] = useState("");
+  const toast = useToast();
   const mutation = useMutation({
     mutationFn: () =>
       verifikasiNik(caseId, {
         nikVerified: true,
         catatan: catatan || undefined,
       }),
-    onSuccess: onDone,
+    onSuccess: () => {
+      onDone();
+      toast.success("Verifikasi NIK berhasil dikonfirmasi!", "Sukses");
+    },
+    onError: (err) => {
+      toast.error(apiErrorMessage(err, "Gagal memverifikasi NIK"), "Gagal");
+    },
   });
   return (
     <Section icon={ShieldCheck} title="Verifikasi NIK ke Pusdatin">
@@ -413,6 +421,7 @@ function VerifikasiPengaduanPanel({
 }) {
   const [koordinasiSekolah, setKoordinasiSekolah] = useState("");
   const [catatan, setCatatan] = useState("");
+  const toast = useToast();
   const mutation = useMutation({
     mutationFn: () =>
       verifikasiPengaduan(caseId, {
@@ -420,7 +429,13 @@ function VerifikasiPengaduanPanel({
         koordinasiSekolah: koordinasiSekolah || undefined,
         catatan: catatan || undefined,
       }),
-    onSuccess: onDone,
+    onSuccess: () => {
+      onDone();
+      toast.success("Verifikasi pengaduan berhasil dicatat!", "Sukses");
+    },
+    onError: (err) => {
+      toast.error(apiErrorMessage(err, "Gagal memverifikasi pengaduan"), "Gagal");
+    },
   });
   return (
     <Section icon={ShieldCheck} title="Verifikasi Awal oleh Kapanewon">
@@ -471,6 +486,7 @@ function HomeVisitPanel({
   const [hasil, setHasil] = useState<HomeVisitResult>("BELUM_SELESAI");
   const [catatan, setCatatan] = useState("");
   const [fotoUrls, setFotoUrls] = useState<string[]>([]);
+  const toast = useToast();
 
   const mutation = useMutation({
     mutationFn: () =>
@@ -485,6 +501,10 @@ function HomeVisitPanel({
       setOpen(false);
       setCatatan("");
       setFotoUrls([]);
+      toast.success("Hasil kunjungan rumah berhasil disimpan!", "Sukses");
+    },
+    onError: (err) => {
+      toast.error(apiErrorMessage(err, "Gagal menyimpan kunjungan rumah"), "Gagal");
     },
   });
 
@@ -706,6 +726,7 @@ function ReferralPanel({
   const [riskFactorId, setRiskFactorId] = useState<number | "">("");
   const [tingkatRisiko, setTingkatRisiko] = useState<RiskCategory>("SEDANG");
   const [catatan, setCatatan] = useState("");
+  const toast = useToast();
 
   const toggleOpd = (id: number) => {
     setOpdIds((prev) =>
@@ -721,7 +742,13 @@ function ReferralPanel({
         tingkatRisiko,
         catatan: catatan || undefined,
       }),
-    onSuccess: onDone,
+    onSuccess: () => {
+      onDone();
+      toast.success("Rujukan kasus ke OPD berhasil dibuat!", "Sukses");
+    },
+    onError: (err) => {
+      toast.error(apiErrorMessage(err, "Gagal membuat rujukan"), "Gagal");
+    },
   });
 
   return (
@@ -833,11 +860,16 @@ function MonitoringPanel({
   onDone: () => void;
 }) {
   const [catatan, setCatatan] = useState("");
+  const toast = useToast();
   const noteMutation = useMutation({
     mutationFn: () => createMonitoring(caseId, { catatan }),
     onSuccess: () => {
       onDone();
       setCatatan("");
+      toast.success("Catatan monitoring berhasil ditambahkan!", "Sukses");
+    },
+    onError: (err) => {
+      toast.error(apiErrorMessage(err, "Gagal menambahkan monitoring"), "Gagal");
     },
   });
   const [closeOpen, setCloseOpen] = useState(false);
@@ -847,6 +879,10 @@ function MonitoringPanel({
     onSuccess: () => {
       onDone();
       setCloseOpen(false);
+      toast.success("Kasus berhasil ditutup!", "Sukses");
+    },
+    onError: (err) => {
+      toast.error(apiErrorMessage(err, "Gagal menutup kasus"), "Gagal");
     },
   });
 
@@ -923,11 +959,16 @@ function ReopenButton({
 }) {
   const [open, setOpen] = useState(false);
   const [alasan, setAlasan] = useState("");
+  const toast = useToast();
   const mutation = useMutation({
     mutationFn: () => reopenCase(caseId, { alasan }),
     onSuccess: () => {
       onDone();
       setOpen(false);
+      toast.success("Kasus berhasil dibuka kembali!", "Sukses");
+    },
+    onError: (err) => {
+      toast.error(apiErrorMessage(err, "Gagal membuka kembali kasus"), "Gagal");
     },
   });
   return (

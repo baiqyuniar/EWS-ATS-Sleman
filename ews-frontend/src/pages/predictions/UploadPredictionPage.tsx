@@ -9,6 +9,7 @@ import type { BulkPredictionResponse, BulkPredictionRow, RiskCategory } from "..
 import { ErrorAlert } from "../../components/ui/Alert";
 import { apiErrorMessage } from "../../lib/api";
 import { RiskBadge } from "../../components/ui/Badge";
+import { useToast } from "../../context/ToastContext";
 
 const TEMPLATE_COLUMNS = [
   "nisn",
@@ -45,6 +46,7 @@ function parseExcelRows(data: ArrayBuffer): BulkPredictionRow[] {
 }
 
 export default function UploadPredictionPage() {
+  const toast = useToast();
   const fileRef = useRef<HTMLInputElement>(null);
   const [fileName, setFileName] = useState("");
   const [rows, setRows] = useState<BulkPredictionRow[]>([]);
@@ -53,6 +55,15 @@ export default function UploadPredictionPage() {
 
   const mutation = useMutation<BulkPredictionResponse, unknown, void>({
     mutationFn: () => bulkUploadPredictions(datasetBatch, rows),
+    onSuccess: (data) => {
+      toast.success(
+        `Prediksi selesai! ${data.success} berhasil, ${data.failed} gagal.`,
+        "Prediksi Batch Selesai"
+      );
+    },
+    onError: (err) => {
+      toast.error(apiErrorMessage(err, "Gagal memproses prediksi"), "Gagal");
+    },
   });
 
   const handleFile = async (file: File) => {

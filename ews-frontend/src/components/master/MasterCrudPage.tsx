@@ -16,6 +16,7 @@ import Pagination from "../ui/Pagination";
 import EmptyState from "../ui/EmptyState";
 import { ErrorAlert } from "../ui/Alert";
 import { apiErrorMessage } from "../../lib/api";
+import { useToast } from "../../context/ToastContext";
 import type { Paginated } from "../../types/api";
 
 export interface FieldConfig {
@@ -74,6 +75,7 @@ export default function MasterCrudPage<T extends { id: number }>({
   readOnly = false,
 }: Props<T>) {
   const qc = useQueryClient();
+  const toast = useToast();
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
@@ -81,6 +83,7 @@ export default function MasterCrudPage<T extends { id: number }>({
   const [form, setForm] = useState<Record<string, any>>({});
   const [formError, setFormError] = useState("");
   const [deleteTarget, setDeleteTarget] = useState<T | null>(null);
+  const [deleteError, setDeleteError] = useState("");
 
   const { data, isLoading, isError } = useQuery({
     queryKey: [queryKey, page, search],
@@ -140,8 +143,16 @@ export default function MasterCrudPage<T extends { id: number }>({
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: [queryKey] });
       setModalOpen(false);
+      toast.success(
+        editing ? "Data berhasil diperbarui!" : "Data baru berhasil ditambahkan!",
+        "Sukses"
+      );
     },
-    onError: (err) => setFormError(apiErrorMessage(err, "Gagal menyimpan data")),
+    onError: (err) => {
+      const msg = apiErrorMessage(err, "Gagal menyimpan data");
+      setFormError(msg);
+      toast.error(msg, "Gagal Menyimpan");
+    },
   });
 
   const deleteMutation = useMutation({
@@ -149,6 +160,13 @@ export default function MasterCrudPage<T extends { id: number }>({
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: [queryKey] });
       setDeleteTarget(null);
+      setDeleteError("");
+      toast.success("Data berhasil dihapus!", "Sukses");
+    },
+    onError: (err) => {
+      const msg = apiErrorMessage(err, "Gagal menghapus data");
+      setDeleteError(msg);
+      toast.error(msg, "Gagal Menghapus");
     },
   });
 
@@ -382,10 +400,18 @@ export default function MasterCrudPage<T extends { id: number }>({
 
       <Modal
         open={!!deleteTarget}
-        onClose={() => setDeleteTarget(null)}
+        onClose={() => {
+          setDeleteTarget(null);
+          setDeleteError("");
+        }}
         title="Hapus Data"
         maxWidth="max-w-sm"
       >
+        {deleteError && (
+          <div className="mb-4">
+            <ErrorAlert message={deleteError} />
+          </div>
+        )}
         <p className="text-sm text-slate-600 mb-6">
           Yakin ingin menghapus{" "}
           <span className="font-semibold">
@@ -395,7 +421,10 @@ export default function MasterCrudPage<T extends { id: number }>({
         </p>
         <div className="flex gap-3">
           <button
-            onClick={() => setDeleteTarget(null)}
+            onClick={() => {
+              setDeleteTarget(null);
+              setDeleteError("");
+            }}
             className="flex-1 py-2.5 rounded-2xl border border-slate-200 font-medium text-slate-600"
           >
             Batal

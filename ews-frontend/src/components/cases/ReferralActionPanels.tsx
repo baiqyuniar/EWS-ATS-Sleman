@@ -7,15 +7,23 @@ import { createIntervention, updateInterventionResult, submitCompletion } from "
 import { createReview } from "../../services/review.service";
 import { verifyReferral } from "../../services/referral.service";
 import { apiErrorMessage } from "../../lib/api";
+import { useToast } from "../../context/ToastContext";
 import { ErrorAlert } from "../ui/Alert";
 import FileUploadField from "./FileUploadField";
 
 // OPD memverifikasi/menerima rujukan (MENUNGGU -> DITERIMA) sebelum memulai intervensi.
 // Berlaku untuk rujukan Case maupun rujukan DO-Student.
 export function VerifyReferralButton({ referralId, onDone }: { referralId: number; onDone: () => void }) {
+  const toast = useToast();
   const mutation = useMutation({
     mutationFn: () => verifyReferral(referralId),
-    onSuccess: onDone,
+    onSuccess: () => {
+      onDone();
+      toast.success("Rujukan berhasil diterima OPD!", "Sukses");
+    },
+    onError: (err) => {
+      toast.error(apiErrorMessage(err, "Gagal memverifikasi rujukan"), "Gagal");
+    },
   });
   return (
     <div className="mt-4 space-y-2">
@@ -32,6 +40,7 @@ export function VerifyReferralButton({ referralId, onDone }: { referralId: numbe
 }
 
 export function InterventionCreatePanel({ referralId, onDone }: { referralId: number; onDone: () => void }) {
+  const toast = useToast();
   const { data: typeData } = useQuery({
     queryKey: ["intervention-type-options"],
     queryFn: () => interventionTypesApi.list({ limit: 100 }),
@@ -48,6 +57,10 @@ export function InterventionCreatePanel({ referralId, onDone }: { referralId: nu
       setOpen(false);
       setDeskripsi("");
       setInterventionTypeId("");
+      toast.success("Intervensi berhasil ditambahkan!", "Sukses");
+    },
+    onError: (err) => {
+      toast.error(apiErrorMessage(err, "Gagal menambahkan intervensi"), "Gagal");
     },
   });
 
@@ -104,12 +117,17 @@ export function InterventionResultForm({ interventionId, onDone }: { interventio
   const [open, setOpen] = useState(false);
   const [hasil, setHasil] = useState("");
   const [lampiranUrls, setLampiranUrls] = useState<string[]>([]);
+  const toast = useToast();
 
   const mutation = useMutation({
     mutationFn: () => updateInterventionResult(interventionId, { hasil, lampiranUrls }),
     onSuccess: () => {
       onDone();
       setOpen(false);
+      toast.success("Hasil intervensi berhasil disimpan!", "Sukses");
+    },
+    onError: (err) => {
+      toast.error(apiErrorMessage(err, "Gagal menyimpan hasil intervensi"), "Gagal");
     },
   });
 
@@ -148,9 +166,16 @@ export function InterventionResultForm({ interventionId, onDone }: { interventio
 
 export function SubmitCompletionButton({ referralId, onDone }: { referralId: number; onDone: () => void }) {
   const [catatan, setCatatan] = useState("");
+  const toast = useToast();
   const mutation = useMutation({
     mutationFn: () => submitCompletion(referralId, { catatan: catatan || undefined }),
-    onSuccess: onDone,
+    onSuccess: () => {
+      onDone();
+      toast.success("Pengajuan selesai intervensi berhasil dikirim!", "Sukses");
+    },
+    onError: (err) => {
+      toast.error(apiErrorMessage(err, "Gagal mengajukan penyelesaian"), "Gagal");
+    },
   });
   return (
     <div className="mt-5 pt-4 border-t border-slate-100 space-y-2">
@@ -175,10 +200,21 @@ export function SubmitCompletionButton({ referralId, onDone }: { referralId: num
 
 export function ReviewPanel({ referralId, onDone }: { referralId: number; onDone: () => void }) {
   const [catatan, setCatatan] = useState("");
+  const toast = useToast();
   const mutation = useMutation({
     mutationFn: (decision: "APPROVE" | "PERLU_PERBAIKAN") =>
       createReview(referralId, { decision, catatan: catatan || undefined }),
-    onSuccess: onDone,
+    onSuccess: (_, decision) => {
+      onDone();
+      if (decision === "APPROVE") {
+        toast.success("Rujukan berhasil disetujui (Approved)!", "Sukses");
+      } else {
+        toast.warning("Rujukan dikembalikan untuk perbaikan.", "Perlu Perbaikan");
+      }
+    },
+    onError: (err) => {
+      toast.error(apiErrorMessage(err, "Gagal melakukan review"), "Gagal");
+    },
   });
   return (
     <div className="mt-5 pt-4 border-t border-slate-100 space-y-3">

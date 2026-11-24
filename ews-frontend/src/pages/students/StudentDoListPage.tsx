@@ -9,6 +9,7 @@ import EmptyState from "../../components/ui/EmptyState";
 import { ErrorAlert } from "../../components/ui/Alert";
 import { AssignmentStatusBadge, RiskBadge } from "../../components/ui/Badge";
 import { apiErrorMessage } from "../../lib/api";
+import { useToast } from "../../context/ToastContext";
 import { getStudents } from "../../services/students.service";
 import { createDoStudentReferral } from "../../services/referral.service";
 import { opdApi, riskFactorsApi } from "../../services/master.service";
@@ -17,6 +18,7 @@ import { RISK_LABEL } from "../../types/api";
 
 export default function StudentDoListPage() {
   const qc = useQueryClient();
+  const toast = useToast();
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
   const [target, setTarget] = useState<Student | null>(null);
@@ -70,9 +72,13 @@ export default function StudentDoListPage() {
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["students-do"] });
       setTarget(null);
+      toast.success("Rujukan siswa DO berhasil dikirim!", "Sukses");
     },
-    onError: (err) =>
-      setFormError(apiErrorMessage(err, "Gagal membuat rujukan")),
+    onError: (err) => {
+      const msg = apiErrorMessage(err, "Gagal membuat rujukan");
+      setFormError(msg);
+      toast.error(msg, "Gagal");
+    },
   });
 
   const rows = data?.data ?? [];

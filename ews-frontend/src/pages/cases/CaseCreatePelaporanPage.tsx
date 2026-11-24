@@ -10,9 +10,11 @@ import { createPelaporanSekolah } from "../../services/cases.service";
 import type { Student, ActiveCaseConflict } from "../../types/api";
 import { ErrorAlert } from "../../components/ui/Alert";
 import { apiErrorMessage } from "../../lib/api";
+import { useToast } from "../../context/ToastContext";
 
 export default function CaseCreatePelaporanPage() {
   const navigate = useNavigate();
+  const toast = useToast();
   const [params] = useSearchParams();
   const predictionId = params.get("predictionId");
 
@@ -30,10 +32,15 @@ export default function CaseCreatePelaporanPage() {
         isiLaporan: isiLaporan || undefined,
         forceNewCase,
       }),
-    onSuccess: (created) => navigate(`/cases/${created.id}`),
+    onSuccess: (created) => {
+      toast.success("Laporan kasus oleh sekolah berhasil dibuat!", "Sukses");
+      navigate(`/cases/${created.id}`);
+    },
     onError: (err: any) => {
       if (err?.response?.status === 409) {
         setConflict(err.response.data);
+      } else {
+        toast.error(apiErrorMessage(err, "Gagal membuat laporan kasus"), "Gagal");
       }
     },
   });

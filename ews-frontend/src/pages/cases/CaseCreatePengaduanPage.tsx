@@ -10,9 +10,11 @@ import { createPengaduanMasyarakat } from "../../services/cases.service";
 import type { Student, ActiveCaseConflict } from "../../types/api";
 import { ErrorAlert } from "../../components/ui/Alert";
 import { apiErrorMessage } from "../../lib/api";
+import { useToast } from "../../context/ToastContext";
 
 export default function CaseCreatePengaduanPage() {
   const navigate = useNavigate();
+  const toast = useToast();
 
   const [student, setStudent] = useState<Student | null>(null);
   const [namaPelapor, setNamaPelapor] = useState("");
@@ -33,10 +35,15 @@ export default function CaseCreatePengaduanPage() {
         isiLaporan: isiLaporan || undefined,
         forceNewCase,
       }),
-    onSuccess: (created) => navigate(`/cases/${created.id}`),
+    onSuccess: (created) => {
+      toast.success("Laporan pengaduan masyarakat berhasil dibuat!", "Sukses");
+      navigate(`/cases/${created.id}`);
+    },
     onError: (err: any) => {
       if (err?.response?.status === 409) {
         setConflict(err.response.data);
+      } else {
+        toast.error(apiErrorMessage(err, "Gagal membuat pengaduan"), "Gagal");
       }
     },
   });
