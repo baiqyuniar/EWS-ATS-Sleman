@@ -189,7 +189,9 @@ export class StudentsService {
     // Cegah user SEKOLAH memindahkan siswa keluar dari sekolahnya sendiri via update.
     if (user.role === "SEKOLAH") delete (data as any).schoolId;
 
-    if (data.nisn && data.nisn !== existingStudent.nisn) {
+    if (!data.nisn) {
+      delete (data as any).nisn;
+    } else if (data.nisn !== existingStudent.nisn) {
       const conflict = await this.prisma.student.findFirst({
         where: { nisn: data.nisn, id: { not: id } },
       });

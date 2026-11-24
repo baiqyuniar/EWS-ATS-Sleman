@@ -260,7 +260,7 @@ export default function StudentListPage() {
           },
         ]}
         fields={[
-        { name: "nisn", label: "NISN", required: true, maxLength: 10, numericOnly: true, helpText: "NISN harus 10 digit angka" },
+        { name: "nisn", label: "NISN", required: true },
         { name: "nik", label: "NIK", required: true, maxLength: 16, numericOnly: true, helpText: "NIK harus 16 digit angka" },
         { name: "nama", label: "Nama Lengkap", required: true },
         { name: "tempatLahir", label: "Tempat Lahir" },

@@ -64,8 +64,8 @@ class MasteringDataFields {
 }
 
 export class CreateStudentDto extends MasteringDataFields {
-  @IsNotEmpty() @Matches(NISN_REGEX, { message: NISN_MESSAGE }) nisn: string;
-  @IsNotEmpty() @Matches(NIK_REGEX, { message: NIK_MESSAGE }) nik: string;
+  @IsNotEmpty() @IsString() nisn: string;
+  @IsNotEmpty() @IsString() nik: string;
   @IsNotEmpty() nama: string;
   @IsOptional() @IsDateString() tanggalLahir?: string;
   @IsOptional() jenisKelamin?: string; // 'L' | 'P'
@@ -88,8 +88,8 @@ export class CreateStudentDto extends MasteringDataFields {
 }
 
 export class UpdateStudentDto extends MasteringDataFields {
-  @IsOptional() @Matches(NISN_REGEX, { message: NISN_MESSAGE }) nisn?: string;
-  @IsOptional() @Matches(NIK_REGEX, { message: NIK_MESSAGE }) nik?: string;
+  @IsOptional() @IsString() nisn?: string;
+  @IsOptional() @IsString() nik?: string;
   @IsOptional() nama?: string;
   @IsOptional() @IsDateString() tanggalLahir?: string;
   @IsOptional() jenisKelamin?: string;
