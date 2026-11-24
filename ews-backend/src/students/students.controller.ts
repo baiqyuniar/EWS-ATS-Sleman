@@ -43,7 +43,7 @@ export class StudentsController {
     return this.service.update(id, dto, user);
   }
 
-  @Roles(UserRole.ADMIN)
+  @Roles(UserRole.ADMIN, UserRole.SEKOLAH)
   @Delete(':id')
   remove(@Param('id', ParseIntPipe) id: number, @CurrentUser() user: CurrentUserPayload) {
     return this.service.remove(id, user);

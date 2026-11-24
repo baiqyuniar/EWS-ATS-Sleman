@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   ConflictException,
   Injectable,
   NotFoundException,
@@ -235,9 +236,39 @@ export class StudentsService {
 
   async remove(id: number, user: CurrentUserPayload) {
     await this.findOne(id, user);
-    return this.prisma.student.update({
-      where: { id },
-      data: { status: "PINDAH" },
+
+    const caseCount = await this.prisma.case.count({
+      where: { studentId: id },
+    });
+    if (caseCount > 0) {
+      throw new BadRequestException(
+        "Siswa tidak dapat dihapus karena memiliki riwayat penanganan kasus (Case). Anda dapat mengubah statusnya menjadi PINDAH atau LULUS.",
+      );
+    }
+
+    return this.prisma.$transaction(async (tx) => {
+      // Hapus referral langsung siswa jika ada (origin=DO_STUDENT)
+      await tx.referral.deleteMany({ where: { studentId: id } });
+
+      // Ambil & hapus prediction milik siswa beserta faktor risikonya
+      const predictions = await tx.prediction.findMany({
+        where: { studentId: id },
+        select: { id: true },
+      });
+      const predictionIds = predictions.map((p) => p.id);
+      if (predictionIds.length > 0) {
+        await tx.predictionRiskFactor.deleteMany({
+          where: { predictionId: { in: predictionIds } },
+        });
+        await tx.prediction.deleteMany({
+          where: { id: { in: predictionIds } },
+        });
+      }
+
+      // Hapus data siswa secara permanen
+      return tx.student.delete({
+        where: { id },
+      });
     });
   }
 }
