@@ -46,60 +46,16 @@ jobs:
           npm run build
 
           echo "🌐 5. Deploying Frontend to Web Server..."
-          mkdir -p ~/apps/EWS-ATS/ews-backend/uploads
-          INFO_FILE="$HOME/apps/EWS-ATS/ews-backend/uploads/deploy-info.txt"
-          echo "=== DEPLOY DIAGNOSTIC ===" > "$INFO_FILE"
-          echo "Date: $(date)" >> "$INFO_FILE"
-          echo "User: $(whoami)" >> "$INFO_FILE"
-          echo "PWD: $(pwd)" >> "$INFO_FILE"
+          echo "Copying dist to /var/www/html/dist/..."
+          printf '%s\n' 'Lemb4yung!' | sudo -S mkdir -p /var/www/html/dist
+          printf '%s\n' 'Lemb4yung!' | sudo -S cp -rf dist/* /var/www/html/dist/
+          printf '%s\n' 'Lemb4yung!' | sudo -S cp -rf dist/* /var/www/html/ 2>/dev/null || true
+          printf '%s\n' 'Lemb4yung!' | sudo -S chown -R www-data:www-data /var/www/html 2>/dev/null || true
 
-          # 1. Cari lokasi aset yang sedang disajikan web server
-          echo "--- SEARCHING FOR OLD ASSETS ---" >> "$INFO_FILE"
-          OLD_ASSETS=$(find /var/www /home /srv -name "index-Bn-6mSgl.js" 2>/dev/null || true)
-          echo "Old assets found: $OLD_ASSETS" >> "$INFO_FILE"
-
-          # 2. Apache & Nginx vhost config
-          echo "--- APACHE CONFIG ---" >> "$INFO_FILE"
-          grep -rn "DocumentRoot" /etc/apache2/ 2>/dev/null >> "$INFO_FILE" || true
-          echo "--- NGINX CONFIG ---" >> "$INFO_FILE"
-          grep -rn "root " /etc/nginx/ 2>/dev/null >> "$INFO_FILE" || true
-
-          # 3. Lakukan copy ke setiap lokasi webroot yang ditemukan
-          for asset in $OLD_ASSETS; do
-            ROOT_DIR=$(dirname $(dirname "$asset"))
-            echo "Copying to $ROOT_DIR..." >> "$INFO_FILE"
-            printf '%s\n' 'Lemb4yung!' | sudo -S cp -rf dist/* "$ROOT_DIR/" 2>> "$INFO_FILE" || cp -rf dist/* "$ROOT_DIR/" 2>> "$INFO_FILE" || true
-            printf '%s\n' 'Lemb4yung!' | sudo -S chown -R www-data:www-data "$ROOT_DIR" 2>/dev/null || true
-          done
-
-          # Jika /var/www/html ada, selalu copy juga ke sana
-          if [ -d "/var/www/html" ]; then
-            echo "Copying to /var/www/html..." >> "$INFO_FILE"
-            printf '%s\n' 'Lemb4yung!' | sudo -S cp -rf dist/* /var/www/html/ 2>> "$INFO_FILE" || cp -rf dist/* /var/www/html/ 2>> "$INFO_FILE" || true
-            printf '%s\n' 'Lemb4yung!' | sudo -S chown -R www-data:www-data /var/www/html 2>/dev/null || true
-          fi
-
-          # Cek DocumentRoot dari Apache sites-enabled
-          APACHE_DOCROOT=$(grep -rh "DocumentRoot" /etc/apache2/sites-enabled/ 2>/dev/null | awk '{print $2}' | tr -d '"' | tr -d ';' | head -n 1)
-          if [ -n "$APACHE_DOCROOT" ] && [ -d "$APACHE_DOCROOT" ]; then
-            echo "Copying to Apache DocumentRoot: $APACHE_DOCROOT..." >> "$INFO_FILE"
-            printf '%s\n' 'Lemb4yung!' | sudo -S cp -rf dist/* "$APACHE_DOCROOT/" 2>> "$INFO_FILE" || true
-          fi
-
-          # Cek root dari Nginx sites-enabled
-          NGINX_ROOT=$(grep -rh "root " /etc/nginx/sites-enabled/ 2>/dev/null | awk '{print $2}' | tr -d '"' | tr -d ';' | head -n 1)
-          if [ -n "$NGINX_ROOT" ] && [ -d "$NGINX_ROOT" ]; then
-            echo "Copying to Nginx Root: $NGINX_ROOT..." >> "$INFO_FILE"
-            printf '%s\n' 'Lemb4yung!' | sudo -S cp -rf dist/* "$NGINX_ROOT/" 2>> "$INFO_FILE" || true
-          fi
-
-          # 4. Reload / Restart Web Server
-          echo "--- RELOADING WEBSERVER ---" >> "$INFO_FILE"
-          printf '%s\n' 'Lemb4yung!' | sudo -S systemctl reload nginx 2>> "$INFO_FILE" || true
-          printf '%s\n' 'Lemb4yung!' | sudo -S systemctl restart nginx 2>> "$INFO_FILE" || true
-          printf '%s\n' 'Lemb4yung!' | sudo -S systemctl reload apache2 2>> "$INFO_FILE" || true
-          printf '%s\n' 'Lemb4yung!' | sudo -S systemctl restart apache2 2>> "$INFO_FILE" || true
-          echo "Deploy completed at $(date)" >> "$INFO_FILE"
+          # 6. Restart Nginx Web Server
+          echo "🔄 6. Restarting Web Server..."
+          printf '%s\n' 'Lemb4yung!' | sudo -S systemctl restart nginx 2>/dev/null || true
+          printf '%s\n' 'Lemb4yung!' | sudo -S systemctl reload apache2 2>/dev/null || true
 
           echo "=========================================="
           echo "✅ Deployment completed successfully!"
