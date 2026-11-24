@@ -1,0 +1,54 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Server via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          port: ${{ secrets.SERVER_PORT || 22 }}
+          script: |
+            set -e
+            echo "=========================================="
+            echo "🚀 Starting EWS-ATS Sleman Deployment"
+            echo "=========================================="
+
+            # Load NVM & Node environment jika server menggunakan NVM
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+            # Pastikan direktori ~/apps/EWS-ATS ada
+            cd ~/apps/EWS-ATS
+
+            echo "📥 1. Pulling latest code from GitHub..."
+            git pull origin main
+
+            echo "⚙️ 2. Building Backend (ews-backend)..."
+            cd ews-backend
+            npm install --prefer-offline --no-audit
+            npm run build
+
+            echo "🔄 3. Restarting Backend Service (PM2)..."
+            pm2 restart ews_be
+
+            echo "🎨 4. Building Frontend (ews-frontend)..."
+            cd ../ews-frontend
+            npm install --prefer-offline --no-audit
+            npm run build
+
+            echo "=========================================="
+            echo "✅ Deployment completed successfully!"
+            echo "=========================================="
