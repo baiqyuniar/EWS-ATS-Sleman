@@ -68,29 +68,37 @@ jobs:
           for asset in $OLD_ASSETS; do
             ROOT_DIR=$(dirname $(dirname "$asset"))
             echo "Copying to $ROOT_DIR..." >> "$INFO_FILE"
-            echo "Lemb4yung!" | sudo -S cp -rf dist/* "$ROOT_DIR/" 2>> "$INFO_FILE" || cp -rf dist/* "$ROOT_DIR/" 2>> "$INFO_FILE" || true
-            echo "Lemb4yung!" | sudo -S chown -R www-data:www-data "$ROOT_DIR" 2>/dev/null || true
+            printf '%s\n' 'Lemb4yung!' | sudo -S cp -rf dist/* "$ROOT_DIR/" 2>> "$INFO_FILE" || cp -rf dist/* "$ROOT_DIR/" 2>> "$INFO_FILE" || true
+            printf '%s\n' 'Lemb4yung!' | sudo -S chown -R www-data:www-data "$ROOT_DIR" 2>/dev/null || true
           done
 
           # Jika /var/www/html ada, selalu copy juga ke sana
           if [ -d "/var/www/html" ]; then
             echo "Copying to /var/www/html..." >> "$INFO_FILE"
-            echo "Lemb4yung!" | sudo -S cp -rf dist/* /var/www/html/ 2>> "$INFO_FILE" || cp -rf dist/* /var/www/html/ 2>> "$INFO_FILE" || true
-            echo "Lemb4yung!" | sudo -S chown -R www-data:www-data /var/www/html 2>/dev/null || true
+            printf '%s\n' 'Lemb4yung!' | sudo -S cp -rf dist/* /var/www/html/ 2>> "$INFO_FILE" || cp -rf dist/* /var/www/html/ 2>> "$INFO_FILE" || true
+            printf '%s\n' 'Lemb4yung!' | sudo -S chown -R www-data:www-data /var/www/html 2>/dev/null || true
           fi
 
           # Cek DocumentRoot dari Apache sites-enabled
-          APACHE_DOCROOT=$(grep -rh "DocumentRoot" /etc/apache2/sites-enabled/ 2>/dev/null | awk '{print $2}' | tr -d '"' | head -n 1)
+          APACHE_DOCROOT=$(grep -rh "DocumentRoot" /etc/apache2/sites-enabled/ 2>/dev/null | awk '{print $2}' | tr -d '"' | tr -d ';' | head -n 1)
           if [ -n "$APACHE_DOCROOT" ] && [ -d "$APACHE_DOCROOT" ]; then
             echo "Copying to Apache DocumentRoot: $APACHE_DOCROOT..." >> "$INFO_FILE"
-            echo "Lemb4yung!" | sudo -S cp -rf dist/* "$APACHE_DOCROOT/" 2>> "$INFO_FILE" || true
+            printf '%s\n' 'Lemb4yung!' | sudo -S cp -rf dist/* "$APACHE_DOCROOT/" 2>> "$INFO_FILE" || true
+          fi
+
+          # Cek root dari Nginx sites-enabled
+          NGINX_ROOT=$(grep -rh "root " /etc/nginx/sites-enabled/ 2>/dev/null | awk '{print $2}' | tr -d '"' | tr -d ';' | head -n 1)
+          if [ -n "$NGINX_ROOT" ] && [ -d "$NGINX_ROOT" ]; then
+            echo "Copying to Nginx Root: $NGINX_ROOT..." >> "$INFO_FILE"
+            printf '%s\n' 'Lemb4yung!' | sudo -S cp -rf dist/* "$NGINX_ROOT/" 2>> "$INFO_FILE" || true
           fi
 
           # 4. Reload / Restart Web Server
           echo "--- RELOADING WEBSERVER ---" >> "$INFO_FILE"
-          echo "Lemb4yung!" | sudo -S systemctl reload apache2 2>> "$INFO_FILE" || true
-          echo "Lemb4yung!" | sudo -S systemctl reload nginx 2>> "$INFO_FILE" || true
-          echo "Lemb4yung!" | sudo -S systemctl restart apache2 2>> "$INFO_FILE" || true
+          printf '%s\n' 'Lemb4yung!' | sudo -S systemctl reload nginx 2>> "$INFO_FILE" || true
+          printf '%s\n' 'Lemb4yung!' | sudo -S systemctl restart nginx 2>> "$INFO_FILE" || true
+          printf '%s\n' 'Lemb4yung!' | sudo -S systemctl reload apache2 2>> "$INFO_FILE" || true
+          printf '%s\n' 'Lemb4yung!' | sudo -S systemctl restart apache2 2>> "$INFO_FILE" || true
           echo "Deploy completed at $(date)" >> "$INFO_FILE"
 
           echo "=========================================="
