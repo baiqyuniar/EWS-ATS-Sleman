@@ -1,16 +1,25 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
-import { FolderKanban, Search, Loader2, ChevronRight, Megaphone, FileText } from "lucide-react";
+import {
+  FolderKanban,
+  Search,
+  Loader2,
+  ChevronRight,
+  Megaphone,
+  FileText,
+  FileSpreadsheet,
+} from "lucide-react";
 
 import DashboardLayout from "../../layouts/DashboardLayout";
 import { getCases } from "../../services/cases.service";
-import type { CaseStatus, CaseSource } from "../../types/api";
+import type { Case, CaseStatus, CaseSource } from "../../types/api";
 import { CASE_STATUS_LABEL, CASE_SOURCE_LABEL } from "../../types/api";
 import { CaseStatusBadge, CaseSourceBadge } from "../../components/ui/Badge";
 import Pagination from "../../components/ui/Pagination";
 import EmptyState from "../../components/ui/EmptyState";
 import { useAuth } from "../../hooks/useAuth";
+import CasePdfReportModal from "../../components/cases/CasePdfReportModal";
 
 export default function CaseListPage() {
   const { role } = useAuth();
@@ -19,6 +28,7 @@ export default function CaseListPage() {
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState<CaseStatus | "">("");
   const [source, setSource] = useState<CaseSource | "">("");
+  const [selectedPdfCase, setSelectedPdfCase] = useState<Case | null>(null);
 
   const { data, isLoading } = useQuery({
     queryKey: ["cases", page, search, status, source],
@@ -94,7 +104,18 @@ export default function CaseListPage() {
         </div>
 
         {/* Button */}
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap items-center gap-3">
+          {(role === "ADMIN" || role === "DINAS_PENDIDIKAN") && (
+            <button
+              onClick={() => navigate("/reports")}
+              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 transition shadow-sm"
+              title="Buka Halaman Rekap Laporan & Unduh Excel"
+            >
+              <FileSpreadsheet size={17} className="text-emerald-600" />
+              Laporan Rekap Excel
+            </button>
+          )}
+
           {canCreatePelaporan && (
             <button
               onClick={() => navigate("/cases/new/pelaporan")}
@@ -191,7 +212,21 @@ export default function CaseListPage() {
                     </td>
 
                     <td className="px-6 py-4 text-right text-slate-400">
-                      <ChevronRight size={18} />
+                      <div className="flex items-center justify-end gap-2">
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedPdfCase(c);
+                          }}
+                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl border border-rose-200 bg-rose-50 text-rose-700 text-xs font-semibold hover:bg-rose-100 transition shadow-sm"
+                          title="Cetak / Unduh Laporan PDF Kasus Ini"
+                        >
+                          <FileText size={13} />
+                          <span>PDF</span>
+                        </button>
+                        <ChevronRight size={18} />
+                      </div>
                     </td>
                   </tr>
                 ))}
@@ -211,6 +246,13 @@ export default function CaseListPage() {
         </>
       )}
     </div>
+
+    {selectedPdfCase && (
+      <CasePdfReportModal
+        kase={selectedPdfCase}
+        onClose={() => setSelectedPdfCase(null)}
+      />
+    )}
   </DashboardLayout>
   );
 }
