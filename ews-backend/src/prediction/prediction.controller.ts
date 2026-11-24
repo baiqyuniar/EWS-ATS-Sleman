@@ -7,7 +7,7 @@ import { Roles } from '../auth/roles.decorator';
 import { CurrentUser, CurrentUserPayload } from '../auth/current-user.decorator';
 import { PaginationDto } from '../common/pagination.dto';
 import { PredictionService } from './prediction.service';
-import { SimulatePredictionDto } from './dto/prediction.dto';
+import { BulkUploadPredictionDto, SimulatePredictionDto } from './dto/prediction.dto';
 
 // Layer 1 - Intelligence Layer. Prediction NEVER creates a Case automatically (BR-19).
 @ApiTags('prediction')
@@ -26,17 +26,10 @@ export class PredictionController {
   @Roles(UserRole.SEKOLAH)
   @Post('bulk-upload')
   bulkUpload(
-    @Body()
-    body: {
-      datasetBatch: string;
-      rows: Array<{ nisn: string } & Partial<Omit<SimulatePredictionDto, 'studentId'>>>;
-    },
+    @Body() dto: BulkUploadPredictionDto,
     @CurrentUser() user: CurrentUserPayload,
   ) {
-    // NOTE: for a real CSV/XLSX file upload, add a Multer FileInterceptor here and
-    // parse the file server-side (e.g. with the `xlsx` package) into `rows` before
-    // calling bulkCreate. This JSON-rows endpoint keeps the contract stable either way.
-    return this.service.bulkCreate(body.rows, user, body.datasetBatch);
+    return this.service.bulkCreate(dto.rows, user, dto.datasetBatch);
   }
 
   // Prediksi ML mentah (skor & alasan risiko) tidak relevan untuk alur kerja OPD

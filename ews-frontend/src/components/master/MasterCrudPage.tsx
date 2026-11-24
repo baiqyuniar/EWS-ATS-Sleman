@@ -96,18 +96,41 @@ export default function MasterCrudPage<T extends { id: number }>({
 
   const openEdit = (row: T) => {
     setEditing(row);
-    setForm({ ...row });
+    const initialForm: Record<string, any> = { ...row };
+    // Format tanggal ke YYYY-MM-DD agar input[type="date"] browser dapat merender nilai tanggal
+    fields.forEach((f) => {
+      if (f.type === "date" && initialForm[f.name]) {
+        try {
+          const val = initialForm[f.name];
+          if (typeof val === "string" && val.includes("T")) {
+            initialForm[f.name] = val.split("T")[0];
+          } else if (val instanceof Date) {
+            initialForm[f.name] = val.toISOString().split("T")[0];
+          }
+        } catch {
+          // ignore
+        }
+      }
+    });
+    setForm(initialForm);
     setFormError("");
     setModalOpen(true);
   };
 
   const saveMutation = useMutation({
     mutationFn: async () => {
-      const payload = { ...form };
-      delete payload.id;
-      // strip empty-string optionals so backend @IsOptional validators don't choke
-      Object.keys(payload).forEach((k) => {
-        if (payload[k] === "") payload[k] = undefined;
+      // Bentuk payload hanya dari kolom yang terdaftar di fields agar tidak mengirim
+      // relasi internal DB (school, predictions, dsb.) atau metadata (createdAt, updatedAt)
+      // yang memicu penolakan forbidNonWhitelisted di backend.
+      const payload: Record<string, any> = {};
+      fields.forEach((f) => {
+        if (editing && f.hideOnEdit) return;
+        const val = form[f.name];
+        if (val === "" || val === undefined) {
+          payload[f.name] = undefined;
+        } else {
+          payload[f.name] = val;
+        }
       });
       if (editing) {
         return api.update(editing.id, payload);

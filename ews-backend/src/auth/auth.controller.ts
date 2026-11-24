@@ -90,6 +90,19 @@ export class AuthController {
     return this.captchaService.generate();
   }
 
+  // Jika user membuka /api/auth/login langsung di browser (HTTP GET),
+  // arahkan otomatis ke halaman UI login frontend agar tidak memunculkan 404 Cannot GET.
+  @Get('login')
+  getLogin(@Res() res: Response) {
+    const corsOrigin = this.config.get<string>('CORS_ORIGIN') || 'http://localhost:5173';
+    const origins = corsOrigin.split(',').map((o) => o.trim()).filter(Boolean);
+    const target =
+      origins.find((o) => o.includes('localhost') || o.includes('5173')) ||
+      origins[0] ||
+      'http://localhost:5173';
+    return res.redirect(`${target}/login`);
+  }
+
   // SECURITY: mitigasi brute-force — maksimal 5 percobaan login per menit per IP,
   // jauh lebih ketat daripada limit umum (lihat THROTTLE_LOGIN_LIMIT di .env / ThrottlerModule).
   // Lapisan tambahan: captcha (di atas) + lockdown per akun (lihat AuthService.login()).

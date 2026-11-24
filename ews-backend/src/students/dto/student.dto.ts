@@ -1,4 +1,4 @@
-import { IsDateString, IsInt, IsNotEmpty, IsNumber, IsOptional, IsString, Matches, Max, Min } from 'class-validator';
+import { IsBoolean, IsDateString, IsInt, IsNotEmpty, IsNumber, IsOptional, IsString, Matches, Max, Min } from 'class-validator';
 import { PaginationDto } from '../../common/pagination.dto';
 
 // Mastering data: NIK selalu 16 digit angka, NISN selalu 10 digit angka (standar
@@ -39,10 +39,10 @@ class MasteringDataFields {
   @IsOptional() @Matches(NIK_REGEX, { message: `Ayah: ${NIK_MESSAGE}` }) nikAyah?: string;
   @IsOptional() @Matches(NIK_REGEX, { message: `Ibu: ${NIK_MESSAGE}` }) nikIbu?: string;
   @IsOptional() @IsInt() anakKeberapa?: number;
-  @IsOptional() penerimaKps?: boolean;
+  @IsOptional() @IsBoolean() penerimaKps?: boolean;
   @IsOptional() @IsString() noKps?: string;
-  @IsOptional() layakPip?: boolean;
-  @IsOptional() penerimaKip?: boolean;
+  @IsOptional() @IsBoolean() layakPip?: boolean;
+  @IsOptional() @IsBoolean() penerimaKip?: boolean;
   @IsOptional() @IsString() noKip?: string;
   @IsOptional() @IsString() namaKip?: string;
   @IsOptional() @IsString() noKks?: string;
@@ -88,6 +88,8 @@ export class CreateStudentDto extends MasteringDataFields {
 }
 
 export class UpdateStudentDto extends MasteringDataFields {
+  @IsOptional() @Matches(NISN_REGEX, { message: NISN_MESSAGE }) nisn?: string;
+  @IsOptional() @Matches(NIK_REGEX, { message: NIK_MESSAGE }) nik?: string;
   @IsOptional() nama?: string;
   @IsOptional() @IsDateString() tanggalLahir?: string;
   @IsOptional() jenisKelamin?: string;

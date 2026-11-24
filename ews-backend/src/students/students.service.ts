@@ -184,16 +184,47 @@ export class StudentsService {
   }
 
   async update(id: number, dto: UpdateStudentDto, user: CurrentUserPayload) {
-    await this.findOne(id, user);
+    const existingStudent = await this.findOne(id, user);
     const data = await this.syncOrdinalCodes(dto);
     // Cegah user SEKOLAH memindahkan siswa keluar dari sekolahnya sendiri via update.
     if (user.role === "SEKOLAH") delete (data as any).schoolId;
+
+    if (data.nisn && data.nisn !== existingStudent.nisn) {
+      const conflict = await this.prisma.student.findFirst({
+        where: { nisn: data.nisn, id: { not: id } },
+      });
+      if (conflict) {
+        throw new ConflictException("NISN siswa sudah terdaftar");
+      }
+    }
+
+    let nikUpdate: { nik?: string; nikHash?: string } = {};
+    if (data.nik) {
+      const nikHash = blindIndex(data.nik);
+      if (data.nik !== existingStudent.nik) {
+        const conflict = await this.prisma.student.findFirst({
+          where: { nikHash, id: { not: id } },
+        });
+        if (conflict) {
+          throw new ConflictException("NIK siswa sudah terdaftar");
+        }
+      }
+      nikUpdate = {
+        nik: encryptSensitive(data.nik),
+        nikHash,
+      };
+    }
+    delete (data as any).nik;
+
     const updated = await this.prisma.student.update({
       where: { id },
       data: {
         ...data,
+        ...nikUpdate,
         tanggalLahir: data.tanggalLahir
           ? new Date(data.tanggalLahir)
+          : data.tanggalLahir === null
+          ? null
           : undefined,
       } as any,
     });

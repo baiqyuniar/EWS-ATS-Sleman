@@ -5,6 +5,7 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { RolesGuard } from '../auth/roles.guard';
 import { Roles } from '../auth/roles.decorator';
 import { ReportsService } from './reports.service';
+import { ReportFilterDto } from './dto/report.dto';
 
 // Authorization Matrix: Export Laporan = Admin & Dinas only.
 @ApiTags('reports')
@@ -16,7 +17,7 @@ export class ReportsController {
 
   @Roles(UserRole.ADMIN, UserRole.DINAS_PENDIDIKAN)
   @Get('rekap')
-  rekap(@Query() query: { from?: string; to?: string }) {
+  rekap(@Query() query: ReportFilterDto) {
     return this.service.rekap(query);
   }
 
@@ -27,7 +28,7 @@ export class ReportsController {
 
   @Roles(UserRole.ADMIN, UserRole.DINAS_PENDIDIKAN)
   @Get('export')
-  exportRows(@Query() query: { from?: string; to?: string }) {
+  exportRows(@Query() query: ReportFilterDto) {
     return this.service.exportRows(query);
   }
 }

@@ -85,29 +85,29 @@ return (
     <div className="space-y-6">
       <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6">
 
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-5">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-6">
-        <button
-          onClick={downloadTemplate}
-          className="inline-flex w-fit items-center gap-2 rounded-xl border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600 transition-all hover:bg-blue-100 hover:border-blue-300"
-        >
-          <Download size={16} />
-          Unduh Template Excel
-        </button>
+        <div className="mb-5 space-y-2">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+            <button
+              onClick={downloadTemplate}
+              className="inline-flex w-fit items-center gap-2 rounded-xl border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600 transition-all hover:bg-blue-100 hover:border-blue-300"
+            >
+              <Download size={16} />
+              Unduh Template Excel
+            </button>
 
-        <div className="text-xs text-slate-500">
-          <span className="font-medium text-slate-600">
-            Format Kolom:
-          </span>{" "}
-          {TEMPLATE_HEADER}
+            <div className="text-xs text-slate-500">
+              <span className="font-medium text-slate-600">
+                Format Kolom:
+              </span>{" "}
+              {TEMPLATE_HEADER}
+            </div>
+          </div>
+          <p className="px-0 pb-1 text-xs text-slate-400">
+            Keterangan nilai <code className="font-mono">kodePendidikanAyah/Ibu</code> (0-8) dan{" "}
+            <code className="font-mono">kodePenghasilanAyah/Ibu</code> (0-6) sama dengan yang
+            dipakai di halaman Simulasi Prediksi &amp; Master Data Pendidikan/Penghasilan Orang Tua.
+          </p>
         </div>
-      </div>
-      <p className="px-0 pb-1 text-xs text-slate-400">
-        Keterangan nilai <code className="font-mono">kodePendidikanAyah/Ibu</code> (0-8) dan{" "}
-        <code className="font-mono">kodePenghasilanAyah/Ibu</code> (0-6) sama dengan yang
-        dipakai di halaman Simulasi Prediksi &amp; Master Data Pendidikan/Penghasilan Orang Tua.
-      </p>
-      </div>
 
           <div>
             <label className="text-sm font-medium text-slate-700 mb-1.5 block">

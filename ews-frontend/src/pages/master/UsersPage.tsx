@@ -91,9 +91,9 @@ export default function UsersPage() {
         {
           name: "password",
           label: "Password",
-          placeholder: "Minimal 6 karakter",
+          placeholder: "Minimal 10 karakter (huruf besar, kecil, & angka)",
           helpText:
-            "Wajib diisi saat membuat user baru. Saat mengubah data, kosongkan jika tidak ingin mengubah password.",
+            "Wajib diisi saat membuat user baru (minimal 10 karakter dengan huruf besar, huruf kecil, dan angka). Saat mengubah data, kosongkan jika tidak ingin mengubah password.",
         },
         {
           name: "role",
