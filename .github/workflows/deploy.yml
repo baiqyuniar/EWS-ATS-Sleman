@@ -45,6 +45,43 @@ jobs:
           cd ../ews-frontend
           npm run build
 
+          echo "🌐 5. Deploying Frontend to Web Server..."
+          TARGET_DIR=""
+          # Cek jika ada file index.html di /var/www/html atau lokasi sejenis
+          for dir in /var/www/html /var/www/gandheng-ats /var/www/ews-ats; do
+            if [ -d "$dir" ] && [ -f "$dir/index.html" ]; then
+              TARGET_DIR="$dir"
+              break
+            fi
+          done
+
+          # Jika belum ketemu, cari letak aset lama index-*.js di /var/www
+          if [ -z "$TARGET_DIR" ]; then
+            OLD_FILE=$(find /var/www -name "*index-*.js" 2>/dev/null | head -n 1)
+            if [ -n "$OLD_FILE" ]; then
+              TARGET_DIR=$(dirname $(dirname "$OLD_FILE"))
+            fi
+          fi
+
+          # Cek juga dari konfigurasi Apache VirtualHost DocumentRoot
+          if [ -z "$TARGET_DIR" ]; then
+            APACHE_DOCROOT=$(grep -rh "DocumentRoot" /etc/apache2/sites-enabled/ 2>/dev/null | awk '{print $2}' | tr -d '"' | head -n 1)
+            if [ -n "$APACHE_DOCROOT" ] && [ -d "$APACHE_DOCROOT" ]; then
+              TARGET_DIR="$APACHE_DOCROOT"
+            fi
+          fi
+
+          echo "Detected Web Server Root: $TARGET_DIR"
+          if [ -n "$TARGET_DIR" ] && [ "$TARGET_DIR" != "$(pwd)/dist" ]; then
+            echo "Copying dist to $TARGET_DIR..."
+            echo "Lemb4yung!" | sudo -S cp -r dist/* "$TARGET_DIR/" || true
+            echo "Lemb4yung!" | sudo -S chown -R www-data:www-data "$TARGET_DIR" 2>/dev/null || true
+          fi
+
+          # Reload webserver (Apache / Nginx) jika ada
+          echo "Lemb4yung!" | sudo -S systemctl reload apache2 2>/dev/null || true
+          echo "Lemb4yung!" | sudo -S systemctl reload nginx 2>/dev/null || true
+
           echo "=========================================="
           echo "✅ Deployment completed successfully!"
           echo "=========================================="
