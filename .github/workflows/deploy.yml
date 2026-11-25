@@ -32,7 +32,11 @@ jobs:
           # Pastikan safe directory dan gunakan token GitHub Actions (bebas kendala SSH key)
           git config --global --add safe.directory /home/disdik/apps/EWS-ATS || true
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/baiqyuniar/EWS-ATS-Sleman.git
-          git pull origin main
+          # Bersihkan ref lama/bentrok jika ada agar fetch tidak error "reference already exists"
+          git update-ref -d refs/remotes/origin/main 2>/dev/null || true
+          git remote prune origin 2>/dev/null || true
+          git fetch --prune origin main
+          git reset --hard FETCH_HEAD
 
           echo "⚙️ 2. Building Backend (ews-backend)..."
           cd ews-backend
