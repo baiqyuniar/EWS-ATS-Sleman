@@ -5,7 +5,7 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { RolesGuard } from '../auth/roles.guard';
 import { Roles } from '../auth/roles.decorator';
 import { UsersService } from './users.service';
-import { CreateUserDto, UpdateUserDto } from './dto/user.dto';
+import { CreateUserDto, UpdateUserDto, ResetPasswordDto } from './dto/user.dto';
 import { PaginationDto } from '../common/pagination.dto';
 
 // Master User: hanya Administrator (Matriks Hak Akses)
@@ -40,5 +40,10 @@ export class UsersController {
   @Delete(':id')
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.usersService.remove(id);
+  }
+
+  @Post(':id/reset-password')
+  resetPassword(@Param('id', ParseIntPipe) id: number, @Body() dto: ResetPasswordDto) {
+    return this.usersService.resetPassword(id, dto.newPassword);
   }
 }

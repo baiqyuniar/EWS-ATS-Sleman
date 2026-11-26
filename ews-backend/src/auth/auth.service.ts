@@ -149,7 +149,14 @@ export class AuthService {
     if (!valid) throw new UnauthorizedException('Password lama salah');
 
     const passwordHash = await bcrypt.hash(newPassword, 10);
-    await this.prisma.user.update({ where: { id: userId }, data: { passwordHash } });
+    await this.prisma.user.update({
+      where: { id: userId },
+      data: {
+        passwordHash,
+        failedLoginAttempts: 0,
+        lockedUntil: null,
+      },
+    });
     return { message: 'Password berhasil diubah' };
   }
 

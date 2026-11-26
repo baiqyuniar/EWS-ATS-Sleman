@@ -1,5 +1,8 @@
-import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { KeyRound } from "lucide-react";
 import MasterCrudPage from "../../components/master/MasterCrudPage";
+import ResetPasswordModal from "../../components/auth/ResetPasswordModal";
 import { schoolsApi, opdApi, wilayahApi } from "../../services/master.service";
 import {
   getUsers,
@@ -11,6 +14,9 @@ import type { AppUser } from "../../types/api";
 import { ROLE_LABEL } from "../../types/api";
 
 export default function UsersPage() {
+  const qc = useQueryClient();
+  const [resetTarget, setResetTarget] = useState<AppUser | null>(null);
+
   const { data: schoolData } = useQuery({
     queryKey: ["master-school-options"],
     queryFn: () => schoolsApi.list({ limit: 200 }),
@@ -42,7 +48,8 @@ export default function UsersPage() {
   }));
 
   return (
-    <MasterCrudPage<AppUser>
+    <>
+      <MasterCrudPage<AppUser>
       queryKey="master-users"
       api={{
         list: getUsers,
@@ -127,6 +134,22 @@ export default function UsersPage() {
           placeholder: "Akun aktif",
         },
       ]}
+      customActions={(row) => (
+        <button
+          onClick={() => setResetTarget(row)}
+          className="w-9 h-9 rounded-xl hover:bg-amber-50 text-amber-600 flex items-center justify-center transition"
+          title="Reset Password Akun"
+        >
+          <KeyRound size={16} />
+        </button>
+      )}
     />
+    <ResetPasswordModal
+      open={!!resetTarget}
+      onClose={() => setResetTarget(null)}
+      user={resetTarget}
+      onSuccess={() => qc.invalidateQueries({ queryKey: ["master-users"] })}
+    />
+    </>
   );
 }

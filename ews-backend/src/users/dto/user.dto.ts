@@ -69,3 +69,10 @@ export class UpdateUserDto {
   @Matches(PASSWORD_POLICY_REGEX, { message: PASSWORD_POLICY_MESSAGE })
   password?: string;
 }
+
+export class ResetPasswordDto {
+  @IsNotEmpty({ message: 'Password baru wajib diisi' })
+  @MinLength(10, { message: PASSWORD_POLICY_MESSAGE })
+  @Matches(PASSWORD_POLICY_REGEX, { message: PASSWORD_POLICY_MESSAGE })
+  newPassword: string;
+}

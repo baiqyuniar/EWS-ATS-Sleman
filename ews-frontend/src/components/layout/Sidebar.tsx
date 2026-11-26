@@ -26,12 +26,14 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../hooks/useAuth";
 import { logout } from "../../store/auth.store";
 import type { UserRole } from "../../types/api";
 import logoSleman from "../../assets/logo-sleman.png";
+import ChangePasswordModal from "../auth/ChangePasswordModal";
 
 interface MenuItem {
   name: string;
@@ -204,6 +206,7 @@ const menuGroups: MenuGroup[] = [
 export default function Sidebar() {
   const { role } = useAuth();
   const navigate = useNavigate();
+  const [passwordModalOpen, setPasswordModalOpen] = useState(false);
 
   const visibleGroups = menuGroups
     .map((group) => ({
@@ -278,15 +281,28 @@ export default function Sidebar() {
       </div>
 
       {/* FOOTER */}
-      <div className="pt-5 border-t border-white/10">
+      <div className="pt-4 border-t border-white/10 space-y-1">
+        <button
+          onClick={() => setPasswordModalOpen(true)}
+          className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-slate-300 hover:bg-white/10 hover:text-white transition cursor-pointer"
+        >
+          <KeyRound size={20} className="text-blue-400" />
+          <span className="font-medium text-sm">Ubah Password</span>
+        </button>
+
         <button
           onClick={handleLogout}
-          className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-red-300 hover:bg-red-500/10 hover:text-red-200 transition"
+          className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-red-300 hover:bg-red-500/10 hover:text-red-200 transition cursor-pointer"
         >
           <LogOut size={20} />
-          <span className="font-medium">Logout</span>
+          <span className="font-medium text-sm">Logout</span>
         </button>
       </div>
+
+      <ChangePasswordModal
+        open={passwordModalOpen}
+        onClose={() => setPasswordModalOpen(false)}
+      />
     </aside>
   );
 }

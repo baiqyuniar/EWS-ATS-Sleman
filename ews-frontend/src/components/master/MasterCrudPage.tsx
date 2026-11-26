@@ -59,6 +59,7 @@ interface Props<T extends { id: number }> {
   itemLabel?: (row: T) => string;
   emptyValue?: Record<string, any>;
   readOnly?: boolean;
+  customActions?: (row: T) => React.ReactNode;
 }
 
 export default function MasterCrudPage<T extends { id: number }>({
@@ -73,6 +74,7 @@ export default function MasterCrudPage<T extends { id: number }>({
   itemLabel,
   emptyValue = {},
   readOnly = false,
+  customActions,
 }: Props<T>) {
   const qc = useQueryClient();
   const toast = useToast();
@@ -257,6 +259,7 @@ export default function MasterCrudPage<T extends { id: number }>({
                       {!readOnly && (
                         <td className="px-6 py-3.5">
                           <div className="flex items-center justify-end gap-2">
+                            {customActions && customActions(row)}
                             <button
                               onClick={() => openEdit(row)}
                               className="w-9 h-9 rounded-xl hover:bg-blue-50 text-blue-600 flex items-center justify-center"

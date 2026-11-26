@@ -31,3 +31,8 @@ export const deleteUser = async (id: number) => {
   const { data } = await api.delete(`/users/${id}`);
   return data;
 };
+
+export const resetUserPassword = async (id: number, newPassword: string): Promise<AppUser> => {
+  const { data } = await api.post<AppUser>(`/users/${id}/reset-password`, { newPassword });
+  return data;
+};

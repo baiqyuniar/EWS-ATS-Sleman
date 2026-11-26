@@ -86,4 +86,18 @@ export class UsersService {
     // Soft-delete pattern: deactivate rather than hard delete, to preserve audit history (BR-14).
     return this.prisma.user.update({ where: { id }, data: { active: false }, select: SAFE_SELECT });
   }
+
+  async resetPassword(id: number, newPassword: string) {
+    await this.findOne(id);
+    const passwordHash = await bcrypt.hash(newPassword, 10);
+    return this.prisma.user.update({
+      where: { id },
+      data: {
+        passwordHash,
+        failedLoginAttempts: 0,
+        lockedUntil: null,
+      },
+      select: SAFE_SELECT,
+    });
+  }
 }
