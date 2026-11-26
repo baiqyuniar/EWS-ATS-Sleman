@@ -261,6 +261,62 @@ async function main() {
     `Users OPD: ${opdUsers.length} akun tersimpan (1 per OPD, password: opd123).`,
   );
 
+  // ---- Puskesmas: 25 UPTD Puskesmas se-Kabupaten Sleman beserta akun User OPD ----
+  const puskesmasData = loadJson<
+    {
+      kode: string;
+      nama: string;
+      jenisLayanan: string;
+      alamat: string;
+      kontak: string;
+      userEmail: string;
+      userName: string;
+    }[]
+  >("puskesmas.json");
+
+  const puskesmasPasswordHash = await hash("Puskesmas123!");
+  for (const p of puskesmasData) {
+    const puskOpd = await prisma.opd.upsert({
+      where: { kode: p.kode },
+      update: {
+        nama: p.nama,
+        jenisLayanan: p.jenisLayanan,
+        alamat: p.alamat,
+        kontak: p.kontak,
+        active: true,
+      },
+      create: {
+        kode: p.kode,
+        nama: p.nama,
+        jenisLayanan: p.jenisLayanan,
+        alamat: p.alamat,
+        kontak: p.kontak,
+        active: true,
+      },
+    });
+
+    await prisma.user.upsert({
+      where: { email: p.userEmail },
+      update: {
+        name: p.userName,
+        opdId: puskOpd.id,
+        role: UserRole.OPD,
+        active: true,
+      },
+      create: {
+        name: p.userName,
+        email: p.userEmail,
+        passwordHash: puskesmasPasswordHash,
+        role: UserRole.OPD,
+        opdId: puskOpd.id,
+        active: true,
+      },
+    });
+  }
+  console.log(
+    `Puskesmas: ${puskesmasData.length} OPD & Akun User tersimpan (password: Puskesmas123!).`,
+  );
+
   await prisma.user.upsert({
     where: { email: "dinas@sleman.go.id" },
     update: {},

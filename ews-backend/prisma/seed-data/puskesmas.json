@@ -1,0 +1,227 @@
+[
+  {
+    "kode": "PUSK_MOYUDAN",
+    "nama": "Puskesmas Moyudan",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Ngentak, Ds. Sumberagung, Kec. Moyudan, Sleman 55563",
+    "kontak": "(0274) 6497173",
+    "userEmail": "puskesmas.moyudan@sleman.go.id",
+    "userName": "Petugas Puskesmas Moyudan"
+  },
+  {
+    "kode": "PUSK_MINGGIR",
+    "nama": "Puskesmas Minggir",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Minggir III, Kebon Agung, Ds. Sendang Agung, Kec. Minggir, Sleman 55562",
+    "kontak": "08112645117",
+    "userEmail": "puskesmas.minggir@sleman.go.id",
+    "userName": "Petugas Puskesmas Minggir"
+  },
+  {
+    "kode": "PUSK_SEYEGAN",
+    "nama": "Puskesmas Seyegan",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Jl. Kebon Agung KM 10,8, Ds. Margokaton, Kec. Seyegan, Sleman 55561",
+    "kontak": "(0274) 4364822",
+    "userEmail": "puskesmas.seyegan@sleman.go.id",
+    "userName": "Petugas Puskesmas Seyegan"
+  },
+  {
+    "kode": "PUSK_GODEAN1",
+    "nama": "Puskesmas Godean I",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Jl. Pandean 7, Ds. Sidoluhur, Kec. Godean, Sleman 55264",
+    "kontak": "(0274) 797534",
+    "userEmail": "puskesmas.godean1@sleman.go.id",
+    "userName": "Petugas Puskesmas Godean I"
+  },
+  {
+    "kode": "PUSK_GODEAN2",
+    "nama": "Puskesmas Godean II",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Nogosari, Ds. Sidokarto, Kec. Godean, Sleman 55564",
+    "kontak": "(0274) 6496511",
+    "userEmail": "puskesmas.godean2@sleman.go.id",
+    "userName": "Petugas Puskesmas Godean II"
+  },
+  {
+    "kode": "PUSK_GAMPING1",
+    "nama": "Puskesmas Gamping I",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Jl. Delingsari, Patukan, Ds. Ambarketawang, Kec. Gamping, Sleman 55294",
+    "kontak": "(0274) 6499870",
+    "userEmail": "puskesmas.gamping1@sleman.go.id",
+    "userName": "Petugas Puskesmas Gamping I"
+  },
+  {
+    "kode": "PUSK_GAMPING2",
+    "nama": "Puskesmas Gamping II",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Patran, Ds. Banyuraden, Kec. Gamping, Sleman 55293",
+    "kontak": "(0274) 5013351",
+    "userEmail": "puskesmas.gamping2@sleman.go.id",
+    "userName": "Petugas Puskesmas Gamping II"
+  },
+  {
+    "kode": "PUSK_MLATI1",
+    "nama": "Puskesmas Mlati I",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Jl. Wijaya Kusuma, Kutu Tegal, Ds. Sinduadi, Kec. Mlati, Sleman 55284",
+    "kontak": "(0274) 4539614",
+    "userEmail": "puskesmas.mlati1@sleman.go.id",
+    "userName": "Petugas Puskesmas Mlati I"
+  },
+  {
+    "kode": "PUSK_MLATI2",
+    "nama": "Puskesmas Mlati II",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Cabakan, Ds. Sumberadi, Kec. Mlati, Sleman 55288",
+    "kontak": "(0274) 865909",
+    "userEmail": "puskesmas.mlati2@sleman.go.id",
+    "userName": "Petugas Puskesmas Mlati II"
+  },
+  {
+    "kode": "PUSK_DEPOK1",
+    "nama": "Puskesmas Depok I",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Nanggulan, Ds. Maguwoharjo, Kec. Depok, Sleman 55282",
+    "kontak": "(0274) 486852",
+    "userEmail": "puskesmas.depok1@sleman.go.id",
+    "userName": "Petugas Puskesmas Depok I"
+  },
+  {
+    "kode": "PUSK_DEPOK2",
+    "nama": "Puskesmas Depok II",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Jl. Lely III, Perumnas Condongcatur, Kec. Depok, Sleman 55281",
+    "kontak": "(0274) 887797",
+    "userEmail": "puskesmas.depok2@sleman.go.id",
+    "userName": "Petugas Puskesmas Depok II"
+  },
+  {
+    "kode": "PUSK_DEPOK3",
+    "nama": "Puskesmas Depok III",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Kompleks Kolombo No. 50A, Ds. Caturtunggal, Kec. Depok, Sleman 55281",
+    "kontak": "(0274) 512595",
+    "userEmail": "puskesmas.depok3@sleman.go.id",
+    "userName": "Petugas Puskesmas Depok III"
+  },
+  {
+    "kode": "PUSK_BERBAH",
+    "nama": "Puskesmas Berbah",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Jl. Wonosari KM 8, Sribit, Ds. Sendangtirto, Kec. Berbah, Sleman 55573",
+    "kontak": "(0274) 2841790",
+    "userEmail": "puskesmas.berbah@sleman.go.id",
+    "userName": "Petugas Puskesmas Berbah"
+  },
+  {
+    "kode": "PUSK_PRAMBANAN",
+    "nama": "Puskesmas Prambanan",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Jl. Prambanan-Piyungan, Gatak, Ds. Bokoharjo, Kec. Prambanan, Sleman 55792",
+    "kontak": "(0274) 496907",
+    "userEmail": "puskesmas.prambanan@sleman.go.id",
+    "userName": "Petugas Puskesmas Prambanan"
+  },
+  {
+    "kode": "PUSK_KALASAN",
+    "nama": "Puskesmas Kalasan",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Sidokerto, Ds. Purwomartani, Kec. Kalasan, Sleman 55571",
+    "kontak": "(0274) 497471",
+    "userEmail": "puskesmas.kalasan@sleman.go.id",
+    "userName": "Petugas Puskesmas Kalasan"
+  },
+  {
+    "kode": "PUSK_NGEMPLAK1",
+    "nama": "Puskesmas Ngemplak I",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Koroulon Kidul, Ds. Bimomartani, Kec. Ngemplak, Sleman 55584",
+    "kontak": "081575748969",
+    "userEmail": "puskesmas.ngemplak1@sleman.go.id",
+    "userName": "Petugas Puskesmas Ngemplak I"
+  },
+  {
+    "kode": "PUSK_NGEMPLAK2",
+    "nama": "Puskesmas Ngemplak II",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Jl. Besi Jangkang, Dusun Jetis, Ds. Widodomartani, Kec. Ngemplak, Sleman 55584",
+    "kontak": "(0274) 4461277",
+    "userEmail": "puskesmas.ngemplak2@sleman.go.id",
+    "userName": "Petugas Puskesmas Ngemplak II"
+  },
+  {
+    "kode": "PUSK_NGAGLIK1",
+    "nama": "Puskesmas Ngaglik I",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Jl. Kaliurang KM 10, Gondangan, Ds. Sardonoharjo, Kec. Ngaglik, Sleman 55581",
+    "kontak": "(0274) 888958",
+    "userEmail": "puskesmas.ngaglik1@sleman.go.id",
+    "userName": "Petugas Puskesmas Ngaglik I"
+  },
+  {
+    "kode": "PUSK_NGAGLIK2",
+    "nama": "Puskesmas Ngaglik II",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Jl. Damai, Mudal, Ds. Sariharjo, Kec. Ngaglik, Sleman 55581",
+    "kontak": "(0274) 886134",
+    "userEmail": "puskesmas.ngaglik2@sleman.go.id",
+    "userName": "Petugas Puskesmas Ngaglik II"
+  },
+  {
+    "kode": "PUSK_SLEMAN",
+    "nama": "Puskesmas Sleman",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Jl. Kapten Haryadi No. 6, Srimulyo, Ds. Triharjo, Kec. Sleman, Sleman 55514",
+    "kontak": "(0274) 868374",
+    "userEmail": "puskesmas.sleman@sleman.go.id",
+    "userName": "Petugas Puskesmas Sleman"
+  },
+  {
+    "kode": "PUSK_TEMPEL1",
+    "nama": "Puskesmas Tempel I",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Jl. Magelang KM 17,5, Kec. Tempel, Sleman 55552",
+    "kontak": "(0274) 4363045",
+    "userEmail": "puskesmas.tempel1@sleman.go.id",
+    "userName": "Petugas Puskesmas Tempel I"
+  },
+  {
+    "kode": "PUSK_TEMPEL2",
+    "nama": "Puskesmas Tempel II",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Kemusuh, Ds. Banyurejo, Kec. Tempel, Sleman 55552",
+    "kontak": "(0274) 7101966",
+    "userEmail": "puskesmas.tempel2@sleman.go.id",
+    "userName": "Petugas Puskesmas Tempel II"
+  },
+  {
+    "kode": "PUSK_TURI",
+    "nama": "Puskesmas Turi",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Randusongo, Ds. Donokerto, Kec. Turi, Sleman 55551",
+    "kontak": "(0274) 896008",
+    "userEmail": "puskesmas.turi@sleman.go.id",
+    "userName": "Petugas Puskesmas Turi"
+  },
+  {
+    "kode": "PUSK_PAKEM",
+    "nama": "Puskesmas Pakem",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Jl. Kaliurang Tegalsari KM 17,5, Kec. Pakem, Sleman 55582",
+    "kontak": "(0274) 895591",
+    "userEmail": "puskesmas.pakem@sleman.go.id",
+    "userName": "Petugas Puskesmas Pakem"
+  },
+  {
+    "kode": "PUSK_CANGKRINGAN",
+    "nama": "Puskesmas Cangkringan",
+    "jenisLayanan": "Kesehatan",
+    "alamat": "Panggung, Ds. Argomulyo, Kec. Cangkringan, Sleman 55837",
+    "kontak": "(0274) 2860007",
+    "userEmail": "puskesmas.cangkringan@sleman.go.id",
+    "userName": "Petugas Puskesmas Cangkringan"
+  }
+]
