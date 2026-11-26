@@ -1,5 +1,5 @@
 import { api } from "../lib/api";
-import type { CaseStatus, CaseSource } from "../types/api";
+import type { CaseStatus, CaseSource, Case } from "../types/api";
 
 export interface ReportQuery {
   from?: string;
@@ -30,7 +30,7 @@ export const getStatistikSekolah = async (): Promise<StatistikSekolahRow[]> => {
   return data;
 };
 
-export const getExportRows = async (query: ReportQuery = {}) => {
-  const { data } = await api.get("/reports/export", { params: query });
+export const getExportRows = async (query: ReportQuery = {}): Promise<Case[]> => {
+  const { data } = await api.get<Case[]>("/reports/export", { params: query });
   return data;
 };
