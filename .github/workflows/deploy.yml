@@ -69,8 +69,13 @@ jobs:
           run_sudo() {
             if [ -n "$SUDO_PASS" ]; then
               printf '%s\n' "$SUDO_PASS" | sudo -S "$@"
+            elif sudo -n true 2>/dev/null; then
+              sudo -n "$@"
             else
-              sudo -n "$@" || sudo "$@"
+              echo "❌ Gagal: sudo membutuhkan password namun password tidak ditemukan."
+              echo "💡 Solusi: Jalankan 'echo \"PASSWORD_SUDO\" > ~/.deploy_sudo_pass && chmod 600 ~/.deploy_sudo_pass' di server,"
+              echo "   atau tambahkan Secret 'SERVER_SUDO_PASS' di GitHub Repository Settings -> Secrets and variables -> Actions."
+              exit 1
             fi
           }
 
