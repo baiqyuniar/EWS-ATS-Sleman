@@ -1,17 +1,20 @@
 import { useState } from "react";
-import { Eye, EyeOff, KeyRound, Check, X as XIcon, Loader2 } from "lucide-react";
+import { Eye, EyeOff, KeyRound, Check, X as XIcon, Loader2, ShieldAlert } from "lucide-react";
 import Modal from "../ui/Modal";
 import { ErrorAlert } from "../ui/Alert";
 import { changePassword } from "../../services/auth.service";
+import { updateStoredUser } from "../../store/auth.store";
 import { apiErrorMessage } from "../../lib/api";
 import { useToast } from "../../context/ToastContext";
 
 interface Props {
   open: boolean;
   onClose: () => void;
+  forced?: boolean;
+  onSuccess?: () => void;
 }
 
-export default function ChangePasswordModal({ open, onClose }: Props) {
+export default function ChangePasswordModal({ open, onClose, forced = false, onSuccess }: Props) {
   const toast = useToast();
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -30,6 +33,7 @@ export default function ChangePasswordModal({ open, onClose }: Props) {
   const isPolicyValid = hasMinLength && hasUpper && hasLower && hasNumber;
 
   const handleClose = () => {
+    if (forced) return;
     setOldPassword("");
     setNewPassword("");
     setConfirmPassword("");
@@ -62,8 +66,13 @@ export default function ChangePasswordModal({ open, onClose }: Props) {
     setLoading(true);
     try {
       await changePassword(oldPassword, newPassword);
-      toast.success("Password berhasil diubah. Silakan gunakan password baru ini pada login berikutnya.");
-      handleClose();
+      updateStoredUser({ mustChangePassword: false });
+      toast.success("Password berhasil diubah. Akun Anda kini lebih aman!");
+      if (onSuccess) {
+        onSuccess();
+      } else {
+        handleClose();
+      }
     } catch (err) {
       setError(apiErrorMessage(err));
     } finally {
@@ -72,14 +81,29 @@ export default function ChangePasswordModal({ open, onClose }: Props) {
   };
 
   return (
-    <Modal open={open} onClose={handleClose} title="Ubah Password Akun" maxWidth="max-w-md">
+    <Modal
+      open={open}
+      onClose={handleClose}
+      closable={!forced}
+      title={forced ? "Wajib Ganti Password Bawaan" : "Ubah Password Akun"}
+      maxWidth="max-w-md"
+    >
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="p-3.5 bg-blue-50 border border-blue-100 rounded-2xl flex items-start gap-3">
-          <KeyRound className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
-          <div className="text-xs text-blue-800 leading-relaxed">
-            Ganti password default Anda dengan password yang aman dan mudah Anda ingat.
+        {forced ? (
+          <div className="p-3.5 bg-amber-50 border border-amber-200 rounded-2xl flex items-start gap-3">
+            <ShieldAlert className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+            <div className="text-xs text-amber-800 leading-relaxed font-medium">
+              Demi keamanan akun Anda, Anda wajib mengganti password default dengan password pribadi yang baru sebelum melanjutkan menggunakan sistem EWS-ATS Sleman.
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="p-3.5 bg-blue-50 border border-blue-100 rounded-2xl flex items-start gap-3">
+            <KeyRound className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+            <div className="text-xs text-blue-800 leading-relaxed">
+              Ganti password default Anda dengan password yang aman dan mudah Anda ingat.
+            </div>
+          </div>
+        )}
 
         <ErrorAlert message={error} />
 
@@ -211,18 +235,20 @@ export default function ChangePasswordModal({ open, onClose }: Props) {
 
         {/* Tombol Aksi */}
         <div className="flex items-center justify-end gap-3 pt-4 border-t border-slate-100">
-          <button
-            type="button"
-            onClick={handleClose}
-            disabled={loading}
-            className="px-5 py-2.5 rounded-2xl border border-slate-200 text-slate-600 hover:bg-slate-50 text-sm font-medium transition"
-          >
-            Batal
-          </button>
+          {!forced && (
+            <button
+              type="button"
+              onClick={handleClose}
+              disabled={loading}
+              className="px-5 py-2.5 rounded-2xl border border-slate-200 text-slate-600 hover:bg-slate-50 text-sm font-medium transition cursor-pointer"
+            >
+              Batal
+            </button>
+          )}
           <button
             type="submit"
             disabled={loading || !isPolicyValid || !isMatch || !oldPassword}
-            className="px-5 py-2.5 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium transition flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-md shadow-blue-600/20"
+            className="w-full sm:w-auto px-6 py-2.5 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium transition flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-md shadow-blue-600/20 cursor-pointer"
           >
             {loading && <Loader2 size={16} className="animate-spin" />}
             <span>Simpan Password Baru</span>

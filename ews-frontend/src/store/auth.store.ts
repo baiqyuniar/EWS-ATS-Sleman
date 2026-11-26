@@ -45,6 +45,16 @@ export const getUser = (): StoredUser | null => {
   return user ? JSON.parse(user) : null;
 };
 
+export const updateStoredUser = (partial: Partial<StoredUser>): StoredUser | null => {
+  const current = getUser();
+  if (current) {
+    const updated = { ...current, ...partial };
+    localStorage.setItem(USER_KEY, JSON.stringify(updated));
+    return updated;
+  }
+  return null;
+};
+
 export const logout = () => {
   localStorage.removeItem(USER_KEY);
 };

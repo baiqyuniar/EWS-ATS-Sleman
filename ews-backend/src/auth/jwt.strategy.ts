@@ -54,6 +54,7 @@ export interface JwtPayload {
   sub: number;
   email: string;
   role: string;
+  mustChangePassword?: boolean;
   schoolId?: number | null;
   opdId?: number | null;
   wilayahId?: number | null;
@@ -75,6 +76,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       userId: payload.sub,
       email: payload.email,
       role: payload.role,
+      mustChangePassword: payload.mustChangePassword ?? false,
       schoolId: payload.schoolId,
       opdId: payload.opdId,
       wilayahId: payload.wilayahId,

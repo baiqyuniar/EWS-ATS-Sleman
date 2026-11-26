@@ -1417,6 +1417,7 @@ export interface LoginResponse {
     name: string;
     email: string;
     role: UserRole;
+    mustChangePassword?: boolean;
     schoolId?: number | null;
     opdId?: number | null;
     wilayahId?: number | null;

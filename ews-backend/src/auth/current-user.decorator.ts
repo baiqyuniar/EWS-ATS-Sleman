@@ -4,6 +4,7 @@ export interface CurrentUserPayload {
   userId: number;
   email: string;
   role: string;
+  mustChangePassword?: boolean;
   schoolId?: number | null;
   opdId?: number | null;
   wilayahId?: number | null;

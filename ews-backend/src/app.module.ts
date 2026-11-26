@@ -2,8 +2,6 @@ import { Module } from '@nestjs/common';
 import { APP_GUARD } from '@nestjs/core';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
-import { ServeStaticModule } from '@nestjs/serve-static';
-import { join } from 'path';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
@@ -35,10 +33,6 @@ import { UploadsModule } from './uploads/uploads.module';
           limit: Number(config.get<string>('THROTTLE_LIMIT') ?? 100),
         },
       ],
-    }),
-    ServeStaticModule.forRoot({
-      rootPath: join(process.cwd(), process.env.UPLOAD_DIR || 'uploads'),
-      serveRoot: '/uploads',
     }),
     PrismaModule,
     AuthModule,

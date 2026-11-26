@@ -106,7 +106,8 @@ model User {
   email        String   @unique
   passwordHash String
   role         UserRole
-  active       Boolean  @default(true)
+  active             Boolean  @default(true)
+  mustChangePassword Boolean  @default(true)
 
   // SECURITY: lockdown policy — dilacak per akun (bukan cuma per-IP lewat throttler)
   // supaya percobaan brute-force yang menyebar dari banyak IP tetap kena kunci.

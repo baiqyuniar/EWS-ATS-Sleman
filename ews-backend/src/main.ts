@@ -95,6 +95,16 @@ async function bootstrap() {
   // --- Parsing cookie ---
   app.use(cookieParser());
 
+  // SECURITY/COMPATIBILITY: Alihkan request URL lama /uploads/:filename ke endpoint
+  // terproteksi /api/uploads/:filename agar berkas lama tetap dapat dibuka namun
+  // wajib terotentikasi.
+  app.use("/uploads", (req, res, next) => {
+    if (req.method === "GET" && req.url && req.url !== "/") {
+      return res.redirect(307, `/api/uploads${req.url}`);
+    }
+    next();
+  });
+
   app.setGlobalPrefix("api");
   app.useGlobalPipes(
     new ValidationPipe({

@@ -10,6 +10,7 @@ const SAFE_SELECT = {
   email: true,
   role: true,
   active: true,
+  mustChangePassword: true,
   schoolId: true,
   opdId: true,
   wilayahId: true,
@@ -30,6 +31,7 @@ export class UsersService {
         name: dto.name,
         email: dto.email,
         passwordHash,
+        mustChangePassword: true,
         role: dto.role,
         schoolId: dto.schoolId,
         opdId: dto.opdId,
@@ -76,6 +78,7 @@ export class UsersService {
     const data: any = { ...dto };
     if (dto.password) {
       data.passwordHash = await bcrypt.hash(dto.password, 10);
+      data.mustChangePassword = true;
       delete data.password;
     }
     return this.prisma.user.update({ where: { id }, data, select: SAFE_SELECT });
@@ -94,6 +97,7 @@ export class UsersService {
       where: { id },
       data: {
         passwordHash,
+        mustChangePassword: true,
         failedLoginAttempts: 0,
         lockedUntil: null,
       },

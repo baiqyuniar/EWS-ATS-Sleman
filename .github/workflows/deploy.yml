@@ -40,6 +40,7 @@ jobs:
 
           echo "⚙️ 2. Building Backend (ews-backend)..."
           cd ews-backend
+          npx prisma migrate deploy
           npm run build
 
           echo "🌱 2b. Seeding Puskesmas Data & Users..."
@@ -54,15 +55,34 @@ jobs:
 
           echo "🌐 5. Deploying Frontend to Web Server..."
           echo "Copying dist to /var/www/html/dist/..."
-          printf '%s\n' 'Lemb4yung!' | sudo -S mkdir -p /var/www/html/dist
-          printf '%s\n' 'Lemb4yung!' | sudo -S cp -rf dist/* /var/www/html/dist/
-          printf '%s\n' 'Lemb4yung!' | sudo -S cp -rf dist/* /var/www/html/ 2>/dev/null || true
-          printf '%s\n' 'Lemb4yung!' | sudo -S chown -R www-data:www-data /var/www/html 2>/dev/null || true
+
+          # SECURITY: Mencegah kebocoran password di repositori publik/kolaborator.
+          # Prioritas sumber password sudo:
+          # 1. GitHub Repository Secret: SERVER_SUDO_PASS (paling direkomendasikan)
+          # 2. Berkas kredensial lokal di server: ~/.deploy_sudo_pass (chmod 600)
+          # 3. Sudo passwordless (NOPASSWD) jika sudah dikonfigurasi di /etc/sudoers.d/
+          SUDO_PASS="${{ secrets.SERVER_SUDO_PASS }}"
+          if [ -z "$SUDO_PASS" ] && [ -f "$HOME/.deploy_sudo_pass" ]; then
+            SUDO_PASS=$(cat "$HOME/.deploy_sudo_pass" 2>/dev/null || true)
+          fi
+
+          run_sudo() {
+            if [ -n "$SUDO_PASS" ]; then
+              printf '%s\n' "$SUDO_PASS" | sudo -S "$@"
+            else
+              sudo -n "$@" || sudo "$@"
+            fi
+          }
+
+          run_sudo mkdir -p /var/www/html/dist
+          run_sudo cp -rf dist/* /var/www/html/dist/
+          run_sudo cp -rf dist/* /var/www/html/ 2>/dev/null || true
+          run_sudo chown -R www-data:www-data /var/www/html 2>/dev/null || true
 
           # 6. Restart Nginx Web Server
           echo "🔄 6. Restarting Web Server..."
-          printf '%s\n' 'Lemb4yung!' | sudo -S systemctl restart nginx 2>/dev/null || true
-          printf '%s\n' 'Lemb4yung!' | sudo -S systemctl reload apache2 2>/dev/null || true
+          run_sudo systemctl restart nginx 2>/dev/null || true
+          run_sudo systemctl reload apache2 2>/dev/null || true
 
           echo "=========================================="
           echo "✅ Deployment completed successfully!"

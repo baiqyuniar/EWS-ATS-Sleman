@@ -114,6 +114,7 @@ export class AuthService {
     name: string;
     email: string;
     role: string;
+    mustChangePassword?: boolean;
     schoolId: number | null;
     opdId: number | null;
     wilayahId: number | null;
@@ -122,6 +123,7 @@ export class AuthService {
       sub: user.id,
       email: user.email,
       role: user.role,
+      mustChangePassword: user.mustChangePassword ?? false,
       schoolId: user.schoolId,
       opdId: user.opdId,
       wilayahId: user.wilayahId,
@@ -134,6 +136,7 @@ export class AuthService {
         name: user.name,
         email: user.email,
         role: user.role,
+        mustChangePassword: user.mustChangePassword ?? false,
         schoolId: user.schoolId,
         opdId: user.opdId,
         wilayahId: user.wilayahId,
@@ -153,6 +156,7 @@ export class AuthService {
       where: { id: userId },
       data: {
         passwordHash,
+        mustChangePassword: false,
         failedLoginAttempts: 0,
         lockedUntil: null,
       },
@@ -169,6 +173,7 @@ export class AuthService {
         email: true,
         role: true,
         active: true,
+        mustChangePassword: true,
         schoolId: true,
         opdId: true,
         wilayahId: true,
