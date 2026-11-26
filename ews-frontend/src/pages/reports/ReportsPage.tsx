@@ -3,7 +3,6 @@ import { useQuery } from "@tanstack/react-query";
 import {
   FileSpreadsheet,
   Loader2,
-  FileBarChart,
   CheckCircle2,
   Clock,
   School,
@@ -315,87 +314,78 @@ export default function ReportsPage() {
     <DashboardLayout>
       <div className="space-y-6">
         {/* ========================================================= */}
-        {/* HEADER TOOLBAR & FILTER                                  */}
+        {/* COMPACT TOOLBAR: PERIODE FILTER & EKSPOR EXCEL            */}
         {/* ========================================================= */}
-        <div className="bg-white rounded-3xl border border-slate-200/80 shadow-sm p-6">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5 pb-5 border-b border-slate-100">
-            <div>
-              <div className="flex items-center gap-2.5">
-                <span className="w-9 h-9 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shadow-xs">
-                  <FileBarChart size={20} />
-                </span>
-                <h2 className="text-xl font-bold tracking-tight text-slate-800">
-                  Laporan & Rekapitulasi Kasus
-                </h2>
-              </div>
-              <p className="text-xs text-slate-500 mt-1 pl-11">
-                Data resmi penanganan anak berisiko putus sekolah (ATS) Kabupaten Sleman
-              </p>
+        <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs px-5 py-3.5 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+          {/* Sisi Kiri: Filter Periode & Presets */}
+          <div className="flex flex-wrap items-center gap-3 text-xs">
+            <div className="flex items-center gap-1.5 font-medium text-slate-500">
+              <Calendar size={15} className="text-blue-600" />
+              <span>Periode:</span>
             </div>
 
-            {/* Tombol Ekspor Excel Utama (Tombol CSV telah dihapus) */}
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex items-center gap-1 p-0.5 bg-slate-100 rounded-xl">
               <button
-                onClick={handleExportExcel}
-                disabled={isExportingExcel || !allCases.length}
-                className="flex items-center gap-2.5 rounded-2xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 disabled:opacity-50 shadow-sm shadow-emerald-600/20 cursor-pointer"
-                title="Unduh Laporan Rekapitulasi Lengkap Format Excel (.xlsx)"
-              >
-                {isExportingExcel ? (
-                  <Loader2 size={18} className="animate-spin" />
-                ) : (
-                  <FileSpreadsheet size={18} />
-                )}
-                <span>Unduh Rekap Excel (.xlsx)</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Quick Date Presets & Inputs */}
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pt-4 text-xs">
-            <div className="flex items-center gap-1.5 flex-wrap">
-              <span className="text-slate-400 font-medium mr-1 flex items-center gap-1">
-                <Calendar size={14} /> Periode:
-              </span>
-              <button
+                type="button"
                 onClick={() => handlePreset("all")}
-                className={`px-3 py-1.5 rounded-xl font-medium transition cursor-pointer ${
+                className={`px-3 py-1.5 rounded-lg font-medium transition cursor-pointer ${
                   !from && !to
-                    ? "bg-blue-600 text-white shadow-xs"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                    ? "bg-white text-blue-700 shadow-xs font-semibold"
+                    : "text-slate-600 hover:text-slate-900"
                 }`}
               >
                 Semua Waktu
               </button>
               <button
+                type="button"
                 onClick={() => handlePreset("this-month")}
-                className="px-3 py-1.5 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 font-medium transition cursor-pointer"
+                className="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 font-medium transition cursor-pointer"
               >
                 Bulan Ini
               </button>
               <button
+                type="button"
                 onClick={() => handlePreset("this-year")}
-                className="px-3 py-1.5 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 font-medium transition cursor-pointer"
+                className="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 font-medium transition cursor-pointer"
               >
-                Tahun Ini (2026)
+                Tahun 2026
               </button>
             </div>
+
+            <div className="h-4 w-[1px] bg-slate-200 hidden sm:block" />
 
             <div className="flex items-center gap-2">
               <input
                 type="date"
                 value={from}
                 onChange={(e) => setFrom(e.target.value)}
-                className="px-3 py-1.5 rounded-xl border border-slate-200 text-xs text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                className="px-3 py-1.5 rounded-xl border border-slate-200 text-xs text-slate-700 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/20"
               />
-              <span className="text-slate-400">s/d</span>
+              <span className="text-slate-400 font-medium">s/d</span>
               <input
                 type="date"
                 value={to}
                 onChange={(e) => setTo(e.target.value)}
-                className="px-3 py-1.5 rounded-xl border border-slate-200 text-xs text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+                className="px-3 py-1.5 rounded-xl border border-slate-200 text-xs text-slate-700 bg-slate-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/20"
               />
             </div>
+          </div>
+
+          {/* Sisi Kanan: Tombol Unduh Rekap Excel (.xlsx) */}
+          <div className="flex items-center shrink-0">
+            <button
+              onClick={handleExportExcel}
+              disabled={isExportingExcel || !allCases.length}
+              className="flex items-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 px-4 py-2 text-xs font-semibold text-white transition disabled:opacity-50 shadow-xs cursor-pointer"
+              title="Unduh Laporan Rekapitulasi Lengkap Format Excel (.xlsx)"
+            >
+              {isExportingExcel ? (
+                <Loader2 size={15} className="animate-spin" />
+              ) : (
+                <FileSpreadsheet size={15} />
+              )}
+              <span>Unduh Rekap Excel (.xlsx)</span>
+            </button>
           </div>
         </div>
 
